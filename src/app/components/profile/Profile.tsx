@@ -1,10 +1,7 @@
-import Image from 'next/image'
-
 const Profile = () => {
   return (
-    <button className='w-[40px] h-[40px] rounded-full bg-[url(/images/avatar.webp)] bg-center bg-cover hover:outline-2 hover:outline-blue-600 active:outline-blue-700 cursor-pointer'>
-    </button>
-  )
-}
+    <button className="h-[40px] w-[40px] cursor-pointer rounded-full bg-[url(/images/avatar.webp)] bg-cover bg-center outline-2 outline-transparent duration-300 hover:outline-blue-600 active:outline-blue-700"></button>
+  );
+};
 
-export default Profile
+export default Profile;

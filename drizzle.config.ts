@@ -5,6 +5,6 @@ export default defineConfig({
   out: './src/db/',
   dialect: 'sqlite',
   dbCredentials: {
-    url: 'sqlite.db'
+    url: "file:./sqlite.db"
   }
 })
