@@ -63,9 +63,16 @@ export const users = sqliteTable('users', {
   id: text('id')
     .primaryKey()
     .$default(() => uuid4()),
-  name: text('name').notNull(),
+  firstName: text('first_name', { length: 30 }).notNull(),
+  lastName: text('last_name', { length: 30 }).notNull(),
+  accountName: text('account_name', { length: 10 }).notNull().unique(),
   email: text('email').notNull().unique(),
-  passwordHash: text('password_hash').notNull()
+  passwordHash: text('password_hash').notNull(),
+  phone: text('phone').notNull(),
+  avatar: text('avatar'),
+  deliveryAddress: text('delivery_address').notNull(),
+  cardNumber: text('card_number', { length: 16 }).notNull(),
+  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
 })
 
 export const favorites = sqliteTable('favorites', {
