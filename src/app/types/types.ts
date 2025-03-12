@@ -31,10 +31,35 @@ export interface FilterDropdownProps<T extends string | number> {
   options: number[] | string[];
 }
 
-export interface Cuisine {
-  cuisineType: string;
+export interface Filters {
+  cuisine: string;
+  rating: string;
+  deliveryTime: string;
+  cuisineTypeFilter: string[];
+  deliveryFilter: string[];
 }
 
-export interface Delivery {
-  deliveryTime: string;
+export interface CategoryFilter {
+  category: string;
+  categoryFilter: string[];
 }
+
+export interface Dish {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+}
+
+export interface MenuItem {
+  restaurantName: string;
+  menu: {
+    category: string;
+    dishes: Dish[];
+  }[];
+}
+
+export type menuItemProps = {
+  menuData: Dish;
+};

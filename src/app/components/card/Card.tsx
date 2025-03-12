@@ -3,6 +3,7 @@ import { StarIcon } from '@heroicons/react/24/outline';
 
 import './card.module.css';
 
+import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ReceiptPercentIcon } from '@heroicons/react/24/outline';
 
@@ -14,13 +15,16 @@ const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
     fullStar: Math.trunc(restaurantData.rating),
     halfStar: restaurantData.rating - Math.trunc(restaurantData.rating),
   };
+  const router = useRouter();
 
   return (
-    <div className={`sm:w-[280px] sm:mx-0 mx-5 w-full rounded-[8px] shadow-(--shadow-card) ${inter.className} mb-8`}>
+    <div
+      className={`mx-5 w-full rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
+    >
       <h2 className={`mt-3 text-center text-xl font-bold text-gray-800 ${roboto.className}`}>
         {restaurantData.name}
       </h2>
-      <div className="relative mx-4 mt-2 mb-1 h-[120px] sm:w-62 overflow-hidden rounded-[8px]">
+      <div className="relative mx-4 mt-2 mb-1 h-[120px] overflow-hidden rounded-[8px] sm:w-62">
         <Image
           src={restaurantData.imageUrl}
           sizes="85"
@@ -66,7 +70,10 @@ const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
           <p className="text-xs">{restaurantData.averagePrice}</p>
         </div>
       </div>
-      <Button className="mx-4 mt-5 mb-4 w-[248px] rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600">
+      <Button
+        onClick={() => router.push(`menu/${restaurantData.id}`)}
+        className="mx-4 mt-5 mb-4 w-[248px] rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600"
+      >
         Смотреть меню
       </Button>
     </div>

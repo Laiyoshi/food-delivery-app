@@ -1,0 +1,77 @@
+import { NextResponse } from 'next/server';
+import { eq } from 'drizzle-orm';
+
+import { Dish } from '@/app/types/types';
+import { db } from '@/db';
+import { categories, menuItems, restaurants } from '@/db/schema';
+
+export async function getRestaurantMenu(restaurantId: string) {
+  const result = await db
+    .select({
+      id: menuItems.id,
+      name: menuItems.name,
+      description: menuItems.description,
+      price: menuItems.price,
+      imageUrl: menuItems.imageUrl,
+      category: categories.name,
+    })
+    .from(menuItems)
+    .leftJoin(categories, eq(menuItems.categoryId, categories.id))
+    .where(eq(menuItems.restaurantId, restaurantId));
+
+  const groupedResult = result.reduce<{
+    [key: string]: { category: string; dishes: Dish[] };
+  }>((acc, item) => {
+    const { category, ...data } = item;
+
+    if (category) {
+      if (!acc[category]) {
+        acc[category] = { category: category, dishes: [] };
+      }
+      acc[category].dishes.push({
+        id: data.id,
+        name: data.name,
+        description: data.description,
+        price: data.price,
+        imageUrl: data.imageUrl || '/images/food.png',
+      });
+    }
+
+    return acc;
+  }, {});
+
+  const structuredMenu = Object.values(groupedResult);
+
+  return structuredMenu;
+}
+
+export async function getRestaurantName(restaurantId: string) {
+  const result = await db
+    .select({ restaurantName: restaurants.name })
+    .from(restaurants)
+    .where(eq(restaurants.id, restaurantId))
+    .limit(1);
+
+  return result[0].restaurantName;
+}
+
+export async function GET(req: Request, { params }: { params: { id: string } }) {
+  const { id } = await params;
+  const menu = await getRestaurantMenu(id);
+  const restaurantName = await getRestaurantName(id);
+
+  if (!menu || menu.length === 0) {
+    return NextResponse.json({ message: 'Меню не найдено' }, { status: 404 });
+  }
+
+  if (!restaurantName || restaurantName.length === 0) {
+    return NextResponse.json({ message: 'Ресторан не найден' }, { status: 404 });
+  }
+
+  const response = {
+    restaurantName: restaurantName,
+    menu: menu,
+  };
+
+  return NextResponse.json(response);
+}

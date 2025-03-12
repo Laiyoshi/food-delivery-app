@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import Card from './components/card/Card';
-import { Cuisine, Delivery, Restaurant } from './types/types';
+import { Filters, Restaurant } from './types/types';
 import { FilterDropdown } from './ui/FilterDropdown/FilterDropdown';
 import { roboto } from './ui/fonts';
 import {
@@ -15,13 +15,15 @@ import {
 
 export default function Home() {
   const [restaurantData, setRestaurantData] = useState<Restaurant[]>([]);
-  const [cuisineTypeFilter, setCuisineTypeFilter] = useState<Cuisine[]>([]);
-  const [deliveryFilter, setDeliveryFilter] = useState<Delivery[]>([]);
   const [lastOrdersRestaurants, setLastOrdersRestaurants] = useState<Restaurant[]>([]);
 
-  const [cuisine, setCuisine] = useState('Тип кухни');
-  const [rating, setRating] = useState('Рейтинг ресторана');
-  const [deliveryTime, setDeliveryTime] = useState('Время доставки');
+  const [filters, setFilters] = useState<Filters>({
+    cuisine: 'Тип кухни',
+    rating: 'Рейтинг ресторана',
+    deliveryTime: 'Время доставки',
+    cuisineTypeFilter: [],
+    deliveryFilter: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,10 +34,13 @@ export default function Home() {
           fetchRestaurants(),
           fetchLastOrdersRestaurants(),
         ]);
-        setDeliveryFilter(deliveryData);
-        setCuisineTypeFilter(cuisineData);
         setRestaurantData(restaurantsData);
         setLastOrdersRestaurants(lastOrdersData);
+        setFilters(prev => ({
+          ...prev,
+          cuisineTypeFilter: cuisineData,
+          deliveryFilter: deliveryData,
+        }));
       } catch (error) {
         console.log('Ошибка при загрузке данных: ', error);
       }
@@ -43,18 +48,23 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const filterdRestaurants = (restaurantsArray: Restaurant[]) =>
-    useMemo(() => {
+  const filterdRestaurants = useMemo(() => {
+    return (restaurantsArray: Restaurant[]) => {
       return restaurantsArray.filter(restaurant => {
         return (
-          (!cuisine || restaurant.cuisineType === cuisine || cuisine === 'Тип кухни') &&
-          (!rating || restaurant.rating >= Number(rating) || rating === 'Рейтинг ресторана') &&
-          (!deliveryTime ||
-            restaurant.deliveryTime === deliveryTime ||
-            deliveryTime === 'Время доставки')
+          (!filters.cuisine ||
+            restaurant.cuisineType === filters.cuisine ||
+            filters.cuisine === 'Тип кухни') &&
+          (!filters.rating ||
+            restaurant.rating >= Number(filters.rating) ||
+            filters.rating === 'Рейтинг ресторана') &&
+          (!filters.deliveryTime ||
+            restaurant.deliveryTime === filters.deliveryTime ||
+            filters.deliveryTime === 'Время доставки')
         );
       });
-    }, [restaurantData, cuisine, rating, deliveryTime]);
+    };
+  }, [filters]);
 
   return (
     <>
@@ -65,23 +75,23 @@ export default function Home() {
         <div className="mx-5 my-6 flex flex-wrap gap-2 lg:mx-0 lg:gap-4">
           <FilterDropdown
             label="Тип кухни"
-            value={cuisine}
-            onChange={setCuisine}
-            options={cuisineTypeFilter.map(item => item.cuisineType)}
+            value={filters.cuisine}
+            onChange={value => setFilters(prev => ({ ...prev, cuisine: value }))}
+            options={filters.cuisineTypeFilter}
           />
 
           <FilterDropdown
             label="Рейтинг ресторана"
-            value={rating}
-            onChange={setRating}
+            value={filters.rating}
+            onChange={value => setFilters(prev => ({ ...prev, rating: value }))}
             options={[5, 4, 3, 2]}
           />
 
           <FilterDropdown
             label="Время доставки"
-            value={deliveryTime}
-            onChange={setDeliveryTime}
-            options={deliveryFilter.map(item => item.deliveryTime).sort()}
+            value={filters.deliveryTime}
+            onChange={value => setFilters(prev => ({ ...prev, deliveryTime: value }))}
+            options={filters.deliveryFilter}
           />
         </div>
       </div>
