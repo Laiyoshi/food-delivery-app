@@ -1,20 +1,33 @@
 "use client";
-
 import Link from "next/link";
 
 const LoginPage = () => {
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-white overflow-hidden px-4 sm:px-0">
-      <div className="absolute w-[35vw] h-[35vh] sm:w-[60vw] sm:h-[60vh] bg-blue-600 opacity-30 blur-[8vw] sm:blur-[10vw] top-[-5vh] sm:top-[-10vh] left-[-10vw] sm:left-[-15vw] rotate-[-20deg]" />
-      <div className="absolute w-[40vw] h-[40vh] sm:w-[60vw] sm:h-[60vh] bg-yellow-500 opacity-30 blur-[8vw] sm:blur-[10vw] bottom-[-10vh] sm:bottom-[-10vh] right-[-10vw] sm:right-[-15vw] rotate-[15deg]" />
-
-      <div className="relative w-full max-w-[375px] sm:w-[30vw] sm:min-w-[320px] sm:max-w-[400px] bg-transparent sm:bg-white p-0 sm:p-6 sm:shadow-lg rounded-none sm:rounded-lg border-none sm:border border-gray-300">
+      <div className="absolute inset-0 w-full h-full">
+        <div 
+          className="sm:hidden absolute inset-0 w-full h-full bg-no-repeat bg-cover bg-center" 
+          style={{ backgroundImage: "url('/images/background/mobile.png')" }} 
+        />
         
-        <h2 className="text-2xl sm:text-xl font-bold text-gray-800 text-left">Вход в аккаунт</h2>
+        <div 
+          className="hidden sm:block absolute inset-0 w-screen h-screen bg-no-repeat bg-cover bg-center" 
+          style={{ 
+            backgroundImage: "url('/images/background/desktop.png')",
+            backgroundSize: "100vw 100vh", // Растягивает на весь экран
+            backgroundPosition: "center",
+          }} 
+        />
+      </div>
 
-        <form className="mt-6 sm:mt-4">
-          <div className="mb-4 sm:mb-3">
-            <label className="block text-gray-500 text-sm sm:text-xs mb-1">Email или логин</label>
+      <div className="relative w-full max-w-[375px] sm:w-[30vw] sm:min-w-[320px] sm:max-w-[400px] bg-transparent sm:bg-white p-0 sm:p-10 sm:shadow-lg rounded-none sm:rounded-lg border-none sm:border border-gray-300">
+        <h2 className="text-2xl sm:text-xl font-bold text-gray-800 text-left mb-6 sm:mb-8">
+          Вход в аккаунт
+        </h2>
+
+        <form className="space-y-4 sm:space-y-6">
+          <div className="space-y-2">
+            <label className="block text-gray-500 text-sm sm:text-xs">Email или логин</label>
             <input
               type="email"
               placeholder="ivanov@yandex.ru"
@@ -22,8 +35,8 @@ const LoginPage = () => {
             />
           </div>
 
-          <div className="mb-4 sm:mb-3">
-            <label className="block text-gray-500 text-sm sm:text-xs mb-1">Пароль</label>
+          <div className="space-y-2">
+            <label className="block text-gray-500 text-sm sm:text-xs">Пароль</label>
             <input
               type="password"
               placeholder="••••••••"
@@ -31,7 +44,7 @@ const LoginPage = () => {
             />
           </div>
 
-          <div className="text-right text-sm sm:text-xs mb-4 sm:mb-3">
+          <div className="text-right text-sm sm:text-xs">
             <Link href="/" className="text-gray-500 hover:underline">Забыли пароль?</Link>
           </div>
 
@@ -43,7 +56,7 @@ const LoginPage = () => {
           </button>
         </form>
 
-        <div className="hidden sm:flex flex-col mt-4 text-sm text-gray-500 text-left">
+        <div className="hidden sm:flex flex-col mt-6 sm:mt-8 text-sm text-gray-500 text-left">
           <span>Нет аккаунта?</span>
           <Link href="/" className="text-blue-600 font-semibold hover:underline">Зарегистрироваться</Link>
         </div>
@@ -53,7 +66,6 @@ const LoginPage = () => {
         <span className="block">Нет аккаунта?</span>
         <Link href="/" className="text-blue-600 font-semibold hover:underline block">Зарегистрироваться</Link>
       </div>
-
     </div>
   );
 };
