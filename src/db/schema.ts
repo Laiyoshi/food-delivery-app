@@ -49,9 +49,8 @@ export const cart = sqliteTable('cart', {
   id: text('id')
     .primaryKey()
     .$default(() => uuid4()),
-  menuItemId: text('menu_item_id').references(() => menuItems.id),
-  orderId: text('order_id'),
   userId: text('user_id'),
+  menuItemId: text('menu_item_id').references(() => menuItems.id),
   quantity: integer('quantity').default(1),
   orderAmount: integer('order_amount').default(0),
 });
@@ -100,6 +99,7 @@ export const orders = sqliteTable('orders', {
   userId: integer('user_id').references(() => users.id),
   deliveryAddressId: integer('delivery_address_id').references(() => deliveryAddresses.id),
   restaurantId: integer('restaurant_id').references(() => restaurants.id),
+  cartId: text('cart_id').references(() => cart.id),
   courierId: integer('courier_id').references(() => couriers.id),
   statusId: integer('status_id').references(() => orderStatuses.id),
   paymentMethodId: integer('payment_method_id').references(() => paymentMethods.id),

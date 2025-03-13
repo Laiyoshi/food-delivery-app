@@ -6,7 +6,7 @@ import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
 import MenuCard from '@/app/components/menu-card/MenuCard';
-import { CategoryFilter, Dish, MenuItem } from '@/app/types/types';
+import { CategoryFilter, MenuItem } from '@/app/types/types';
 import { FilterDropdown } from '@/app/ui/FilterDropdown/FilterDropdown';
 import { fetchRestaurantMenu } from '@/app/utils/data';
 
@@ -32,7 +32,7 @@ export default function Menu() {
     };
 
     fetchMenuData();
-  }, []);
+  }, [id]);
 
   const filteredCategories = useMemo(() => {
     return (categoriesArray: MenuItem['menu']) => {

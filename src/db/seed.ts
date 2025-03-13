@@ -239,6 +239,7 @@ async function seed() {
       userId: userData[0].id,
       deliveryAddressId: 1,
       restaurantId: restaurantData[0].id,
+      cartId: cart[0].id,
       courierId: courierData[0].id,
       statusId: 1,
       paymentMethodId: 1,

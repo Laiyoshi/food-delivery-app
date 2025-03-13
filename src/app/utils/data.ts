@@ -1,4 +1,4 @@
-import { MenuItem, Restaurant } from '../types/types';
+import { MenuItem, PromiseCart, Restaurant } from '../types/types';
 
 export async function fetchRestaurants(): Promise<Restaurant[]> {
   try {
@@ -72,5 +72,27 @@ export async function fetchRestaurantMenu({
   } catch (error) {
     console.log('Ошибка:', error);
     return { restaurantName: '', menu: [] };
+  }
+}
+
+export async function fetchPostOrder(orderData: PromiseCart[]): Promise<PromiseCart[]> {
+  try {
+    const response = await fetch('/api/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(orderData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Ошибка в отправке запроса');
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log('Error: ', error);
+    throw error;
   }
 }

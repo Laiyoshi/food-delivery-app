@@ -15,9 +15,12 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 
+import { useStore } from '@/app/store/store';
+
 import Profile from '../profile/Profile';
 
 const Header = () => {
+  const { cart } = useStore();
   const [isOpened, setIsOpened] = useState(false);
   return (
     <>
@@ -58,8 +61,11 @@ const Header = () => {
           </Link>
           <Link
             href="/cart"
-            className="flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
+            className="relative flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
           >
+            {cart.length > 0 && (
+              <div className="absolute top-1 left-5.5 h-2 w-2 rounded-full bg-red-500"></div>
+            )}
             <ShoppingCartIcon className="mr-1 h-[30px] w-[30px]" />
             Корзина
           </Link>

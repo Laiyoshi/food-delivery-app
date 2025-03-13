@@ -63,3 +63,23 @@ export interface MenuItem {
 export type menuItemProps = {
   menuData: Dish;
 };
+
+export interface CartItem extends Dish {
+  quantity: number;
+}
+
+export interface StoreState {
+  cart: CartItem[];
+
+  addToCart: (item: Dish) => void;
+  removeFromCart: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+}
+
+export interface PromiseCart {
+  menuItemId: string;
+  quantity: number;
+  orderAmount: number;
+}

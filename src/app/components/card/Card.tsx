@@ -72,7 +72,7 @@ const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
       </div>
       <Button
         onClick={() => router.push(`menu/${restaurantData.id}`)}
-        className="mx-4 mt-5 mb-4 w-[248px] rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600"
+        className="mx-4 mt-5 mb-4 w-[248px] cursor-pointer rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600"
       >
         Смотреть меню
       </Button>
