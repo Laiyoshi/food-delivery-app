@@ -1,8 +1,17 @@
-import { MenuItem, PromiseCart, Restaurant } from '../types/types';
+import { CategoryDish, MenuItem, PromiseCart, Restaurant } from '../types/types';
 
-export async function fetchRestaurants(): Promise<Restaurant[]> {
+export async function fetchRestaurants({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string };
+}): Promise<Restaurant[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/restaurants');
+    const params = new URLSearchParams();
+    Object.entries(searchParams).forEach(([key, value]) => {
+      params.append(key, value.toString());
+    });
+
+    const response = await fetch(`http://localhost:3000/api/restaurants${'?' + params.toString()}`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -58,12 +67,22 @@ export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
 
 export async function fetchRestaurantMenu({
   params,
+  searchParams,
 }: {
   params: { id: string };
+  searchParams: { [key: string]: string };
 }): Promise<MenuItem> {
   const { id } = await params;
+  const searchParameters = await searchParams;
+
+  const parameters = new URLSearchParams();
   try {
-    const response = await fetch(`http://localhost:3000/api/menu/${id}`);
+    Object.entries(searchParameters).forEach(([key, value]) => {
+      parameters.append(key, value.toString());
+    });
+    const response = await fetch(
+      `http://localhost:3000/api/menu/${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
+    );
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -72,6 +91,25 @@ export async function fetchRestaurantMenu({
   } catch (error) {
     console.log('Ошибка:', error);
     return { restaurantName: '', menu: [] };
+  }
+}
+
+export async function fetchCategoriesMenu({
+  params,
+}: {
+  params: { id: string };
+}): Promise<CategoryDish[]> {
+  const { id } = await params;
+  try {
+    const response = await fetch(`http://localhost:3000/api/menu/categories/${id}`);
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных');
+    }
+    const data: CategoryDish[] = await response.json();
+    return data;
+  } catch (error) {
+    console.log('Ошибка', error);
+    return [];
   }
 }
 

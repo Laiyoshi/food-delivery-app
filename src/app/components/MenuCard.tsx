@@ -2,12 +2,9 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
+import { useStore } from '@/app/store/store';
 import { menuItemProps } from '@/app/types/types';
 import { inter } from '@/app/ui/fonts';
-
-import './menu-card.module.css';
-
-import { useStore } from '@/app/store/store';
 
 const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
   const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity } = useStore();

@@ -10,12 +10,12 @@ export function FilterDropdown<T extends string | number>({
   options,
 }: FilterDropdownProps<T>) {
   return (
-    <div className="align-center  flex h-[40px] lg:w-[200px] w-full rounded border border-gray-300 pl-2.5">
+    <div className="align-center flex h-[40px] w-full rounded border border-gray-300 pl-2.5 lg:w-[200px]">
       <Listbox value={value} onChange={onChange}>
         {({ open }) => (
           <div className="flex w-full">
             <ListboxButton className="flex w-full items-center justify-between px-2 text-ellipsis data-[focus]:bg-blue-500">
-              <p className="max-w-[85%] overflow-clip text-nowrap overflow-ellipsis">{value}</p>
+              <p className="max-w-[85%] overflow-clip text-nowrap overflow-ellipsis">{value ? value : label}</p>
               <ChevronDownIcon
                 className={`ml-auto w-5 transform text-gray-500 transition-transform duration-300 ${
                   open ? 'scale-y-[-1]' : ''
@@ -31,7 +31,7 @@ export function FilterDropdown<T extends string | number>({
               style={{ left: 108 }}
             >
               <ListboxOption
-                value={label}
+                value=""
                 className="group flex cursor-default items-center px-4 py-3 text-center duration-300 hover:bg-gray-100"
               >
                 {label}

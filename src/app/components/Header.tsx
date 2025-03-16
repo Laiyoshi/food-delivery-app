@@ -17,7 +17,7 @@ import {
 
 import { useStore } from '@/app/store/store';
 
-import Profile from '../profile/Profile';
+import Profile from './Profile';
 
 const Header = () => {
   const { cart } = useStore();

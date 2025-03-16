@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import './cart.module.css';
-
 import { Button, Input } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 

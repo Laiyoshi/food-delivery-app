@@ -1,11 +1,7 @@
 import Image from 'next/image';
-import { StarIcon } from '@heroicons/react/24/outline';
-
-import './card.module.css';
-
 import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
-import { ReceiptPercentIcon } from '@heroicons/react/24/outline';
+import { ReceiptPercentIcon, StarIcon } from '@heroicons/react/24/outline';
 
 import { CardTypeProps } from '@/app/types/types';
 import { inter, roboto } from '@/app/ui/fonts';

@@ -1,15 +1,11 @@
 'use client';
 
 import React from 'react';
-
-import CartItem from '@/app/components/cart-item/CartItem';
-import { inter, roboto } from '@/app/ui/fonts';
-
-import '../../components/cart-item/cart.module.css';
-
 import { Button } from '@headlessui/react';
 
+import CartItem from '@/app/components/CartItem';
 import { useStore } from '@/app/store/store';
+import { inter, roboto } from '@/app/ui/fonts';
 import { fetchPostOrder } from '@/app/utils/data';
 
 const Cart = () => {

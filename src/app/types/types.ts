@@ -31,14 +31,6 @@ export interface FilterDropdownProps<T extends string | number> {
   options: number[] | string[];
 }
 
-export interface Filters {
-  cuisine: string;
-  rating: string;
-  deliveryTime: string;
-  cuisineTypeFilter: string[];
-  deliveryFilter: string[];
-}
-
 export interface CategoryFilter {
   category: string;
   categoryFilter: string[];
@@ -82,4 +74,19 @@ export interface PromiseCart {
   menuItemId: string;
   quantity: number;
   orderAmount: number;
+}
+
+export interface RestaurantListProps {
+  restaurantData: Restaurant[];
+  lastOrdersData: Restaurant[];
+}
+
+export interface FilterSectionProps {
+  cuisineOptions: string[];
+  deliveryOptions: string[];
+}
+
+export interface CategoryDish {
+  id: string;
+  name: string
 }
