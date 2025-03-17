@@ -3,6 +3,14 @@ import { eq } from 'drizzle-orm';
 import { db } from '@/db';
 import { orders, orderStatuses, restaurants } from '@/db/schema';
 
+export async function GET() {
+  try {
+    return Response.json(await getLastOrdersRestaurant());
+  } catch (error) {
+    return Response.json({ error }, { status: 500 });
+  }
+}
+
 async function getLastOrdersRestaurant() {
   const data = await db
     .select({
@@ -23,12 +31,4 @@ async function getLastOrdersRestaurant() {
     .execute();
 
   return data;
-}
-
-export async function GET() {
-  try {
-    return Response.json(await getLastOrdersRestaurant());
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
-  }
 }

@@ -5,12 +5,12 @@ export async function fetchRestaurants({
 }: {
   searchParams: { [key: string]: string };
 }): Promise<Restaurant[]> {
+  const params = new URLSearchParams();
+  const searchParameters = await searchParams;
+  Object.entries(searchParameters).forEach(([key, value]) => {
+    params.append(key, value.toString());
+  });
   try {
-    const params = new URLSearchParams();
-    Object.entries(searchParams).forEach(([key, value]) => {
-      params.append(key, value.toString());
-    });
-
     const response = await fetch(`http://localhost:3000/api/restaurants${'?' + params.toString()}`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
