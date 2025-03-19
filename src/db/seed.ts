@@ -233,13 +233,24 @@ async function seed() {
   const courierData = [{ id: 1, name: 'Сергей', phone: '79991234567' }];
   await db.insert(couriers).values(courierData);
 
+  const cartData = [
+    {
+      id: uuidv4(),
+      userId: userData[0].id,
+      menuItemId: menuData[0].id,
+      quantity: 2,
+      orderAmount: menuData[0].price * 2,
+    },
+  ];
+  await db.insert(cart).values(cartData);
+
   const orderData = [
     {
       id: 1,
       userId: userData[0].id,
       deliveryAddressId: 1,
       restaurantId: restaurantData[0].id,
-      cartId: cart[0].id,
+      cartId: cartData[0].id,
       courierId: courierData[0].id,
       statusId: 1,
       paymentMethodId: 1,
@@ -250,6 +261,7 @@ async function seed() {
       userId: userData[0].id,
       deliveryAddressId: 1,
       restaurantId: restaurantData[1].id,
+      cartId: cartData[0].id,
       courierId: courierData[0].id,
       statusId: 2,
       paymentMethodId: 1,
@@ -260,6 +272,7 @@ async function seed() {
       userId: userData[0].id,
       deliveryAddressId: 1,
       restaurantId: restaurantData[0].id,
+      cartId: cartData[0].id,
       courierId: courierData[0].id,
       statusId: 3,
       paymentMethodId: 1,
@@ -270,6 +283,7 @@ async function seed() {
       userId: userData[0].id,
       deliveryAddressId: 1,
       restaurantId: restaurantData[1].id,
+      cartId: cartData[0].id,
       courierId: courierData[0].id,
       statusId: 3,
       paymentMethodId: 1,

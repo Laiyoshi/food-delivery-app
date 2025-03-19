@@ -90,3 +90,11 @@ export interface CategoryDish {
   id: string;
   name: string
 }
+
+export interface OrderItemProps {
+  id: number;
+  orderDate: string; // ISO-формат даты
+  restaurant: string;
+  amount: number; // Сумма заказа
+  status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
+}

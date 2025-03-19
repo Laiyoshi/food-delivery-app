@@ -15,6 +15,13 @@
       "when": 1741869910869,
       "tag": "0001_ancient_toxin",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1742408787065,
+      "tag": "0002_worthless_shard",
+      "breakpoints": true
     }
   ]
 }
