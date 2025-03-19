@@ -1,5 +1,5 @@
 {
-  "name": "yam-delivery",
+  "name": "food-delivery-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,11 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@libsql/client": "^0.14.0",
     "better-sqlite3": "^11.8.1",
+    "bindings": "^1.5.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.0",
@@ -23,11 +25,13 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "uuid": "^11.1.0",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.0.9",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "@tailwindcss/postcss": "^4.0.14",
     "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -36,7 +40,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.9",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.0.14",
     "tsx": "^4.19.3",
     "typescript": "^5"
   }
