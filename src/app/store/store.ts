@@ -6,6 +6,7 @@ export const useStore = create<StoreState>(set => ({
   cart: [],
   addToCart: dish => set(state => ({ cart: [...state.cart, { ...dish, quantity: 1 }] })),
   removeFromCart: id => set(state => ({ cart: state.cart.filter(item => item.id !== id) })),
+  clearCart: () => set(() => ({ cart: [] })),
   increaseQuantity: id =>
     set(state => ({
       cart: state.cart.map(item =>

@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
 import { eq } from 'drizzle-orm';
 
+import { CategoryDish } from '@/app/types/types';
 import { db } from '@/db';
 import { categories, menuItems } from '@/db/schema';
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const categories = await getCategoriesMenu(id);
   if (!categories) {
@@ -13,12 +14,16 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
   return NextResponse.json(categories);
 }
 
-export async function getCategoriesMenu(restaurantId: string) {
+async function getCategoriesMenu(restaurantId: string): Promise<CategoryDish[]> {
   const data = await db
     .select({ id: categories.id, name: categories.name })
     .from(menuItems)
     .where(eq(menuItems.restaurantId, restaurantId))
     .leftJoin(categories, eq(menuItems.categoryId, categories.id))
     .groupBy(categories.id, categories.name);
-  return data;
+
+  return data.map(item => ({
+    id: item.id ?? '',
+    name: item.name ?? '',
+  }));
 }

@@ -6,8 +6,9 @@ export async function fetchRestaurants({
   searchParams: { [key: string]: string };
 }): Promise<Restaurant[]> {
   try {
+    const searchParameters = await searchParams;
     const params = new URLSearchParams();
-    Object.entries(searchParams).forEach(([key, value]) => {
+    Object.entries(searchParameters).forEach(([key, value]) => {
       params.append(key, value.toString());
     });
 
