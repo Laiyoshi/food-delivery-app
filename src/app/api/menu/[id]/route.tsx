@@ -5,8 +5,8 @@ import { Dish } from '@/app/types/types';
 import { db } from '@/db';
 import { categories, menuItems, restaurants } from '@/db/schema';
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const { id } = await params;
+export async function GET(req: Request, context: { params: { id: string } }) {
+  const { id } = context.params;
   const url = new URL(req.url);
   const searchParams = Object.fromEntries(url.searchParams.entries());
 
@@ -26,10 +26,7 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
   return NextResponse.json(response);
 }
 
-export async function getRestaurantMenu(
-  restaurantId: string,
-  searchParams: { [key: string]: string }
-) {
+async function getRestaurantMenu(restaurantId: string, searchParams: { [key: string]: string }) {
   const filters: SQL[] = [eq(menuItems.restaurantId, restaurantId)];
   if (searchParams.category) {
     filters.push(eq(categories.name, searchParams.category));
@@ -74,7 +71,7 @@ export async function getRestaurantMenu(
   return structuredMenu;
 }
 
-export async function getRestaurantName(restaurantId: string) {
+async function getRestaurantName(restaurantId: string) {
   const result = await db
     .select({ restaurantName: restaurants.name })
     .from(restaurants)
