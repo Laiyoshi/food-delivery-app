@@ -8,7 +8,8 @@ import {
   fetchRestaurants,
 } from './utils/data';
 
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
+export default async function Home(props: { searchParams: Promise<{ [key: string]: string }> }) {
+  const searchParams = await props.searchParams;
   const [deliveryData, cuisineData, restaurantsData, lastOrdersData] = await Promise.all([
     fetchDeliveryTime(),
     fetchCuisineType(),

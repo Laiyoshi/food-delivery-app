@@ -5,11 +5,17 @@ export default async function Menu({
   params,
   searchParams,
 }: {
-  params: { id: string };
-  searchParams: { [key: string]: string };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }) {
-  const menuData = await fetchRestaurantMenu({ params, searchParams: searchParams });
-  const categories = await fetchCategoriesMenu({ params });
+  const { id } = await params;
+  const searchParameters = await searchParams;
+
+  const menuData = await fetchRestaurantMenu({
+    params: { id },
+    searchParams: searchParameters,
+  });
+  const categories = await fetchCategoriesMenu({ params: { id } });
 
   return <MenuList menuData={menuData} categories={categories} />;
 }
