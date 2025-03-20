@@ -8,16 +8,13 @@ import bcrypt from 'bcrypt';
 
 async function createUser(firstName: string, lastName: string, email: string, password: string) {
   try {
-    // Проверяем, есть ли уже пользователь с таким email
     const existingUser = await db.select().from(users).where(eq(users.email, email));
     if (existingUser.length > 0) {
       return { error: "Email уже зарегистрирован" };
     }
 
-    // Хэшируем пароль
     const passwordHash = await bcrypt.hash(password, 10);
 
-    // Создаем пользователя
     await db.insert(users).values({
       firstName,
       lastName,
