@@ -12,8 +12,8 @@ const LoginPage = () => {
       <AuthBackground />
       <AuthForm title="Вход в аккаунт">
         <form className="space-y-4 sm:space-y-6">
-          <InputField label="Email или логин" type="email" placeholder="ivanov@yandex.ru" />
-          <InputField label="Пароль" type="password" placeholder="••••••••" />
+          <InputField label="Email или логин" type="email" name="password" placeholder="ivanov@yandex.ru" />
+          <InputField label="Пароль" type="password" name="password" placeholder="••••••••" />
 
           <div className="text-right text-sm sm:text-xs">
             <Link href="/" className="text-gray-500 hover:underline">Забыли пароль?</Link>
