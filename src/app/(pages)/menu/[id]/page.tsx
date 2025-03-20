@@ -1,15 +1,21 @@
 import { MenuList } from '@/app/components/MenuList';
 import { fetchCategoriesMenu, fetchRestaurantMenu } from '@/app/utils/data';
 
-export default async function Menu(props: {
+export default async function Menu({
+  params,
+  searchParams,
+}: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string }>;
 }) {
-  const params = await props.params;
-  const searchParams = await props.searchParams;
+  const { id } = await params;
+  const searchParameters = await searchParams;
 
-  const menuData = await fetchRestaurantMenu({ params, searchParams });
-  const categories = await fetchCategoriesMenu({ params });
+  const menuData = await fetchRestaurantMenu({
+    params: { id },
+    searchParams: searchParameters,
+  });
+  const categories = await fetchCategoriesMenu({ params: { id } });
 
   return <MenuList menuData={menuData} categories={categories} />;
 }

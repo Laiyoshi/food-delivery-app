@@ -76,14 +76,14 @@ export const orderStatuses = sqliteTable('order_statuses', {
 
 export const paymentMethods = sqliteTable('payment_methods', {
   id: integer('id').primaryKey({ autoIncrement: true }),
-  userId: integer('user_id').references(() => users.id),
+  userId: text('user_id').references(() => users.id),
   type: text('type'),
   details: text('details'),
 });
 
 export const deliveryAddresses = sqliteTable('delivery_addresses', {
   id: integer('id').primaryKey({ autoIncrement: true }),
-  userId: integer('user_id').references(() => users.id),
+  userId: text('user_id').references(() => users.id),
   address: text('address'),
   comment: text('comment'),
 });
@@ -96,10 +96,10 @@ export const couriers = sqliteTable('couriers', {
 
 export const orders = sqliteTable('orders', {
   id: integer('id').primaryKey({ autoIncrement: true }),
-  userId: integer('user_id').references(() => users.id),
+  userId: text('user_id').references(() => users.id),
   deliveryAddressId: integer('delivery_address_id').references(() => deliveryAddresses.id),
-  restaurantId: integer('restaurant_id').references(() => restaurants.id),
-  cartId: text('cart_id').references(() => cart.id),
+  restaurantId: text('restaurant_id').references(() => restaurants.id),
+  // cartId: text('cart_id').references(() => cart.id),
   courierId: integer('courier_id').references(() => couriers.id),
   statusId: integer('status_id').references(() => orderStatuses.id),
   paymentMethodId: integer('payment_method_id').references(() => paymentMethods.id),
