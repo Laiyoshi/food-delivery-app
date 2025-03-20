@@ -5,13 +5,13 @@ import { Dish } from '@/app/types/types';
 import { db } from '@/db';
 import { categories, menuItems, restaurants } from '@/db/schema';
 
-export async function GET(req: Request, context: { params: { id: string } }) {
-  const { id } = context.params;
+export async function GET(req: Request, { params }: { params: { id: string } }) {
+  const { id } = await params;
   const url = new URL(req.url);
   const searchParams = Object.fromEntries(url.searchParams.entries());
 
-  const menu = await getRestaurantMenu(id, searchParams);
-  const restaurantName = await getRestaurantName(id);
+  const menu = await getRestaurantMenu(await id, searchParams);
+  const restaurantName = await getRestaurantName(await id);
 
   if (!menu || menu.length === 0) {
     return NextResponse.json({ restaurantName });
