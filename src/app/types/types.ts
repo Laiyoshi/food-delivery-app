@@ -68,6 +68,7 @@ export interface StoreState {
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
+  clearCart: () => void;
 }
 
 export interface PromiseCart {
@@ -88,7 +89,7 @@ export interface FilterSectionProps {
 
 export interface CategoryDish {
   id: string;
-  name: string
+  name: string;
 }
 
 export interface OrderItemProps {

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic' // Добавьте это в начало файла
+
 import FilterSection from './components/RestautrantFilterSection';
 import RestaurantList from './components/RestaurantList';
 import { roboto } from './ui/fonts';
@@ -8,7 +10,8 @@ import {
   fetchRestaurants,
 } from './utils/data';
 
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
+export default async function Home(props: { searchParams: Promise<{ [key: string]: string }> }) {
+  const searchParams = await props.searchParams;
   const [deliveryData, cuisineData, restaurantsData, lastOrdersData] = await Promise.all([
     fetchDeliveryTime(),
     fetchCuisineType(),

@@ -37,8 +37,9 @@ const OrdersPage = () => {
         {orders.length === 0 ? (
           <p>У вас пока нет заказов.</p>
         ) : (
-          orders.map((order) => (
+          orders.map((order, id) => (
             <OrderItem
+              key={id}
               id={order.id}
               orderDate={order.orderDate}
               restaurant={order.restaurant}
