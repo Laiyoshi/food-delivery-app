@@ -15,6 +15,13 @@
       "when": 1741869910869,
       "tag": "0001_ancient_toxin",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1741532047841,
+      "tag": "0001_high_senator_kelly",
+      "breakpoints": true
     }
   ]
 }

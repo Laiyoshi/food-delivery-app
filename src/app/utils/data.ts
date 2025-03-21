@@ -135,3 +135,28 @@ export async function fetchPostOrder(orderData: PromiseCart[]): Promise<PromiseC
     throw error;
   }
 }
+
+export async function fetchRegisterUser(
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string
+): Promise<{ success?: string; error?: string }> {
+  try {
+    const response = await fetch("http://localhost:3000/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ firstName, lastName, email, password }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || "Ошибка при регистрации");
+    }
+
+    return { success: data.message };
+  } catch (error: unknown) {
+    console.error("Ошибка:", error);
+    return { error: (error as Error).message };
+  }
+}
