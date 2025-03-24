@@ -12,7 +12,7 @@ export async function fetchRestaurants({
       params.append(key, value.toString());
     });
 
-    const response = await fetch(`http://localhost:3000/api/restaurants${'?' + params.toString()}`);
+    const response = await fetch(`${process.env.HOST}/api/restaurants${'?' + params.toString()}`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -26,7 +26,7 @@ export async function fetchRestaurants({
 
 export async function fetchCuisineType(): Promise<string[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/restaurants/cuisine-type');
+    const response = await fetch(`${process.env.HOST}/api/restaurants/cuisine-type`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки типов кухни');
     }
@@ -40,7 +40,7 @@ export async function fetchCuisineType(): Promise<string[]> {
 
 export async function fetchDeliveryTime(): Promise<string[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/restaurants/delivery-time');
+    const response = await fetch(`${process.env.HOST}/api/restaurants/delivery-time`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки времени доставки');
     }
@@ -54,7 +54,7 @@ export async function fetchDeliveryTime(): Promise<string[]> {
 
 export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/restaurants/last-order-restaurant');
+    const response = await fetch(`${process.env.HOST}/api/restaurants/last-order-restaurant`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -82,7 +82,7 @@ export async function fetchRestaurantMenu({
       parameters.append(key, value.toString());
     });
     const response = await fetch(
-      `http://localhost:3000/api/menu/${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
+      `${process.env.HOST}${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
     );
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
@@ -102,7 +102,7 @@ export async function fetchCategoriesMenu({
 }): Promise<CategoryDish[]> {
   const { id } = await params;
   try {
-    const response = await fetch(`http://localhost:3000/api/menu/categories/${id}`);
+    const response = await fetch(`${process.env.HOST}/api/menu/categories/${id}`);
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -145,7 +145,7 @@ export async function fetchRegisterUser(
   cardNumber: string,
 ): Promise<{ success?: string; error?: string }> {
   try {
-    const response = await fetch("http://localhost:3000/api/auth/register", {
+    const response = await fetch(`${process.env.HOST}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ firstName, lastName, email, password, address, cardNumber }),
@@ -165,7 +165,7 @@ export async function fetchRegisterUser(
 
 export async function fetchLoginUser(data: { identifier: string; password: string }) {
   try {
-    const response = await fetch('http://localhost:3000/api/auth/login', {
+    const response = await fetch(`${process.env.HOST}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
