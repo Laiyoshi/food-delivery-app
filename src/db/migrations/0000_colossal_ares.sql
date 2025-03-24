@@ -1,8 +1,7 @@
 CREATE TABLE `cart` (
 	`id` text PRIMARY KEY NOT NULL,
-	`menu_item_id` text,
-	`order_id` text,
 	`user_id` text,
+	`menu_item_id` text,
 	`quantity` integer DEFAULT 1,
 	`order_amount` integer DEFAULT 0,
 	FOREIGN KEY (`menu_item_id`) REFERENCES `menu_items`(`id`) ON UPDATE no action ON DELETE no action
@@ -23,7 +22,7 @@ CREATE TABLE `couriers` (
 --> statement-breakpoint
 CREATE TABLE `delivery_addresses` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`user_id` integer,
+	`user_id` text,
 	`address` text,
 	`comment` text,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action
@@ -55,9 +54,9 @@ CREATE TABLE `order_statuses` (
 CREATE UNIQUE INDEX `order_statuses_name_unique` ON `order_statuses` (`name`);--> statement-breakpoint
 CREATE TABLE `orders` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`user_id` integer,
+	`user_id` text,
 	`delivery_address_id` integer,
-	`restaurant_id` integer,
+	`restaurant_id` text,
 	`courier_id` integer,
 	`status_id` integer,
 	`payment_method_id` integer,
@@ -72,7 +71,7 @@ CREATE TABLE `orders` (
 --> statement-breakpoint
 CREATE TABLE `payment_methods` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`user_id` integer,
+	`user_id` text,
 	`type` text,
 	`details` text,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action
@@ -109,7 +108,9 @@ CREATE TABLE `users` (
 	`password_hash` text NOT NULL,
 	`phone` text NOT NULL,
 	`created_at` text DEFAULT (strftime('%s', 'now')),
-	`avatar` text
+	`avatar` text,
+	`address` text NOT NULL,
+	`cardNumber` text(16) NOT NULL
 );
 --> statement-breakpoint
 CREATE UNIQUE INDEX `users_account_name_unique` ON `users` (`account_name`);--> statement-breakpoint
