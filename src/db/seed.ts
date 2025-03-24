@@ -209,6 +209,8 @@ async function seed() {
       email: 'ivan@example.com',
       passwordHash: 'hashedpassword',
       phone: '79990001122',
+      address: 'Москва',
+      cardNumber: '1234123412341234',
     },
   ];
   await db.insert(users).values(userData);

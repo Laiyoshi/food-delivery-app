@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { NextResponse } from "next/server";
 import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from "drizzle-orm";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
-async function createUser(firstName: string, lastName: string, email: string, password: string) {
+async function createUser(firstName: string, lastName: string, email: string, password: string, address: string, cardNumber: string) {
   try {
     const existingUser = await db.select().from(users).where(eq(users.email, email));
     if (existingUser.length > 0) {
@@ -22,6 +20,8 @@ async function createUser(firstName: string, lastName: string, email: string, pa
       email,
       passwordHash,
       phone: "",
+      address,
+      cardNumber,
     });
 
     return { success: "Регистрация успешна!" };
@@ -33,8 +33,8 @@ async function createUser(firstName: string, lastName: string, email: string, pa
 
 export async function POST(req: Request) {
   try {
-    const { firstName, lastName, email, password } = await req.json();
-    const result = await createUser(firstName, lastName, email, password);
+    const { firstName, lastName, email, password, address, cardNumber } = await req.json();
+    const result = await createUser(firstName, lastName, email, password, address, cardNumber);
 
     if (result.error) {
       return NextResponse.json({ message: result.error }, { status: 400 });
@@ -42,6 +42,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: result.success }, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ message: "Ошибка сервера" }, { status: 500 });
+    return NextResponse.json({ message: `Ошибка сервера: ${error}` }, { status: 500 });
   }
 }

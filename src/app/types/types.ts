@@ -91,3 +91,17 @@ export interface CategoryDish {
   id: string;
   name: string;
 }
+
+export type AuthFooterProps = {
+  question: string;
+  linkText: string;
+  linkHref: string;
+  isInsideForm?: boolean;
+  className?: string;
+};
+
+export type AuthFormProps = {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+};
