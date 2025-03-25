@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputField from "./InputField";
-import { fetchRegisterUser } from "@/app/utils/data";
+import { fetchRegisterUser } from "@/app/utils/auth/data";
 
 const RegisterForm = () => {
   const router = useRouter();
