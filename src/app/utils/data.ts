@@ -16,7 +16,9 @@ export async function fetchRestaurants({
       params.append(key, value.toString());
     });
 
-    const response = await fetch(`${baseUrl}/api/restaurants${'?' + params.toString()}`);
+    const response = await fetch(`${baseUrl}/api/restaurants${'?' + params.toString()}`, {
+      method: 'GET',
+    });
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -30,7 +32,9 @@ export async function fetchRestaurants({
 
 export async function fetchCuisineType(): Promise<string[]> {
   try {
-    const response = await fetch(`${baseUrl}/api/restaurants/cuisine-type`);
+    const response = await fetch(`${baseUrl}/api/restaurants/cuisine-type`, {
+      method: 'GET',
+    });
     if (!response.ok) {
       throw new Error('Ошибка загрузки типов кухни');
     }
@@ -44,7 +48,9 @@ export async function fetchCuisineType(): Promise<string[]> {
 
 export async function fetchDeliveryTime(): Promise<string[]> {
   try {
-    const response = await fetch(`${baseUrl}/api/restaurants/delivery-time`);
+    const response = await fetch(`${baseUrl}/api/restaurants/delivery-time`, {
+      method: 'GET',
+    });
     if (!response.ok) {
       throw new Error('Ошибка загрузки времени доставки');
     }
@@ -58,7 +64,9 @@ export async function fetchDeliveryTime(): Promise<string[]> {
 
 export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
   try {
-    const response = await fetch(`${baseUrl}/api/restaurants/last-order-restaurant`);
+    const response = await fetch(`${baseUrl}/api/restaurants/last-order-restaurant`, {
+      method: 'GET',
+    });
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -87,7 +95,9 @@ export async function fetchRestaurantMenu({
     });
     const response = await fetch(
       `${baseUrl}${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
-    );
+      , {
+        method: 'GET',
+      });
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
@@ -106,7 +116,9 @@ export async function fetchCategoriesMenu({
 }): Promise<CategoryDish[]> {
   const { id } = await params;
   try {
-    const response = await fetch(`${baseUrl}/api/menu/categories/${id}`);
+    const response = await fetch(`${baseUrl}/api/menu/categories/${id}`, {
+      method: 'GET',
+    });
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
