@@ -1,4 +1,4 @@
-const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : "";
+const baseUrl = process.env.BASE_URL_FOR_AUTH ? process.env.BASE_URL_FOR_AUTH : "";
 
 export async function fetchRegisterUser(
   firstName: string,
