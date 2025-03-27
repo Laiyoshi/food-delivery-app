@@ -86,7 +86,7 @@ export async function fetchRestaurantMenu({
       parameters.append(key, value.toString());
     });
     const response = await fetch(
-      `${baseUrl}${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
+      `${baseUrl}/${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
     );
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
