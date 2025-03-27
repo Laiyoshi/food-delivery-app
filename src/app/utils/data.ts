@@ -15,7 +15,7 @@ export async function fetchRestaurants({
     Object.entries(searchParameters).forEach(([key, value]) => {
       params.append(key, value.toString());
     });
-
+    console.log(`${baseUrl}/api/restaurants${'?' + params.toString()}`);
     const response = await fetch(`${baseUrl}/api/restaurants${'?' + params.toString()}`, {
       method: 'GET',
     });
@@ -32,6 +32,7 @@ export async function fetchRestaurants({
 
 export async function fetchCuisineType(): Promise<string[]> {
   try {
+    console.log(`${baseUrl}/api/restaurants/cuisine-type`);
     const response = await fetch(`${baseUrl}/api/restaurants/cuisine-type`, {
       method: 'GET',
     });
@@ -48,6 +49,7 @@ export async function fetchCuisineType(): Promise<string[]> {
 
 export async function fetchDeliveryTime(): Promise<string[]> {
   try {
+    console.log(`${baseUrl}/api/restaurants/delivery-time`);
     const response = await fetch(`${baseUrl}/api/restaurants/delivery-time`, {
       method: 'GET',
     });
@@ -64,6 +66,7 @@ export async function fetchDeliveryTime(): Promise<string[]> {
 
 export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
   try {
+    console.log(`${baseUrl}/api/restaurants/last-order-restaurant`);
     const response = await fetch(`${baseUrl}/api/restaurants/last-order-restaurant`, {
       method: 'GET',
     });
@@ -93,6 +96,7 @@ export async function fetchRestaurantMenu({
     Object.entries(searchParameters).forEach(([key, value]) => {
       parameters.append(key, value.toString());
     });
+    
     const response = await fetch(
       `${baseUrl}${id}${parameters.toString() ? '?' + parameters.toString() : ''}`
       , {
