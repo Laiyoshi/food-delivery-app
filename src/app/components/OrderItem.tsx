@@ -6,28 +6,43 @@ const OrderItem: React.FC<OrderItemProps> = ({ orderDate, restaurant, amount, st
     status === 'Доставлен'
       ? 'text-green-500'
       : status === 'В пути'
-      ? 'text-yellow-500'
-      : 'text-blue-500';
+      ? 'text-blue-500'
+      : 'text-yellow-500';
 
   return (
-    <div className="flex justify-between items-center bg-white shadow-md rounded-lg p-4 mb-4">
-      <div className="flex flex-rw space-x-4">
-        <span className="text-gray-600">{new Date(orderDate).toLocaleDateString()}</span>
-        <span className="text-gray-600">{new Date(orderDate).toLocaleTimeString()}</span>
+    <div className="flex flex-col bg-white shadow-(--shadow-card) mb-1 py-2 px-8 rounded-lg lg:flex-row lg:gap-5 ">
+      <div className="flex flex-row justify-between items-center mb-2 lg:mb-0 lg:w-full">
+        <div className="flex flex-col gap-2 lg:flex-row lg:gap-8">
+          {/* Дата и время */}
+          <div className="">
+          <span className="text-gray-800 mr-8">
+            {new Date(orderDate).toLocaleDateString('ru-RU', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',
+            })
+            .replace('г.', '')}
+          </span>
+            <span className="text-gray-600">{new Date(orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+          </div>
+
+          {/* Название ресторана */}
+          <div className="text-gray-800 ">
+            «{restaurant}»
+          </div>
+        </div>
+        {/* Сумма и статус */}
+        <div className="flex flex-col-reverse gap-2 lg:flex-row lg:gap-5">
+          <span className="text-gray-800 font-bold min-w-[100px] text-right">{amount} ₽</span>
+          <span className={`${statusColor} min-w-[90px] text-right lg:text-left`}>{status}</span>
+        </div>
       </div>
-      <div className="flex-1 ml-4">
-        <span className="text-gray-800">«{restaurant}»</span>
-      </div>
-      <div className="flex flex-row space-x-4">
-        <div className="text-gray-800 font-bold">{amount} ₽</div>
-      </div>
-      <div className="flex flex-row space-x-4">
-        <div className={`${statusColor} text-left ml-4`}>{status}</div>
-      </div>
-      <button className="ml-4 px-4 py-2 border border-gray-300 rounded-lg text-gray-800">
+      {/* Кнопка "Подробнее" */}
+      <button className="w-full lg:min-w-[248px] lg:max-w-[248px] px-4 py-2 border-2 border-gray-300 rounded-lg text-gray-800 font-bold hover:bg-gray-100">
         Подробнее
       </button>
     </div>
+      
   );
 };
 

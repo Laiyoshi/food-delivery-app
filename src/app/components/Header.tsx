@@ -122,7 +122,7 @@ const Header = () => {
             >
               <UserIcon className="mr-1 h-6 w-6" /> Профиль
             </Link>
-            <Link href="/" className="flex h-12 w-full items-center py-6">
+            <Link href="/orders" className="flex h-12 w-full items-center py-6">
               <RectangleStackIcon className="mr-1 h-6 w-6" />
               Ваши заказы
             </Link>
