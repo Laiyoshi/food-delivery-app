@@ -28,7 +28,7 @@ export async function fetchRegisterUser(
   }
 }
 
-export async function fetchLoginUser(data: { identifier: string; password: string }) {
+export async function fetchLoginUser(data: { emailOrAccountName: string; password: string }) {
   try {
     const response = await fetch(`${baseUrl}/api/auth/login`, {
       method: 'POST',

@@ -5,7 +5,7 @@ import LoginForm from "@/app/components/auth/LoginForm";
 
 export default function LoginPage() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-white overflow-hidden px-4 sm:px-0">
+    <div className="relative flex min-h-[calc(100vh-50px)] items-center justify-center bg-white overflow-hidden px-4 sm:px-0 pt-[50px]">
       <AuthBackground />
       <AuthForm title="Вход в аккаунт">
         <LoginForm />
