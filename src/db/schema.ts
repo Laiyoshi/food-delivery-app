@@ -61,7 +61,7 @@ export const users = sqliteTable('users', {
     .$default(() => uuid4()),
   firstName: text('first_name', { length: 30 }).notNull(),
   lastName: text('last_name', { length: 30 }).notNull(),
-  accountName: text('account_name', { length: 10 }).notNull().unique(),
+  accountName: text('account_name').notNull().unique(),
   email: text('email').notNull().unique(),
   passwordHash: text('password_hash').notNull(),
   phone: text('phone').notNull(),
