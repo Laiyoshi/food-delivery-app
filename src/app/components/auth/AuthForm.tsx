@@ -1,5 +1,4 @@
 import { AuthFormProps } from "@/app/types/types";
-import React from "react";
 
 const AuthForm = ({ title, children, className = "" }: AuthFormProps) => {
   return (
