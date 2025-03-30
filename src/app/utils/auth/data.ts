@@ -5,6 +5,7 @@ export async function fetchRegisterUser(
   lastName: string,
   email: string,
   password: string,
+  phone: string,
   address: string,
   cardNumber: string,
 ): Promise<{ success?: string; error?: string }> {
@@ -12,7 +13,7 @@ export async function fetchRegisterUser(
     const response = await fetch(`${baseUrl}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName, lastName, email, password, address, cardNumber }),
+      body: JSON.stringify({ firstName, lastName, email, password, phone, address, cardNumber }),
     });
 
     const data = await response.json();

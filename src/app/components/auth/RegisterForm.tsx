@@ -11,6 +11,7 @@ const RegisterForm = () => {
     lastName: "",
     email: "",
     password: "",
+    phone: "",
     address: "",
     cardNumber: "",
   });
@@ -31,6 +32,7 @@ const RegisterForm = () => {
       formData.lastName,
       formData.email,
       formData.password,
+      formData.phone,
       formData.address,
       formData.cardNumber
     );
@@ -77,6 +79,13 @@ const RegisterForm = () => {
           name="password"
           type="password"
           placeholder="••••••••"
+          onChange={handleChange}
+        />
+        <InputField
+          label="Телефон"
+          name="phone"
+          type="phone"
+          placeholder="+7(999) 999-99-99 "
           onChange={handleChange}
         />
         <InputField
