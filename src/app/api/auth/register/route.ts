@@ -4,7 +4,7 @@ import { users } from '@/db/schema';
 import { eq } from "drizzle-orm";
 import bcrypt from 'bcryptjs';
 
-async function createUser(firstName: string, lastName: string, email: string, password: string, address: string, cardNumber: string) {
+async function createUser(firstName: string, lastName: string, email: string, password: string, phone: string, address: string, cardNumber: string) {
   try {
     const existingUser = await db.select().from(users).where(eq(users.email, email));
     if (existingUser.length > 0) {
@@ -16,10 +16,10 @@ async function createUser(firstName: string, lastName: string, email: string, pa
     await db.insert(users).values({
       firstName,
       lastName,
-      accountName: firstName,
+      accountName: firstName + lastName,
       email,
       passwordHash,
-      phone: "",
+      phone,
       address,
       cardNumber,
     });
@@ -33,8 +33,8 @@ async function createUser(firstName: string, lastName: string, email: string, pa
 
 export async function POST(req: Request) {
   try {
-    const { firstName, lastName, email, password, address, cardNumber } = await req.json();
-    const result = await createUser(firstName, lastName, email, password, address, cardNumber);
+    const { firstName, lastName, email, password, phone, address, cardNumber } = await req.json();
+    const result = await createUser(firstName, lastName, email, password, phone, address, cardNumber);
 
     if (result.error) {
       return NextResponse.json({ message: result.error }, { status: 400 });
