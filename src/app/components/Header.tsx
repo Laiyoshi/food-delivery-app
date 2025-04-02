@@ -54,7 +54,7 @@ const Header = () => {
             Отслеживание заказа
           </Link>
           <Link
-            href="/"
+            href="/orders"
             className="flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
           >
             <RectangleStackIcon className="mr-1 h-[30px] w-[30px]" />
@@ -123,7 +123,7 @@ const Header = () => {
             >
               <UserIcon className="mr-1 h-6 w-6" /> Профиль
             </Link>
-            <Link href="/" className="flex h-12 w-full items-center py-6">
+            <Link href="/orders" className="flex h-12 w-full items-center py-6">
               <RectangleStackIcon className="mr-1 h-6 w-6" />
               Ваши заказы
             </Link>

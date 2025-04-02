@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "b9a7996c-670b-4ab8-8f65-9ff349dc651d",
+  "id": "7cfe85d6-9924-484a-ab13-99fed73b8f1f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "cart": {
@@ -373,6 +373,13 @@
           "notNull": false,
           "autoincrement": false
         },
+        "cart_id": {
+          "name": "cart_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "courier_id": {
           "name": "courier_id",
           "type": "integer",
@@ -437,6 +444,19 @@
           "tableTo": "restaurants",
           "columnsFrom": [
             "restaurant_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "orders_cart_id_cart_id_fk": {
+          "name": "orders_cart_id_cart_id_fk",
+          "tableFrom": "orders",
+          "tableTo": "cart",
+          "columnsFrom": [
+            "cart_id"
           ],
           "columnsTo": [
             "id"
@@ -708,7 +728,7 @@
         },
         "account_name": {
           "name": "account_name",
-          "type": "text(10)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
