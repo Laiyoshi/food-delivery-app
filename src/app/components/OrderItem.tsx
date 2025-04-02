@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation'; // Импорт useRouter для навигации
 import { OrderItemProps } from '@/app/types/types';
 
-const OrderItem: React.FC<OrderItemProps> = ({ orderDate, restaurant, amount, status }) => {
+const OrderItem: React.FC<OrderItemProps> = ({ id, orderDate, restaurant, amount, status }) => {
+  const router = useRouter(); // Хук для навигации
+
   const statusColor =
     status === 'Доставлен'
       ? 'text-green-500'
@@ -17,15 +20,16 @@ const OrderItem: React.FC<OrderItemProps> = ({ orderDate, restaurant, amount, st
         <div className="flex flex-col gap-2 lg:flex-row lg:gap-8">
           {/* Дата и время */}
           <div className="">
-          <span className="text-gray-800 mr-8">
-            {new Date(orderDate).toLocaleDateString('ru-RU', {
-              day: '2-digit',
-              month: 'long',
-              year: 'numeric',
-            })
-            .replace('г.', '')}
-          </span>
-            <span className="text-gray-600">{new Date(orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            <span className="text-gray-800 mr-8">
+              {new Date(orderDate).toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              }).replace('г.', '')}
+            </span>
+            <span className="text-gray-600">
+              {new Date(orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </span>
           </div>
 
           {/* Название ресторана */}
@@ -40,11 +44,13 @@ const OrderItem: React.FC<OrderItemProps> = ({ orderDate, restaurant, amount, st
         </div>
       </div>
       {/* Кнопка "Подробнее" */}
-      <button className="w-full lg:min-w-[248px] lg:max-w-[248px] px-4 py-2 border-2 border-gray-300 rounded-lg text-gray-800 font-bold hover:bg-gray-100">
+      <button
+        onClick={() => router.push(`/orders/order/${id}`)} // Переход на страницу с информацией о заказе
+        className="w-full lg:min-w-[248px] lg:max-w-[248px] px-4 py-2 border-2 border-gray-300 rounded-lg text-gray-800 font-bold hover:bg-gray-100"
+      >
         Подробнее
       </button>
     </div>
-      
   );
 };
 

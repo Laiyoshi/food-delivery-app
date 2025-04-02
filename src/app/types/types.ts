@@ -99,3 +99,27 @@ export interface OrderItemProps {
   amount: number; // Сумма заказа
   status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
 }
+
+export interface OrderData {
+  orderId: number;
+  orderDate: string; // ISO-формат даты
+  status: string;
+  restaurant: string;
+  deliveryAddress: string;
+  paymentMethod: string;
+  courierName: string;
+  courierPhone: string;
+  items: {
+    name: string;
+    quantity: number;
+    price: number;
+  }[];
+  total: number; // Общая сумма заказа
+}
+
+export interface ReviewData {
+  restaurantRating: number;
+  deliveryRating: number;
+  comment: string;
+  orderId: number;
+}
