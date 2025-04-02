@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic' // Добавьте это в начало файла
-
 import FilterSection from './components/RestautrantFilterSection';
 import RestaurantList from './components/RestaurantList';
 import { roboto } from './ui/fonts';

@@ -92,6 +92,20 @@ export interface CategoryDish {
   name: string;
 }
 
+export type AuthFooterProps = {
+  question: string;
+  linkText: string;
+  linkHref: string;
+  isInsideForm?: boolean;
+  className?: string;
+};
+
+export type AuthFormProps = {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
 export interface OrderItemProps {
   id: number;
   orderDate: string; // ISO-формат даты
