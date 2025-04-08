@@ -9,33 +9,33 @@ interface OrderInfoProps {
 
 const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6">
-      <div className="mb-4">
-        <p className="text-gray-600">
-          {new Date(order.orderDate).toLocaleDateString('ru-RU', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-          })}
+    <div className="bg-white shadow-(--shadow-card) rounded-lg p-6 border-1 border-gray-300">
+      <div className="flex flex-row justify-between mb-4">
+        <p className="text-base font-bold text-gray-500">
+        {new Date(order.orderDate).toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              }).replace('г.', '')}
           {' '}
           {new Date(order.orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </p>
-        <p className={`font-bold ${order.status === 'Доставлен' ? 'text-green-500' : 'text-yellow-500'}`}>
+        <p className={`${order.status === 'Доставлен' ? 'text-green-500' : 'text-yellow-500'}`}>
           {order.status}
         </p>
       </div>
       <h3 className="text-xl font-bold text-gray-800 mb-4">«{order.restaurant}»</h3>
-      <ul className="mb-4">
+      <ul className="mb-4 ">
         {order.items.map((item, index) => (
-          <li key={index} className="flex justify-between">
-            <span>{item.name}</span>
-            <span>{item.quantity} шт.</span>
-            <span>{item.price} ₽</span>
+          <li key={index} className="flex justify-between pb-2 border-b border-gray-200">
+            <span className="w-1/2 text-left">{item.name}</span>
+            <span className="w-1/4 text-left">{item.quantity} шт.</span>
+            <span className="w-1/4 text-right">{item.price} ₽</span>
           </li>
         ))}
       </ul>
-      <div className="font-bold text-gray-800 mb-4">
-        <p>Итого: <span className="text-green-500">{order.total} ₽</span></p>
+      <div className=" mb-4 ">
+        <p className='text-end text-gray-600'>Итого: <span className="font-bold text-gray-800">{order.total} ₽</span></p>
       </div>
 
       {/* Детали доставки */}

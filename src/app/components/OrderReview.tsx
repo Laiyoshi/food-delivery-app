@@ -54,7 +54,7 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6">
+    <div className="bg-white shadow-(--shadow-card) rounded-lg p-6 border-1 border-gray-300">
       <h3 className="text-xl font-bold text-gray-800 mb-4">Оценить заказ</h3>
       <div className="flex items-center mb-4">
         <p className="mr-4">Ресторан:</p>
