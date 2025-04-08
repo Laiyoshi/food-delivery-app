@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import { OrderData } from '@/app/types/types';
 
 interface OrderInfoProps {
@@ -9,47 +10,70 @@ interface OrderInfoProps {
 
 const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
   return (
-    <div className="bg-white shadow-(--shadow-card) rounded-lg p-6 border-1 border-gray-300">
-      <div className="flex flex-row justify-between mb-4">
-        <p className="text-base font-bold text-gray-500">
-        {new Date(order.orderDate).toLocaleDateString('ru-RU', {
+    <div className="rounded-lg border-1 border-gray-300 bg-white p-6 shadow-(--shadow-card)">
+      <div className="mb-2 flex flex-row justify-between text-sm md:mb-4 md:text-base">
+        <div className="flex flex-row gap-4">
+          <p className="font-bold text-gray-500">
+            {new Date(order.orderDate)
+              .toLocaleDateString('ru-RU', {
                 day: '2-digit',
                 month: 'long',
                 year: 'numeric',
-              }).replace('г.', '')}
-          {' '}
-          {new Date(order.orderDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-        </p>
+              })
+              .replace('г.', '')}
+          </p>
+          <p className="font-bold text-gray-500">
+            {new Date(order.orderDate).toLocaleTimeString([], {
+              hour: '2-digit',
+              minute: '2-digit',
+            })}
+          </p>
+        </div>
         <p className={`${order.status === 'Доставлен' ? 'text-green-500' : 'text-yellow-500'}`}>
           {order.status}
         </p>
       </div>
-      <h3 className="text-xl font-bold text-gray-800 mb-4">«{order.restaurant}»</h3>
-      <ul className="mb-4 ">
+      <h3 className="mb-2 text-base font-bold text-gray-800 md:mb-4 md:text-xl">
+        «{order.restaurant}»
+      </h3>
+      <ul className="mb-2 text-xs md:mb-4 md:text-base">
         {order.items.map((item, index) => (
-          <li key={index} className="flex justify-between pb-2 border-b border-gray-200">
+          <li key={index} className="flex justify-between border-b border-gray-300 pb-2">
             <span className="w-1/2 text-left">{item.name}</span>
             <span className="w-1/4 text-left">{item.quantity} шт.</span>
             <span className="w-1/4 text-right">{item.price} ₽</span>
           </li>
         ))}
       </ul>
-      <div className=" mb-4 ">
-        <p className='text-end text-gray-600'>Итого: <span className="font-bold text-gray-800">{order.total} ₽</span></p>
+      <div className="mb-2 md:mb-4">
+        <p className="text-end text-xs text-gray-600 md:text-sm">
+          Итого:{' '}
+          <span className="ml-2 text-sm font-bold text-gray-800 md:text-xl">{order.total} ₽</span>
+        </p>
       </div>
 
       {/* Детали доставки */}
-      <div className="mt-6">
-        <h4 className="text-lg font-bold text-gray-800 mb-2">Детали доставки:</h4>
-        <p className="text-gray-600">
-          <span className="font-bold">Адрес:</span> {order.deliveryAddress}
-        </p>
-        <p className="text-gray-600">
-          <span className="font-bold">Оплата:</span> {order.paymentMethod}
-        </p>
-        <p className="text-gray-600">
-          <span className="font-bold">Курьер:</span> {order.courierName} {order.courierPhone}
-        </p>
+      <div className="text-xs md:text-base">
+        <h4 className="mb-2 text-sm font-bold text-gray-800 md:mb-4 md:text-base">
+          Детали доставки:
+        </h4>
+        <div className="mb-2 flex flex-col justify-between gap-2 text-gray-600 md:mb-4 md:flex-row md:gap-4">
+          <p className="text-gray-800">
+            <span className="mr-2 text-xs text-gray-400">Адрес</span>
+            {order.deliveryAddress}
+          </p>
+          <p className="text-gray-800">
+            <span className="mr-2 text-xs text-gray-400">Оплата</span>
+            {order.paymentMethod}
+          </p>
+        </div>
+        <div className="flex flex-col gap-2 text-gray-800 md:flex-row">
+          <span className="text-xs text-gray-400 md:self-center">Курьер</span>
+          <div className="flex flex-row justify-between gap-2">
+            <p className="">{order.courierName}</p>
+            <p>{order.courierPhone}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

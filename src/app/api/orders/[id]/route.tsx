@@ -1,20 +1,18 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/db';
-import {
-  orders,
-  cart,
-  menuItems,
-  restaurants,
-  deliveryAddresses,
-  couriers,
-  orderStatuses,
-} from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
-export async function GET(
-  req: Request,
-  context: { params: Promise<{ id: string }> }
-) {
+import { db } from '@/db';
+import {
+  cart,
+  couriers,
+  deliveryAddresses,
+  menuItems,
+  orders,
+  orderStatuses,
+  restaurants,
+} from '@/db/schema';
+
+export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
   const { id } = await context.params; // Ожидаем params перед использованием
 
   try {
@@ -76,9 +74,6 @@ export async function GET(
     return NextResponse.json(response);
   } catch (error) {
     console.error('Ошибка при получении данных о заказе:', error);
-    return NextResponse.json(
-      { error: 'Не удалось получить данные о заказе' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Не удалось получить данные о заказе' }, { status: 500 });
   }
 }

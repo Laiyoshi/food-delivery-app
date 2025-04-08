@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+
 import { ReviewData } from '@/app/types/types';
 
 interface OrderReviewProps {
@@ -54,9 +55,9 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
   };
 
   return (
-    <div className="bg-white shadow-(--shadow-card) rounded-lg p-6 border-1 border-gray-300">
-      <h3 className="text-xl font-bold text-gray-800 mb-4">Оценить заказ</h3>
-      <div className="flex items-center mb-4">
+    <div className="rounded-lg border-1 border-gray-300 bg-white p-6 shadow-(--shadow-card)">
+      <h3 className="mb-4 text-xl font-bold text-gray-800">Оценить заказ</h3>
+      <div className="mb-4 flex items-center">
         <p className="mr-4">Ресторан:</p>
         <div className="flex">
           {[...Array(5)].map((_, index) => (
@@ -67,12 +68,10 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className={`w-6 h-6 cursor-pointer ${
+              className={`h-6 w-6 cursor-pointer ${
                 review.restaurantRating > index ? 'text-yellow-500' : 'text-gray-400'
               }`}
-              onClick={() =>
-                setReview((prev) => ({ ...prev, restaurantRating: index + 1 }))
-              }
+              onClick={() => setReview(prev => ({ ...prev, restaurantRating: index + 1 }))}
             >
               <path
                 strokeLinecap="round"
@@ -83,7 +82,7 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
           ))}
         </div>
       </div>
-      <div className="flex items-center mb-4">
+      <div className="mb-4 flex items-center">
         <p className="mr-4">Доставка:</p>
         <div className="flex">
           {[...Array(5)].map((_, index) => (
@@ -94,12 +93,10 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className={`w-6 h-6 cursor-pointer ${
+              className={`h-6 w-6 cursor-pointer ${
                 review.deliveryRating > index ? 'text-yellow-500' : 'text-gray-400'
               }`}
-              onClick={() =>
-                setReview((prev) => ({ ...prev, deliveryRating: index + 1 }))
-              }
+              onClick={() => setReview(prev => ({ ...prev, deliveryRating: index + 1 }))}
             >
               <path
                 strokeLinecap="round"
@@ -111,16 +108,14 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
         </div>
       </div>
       <textarea
-        className="w-full border border-gray-300 rounded-lg p-2 mb-4"
+        className="mb-4 w-full rounded-lg border border-gray-300 p-2"
         placeholder="Что вам понравилось?"
         value={review.comment}
-        onChange={(e) =>
-          setReview((prev) => ({ ...prev, comment: e.target.value }))
-        }
+        onChange={e => setReview(prev => ({ ...prev, comment: e.target.value }))}
       ></textarea>
-      {submitError && <p className="text-red-500 mb-4">{submitError}</p>}
+      {submitError && <p className="mb-4 text-red-500">{submitError}</p>}
       <button
-        className="w-full bg-blue-500 text-white font-bold py-2 rounded-lg hover:bg-blue-600 disabled:opacity-50"
+        className="w-full rounded-lg bg-blue-500 py-2 font-bold text-white hover:bg-blue-600 disabled:opacity-50"
         onClick={handleSubmitReview}
         disabled={isSubmitting}
       >
