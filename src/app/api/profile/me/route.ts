@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/db';
-import { users } from '@/db/schema';
+import { cart, favorites, orders, users } from '@/db/schema';
 import { eq, and, ne, or } from 'drizzle-orm';
-import { getAuthenticatedUserId } from '@/app/utils/auth';
+import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
 
 export async function GET() {
   try {
@@ -77,5 +77,34 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ success: 'Данные успешно обновлены' });
   } catch (error) {
     return NextResponse.json({ error: `Ошибка сервера: ${error}` }, { status: 500 });
+  }
+}
+
+export async function DELETE() {
+  try {
+    const userId = await getAuthenticatedUserId();
+
+    if (!userId) {
+      return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
+    }
+
+    await db.delete(cart).where(eq(cart.userId, userId));
+    await db.delete(orders).where(eq(orders.userId, userId));
+    await db.delete(favorites).where(eq(favorites.userId, userId));
+    await db.delete(users).where(eq(users.id, userId));
+
+    const response = NextResponse.json({ success: 'Аккаунт удалён' });
+    response.cookies.set('token', '', {
+      httpOnly: true,
+      path: '/',
+      maxAge: 0,
+    });
+
+    return response;
+  } catch (error) {
+    return NextResponse.json(
+      { error: `Ошибка при удалении пользователя: ${(error as Error).message}` },
+      { status: 500 }
+    );
   }
 }

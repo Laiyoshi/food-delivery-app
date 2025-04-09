@@ -48,30 +48,20 @@ export async function fetchLoginUser(data: { emailOrAccountName: string; passwor
   }
 }
 
-export async function fetchUpdateProfile(data: {
-  firstName: string;
-  lastName: string;
-  email: string;
-  accountName: string;
-  phone: string;
-  address: string;
-  cardNumber: string;
-}) {
+export async function fetchLogoutUser() {
   try {
-    const response = await fetch(`${baseUrl}/api/profile/me`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+    const response = await fetch('/api/auth/logout', {
+      method: 'POST',
     });
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error || 'Ошибка обновления профиля');
+      throw new Error(errorData.error || 'Ошибка выхода из аккаунта');
     }
 
     return await response.json();
-  } catch (error: unknown) {
-    console.error('Ошибка обновления профиля:', error);
+  } catch (error) {
+    console.error('Ошибка при выходе из аккаунта:', error);
     throw error;
   }
 }
