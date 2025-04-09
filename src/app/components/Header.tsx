@@ -17,11 +17,12 @@ import {
 
 import { useStore } from '@/app/store/store';
 
-import Profile from './Profile';
+import Avatar from './profile/Avatar';
 
 const Header = () => {
   const { cart } = useStore();
   const [isOpened, setIsOpened] = useState(false);
+
   return (
     <>
       <header className="flex h-[50px] items-center justify-between rounded-b-xl border-b border-gray-300 px-6 lg:h-18 lg:rounded-none">
@@ -70,10 +71,10 @@ const Header = () => {
             Корзина
           </Link>
           <Link
-            href="/"
+            href="/profile"
             className="flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
           >
-            <Profile />
+            <Avatar/>
           </Link>
         </nav>
         <Link href="/" className="flex lg:hidden">
