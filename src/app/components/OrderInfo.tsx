@@ -36,7 +36,7 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
       <h3 className="mb-2 text-base font-bold text-gray-800 md:mb-4 md:text-xl">
         «{order.restaurant}»
       </h3>
-      <ul className="mb-2 text-xs md:mb-4 md:text-base">
+      <ul className="mb-2 text-sm md:mb-4 md:text-base">
         {order.items.map((item, index) => (
           <li key={index} className="flex justify-between border-b border-gray-300 pb-2">
             <span className="w-1/2 text-left">{item.name}</span>
@@ -46,14 +46,14 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
         ))}
       </ul>
       <div className="mb-2 md:mb-4">
-        <p className="text-end text-xs text-gray-600 md:text-sm">
+        <p className="text-end text-sm text-gray-600 md:text-base">
           Итого:{' '}
-          <span className="ml-2 text-sm font-bold text-gray-800 md:text-xl">{order.total} ₽</span>
+          <span className="ml-2 text-base font-bold text-gray-800 md:text-xl">{order.total} ₽</span>
         </p>
       </div>
 
       {/* Детали доставки */}
-      <div className="text-xs md:text-base">
+      <div className="text-sm md:text-base">
         <h4 className="mb-2 text-sm font-bold text-gray-800 md:mb-4 md:text-base">
           Детали доставки:
         </h4>
@@ -75,6 +75,7 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

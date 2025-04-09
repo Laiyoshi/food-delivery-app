@@ -22,7 +22,7 @@ const OrdersPage = async () => {
 
   return (
     <div className="mx-5 max-w-[1440px] lg:mx-8 xl:mx-auto xl:max-w-[1180px]">
-      <div className="mt-5 mb-5 flex items-center lg:mt-8 lg:mb-8">
+      <div className="mt-5 mb-5 flex items-center lg:mt-8 lg:mb-8 gap-2">
         {/* Кнопка "Назад" */}
         <BackArrow />
         {/* Заголовок */}

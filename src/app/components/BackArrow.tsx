@@ -7,9 +7,9 @@ const BackButton: React.FC = () => {
   return (
     <button
       onClick={() => window.history.back()}
-      className="rounded-full hover:bg-gray-100 focus:outline-none"
+      className="rounded-lg hover:bg-gray-100 focus:outline-none"
     >
-      <ArrowLongLeftIcon className="mr-2 h-8 w-8 text-gray-800" />
+      <ArrowLongLeftIcon className="h-8 w-8 text-gray-800" />
     </button>
   );
 };
