@@ -14,7 +14,7 @@ export default async function AccountSettingsPage() {
   if (!user) return null;
 
   return (
-    <div className="min-h-[calc(100vh-50px)] flex flex-col items-center justify-center bg-gray-50 px-4 pt-[25px] pb-10">
+    <div className="min-h-[calc(100vh-75px)] flex flex-col items-center justify-center bg-gray-50 px-4 pt-[25px] pb-10">
       <div className="w-full max-w-[600px] bg-white p-6 sm:p-8 rounded-xl shadow-sm space-y-8">
         <h1 className="text-2xl font-semibold text-gray-800 text-center sm:text-left hidden sm:block">
           Настройка аккаунта
