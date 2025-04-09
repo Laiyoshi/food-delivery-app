@@ -4,9 +4,12 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
+
+
 import { CategoryDish, MenuItem } from '../types/types';
 import { FilterDropdown } from '../ui/FilterDropdown';
 import MenuCard from './MenuCard';
+
 
 export const MenuList = ({
   menuData,
@@ -29,7 +32,7 @@ export const MenuList = ({
   };
 
   return (
-    <div className="max-w-[1440px] lg:mx-[75px] xl:mx-auto xl:max-w-[1180px]">
+    <div className="mx-5 max-w-[1440px] lg:mx-[75px] xl:mx-auto xl:max-w-[1180px]">
       <Button
         className="mt-8 mb-6 flex cursor-pointer items-center justify-start gap-2"
         onClick={() => router.push('/')}
@@ -51,7 +54,7 @@ export const MenuList = ({
         menuData.menu.map((item, index) => (
           <div key={index}>
             <h2 className="mt-6 mb-4 text-2xl font-bold text-gray-800">{item.category}</h2>
-            <div className="flex max-w-[1440px] flex-wrap justify-center gap-5 sm:justify-evenly lg:justify-center xl:mx-auto xl:max-w-[1180px] xl:justify-start">
+            <div className="flex max-w-[1440px] flex-wrap justify-center gap-5 sm:justify-start lg:justify-start xl:mx-auto xl:max-w-[1180px] xl:justify-start">
               {item.dishes.map((dish, key) => (
                 <MenuCard key={key} menuData={dish} />
               ))}

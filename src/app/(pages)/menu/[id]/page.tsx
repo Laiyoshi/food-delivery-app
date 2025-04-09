@@ -1,3 +1,4 @@
+import CartButton from '@/app/components/CartButton';
 import { MenuList } from '@/app/components/MenuList';
 import { fetchCategoriesMenu, fetchRestaurantMenu } from '@/app/utils/data';
 
@@ -17,5 +18,10 @@ export default async function Menu({
   });
   const categories = await fetchCategoriesMenu({ params: { id } });
 
-  return <MenuList menuData={menuData} categories={categories} />;
+  return (
+    <>
+      <MenuList menuData={menuData} categories={categories} />
+      <CartButton />
+    </>
+  );
 }
