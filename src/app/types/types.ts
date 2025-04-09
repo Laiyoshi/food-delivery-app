@@ -113,3 +113,15 @@ export interface OrderItemProps {
   amount: number; // Сумма заказа
   status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
 }
+
+export interface AccountSettingsFormProps {
+  user: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    accountName: string;
+    phone: string;
+    address: string;
+    cardNumber: string;
+  };
+}
