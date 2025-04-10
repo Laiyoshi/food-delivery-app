@@ -8,10 +8,11 @@ export async function fetchRestaurants({
   searchParams,
 }: {
   searchParams: { [key: string]: string };
-}): Promise<Restaurant[]> {
+}): Promise<{ data: Restaurant[]; total: number }> {
   try {
     const searchParameters = await searchParams;
     const params = new URLSearchParams();
+
     Object.entries(searchParameters).forEach(([key, value]) => {
       params.append(key, value.toString());
     });
@@ -20,11 +21,11 @@ export async function fetchRestaurants({
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
-    const data: Restaurant[] = await response.json();
+    const data: { data: Restaurant[]; total: number } = await response.json();
     return data;
   } catch (error: unknown) {
     console.log('Ошибка:', error);
-    return [];
+    return { data: [], total: 0 };
   }
 }
 

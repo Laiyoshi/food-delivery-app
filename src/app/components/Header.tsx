@@ -74,10 +74,10 @@ const Header = () => {
             href="/profile"
             className="flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
           >
-            <Avatar/>
+            <Avatar />
           </Link>
         </nav>
-        <Link href="/" className="flex lg:hidden">
+        <Link href="/cart" className="flex lg:hidden">
           <ShoppingCartIcon className="h-[30px] w-[30px]" />
         </Link>
       </header>

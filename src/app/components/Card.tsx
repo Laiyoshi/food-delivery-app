@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
-import { ReceiptPercentIcon, StarIcon } from '@heroicons/react/24/outline';
+import { ReceiptPercentIcon } from '@heroicons/react/24/outline';
+import { StarIcon } from '@heroicons/react/24/solid';
 
 import { CardTypeProps } from '@/app/types/types';
 import { inter, roboto } from '@/app/ui/fonts';
 
-const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
+const Card = ({ restaurantData }: CardTypeProps) => {
   const rating = {
     fullStar: Math.trunc(restaurantData.rating),
     halfStar: restaurantData.rating - Math.trunc(restaurantData.rating),
+    emptyStar: 5 - Math.ceil(restaurantData.rating),
   };
   const router = useRouter();
 
@@ -36,17 +38,22 @@ const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
           .map((_, index) => {
             return <StarIcon key={index} className="my-1 mr-2 h-4 w-4 fill-yellow-500" />;
           })}
-        {rating.halfStar > 0.2 && (
+        {rating.halfStar > 0 && (
           <div className="relative">
-            <StarIcon className="t-0 l-0 absolute my-1 mr-2 h-4 w-4" />
+            <StarIcon className="t-0 l-0 absolute my-1 mr-2 h-4 w-4 text-gray-300" />
             <StarIcon
-              className="my-1 mr-2 h-4 w-4 fill-yellow-500"
+              className="my-1 mr-2 h-4 w-4 fill-yellow-500 text-white"
               style={{
                 clipPath: `polygon(0 0, ${rating.halfStar * 100}% 0, ${rating.halfStar * 100}% 100%, 0% 100%)`,
               }}
             />
           </div>
         )}
+        {Array(rating.emptyStar)
+          .fill(0)
+          .map((_, index) => {
+            return <StarIcon key={index} className="my-1 mr-2 h-4 w-4 text-gray-300" />;
+          })}
       </div>
       <p className="mx-4 mb-4 h-10 text-sm text-gray-800">{restaurantData.description}</p>
       <div className="mx-4 min-h-[100px] text-sm text-gray-600">
@@ -68,7 +75,7 @@ const Card: React.FC<CardTypeProps> = ({ restaurantData }) => {
       </div>
       <Button
         onClick={() => router.push(`menu/${restaurantData.id}`)}
-        className="mx-4 mt-5 mb-4 w-[248px] cursor-pointer rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600"
+        className="mx-4 mt-5 mb-4 w-[calc(100%-32px)] cursor-pointer rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600 md:w-[248px]"
       >
         Смотреть меню
       </Button>
