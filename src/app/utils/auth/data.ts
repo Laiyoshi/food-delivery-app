@@ -47,3 +47,21 @@ export async function fetchLoginUser(data: { emailOrAccountName: string; passwor
     throw error;
   }
 }
+
+export async function fetchLogoutUser() {
+  try {
+    const response = await fetch('/api/auth/logout', {
+      method: 'POST',
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Ошибка выхода из аккаунта');
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Ошибка при выходе из аккаунта:', error);
+    throw error;
+  }
+}

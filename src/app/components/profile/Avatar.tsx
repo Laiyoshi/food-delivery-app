@@ -49,9 +49,9 @@ const Avatar = () => {
           className="rounded-full object-cover"
         />
       ) : user?.firstName && user?.lastName ? (
-        <span className="text-sm font-semibold ml-1">{initials}</span>
+        <span className="ml-1">{initials}</span>
       ) : (
-        <span className="text-sm font-semibold ml-1">Войти</span>
+        <span className="ml-1">Войти</span>
       )}
     </div>
   );
