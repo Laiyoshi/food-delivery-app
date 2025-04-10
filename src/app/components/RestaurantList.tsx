@@ -1,29 +1,15 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-
-import { Restaurant } from '../types/types';
+import { RestaurantListProps } from '../types/types';
 import { roboto } from '../ui/fonts';
 import Card from './Card';
-import Pagination from './Pagination';
 
-const RestaurantList = ({
-  restaurantData,
-  lastOrdersData,
-}: {
-  restaurantData: { data: Restaurant[]; total: number };
-  lastOrdersData: Restaurant[];
-}) => {
-  const searchParams = useSearchParams();
-  const currentPage = parseInt(searchParams.get('page') || '1', 10);
-  const { data: restaurants, total } = restaurantData;
-  const totalPages = Math.ceil(total / 12);
-
+const RestaurantList: React.FC<RestaurantListProps> = ({ restaurantData, lastOrdersData }) => {
   return (
     <>
       <div className="flex max-w-[1440px] flex-wrap justify-center gap-5 sm:justify-evenly lg:justify-center xl:mx-auto xl:max-w-[1180px] xl:justify-start">
-        {restaurants.length > 0 ? (
-          restaurants.map(item => {
+        {restaurantData.length > 0 ? (
+          restaurantData.map(item => {
             return <Card key={item.id} restaurantData={item} />;
           })
         ) : (
@@ -52,12 +38,6 @@ const RestaurantList = ({
           </>
         )}
       </div>
-
-      {totalPages > 1 && (
-        <div className='pb-10'>
-          <Pagination totalPages={totalPages} currentPage={currentPage} />
-        </div>
-      )}
     </>
   );
 };

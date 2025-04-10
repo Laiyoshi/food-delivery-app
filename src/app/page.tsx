@@ -1,6 +1,5 @@
-import CartButton from './components/CartButton';
-import RestaurantList from './components/RestaurantList';
 import FilterSection from './components/RestautrantFilterSection';
+import RestaurantList from './components/RestaurantList';
 import { roboto } from './ui/fonts';
 import {
   fetchCuisineType,
@@ -29,7 +28,6 @@ export default async function Home(props: { searchParams: Promise<{ [key: string
       <div>
         <RestaurantList restaurantData={restaurantsData} lastOrdersData={lastOrdersData} />
       </div>
-      <CartButton />
     </>
   );
 }

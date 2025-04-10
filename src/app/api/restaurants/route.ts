@@ -1,4 +1,4 @@
-import { and, count, eq, gte, SQL } from 'drizzle-orm';
+import { and, eq, gte, SQL } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { restaurants } from '@/db/schema';
@@ -21,26 +21,10 @@ async function getRestaurants(searchParams: { [key: string]: string }) {
     filters.push(eq(restaurants.deliveryTime, searchParams.deliveryTime));
   if (searchParams.cuisineType) filters.push(eq(restaurants.cuisineType, searchParams.cuisineType));
 
-  const page = parseInt(searchParams.page || '1');
-  const limit = parseInt(searchParams.limit || '12');
-  const offset = (page - 1) * limit;
+  const data = await db
+    .select()
+    .from(restaurants)
+    .where(and(...filters));
 
-  const [data, totalResult] = await Promise.all([
-    db
-      .select()
-      .from(restaurants)
-      .where(and(...filters))
-      .limit(limit)
-      .offset(offset),
-    db
-      .select({ count: count() })
-      .from(restaurants)
-      .where(and(...filters)),
-  ]);
-  const total = Number(totalResult[0]?.count || 0);
-
-  return {
-    data,
-    total,
-  };
+  return data;
 }

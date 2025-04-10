@@ -62,9 +62,7 @@ export interface CartItem extends Dish {
 
 export interface StoreState {
   cart: CartItem[];
-  cartAmount: number;
 
-  updateAmount: () => void;
   addToCart: (item: Dish) => void;
   removeFromCart: (id: string) => void;
   increaseQuantity: (id: string) => void;
