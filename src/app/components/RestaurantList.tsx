@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { Restaurant } from '../types/types';
 import { roboto } from '../ui/fonts';
 import Card from './Card';
-import Pagination from './Pagintaion';
+import Pagination from './Pagination';
 
 const RestaurantList = ({
   restaurantData,

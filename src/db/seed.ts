@@ -40,7 +40,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Славянская',
       averagePrice: 1500,
-      imageUrl: '/images/restaurants/yaropolk.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283078/restaurants/ltnv8fxbtrigq7ktnuih.png',
     },
     {
       id: uuidv4(),
@@ -50,7 +51,8 @@ async function seed() {
       deliveryTime: '40-50 мин',
       cuisineType: 'Европейская',
       averagePrice: 2000,
-      imageUrl: '/images/restaurants/honey-pepper.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282992/restaurants/dmksrgucgscskqnyderw.png',
     },
     {
       id: uuidv4(),
@@ -60,7 +62,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Микс кулинарных традиций',
       averagePrice: 1200,
-      imageUrl: '/images/restaurants/slavic-party.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283037/restaurants/tamoycd2apodlt62izxn.png',
     },
     {
       id: uuidv4(),
@@ -70,7 +73,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Традиционная русская',
       averagePrice: 1000,
-      imageUrl: '/images/restaurants/beresta.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282880/restaurants/hijm0ygrxnjw6ext4vtq.png',
     },
     {
       id: uuidv4(),
@@ -80,7 +84,8 @@ async function seed() {
       deliveryTime: '20-30 мин',
       cuisineType: 'Микс кулинарных традиций',
       averagePrice: 900,
-      imageUrl: '/images/restaurants/vargan.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283074/restaurants/xjvtqvzepgn5dy6veyc4.png',
     },
     {
       id: uuidv4(),
@@ -90,7 +95,8 @@ async function seed() {
       deliveryTime: '15-25 мин',
       cuisineType: 'Кондитерская',
       averagePrice: 700,
-      imageUrl: '/images/restaurants/radmila.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283021/restaurants/nnu4rjijthpod1mnlgr6.png',
     },
     {
       id: uuidv4(),
@@ -100,7 +106,8 @@ async function seed() {
       deliveryTime: '20-30 мин',
       cuisineType: 'Стритфуд',
       averagePrice: 1000,
-      imageUrl: '/images/restaurants/dvorik.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282887/restaurants/immcp3xfblmfemrgkejr.png',
     },
     {
       id: uuidv4(),
@@ -110,7 +117,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Органическая',
       averagePrice: 1950,
-      imageUrl: '/images/restaurants/lesnoe.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282997/restaurants/l5bdozy7yggpmwie0ej3.png',
     },
     {
       id: uuidv4(),
@@ -120,7 +128,8 @@ async function seed() {
       deliveryTime: '40-50 мин',
       cuisineType: 'Рыбная',
       averagePrice: 900,
-      imageUrl: '/images/restaurants/fish.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282907/restaurants/nqmma33tfli0llg2qczt.png',
     },
     {
       id: uuidv4(),
@@ -130,7 +139,8 @@ async function seed() {
       deliveryTime: '43-52 мин',
       cuisineType: 'Французская',
       averagePrice: 2811,
-      imageUrl: '/images/restaurants/taverna_dvorik.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283045/restaurants/kkdcz3aea64l4utpmcyo.jpg',
     },
     {
       id: uuidv4(),
@@ -140,7 +150,8 @@ async function seed() {
       deliveryTime: '45-55 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 1943,
-      imageUrl: '/images/restaurants/gastronomia_martina.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282915/restaurants/ikeh9eovzebwboaj6d4x.jpg',
     },
     {
       id: uuidv4(),
@@ -150,7 +161,8 @@ async function seed() {
       deliveryTime: '47-42 мин',
       cuisineType: 'Азиатская',
       averagePrice: 1044,
-      imageUrl: '/images/restaurants/taverna_u_mayaka.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283059/restaurants/yrtr5unupu5oclzcq3vb.jpg',
     },
     {
       id: uuidv4(),
@@ -160,7 +172,8 @@ async function seed() {
       deliveryTime: '41-32 мин',
       cuisineType: 'Американская',
       averagePrice: 2151,
-      imageUrl: '/images/restaurants/gastronomicheskaya_ploshad.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282921/restaurants/swwbq3sw3x1crtaw9ot2.jpg',
     },
     {
       id: uuidv4(),
@@ -170,7 +183,8 @@ async function seed() {
       deliveryTime: '46-49 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 2326,
-      imageUrl: '/images/restaurants/grill_bar_shef.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282953/restaurants/zi3fo94bobqjnpfnv2hy.jpg',
     },
     {
       id: uuidv4(),
@@ -180,7 +194,8 @@ async function seed() {
       deliveryTime: '33-40 мин',
       cuisineType: 'Азиатская',
       averagePrice: 1342,
-      imageUrl: '/images/restaurants/grillhaus_vostok.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282949/restaurants/dfsfyosaw6kdnapwvy2n.jpg',
     },
     {
       id: uuidv4(),
@@ -190,7 +205,8 @@ async function seed() {
       deliveryTime: '52-32 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 1133,
-      imageUrl: '/images/restaurants/shtorm_na_neve.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283027/restaurants/z3cz0emtx7yhg2qhueng.jpg',
     },
     {
       id: uuidv4(),
@@ -200,7 +216,8 @@ async function seed() {
       deliveryTime: '39-45 мин',
       cuisineType: 'Французская',
       averagePrice: 1800,
-      imageUrl: '/images/restaurants/grill_bereg.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282960/restaurants/a20a3kbag3l4qhey8ogn.jpg',
     },
     {
       id: uuidv4(),
@@ -210,7 +227,8 @@ async function seed() {
       deliveryTime: '35-60 мин',
       cuisineType: 'Американская',
       averagePrice: 1900,
-      imageUrl: '/images/restaurants/shtorm_v_baltike.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283036/restaurants/sckos7kmjlykwky2w8tp.jpg',
     },
     {
       id: uuidv4(),
@@ -220,7 +238,8 @@ async function seed() {
       deliveryTime: '28-50 мин',
       cuisineType: 'Кавказская',
       averagePrice: 2555,
-      imageUrl: '/images/restaurants/grill_kafe_na_neve.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282972/restaurants/xfwzgyoiossojpw2qtkv.jpg',
     },
     {
       id: uuidv4(),
@@ -230,7 +249,8 @@ async function seed() {
       deliveryTime: '30-45 мин',
       cuisineType: 'Русская',
       averagePrice: 1600,
-      imageUrl: '/images/restaurants/taverna_u_buhty.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283048/restaurants/mhma9qlo7wzviubhjk3n.jpg',
     },
     {
       id: uuidv4(),
@@ -240,7 +260,8 @@ async function seed() {
       deliveryTime: '28-50 мин',
       cuisineType: 'Азиатская',
       averagePrice: 1450,
-      imageUrl: '/images/restaurants/grill_kafe_skala.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282982/restaurants/rapfzkdfaxtwzqsh3hw3.jpg',
     },
     {
       id: uuidv4(),
@@ -250,7 +271,8 @@ async function seed() {
       deliveryTime: '40-55 мин',
       cuisineType: 'Американская',
       averagePrice: 2100,
-      imageUrl: '/images/restaurants/shtorm_na_plyazhe.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283032/restaurants/ktdmbdwjoxcanzmcjxru.jpg',
     },
     {
       id: uuidv4(),
@@ -260,7 +282,8 @@ async function seed() {
       deliveryTime: '22-50 мин',
       cuisineType: 'Греческая',
       averagePrice: 2300,
-      imageUrl: '/images/restaurants/grecheskaya_taverna.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282940/restaurants/myunzvgfgkebjmvbr3dr.jpg',
     },
     {
       id: uuidv4(),
@@ -270,7 +293,8 @@ async function seed() {
       deliveryTime: '45-50 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 1850,
-      imageUrl: '/images/restaurants/morskaya_pena.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283002/restaurants/zq3wggs3xmkb78g1ttv6.jpg',
     },
     {
       id: uuidv4(),
@@ -280,7 +304,8 @@ async function seed() {
       deliveryTime: '50-60 мин',
       cuisineType: 'Русская',
       averagePrice: 1450,
-      imageUrl: '/images/restaurants/gastronomiya_chelsea.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282931/restaurants/flasnw17fdh1qqvboikx.jpg',
     },
     {
       id: uuidv4(),
@@ -290,7 +315,8 @@ async function seed() {
       deliveryTime: '35-50 мин',
       cuisineType: 'Русская',
       averagePrice: 2300,
-      imageUrl: '/images/restaurants/grill_park_zelenyy.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282990/restaurants/rdsv07qtqh6jd0nnty9s.jpg',
     },
     {
       id: uuidv4(),
@@ -300,7 +326,8 @@ async function seed() {
       deliveryTime: '30-45 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 2100,
-      imageUrl: '/images/restaurants/gastronomicheskiy_plavnik.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282925/restaurants/hs52fknjstkv3s6qs7bk.jpg',
     },
     {
       id: uuidv4(),
@@ -310,7 +337,8 @@ async function seed() {
       deliveryTime: '30-50 мин',
       cuisineType: 'Французская',
       averagePrice: 2200,
-      imageUrl: '/images/restaurants/grill_kafe_na_lagune.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282967/restaurants/p1ayzaholhto82csn4aa.jpg',
     },
     {
       id: uuidv4(),
@@ -320,7 +348,8 @@ async function seed() {
       deliveryTime: '35-45 мин',
       cuisineType: 'Фьюжн',
       averagePrice: 1800,
-      imageUrl: '/images/restaurants/festival_vkusov.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282900/restaurants/dlbmt9dyqa53z0ezczat.jpg',
     },
     {
       id: uuidv4(),
@@ -330,7 +359,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Американская',
       averagePrice: 1600,
-      imageUrl: '/images/restaurants/bruklinskiy_vkus.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282883/restaurants/xhbx5rpcejejlwk9njtr.jpg',
     },
     {
       id: uuidv4(),
@@ -340,7 +370,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Тайская',
       averagePrice: 1300,
-      imageUrl: '/images/restaurants/thayskiy_lotos.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283072/restaurants/dzauvztdj7sydrter9dj.jpg',
     },
     {
       id: uuidv4(),
@@ -350,7 +381,8 @@ async function seed() {
       deliveryTime: '20-30 мин',
       cuisineType: 'Пекарня',
       averagePrice: 500,
-      imageUrl: '/images/restaurants/pekarnya_lavka.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283016/restaurants/iukvgjzgfn6jpweqpswy.jpg',
     },
     {
       id: uuidv4(),
@@ -360,7 +392,8 @@ async function seed() {
       deliveryTime: '40-50 мин',
       cuisineType: 'Гриль',
       averagePrice: 2200,
-      imageUrl: '/images/restaurants/grill_akademiya.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282951/restaurants/vadgutshdnf4uvzrod4s.jpg',
     },
     {
       id: uuidv4(),
@@ -370,7 +403,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Русская',
       averagePrice: 1200,
-      imageUrl: '/images/restaurants/sant_peterburgskiy_pirog.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283023/restaurants/qpkgiqu7hu7xdnuidgj6.jpg',
     },
     {
       id: uuidv4(),
@@ -380,7 +414,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Мексиканская',
       averagePrice: 1500,
-      imageUrl: '/images/restaurants/meksikanskaya_burya.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282998/restaurants/jhrffxv8j8sbey8xlnqd.jpg',
     },
     {
       id: uuidv4(),
@@ -390,7 +425,8 @@ async function seed() {
       deliveryTime: '15-20 мин',
       cuisineType: 'Кофейня',
       averagePrice: 700,
-      imageUrl: '/images/restaurants/lavka_kofe.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282995/restaurants/hvghnafpycz3uko1ljem.jpg',
     },
     {
       id: uuidv4(),
@@ -400,7 +436,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Японская',
       averagePrice: 1700,
-      imageUrl: '/images/restaurants/sushi_gurme.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283038/restaurants/a4f6cl9slay4apmpxlnu.jpg',
     },
     {
       id: uuidv4(),
@@ -410,7 +447,8 @@ async function seed() {
       deliveryTime: '20-30 мин',
       cuisineType: 'Японская',
       averagePrice: 2100,
-      imageUrl: '/images/restaurants/restoran_tokyo.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283022/restaurants/w1qlvlqfcsh40xv5t6ze.jpg',
     },
     {
       id: uuidv4(),
@@ -420,7 +458,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Европейская',
       averagePrice: 1500,
-      imageUrl: '/images/restaurants/kulinarnaya_masterskaya.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282994/restaurants/jwl5jtzbpnq5cnj6os7t.jpg',
     },
     {
       id: uuidv4(),
@@ -430,7 +469,8 @@ async function seed() {
       deliveryTime: '35-45 мин',
       cuisineType: 'Международная',
       averagePrice: 1600,
-      imageUrl: '/images/restaurants/palitra_vkusov.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283006/restaurants/vzwh4ha6clg0vluactxq.jpg',
     },
     {
       id: uuidv4(),
@@ -440,7 +480,8 @@ async function seed() {
       deliveryTime: '25-30 мин',
       cuisineType: 'Бельгийская',
       averagePrice: 1800,
-      imageUrl: '/images/restaurants/belgijskiy_kafe.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282879/restaurants/mwljy7krlk3dc0uoh0x7.jpg',
     },
     {
       id: uuidv4(),
@@ -450,7 +491,8 @@ async function seed() {
       deliveryTime: '40-50 мин',
       cuisineType: 'Азиатская',
       averagePrice: 2000,
-      imageUrl: '/images/restaurants/panaziatskaya_kuhnya.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283007/restaurants/qteysptctonujxxwuzvu.jpg',
     },
     {
       id: uuidv4(),
@@ -460,7 +502,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Пивной бар',
       averagePrice: 1300,
-      imageUrl: '/images/restaurants/pivnoy_pirog.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283020/restaurants/ac2e5j7v8qdjrlcbomrh.jpg',
     },
     {
       id: uuidv4(),
@@ -470,7 +513,8 @@ async function seed() {
       deliveryTime: '35-45 мин',
       cuisineType: 'Средиземноморская',
       averagePrice: 2200,
-      imageUrl: '/images/restaurants/legendy_sredizemnomorya.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282996/restaurants/qzwwqmc8h7c9kxe5ciw6.jpg',
     },
     {
       id: uuidv4(),
@@ -480,7 +524,8 @@ async function seed() {
       deliveryTime: '40-50 мин',
       cuisineType: 'Гриль',
       averagePrice: 1800,
-      imageUrl: '/images/restaurants/grill_palata.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282986/restaurants/ommagct3elvio0ridx8t.jpg',
     },
     {
       id: uuidv4(),
@@ -490,7 +535,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Стейкхаус',
       averagePrice: 2500,
-      imageUrl: '/images/restaurants/miratorg.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282999/restaurants/cclfxrcylotiqfemgsnt.jpg',
     },
     {
       id: uuidv4(),
@@ -500,7 +546,8 @@ async function seed() {
       deliveryTime: '45-55 мин',
       cuisineType: 'Американская',
       averagePrice: 2200,
-      imageUrl: '/images/restaurants/texasskaya_rancho.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283064/restaurants/gulbqptlifnszyxmmrci.jpg',
     },
     {
       id: uuidv4(),
@@ -510,7 +557,8 @@ async function seed() {
       deliveryTime: '25-35 мин',
       cuisineType: 'Рыбная',
       averagePrice: 2000,
-      imageUrl: '/images/restaurants/morskoj_veter.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283004/restaurants/hcnxyr8zuxnh7hqlsar7.jpg',
     },
     {
       id: uuidv4(),
@@ -520,7 +568,8 @@ async function seed() {
       deliveryTime: '30-40 мин',
       cuisineType: 'Веганская',
       averagePrice: 1400,
-      imageUrl: '/images/restaurants/veganskiy_rai.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744283076/restaurants/g1i0ksectamxgjq5heg7.jpg',
     },
     {
       id: uuidv4(),
@@ -530,7 +579,8 @@ async function seed() {
       deliveryTime: '35-45 мин',
       cuisineType: 'Итальянская',
       averagePrice: 1800,
-      imageUrl: '/images/restaurants/italyanskiy_vkus.jpg',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1744282993/restaurants/hsvvlejkpngkh6ws0peb.jpg',
     },
   ];
   await db.insert(restaurants).values(restaurantData);

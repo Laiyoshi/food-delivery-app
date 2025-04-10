@@ -3,10 +3,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-
-
-
-
 export default function Pagination({
   totalPages,
   currentPage,
