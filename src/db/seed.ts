@@ -19,17 +19,17 @@ async function seed() {
   console.log('🌱 Заполнение базы данных...');
 
   // Очистка таблиц перед заполнением
-  await db.delete(restaurants);
-  await db.delete(menuItems);
-  await db.delete(categories);
-  await db.delete(cart);
-  await db.delete(favorites);
-  await db.delete(orders);
-  await db.delete(deliveryAddresses);
-  await db.delete(paymentMethods);
-  await db.delete(users);
-  await db.delete(orderStatuses);
-  await db.delete(couriers);
+  await db.delete(orders);          // Зависит от cart, users, deliveryAddresses и др.
+  await db.delete(cart);            // Зависит от menuItems
+  await db.delete(menuItems);       // Зависит от categories и restaurants
+  await db.delete(categories);      // Зависит от restaurants
+  await db.delete(favorites);       // Зависит от restaurants и users
+  await db.delete(deliveryAddresses); // Зависит от users
+  await db.delete(paymentMethods);    // Зависит от users
+  await db.delete(couriers);        // Используется в orders
+  await db.delete(orderStatuses);   // Используется в orders
+  await db.delete(restaurants);     // Родитель для categories/menuItems
+  await db.delete(users);           // Базовая таблица (после всех зависимостей)
 
   const restaurantData = [
     {
