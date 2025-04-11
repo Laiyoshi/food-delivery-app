@@ -48,33 +48,39 @@ export async function PATCH(req: Request) {
 
     const data = await req.json();
 
-    const existingUser = await db
-      .select()
-      .from(users)
-      .where(
-        and(
-          or(eq(users.email, data.email), eq(users.accountName, data.accountName)),
-          ne(users.id, userId)
-        )
-      );
+    if (data.email || data.accountName) {
+      const existingUser = await db
+        .select()
+        .from(users)
+        .where(
+          and(
+            or(
+              data.email ? eq(users.email, data.email) : undefined,
+              data.accountName ? eq(users.accountName, data.accountName) : undefined
+            ),
+            ne(users.id, userId)
+          )
+        );
 
-    if (existingUser.length > 0) {
-      return NextResponse.json({ error: 'Email или имя аккаунта уже заняты' }, { status: 400 });
+      if (existingUser.length > 0) {
+        return NextResponse.json({ error: 'Email или имя аккаунта уже заняты' }, { status: 400 });
+      }
     }
 
     await db.update(users)
       .set({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        accountName: data.accountName,
-        phone: data.phone,
-        address: data.address,
-        cardNumber: data.cardNumber,
+        ...(data.firstName && { firstName: data.firstName }),
+        ...(data.lastName && { lastName: data.lastName }),
+        ...(data.email && { email: data.email }),
+        ...(data.accountName && { accountName: data.accountName }),
+        ...(data.phone && { phone: data.phone }),
+        ...(data.address && { address: data.address }),
+        ...(data.cardNumber && { cardNumber: data.cardNumber }),
+        ...(data.avatar && { avatar: data.avatar }),
       })
       .where(eq(users.id, userId));
 
-    return NextResponse.json({ success: 'Данные успешно обновлены' });
+    return NextResponse.json({ success: 'Профиль обновлён' });
   } catch (error) {
     return NextResponse.json({ error: `Ошибка сервера: ${error}` }, { status: 500 });
   }
