@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-[50px] items-center justify-between rounded-b-xl border-b border-gray-300 px-6 lg:h-18 lg:rounded-none">
+      <header className="flex relative z-50 bg-white h-[50px] items-center justify-between rounded-b-xl border-b border-gray-300 px-6 lg:h-18 lg:rounded-none">
         <button className="lg:hidden" onClick={() => setIsOpened(!isOpened)}>
           <Bars3Icon className="h-[30px] w-[30px]" />
         </button>

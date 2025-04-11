@@ -1,5 +1,6 @@
 import React from 'react';
 
+import MobileBackground from '@/app/components/MobileBackground';
 import BackArrow from '@/app/components/BackArrow';
 import OrderItem from '@/app/components/OrderItem';
 import { OrderItemProps } from '@/app/types/types';
@@ -21,14 +22,16 @@ const OrdersPage = async () => {
   }
 
   return (
-    <div className="mx-5 max-w-[1440px] lg:mx-8 xl:mx-auto xl:max-w-[1180px]">
+    <div>
+    {/* <MobileBackground/> */}
+    <div className="relative mx-5 lg:mx-13 xl:mx-auto xl:max-w-[1180px]">
       <div className="mt-5 mb-5 flex items-center lg:mt-8 lg:mb-8 gap-2">
         {/* Кнопка "Назад" */}
         <BackArrow />
         {/* Заголовок */}
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Все заказы</h2>
       </div>
-      <div>
+      <div className='flex flex-col-reverse'>
         {orders.length === 0 ? (
           <p>У вас пока нет заказов.</p>
         ) : (
@@ -44,6 +47,7 @@ const OrdersPage = async () => {
           ))
         )}
       </div>
+    </div>
     </div>
   );
 };
