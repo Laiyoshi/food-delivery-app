@@ -46,6 +46,16 @@ CREATE TABLE `menu_items` (
 	FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
+CREATE TABLE `order_items` (
+	`id` text PRIMARY KEY NOT NULL,
+	`order_id` integer NOT NULL,
+	`menu_item_id` text NOT NULL,
+	`quantity` integer DEFAULT 1 NOT NULL,
+	`price_at_purchase` real NOT NULL,
+	FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`) ON UPDATE no action ON DELETE no action,
+	FOREIGN KEY (`menu_item_id`) REFERENCES `menu_items`(`id`) ON UPDATE no action ON DELETE no action
+);
+--> statement-breakpoint
 CREATE TABLE `order_statuses` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`name` text
@@ -57,7 +67,6 @@ CREATE TABLE `orders` (
 	`user_id` text,
 	`delivery_address_id` integer,
 	`restaurant_id` text,
-	`cart_id` text,
 	`courier_id` integer,
 	`status_id` integer,
 	`payment_method_id` integer,
@@ -65,7 +74,6 @@ CREATE TABLE `orders` (
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`delivery_address_id`) REFERENCES `delivery_addresses`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants`(`id`) ON UPDATE no action ON DELETE no action,
-	FOREIGN KEY (`cart_id`) REFERENCES `cart`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`courier_id`) REFERENCES `couriers`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`status_id`) REFERENCES `order_statuses`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`payment_method_id`) REFERENCES `payment_methods`(`id`) ON UPDATE no action ON DELETE no action

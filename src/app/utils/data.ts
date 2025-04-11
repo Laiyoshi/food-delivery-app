@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import { CategoryDish, MenuItem, PromiseCart, Restaurant } from '../types/types';
+import { CategoryDish, CreateOrderRequest, MenuItem, Restaurant } from '../types/types';
 
 const baseUrl = process.env.BASE_URL;
 
@@ -119,9 +119,9 @@ export async function fetchCategoriesMenu({
   }
 }
 
-export async function fetchPostOrder(orderData: PromiseCart[]): Promise<PromiseCart[]> {
+export async function fetchPostOrder(orderData: CreateOrderRequest) {
   try {
-    const response = await fetch(`${baseUrl}/api/cart`, {
+    const response = await fetch(`/api/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
