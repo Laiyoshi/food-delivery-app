@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { CameraIcon } from '@heroicons/react/24/outline';
 import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
 import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import AccountSettingsForm from '@/app/components/profile/AccountSettingsForm';
+import AvatarUploadButton from '@/app/components/profile/AvatarUploadButton';
 
 export default async function AccountSettingsPage() {
   const userId = await getAuthenticatedUserId();
@@ -20,18 +20,16 @@ export default async function AccountSettingsPage() {
           Настройка аккаунта
         </h1>
         <div className="flex flex-col sm:flex-row items-center sm:items-start sm:gap-4">
-          <div className="relative w-[92px] h-[92px]">
-            <Image
-              src="/images/avatar.webp"
-              alt="Аватар"
-              width={92}
-              height={92}
-              className="rounded-full object-cover"
-            />
-            <button className="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-600 transition">
-              <CameraIcon className="w-5 h-5" />
-            </button>
-          </div>
+        <div className="relative w-[88px] h-[88px] rounded-full overflow-hidden border-2 border-gray-300">
+          <Image
+            src={user.avatar || '/images/avatar.jpg'}
+            alt="Аватар"
+            width={88}
+            height={88}
+            className="w-[88px] h-[88px] object-cover"
+          />
+          <AvatarUploadButton />
+        </div>
         </div>
         <AccountSettingsForm user={user} />
       </div>

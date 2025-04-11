@@ -6,7 +6,7 @@ import { createClient } from '@libsql/client';
 // import { drizzle } from 'drizzle-orm/better-sqlite3';
 
 // Для Turso в CI
-import { drizzle } from 'drizzle-orm/libsql';
+ import { drizzle } from 'drizzle-orm/libsql';
 
 // оставить для всех
 import * as schema from './schema';

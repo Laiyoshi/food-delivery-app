@@ -18,7 +18,7 @@ export async function fetchRemoveUser() {
   }
 }
 
-export async function fetchUpdateProfile(data: {
+export async function fetchUpdateProfile(data: Partial<{
   firstName: string;
   lastName: string;
   email: string;
@@ -26,7 +26,8 @@ export async function fetchUpdateProfile(data: {
   phone: string;
   address: string;
   cardNumber: string;
-}) {
+  avatar: string;
+}>) {
   try {
     const response = await fetch(`${baseUrl}/api/profile/me`, {
       method: 'PATCH',
@@ -42,6 +43,28 @@ export async function fetchUpdateProfile(data: {
     return await response.json();
   } catch (error: unknown) {
     console.error('Ошибка обновления профиля:', error);
+    throw error;
+  }
+}
+
+export async function fetchUpdateAvatar(avatarUrl: string) {
+  try {
+    const response = await fetch(`${baseUrl}/api/profile/avatar`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ avatar: avatarUrl }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Ошибка обновления аватара');
+    }
+
+    return await response.json();
+  } catch (error: unknown) {
+    console.error('Ошибка обновления аватара:', error);
     throw error;
   }
 }
