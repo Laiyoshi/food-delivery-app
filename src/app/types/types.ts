@@ -64,7 +64,6 @@ export interface CartItem extends Dish {
 export interface StoreState {
   cart: CartItem[];
   cartAmount: number;
-
   updateAmount: () => void;
   addToCart: (item: Dish) => void;
   removeFromCart: (id: string) => void;
@@ -124,4 +123,40 @@ export interface OrderItemProps {
   restaurant: string;
   amount: number; // Сумма заказа
   status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
+}
+
+export interface OrderData {
+  orderId: number;
+  orderDate: string; // ISO-формат даты
+  status: string;
+  restaurant: string;
+  deliveryAddress: string;
+  paymentMethod: string;
+  courierName: string;
+  courierPhone: string;
+  items: {
+    name: string;
+    quantity: number;
+    price: number;
+  }[];
+  total: number; // Общая сумма заказа
+}
+
+export interface ReviewData {
+  restaurantRating: number;
+  deliveryRating: number;
+  comment: string;
+  orderId: number;
+}
+
+export interface AccountSettingsFormProps {
+  user: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    accountName: string;
+    phone: string;
+    address: string;
+    cardNumber: string;
+  };
 }

@@ -6,6 +6,9 @@ import { PromiseCart } from '@/app/types/types';
 import { db } from '@/db';
 import { cart, menuItems, orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
+import { db } from '@/db';
+import { cart, menuItems, orders, orderStatuses, restaurants } from '@/db/schema';
+
 export async function GET() {
   try {
     // Основной запрос для получения всех заказов с необходимыми данными

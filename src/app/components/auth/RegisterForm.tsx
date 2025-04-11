@@ -109,7 +109,7 @@ const RegisterForm = () => {
       </div>
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-3 sm:py-2 rounded-lg font-semibold hover:bg-blue-600 transition disabled:opacity-50"
+        className="w-full bg-blue-500 text-white py-3 sm:py-2 rounded-lg font-semibold hover:bg-blue-600 transition disabled:opacity-50 cursor-pointer"
         disabled={loading || !isFormValid}
       >
         {loading ? "Регистрация..." : "Зарегистрироваться"}
