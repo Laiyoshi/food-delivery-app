@@ -101,11 +101,24 @@ export const orders = sqliteTable('orders', {
   userId: text('user_id').references(() => users.id),
   deliveryAddressId: integer('delivery_address_id').references(() => deliveryAddresses.id),
   restaurantId: text('restaurant_id').references(() => restaurants.id),
-  cartId: text('cart_id').references(() => cart.id),
   courierId: integer('courier_id').references(() => couriers.id),
   statusId: integer('status_id').references(() => orderStatuses.id),
   paymentMethodId: integer('payment_method_id').references(() => paymentMethods.id),
   orderDate: text('order_date').default(sql`(strftime('%s', 'now'))`),
+});
+
+export const orderItems = sqliteTable('order_items', {
+  id: text('id')
+    .primaryKey()
+    .$default(() => uuid4()),
+  orderId: integer('order_id')
+    .notNull()
+    .references(() => orders.id),
+  menuItemId: text('menu_item_id')
+    .notNull()
+    .references(() => menuItems.id),
+  quantity: integer('quantity').notNull().default(1),
+  priceAtPurchase: real('price_at_purchase').notNull(),
 });
 
 export const reviews = sqliteTable('reviews', {

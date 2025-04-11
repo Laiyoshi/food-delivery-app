@@ -61,6 +61,7 @@ async function getRestaurantMenu(restaurantId: string, searchParams: { [key: str
         description: data.description,
         price: data.price,
         imageUrl: data.imageUrl || '/images/food.png',
+        restaurantId: restaurantId,
       });
     }
 

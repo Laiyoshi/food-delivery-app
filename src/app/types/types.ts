@@ -42,6 +42,7 @@ export interface Dish {
   description: string;
   price: number;
   imageUrl: string;
+  restaurantId: string;
 }
 
 export interface MenuItem {
@@ -75,6 +76,15 @@ export interface StoreState {
 export interface PromiseCart {
   menuItemId: string;
   quantity: number;
+  price: number;
+}
+
+export interface CreateOrderRequest {
+  userId: string;
+  deliveryAddressId: number;
+  restaurantId: string;
+  paymentMethodId: number;
+  cart: PromiseCart[];
   orderAmount: number;
 }
 

@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 import { eq } from 'drizzle-orm';
+import { v4 as uuidv4 } from 'uuid';
+
+import { PromiseCart } from '@/app/types/types';
+import { db } from '@/db';
+import { cart, menuItems, orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
 import { db } from '@/db';
 import { cart, menuItems, orders, orderStatuses, restaurants } from '@/db/schema';
@@ -62,5 +67,39 @@ export async function GET() {
   } catch (error) {
     console.error('Error fetching orders:', error);
     return NextResponse.json({ error: 'Failed to fetch orders' }, { status: 500 });
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    console.log('Полученные данные запроса');
+    const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart } = await req.json();
+
+    const [newOrder] = await db
+      .insert(orders)
+      .values({
+        userId,
+        deliveryAddressId,
+        restaurantId,
+        courierId: 1,
+        paymentMethodId,
+        statusId: 1,
+      })
+      .returning();
+
+    const items = cart.map((item: PromiseCart) => ({
+      id: uuidv4(),
+      orderId: newOrder.id,
+      menuItemId: item.menuItemId,
+      quantity: item.quantity,
+      priceAtPurchase: item.price,
+    }));
+
+    await db.insert(orderItems).values(items);
+
+    return NextResponse.json({ message: 'Заказ оформлен', orderId: newOrder.id });
+  } catch (error) {
+    console.error('Ошибка при создании заказа:', error);
+    return NextResponse.json({ error: 'Ошибка на сервере' }, { status: 500 });
   }
 }

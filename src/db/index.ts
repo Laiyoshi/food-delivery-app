@@ -13,6 +13,7 @@ import * as schema from './schema';
 
 // Локальная разработка
 // const sqlite = new Database('sqlite.db');
+// export const sqliteClient = drizzle(sqlite);
 // export const db = drizzle({ client: sqlite, schema });
 
 // Для Turso в CI

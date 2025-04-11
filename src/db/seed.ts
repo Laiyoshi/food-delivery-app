@@ -1,12 +1,12 @@
+import { reset } from 'drizzle-seed';
 import { v4 as uuidv4 } from 'uuid';
 
-import { db } from './index';
+import { db, sqliteClient } from './index';
 import {
   cart,
   categories,
   couriers,
   deliveryAddresses,
-  favorites,
   menuItems,
   orders,
   orderStatuses,
@@ -17,19 +17,21 @@ import {
 
 async function seed() {
   console.log('🌱 Заполнение базы данных...');
+  const schema = {
+    cart,
+    categories,
+    couriers,
+    deliveryAddresses,
+    menuItems,
+    orders,
+    orderStatuses,
+    paymentMethods,
+    restaurants,
+    users,
+  };
 
   // Очистка таблиц перед заполнением
-  await db.delete(orders);          // Зависит от cart, users, deliveryAddresses и др.
-  await db.delete(cart);            // Зависит от menuItems
-  await db.delete(menuItems);       // Зависит от categories и restaurants
-  await db.delete(categories);      // Зависит от restaurants
-  await db.delete(favorites);       // Зависит от restaurants и users
-  await db.delete(deliveryAddresses); // Зависит от users
-  await db.delete(paymentMethods);    // Зависит от users
-  await db.delete(couriers);        // Используется в orders
-  await db.delete(orderStatuses);   // Используется в orders
-  await db.delete(restaurants);     // Родитель для categories/menuItems
-  await db.delete(users);           // Базовая таблица (после всех зависимостей)
+  await reset(sqliteClient, schema);
 
   const restaurantData = [
     {
