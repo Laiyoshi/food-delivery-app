@@ -5,8 +5,9 @@ import { Button } from '@headlessui/react';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 import { roboto } from '@/app/ui/fonts';
+import { Suspense } from 'react';
 
-const SuccessPage = () => {
+const SuccessPageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -35,6 +36,14 @@ const SuccessPage = () => {
         </Button>
       </div>
     </div>
+  );
+};
+
+const SuccessPage = () => {
+  return (
+    <Suspense fallback={<div>Загрузка...</div>}>
+      <SuccessPageContent />
+    </Suspense>
   );
 };
 
