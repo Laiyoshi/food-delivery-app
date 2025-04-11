@@ -1,12 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { db } from './index';
+import { db  } from './index';
 import {
   cart,
   categories,
   couriers,
   deliveryAddresses,
-  favorites,
   menuItems,
   orders,
   orderStatuses,
@@ -17,13 +16,10 @@ import {
 
 async function seed() {
   console.log('🌱 Заполнение базы данных...');
-
-  // Очистка таблиц перед заполнением
   await db.delete(orders);          // Зависит от cart, users, deliveryAddresses и др.
   await db.delete(cart);            // Зависит от menuItems
   await db.delete(menuItems);       // Зависит от categories и restaurants
   await db.delete(categories);      // Зависит от restaurants
-  await db.delete(favorites);       // Зависит от restaurants и users
   await db.delete(deliveryAddresses); // Зависит от users
   await db.delete(paymentMethods);    // Зависит от users
   await db.delete(couriers);        // Используется в orders

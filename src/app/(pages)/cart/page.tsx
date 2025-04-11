@@ -5,27 +5,45 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
+
+
 import CartItem from '@/app/components/CartItem';
 import { useStore } from '@/app/store/store';
 import { inter, roboto } from '@/app/ui/fonts';
+import { fetchPostOrder } from '@/app/utils/data';
+
+
+
+
 
 const Cart = () => {
   const { cart, cartAmount, clearCart, updateAmount } = useStore();
   const router = useRouter();
 
-  function handlePostOrder() {
-    const orderData = {
-      menuData: cart.map(item => ({
+  async function handlePostOrder() {
+    const orderPayload = {
+      userId: 'b2871953-ba23-4c17-83fa-b8df940b3650', // нужно подтянуть из авторизации
+      deliveryAddressId: 2, // позже сделаем выбор
+      paymentMethodId: 2,
+      restaurantId: cart[0].restaurantId,
+      cart: cart.map(item => ({
         menuItemId: item.id,
-        menuItemName: item.name,
-        price: item.price,
         quantity: item.quantity,
+        price: item.price,
       })),
       orderAmount: cartAmount,
     };
 
-    console.log(orderData);
-    clearCart();
+    console.log(orderPayload);
+
+    try {
+      const result = await fetchPostOrder(orderPayload);
+      console.log('Успешный заказ:', result);
+      clearCart();
+      router.push(`/success?orderId=${result.orderId}`); // переход на страницу подтверждения
+    } catch (err) {
+      console.error('Ошибка при оформлении:', err);
+    }
   }
 
   useEffect(() => {
