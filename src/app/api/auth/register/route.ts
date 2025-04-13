@@ -3,6 +3,8 @@ import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from "drizzle-orm";
 import bcrypt from 'bcryptjs';
+import { SignJWT } from "jose";
+import { cookies } from "next/headers";
 
 async function createUser(firstName: string, lastName: string, email: string, password: string, phone: string, address: string, cardNumber: string) {
   try {
@@ -13,15 +15,28 @@ async function createUser(firstName: string, lastName: string, email: string, pa
 
     const passwordHash = await bcrypt.hash(password, 10);
 
-    await db.insert(users).values({
+    const [user] = await db.insert(users).values({
       firstName,
       lastName,
-      accountName: firstName + lastName,
+      accountName: firstName + lastName + Math.random() * 1000,
       email,
       passwordHash,
       phone,
       address,
       cardNumber,
+    }).returning();;
+
+    const token = await new SignJWT({ id: user.id, email: user.email})
+      .setProtectedHeader({ alg: 'HS256' })
+      .setIssuedAt()
+      .setExpirationTime('1h')
+      .sign(new TextEncoder().encode(process.env.JWT_SECRET || 'secret_token'));
+
+    (await cookies()).set('token', token, {
+      httpOnly: true,
+      maxAge: 60 * 60,
+      sameSite: 'lax',
+      secure: true,
     });
 
     return { success: "Регистрация успешна!" };

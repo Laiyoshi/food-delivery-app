@@ -118,7 +118,7 @@ const Header = () => {
               Чат поддержки
             </Link>
             <Link
-              href="/"
+              href="/profile"
               className="flex h-12 w-full items-center border-b-1 border-b-gray-300 py-6"
             >
               <UserIcon className="mr-1 h-6 w-6" /> Профиль

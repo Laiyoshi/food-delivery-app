@@ -38,6 +38,10 @@ const Cart = () => {
 
     try {
       const result = await fetchPostOrder(orderPayload);
+      if (result.status === 401) {
+        router.push('/login?callbackUrl=cart');
+        return;
+      }
       console.log('Успешный заказ:', result);
       clearCart();
       router.push(`/success?orderId=${result.orderId}`); // переход на страницу подтверждения

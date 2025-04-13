@@ -1,5 +1,7 @@
+'use client';
 import { AuthFooterProps } from "@/app/types/types";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const AuthFooter = ({
   question,
@@ -8,6 +10,10 @@ const AuthFooter = ({
   isInsideForm = false,
   className = "",
 }: AuthFooterProps) => {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
+  const link = linkHref + '?callbackUrl=' + callbackUrl
+  console.log(link);
   if (isInsideForm) {
     return (
       <div
@@ -15,7 +21,7 @@ const AuthFooter = ({
       >
         <span>{question}</span>
         <Link
-          href={linkHref}
+          href={link}
           className="text-blue-600 font-semibold hover:underline"
         >
           {linkText}
@@ -30,7 +36,7 @@ const AuthFooter = ({
     >
       <span className="block">{question}</span>
       <Link
-        href={linkHref}
+        href={link}
         className="text-blue-600 font-semibold hover:underline block"
       >
         {linkText}

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import InputField from "./InputField";
 import { fetchRegisterUser } from "@/app/utils/auth/data";
 import { isEmailValid, isPhoneValid, isCardValid, isNameValid } from "@/app/utils/auth/validation";
@@ -35,6 +35,9 @@ const RegisterForm = () => {
     isNameValid(formData.firstName) &&
     isNameValid(formData.lastName);
 
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
@@ -54,7 +57,8 @@ const RegisterForm = () => {
 
     if (result.success) {
       setMessage({ text: result.success, type: "success" });
-      setTimeout(() => router.push("/login"), 2000);
+      console.log(callbackUrl);
+      setTimeout(() => router.push(callbackUrl), 2000);
     } else {
       setMessage({ text: result.error || "Ошибка сервера", type: "error" });
     }
