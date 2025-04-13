@@ -128,6 +128,9 @@ export async function fetchPostOrder(orderData: CreateOrderRequest) {
       },
       body: JSON.stringify(orderData),
     });
+    if (response.status === 401) {
+      return response;
+    }
 
     if (!response.ok) {
       throw new Error('Ошибка в отправке запроса');

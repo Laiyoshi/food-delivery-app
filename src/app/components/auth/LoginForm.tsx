@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import InputField from '@/app/components/auth/InputField';
 import { fetchLoginUser } from '@/app/utils/auth/data';
 
@@ -9,6 +9,8 @@ export default function LoginPage() {
   const [emailOrAccountName, setEmailOrLogin] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ export default function LoginPage() {
 
     try {
       await fetchLoginUser({ emailOrAccountName: emailOrAccountName, password });
-      router.push('/');
+      router.push(callbackUrl);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

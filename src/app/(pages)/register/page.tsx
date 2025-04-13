@@ -4,6 +4,7 @@ import RegisterForm from "@/app/components/auth/RegisterForm";
 import AuthFooter from "@/app/components/auth/AuthFooter";
 
 export default function RegisterPage() {
+
   return (
     <div className="relative flex min-h-[calc(100vh-50px)] items-center justify-center bg-white overflow-hidden px-4 sm:px-0 pt-[50px]">
       <AuthBackground />

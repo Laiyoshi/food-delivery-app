@@ -1,25 +1,27 @@
+import { verifyAuth } from '@/app/utils/auth/checkAuth';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { jwtVerify } from 'jose';
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
 
-  const loginUrl = new URL('/login', request.url);
-  if (!token) {
-    return NextResponse.redirect(loginUrl);
+  const isAuthorized = token && (await verifyAuth(token));
+  const isApiRequest = request.nextUrl.pathname.startsWith('/api');
+
+  if (!isAuthorized) {
+    if (isApiRequest) {
+      return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
+    } else {
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
   }
 
-  try {
-    const secret = new TextEncoder().encode('secret_token'); // process.env.JWT_SECRET!
-    await jwtVerify(token, secret);
-    return NextResponse.next();
-  } catch {
-    return NextResponse.redirect(loginUrl);
-  }
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/profile'],
+  matcher: [
+    '/api/orders',
+    '/profile/:path*',
+  ],
 };
-

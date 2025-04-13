@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Неверные данные для входа' }, { status: 401 });
     }
 
-    const secret = new TextEncoder().encode('secret_token'); // process.env.JWT_SECRET!
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'secret_token');
 
     const token = await new SignJWT({
       id: user.id,
