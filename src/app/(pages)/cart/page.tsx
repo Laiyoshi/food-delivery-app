@@ -13,13 +13,13 @@ import { fetchPostOrder } from '@/app/utils/data';
 const Cart = () => {
   const { cart, cartAmount, clearCart, updateAmount } = useStore();
   const router = useRouter();
-  const { userId } = useUserStore();
+  const { userId, paymentMethodId, deliveryAddressId } = useUserStore();
 
   async function handlePostOrder() {
     const orderPayload = {
       userId: userId!,
-      deliveryAddressId: 2, // позже сделаем выбор
-      paymentMethodId: 2,
+      deliveryAddressId: deliveryAddressId!,
+      paymentMethodId: paymentMethodId!,
       restaurantId: cart[0].restaurantId,
       cart: cart.map(item => ({
         menuItemId: item.id,

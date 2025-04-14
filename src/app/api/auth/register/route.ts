@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from '@/db';
-import { users } from '@/db/schema';
+import { deliveryAddresses, paymentMethods, users } from '@/db/schema';
 import { eq } from "drizzle-orm";
 import bcrypt from 'bcryptjs';
 import { SignJWT } from "jose";
@@ -22,9 +22,23 @@ async function createUser(firstName: string, lastName: string, email: string, pa
       email,
       passwordHash,
       phone,
-      address,
-      cardNumber,
-    }).returning();;
+    }).returning();
+
+    if (address) {
+      await db.insert(deliveryAddresses).values({
+        userId: user.id,
+        address,
+        comment: '',
+      });
+    }
+
+    if (cardNumber) {
+      await db.insert(paymentMethods).values({
+        userId: user.id,
+        type: 'card',
+        details: cardNumber,
+      });
+    }
 
     const token = await new SignJWT({ id: user.id, email: user.email})
       .setProtectedHeader({ alg: 'HS256' })

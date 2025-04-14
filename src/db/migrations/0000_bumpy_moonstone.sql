@@ -119,9 +119,7 @@ CREATE TABLE `users` (
 	`password_hash` text NOT NULL,
 	`phone` text NOT NULL,
 	`created_at` text DEFAULT (strftime('%s', 'now')),
-	`avatar` text,
-	`address` text NOT NULL,
-	`cardNumber` text(16) NOT NULL
+	`avatar` text
 );
 --> statement-breakpoint
 CREATE UNIQUE INDEX `users_account_name_unique` ON `users` (`account_name`);--> statement-breakpoint

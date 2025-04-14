@@ -67,8 +67,6 @@ export const users = sqliteTable('users', {
   phone: text('phone').notNull(),
   createdAt: text('created_at').default(sql`(strftime('%s', 'now'))`),
   avatar: text('avatar'),
-  address: text('address').notNull(),
-  cardNumber: text('cardNumber', { length: 16 }).notNull(),
 });
 
 export const orderStatuses = sqliteTable('order_statuses', {
