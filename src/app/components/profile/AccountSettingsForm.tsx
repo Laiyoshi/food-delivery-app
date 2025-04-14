@@ -6,6 +6,7 @@ import InputField from '@/app/components/auth/InputField';
 import { fetchLogoutUser } from '@/app/utils/auth/data';
 import { fetchRemoveUser, fetchUpdateProfile } from '@/app/utils/profile/data';
 import { AccountSettingsFormProps } from '@/app/types/types';
+import { useUserStore } from '@/app/store/store';
 
 export default function AccountSettingsForm({ user }: AccountSettingsFormProps) {
   const [formData, setFormData] = useState(user);
@@ -55,6 +56,7 @@ export default function AccountSettingsForm({ user }: AccountSettingsFormProps) 
     try {
       await fetchLogoutUser();
       router.push('/login');
+      useUserStore.getState().setUserId(null);
     } catch (error) {
       console.error('Ошибка выхода:', error);
     }

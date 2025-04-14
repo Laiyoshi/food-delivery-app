@@ -160,3 +160,9 @@ export interface AccountSettingsFormProps {
     cardNumber: string;
   };
 }
+
+export interface UserState {
+  userId: string | null;
+  setUserId: (id: string | null) => void;
+}
+

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { StoreState } from '../types/types';
+import { StoreState, UserState } from '../types/types';
 
 export const useStore = create<StoreState>()(
   persist(
@@ -42,3 +42,8 @@ export const useStore = create<StoreState>()(
     }
   )
 );
+
+export const useUserStore = create<UserState>((set) => ({
+  userId: null,
+  setUserId: (id) => set({ userId: id }),
+}));
