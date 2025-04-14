@@ -26,7 +26,7 @@ export default async function AccountSettingsPage() {
             alt="Аватар"
             width={88}
             height={88}
-            className="w-[88px] h-[88px] object-cover"
+            className="rounded-full object-cover"
           />
           <AvatarUploadButton />
         </div>

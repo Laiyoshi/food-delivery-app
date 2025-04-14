@@ -665,8 +665,6 @@ async function seed() {
       email: 'ivan@example.com',
       passwordHash: 'hashedpassword',
       phone: '79990001122',
-      address: 'Москва',
-      cardNumber: '1234123412341234',
     },
   ];
   await db.insert(users).values(userData);
@@ -677,7 +675,7 @@ async function seed() {
   await db.insert(deliveryAddresses).values(addressData);
 
   const paymentMethodsData = [
-    { id: 1, userId: userData[0].id, type: 'Карта', details: '1234 4321 4321 1234' },
+    { id: 1, userId: userData[0].id, type: 'card', details: '1234432143211234' },
   ];
   await db.insert(paymentMethods).values(paymentMethodsData);
 

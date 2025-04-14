@@ -45,5 +45,9 @@ export const useStore = create<StoreState>()(
 
 export const useUserStore = create<UserState>((set) => ({
   userId: null,
+  paymentMethodId: null,
+  deliveryAddressId: null,
   setUserId: (id) => set({ userId: id }),
+  setPaymentMethodId: (id) => set({ paymentMethodId: id }),
+  setDeliveryAddressId: (id) => set({ deliveryAddressId: id }),
 }));

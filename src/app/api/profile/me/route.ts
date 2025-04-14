@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/db';
-import { cart, favorites, orders, users } from '@/db/schema';
+import { cart, deliveryAddresses, favorites, orders, paymentMethods, users } from '@/db/schema';
 import { eq, and, ne, or } from 'drizzle-orm';
 import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
 
@@ -13,16 +13,7 @@ export async function GET() {
     }
 
     const [user] = await db
-      .select({
-        firstName: users.firstName,
-        lastName: users.lastName,
-        email: users.email,
-        accountName: users.accountName,
-        phone: users.phone,
-        address: users.address,
-        cardNumber: users.cardNumber,
-        avatar: users.avatar,
-      })
+      .select()
       .from(users)
       .where(eq(users.id, userId));
 
@@ -30,7 +21,24 @@ export async function GET() {
       return NextResponse.json({ error: 'Пользователь не найден' }, { status: 404 });
     }
 
-    return NextResponse.json({ user });
+    const [address] = await db
+    .select({ address: deliveryAddresses.address })
+    .from(deliveryAddresses)
+    .where(eq(deliveryAddresses.userId, userId));
+
+    const [card] = await db
+    .select({ cardNumber: paymentMethods.details })
+    .from(paymentMethods)
+    .where(eq(paymentMethods.userId, userId));
+
+
+    return NextResponse.json({
+          user: {
+            ...user,
+            address: address?.address || '',
+            cardNumber: card?.cardNumber || '',
+          },
+       });
   } catch (error) {
     return NextResponse.json(
       { error: `Ошибка сервера: ${(error as Error).message}` },
@@ -74,11 +82,45 @@ export async function PATCH(req: Request) {
         ...(data.email && { email: data.email }),
         ...(data.accountName && { accountName: data.accountName }),
         ...(data.phone && { phone: data.phone }),
-        ...(data.address && { address: data.address }),
-        ...(data.cardNumber && { cardNumber: data.cardNumber }),
         ...(data.avatar && { avatar: data.avatar }),
       })
       .where(eq(users.id, userId));
+
+
+      const [existingAddress] = await db
+      .select()
+      .from(deliveryAddresses)
+      .where(eq(deliveryAddresses.userId, userId));
+
+      if (existingAddress) {
+        await db.update(deliveryAddresses)
+          .set({ address: data.address })
+          .where(eq(deliveryAddresses.userId, userId));
+      } else {
+        await db.insert(deliveryAddresses).values({
+          userId,
+          address: data.address,
+          comment: '',
+        });
+      }
+
+      const [existingCard] = await db
+        .select()
+        .from(paymentMethods)
+        .where(eq(paymentMethods.userId, userId));
+
+      if (existingCard) {
+        await db.update(paymentMethods)
+          .set({ details: data.cardNumber })
+          .where(eq(paymentMethods.userId, userId));
+      } else {
+        await db.insert(paymentMethods).values({
+          userId,
+          type: 'card',
+          details: data.cardNumber,
+        });
+      }
+
 
     return NextResponse.json({ success: 'Профиль обновлён' });
   } catch (error) {
