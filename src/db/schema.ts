@@ -105,6 +105,7 @@ export const orders = sqliteTable('orders', {
   statusId: integer('status_id').references(() => orderStatuses.id),
   paymentMethodId: integer('payment_method_id').references(() => paymentMethods.id),
   orderDate: text('order_date').default(sql`(strftime('%s', 'now'))`),
+  orderAmount: integer('order_amount'),
 });
 
 export const orderItems = sqliteTable('order_items', {

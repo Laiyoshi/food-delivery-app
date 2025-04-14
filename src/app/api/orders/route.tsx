@@ -70,7 +70,8 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     console.log('Полученные данные запроса');
-    const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart } = await req.json();
+    const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart, orderAmount } =
+      await req.json();
 
     const [newOrder] = await db
       .insert(orders)
@@ -81,6 +82,7 @@ export async function POST(req: Request) {
         courierId: 1,
         paymentMethodId,
         statusId: 1,
+        orderAmount,
       })
       .returning();
 
