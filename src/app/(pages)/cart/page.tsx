@@ -8,7 +8,7 @@ import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
 
 import CartItem from '@/app/components/CartItem';
-import { useStore } from '@/app/store/store';
+import { useStore, useUserStore } from '@/app/store/store';
 import { inter, roboto } from '@/app/ui/fonts';
 import { fetchPostOrder } from '@/app/utils/data';
 
@@ -19,10 +19,11 @@ import { fetchPostOrder } from '@/app/utils/data';
 const Cart = () => {
   const { cart, cartAmount, clearCart, updateAmount } = useStore();
   const router = useRouter();
+  const { userId } = useUserStore();
 
   async function handlePostOrder() {
     const orderPayload = {
-      userId: 'b2871953-ba23-4c17-83fa-b8df940b3650', // нужно подтянуть из авторизации
+      userId: userId!,
       deliveryAddressId: 2, // позже сделаем выбор
       paymentMethodId: 2,
       restaurantId: cart[0].restaurantId,
