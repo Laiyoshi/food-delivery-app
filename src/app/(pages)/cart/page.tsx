@@ -5,16 +5,10 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
-
-
 import CartItem from '@/app/components/CartItem';
 import { useStore, useUserStore } from '@/app/store/store';
 import { inter, roboto } from '@/app/ui/fonts';
 import { fetchPostOrder } from '@/app/utils/data';
-
-
-
-
 
 const Cart = () => {
   const { cart, cartAmount, clearCart, updateAmount } = useStore();
