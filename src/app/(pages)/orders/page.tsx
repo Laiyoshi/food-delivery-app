@@ -17,6 +17,7 @@ const OrdersPage = async () => {
   try {
     orders = await fetchOrders();
   } catch (error) {
+    console.error('Ошибка при загрузке заказов:', error);
     return <p>Ошибка: {error instanceof Error ? error.message : 'Неизвестная ошибка'}</p>;
   }
 

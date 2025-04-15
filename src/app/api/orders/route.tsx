@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { PromiseCart } from '@/app/types/types';
 import { db } from '@/db';
+import { sql } from 'drizzle-orm'
 import { cart, menuItems, orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
 export async function GET() {
@@ -15,40 +16,38 @@ export async function GET() {
         orderDate: orders.orderDate,
         restaurantName: restaurants.name,
         statusName: orderStatuses.name,
-        cartId: orders.cartId,
       })
       .from(orders)
       .leftJoin(restaurants, eq(orders.restaurantId, restaurants.id))
       .leftJoin(orderStatuses, eq(orders.statusId, orderStatuses.id));
 
-    // Запрос для получения данных о корзине и товарах
-    const cartData = await db
+    // Запрос для получения данных о товарах в заказах из orderItems
+    const orderItemsData = await db
       .select({
-        cartId: cart.id,
-        quantity: cart.quantity,
-        price: menuItems.price,
+        orderId: orderItems.orderId,
+        quantity: orderItems.quantity,
+        price: orderItems.priceAtPurchase,
       })
-      .from(cart)
-      .leftJoin(menuItems, eq(cart.menuItemId, menuItems.id));
+      .from(orderItems);
 
-    // Группируем данные о корзине по cartId
-    const groupedCartData = cartData.reduce(
+    // Группируем данные о товарах по orderId
+    const groupedOrderItemsData = orderItemsData.reduce(
       (acc, item) => {
-        if (!acc[item.cartId]) {
-          acc[item.cartId] = [];
+        if (!acc[item.orderId]) {
+          acc[item.orderId] = [];
         }
-        acc[item.cartId].push(item);
+        acc[item.orderId].push(item);
         return acc;
       },
-      {} as Record<string, typeof cartData>
+      {} as Record<number, typeof orderItemsData>,
     );
 
     // Формируем финальный массив заказов
     const ordersWithAmount = allOrders.map(order => {
-      const cartItems = order.cartId ? groupedCartData[order.cartId] || [] : [];
-      const totalAmount = cartItems.reduce<number>(
+      const items = order.orderId ? groupedOrderItemsData[order.orderId] || [] : [];
+      const totalAmount = items.reduce<number>(
         (sum, item) => sum + (item.quantity ?? 0) * (item.price ?? 0),
-        0
+        0,
       );
 
       return {
@@ -70,19 +69,20 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     console.log('Полученные данные запроса');
-    const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart, orderAmount } =
+    const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart, orderAmount, } =
       await req.json();
 
     const [newOrder] = await db
       .insert(orders)
       .values({
-        userId,
-        deliveryAddressId,
-        restaurantId,
-        courierId: 1,
-        paymentMethodId,
-        statusId: 1,
-        orderAmount,
+        userId, // Ensure userId is a string
+        deliveryAddressId, // Ensure deliveryAddressId is a string
+        restaurantId, 
+        courierId: 1, 
+        paymentMethodId, 
+        statusId: 1, 
+        orderDate: new Date().toISOString(), 
+        orderAmount, 
       })
       .returning();
 
