@@ -29,7 +29,7 @@ const SuccessPageContent = () => {
           На главную
         </Button>
         <Button
-          onClick={() => router.push('/')}
+          onClick={() => router.push(`/orders/order/${orderId}`)}
           className="mt-6 rounded bg-blue-500 px-4 py-2 font-semibold text-white"
         >
           Отследить заказ
