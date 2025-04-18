@@ -10,6 +10,7 @@ export const restaurants = sqliteTable('restaurants', {
   description: text('description').notNull(),
   rating: real('rating').default(0),
   deliveryTime: text('delivery_time').notNull(),
+  deliveryTimeMinutes: integer('delivery_time_minutes').notNull(),
   cuisineType: text('cuisine_type').notNull(),
   averagePrice: real('average_price'),
   imageUrl: text('image_url'),

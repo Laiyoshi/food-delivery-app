@@ -2,15 +2,9 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
-
-
 import { useStore } from '@/app/store/store';
 import { menuItemProps } from '@/app/types/types';
 import { inter } from '@/app/ui/fonts';
-
-
-
-
 
 const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
   const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity } = useStore();
@@ -40,7 +34,13 @@ const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
       className={`w-full rounded-[8px] bg-white shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className}`}
     >
       <div className="relative mx-4 mt-3 mb-1 h-[120px] overflow-hidden rounded-[8px] object-cover sm:w-62">
-        <Image src={menuData.imageUrl} sizes="85" alt="Фото блюда" fill />
+        <Image
+          src={menuData.imageUrl}
+          sizes="85"
+          alt="Фото блюда"
+          fill
+          className="object-contain"
+        />
       </div>
       <div className="grid grid-cols-[max-content_1fr] gap-x-2 md:block">
         <h2 className="col-2 row-1 mt-3 mr-4 w-fit self-center text-left text-xs break-all text-gray-800 md:mx-4 md:text-sm">
