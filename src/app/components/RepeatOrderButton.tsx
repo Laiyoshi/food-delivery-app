@@ -21,7 +21,7 @@ const RepeatOrderButton: React.FC<RepeatOrderButtonProps> = ({ orderId, classNam
     setError(null);
     
     try {
-      const response = await fetch(`/api/orders/${orderId}/repeat`, {
+      const response = await fetch(`/api/orders/${orderId}`, {
         method: 'POST'
       });
 
@@ -29,11 +29,11 @@ const RepeatOrderButton: React.FC<RepeatOrderButtonProps> = ({ orderId, classNam
         throw new Error('Не удалось получить данные заказа');
       }
 
-      const { items } = await response.json();
+      const data = await response.json();
 
       clearCart();
       
-      items.forEach((item: CartItem) => {
+      data.items.forEach((item: CartItem) => {
         addToCart(item);
       });
 

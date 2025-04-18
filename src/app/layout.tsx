@@ -1,4 +1,5 @@
 import Header from '@/app/components/Header';
+import MobileBackground from './components/MobileBackground';
 
 import './globals.css';
 import { getAuthenticatedUserId } from './utils/auth/checkAuth';
@@ -37,7 +38,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           deliveryAddressId={deliveryAddressId}
          />
         <Header />
-        <main>{children}</main>
+        {/* <MobileBackground/> */}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );

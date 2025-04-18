@@ -4,51 +4,53 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { PromiseCart } from '@/app/types/types';
 import { db } from '@/db';
-import { cart, menuItems, orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
+import { orders, orderItems, orderStatuses, restaurants } from '@/db/schema';
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    // Основной запрос для получения всех заказов с необходимыми данными
-    const allOrders = await db
+    // Получаем userId из заголовков запроса
+    const userId = req.headers.get('user-id');
+    if (!userId) {
+      return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
+    }
+
+    // Получаем заказы пользователя
+    const userOrders = await db
       .select({
         orderId: orders.id,
         orderDate: orders.orderDate,
         restaurantName: restaurants.name,
         statusName: orderStatuses.name,
-        cartId: orders.cartId,
       })
       .from(orders)
       .leftJoin(restaurants, eq(orders.restaurantId, restaurants.id))
-      .leftJoin(orderStatuses, eq(orders.statusId, orderStatuses.id));
+      .leftJoin(orderStatuses, eq(orders.statusId, orderStatuses.id))
+      .where(eq(orders.userId, userId));
 
-    // Запрос для получения данных о корзине и товарах
-    const cartData = await db
+    // Получаем данные о товарах в заказах
+    const orderItemsData = await db
       .select({
-        cartId: cart.id,
-        quantity: cart.quantity,
-        price: menuItems.price,
+        orderId: orderItems.orderId,
+        quantity: orderItems.quantity,
+        price: orderItems.priceAtPurchase,
       })
-      .from(cart)
-      .leftJoin(menuItems, eq(cart.menuItemId, menuItems.id));
+      .from(orderItems);
 
-    // Группируем данные о корзине по cartId
-    const groupedCartData = cartData.reduce(
-      (acc, item) => {
-        if (!acc[item.cartId]) {
-          acc[item.cartId] = [];
-        }
-        acc[item.cartId].push(item);
-        return acc;
-      },
-      {} as Record<string, typeof cartData>
-    );
+    // Группируем товары по orderId
+    const groupedOrderItemsData = orderItemsData.reduce((acc, item) => {
+      if (!acc[item.orderId]) {
+        acc[item.orderId] = [];
+      }
+      acc[item.orderId].push(item);
+      return acc;
+    }, {} as Record<number, typeof orderItemsData>);
 
-    // Формируем финальный массив заказов
-    const ordersWithAmount = allOrders.map(order => {
-      const cartItems = order.cartId ? groupedCartData[order.cartId] || [] : [];
-      const totalAmount = cartItems.reduce<number>(
+    // Формируем итоговый массив заказов
+    const ordersWithAmount = userOrders.map(order => {
+      const items = groupedOrderItemsData[order.orderId] || [];
+      const totalAmount = items.reduce(
         (sum, item) => sum + (item.quantity ?? 0) * (item.price ?? 0),
-        0
+        0,
       );
 
       return {
@@ -62,17 +64,21 @@ export async function GET() {
 
     return NextResponse.json(ordersWithAmount);
   } catch (error) {
-    console.error('Error fetching orders:', error);
-    return NextResponse.json({ error: 'Failed to fetch orders' }, { status: 500 });
+    console.error('Ошибка при получении заказов:', error);
+    return NextResponse.json({ error: 'Ошибка на сервере' }, { status: 500 });
   }
 }
 
 export async function POST(req: Request) {
   try {
-    console.log('Полученные данные запроса');
     const { userId, deliveryAddressId, restaurantId, paymentMethodId, cart, orderAmount } =
       await req.json();
 
+    if (!userId) {
+      return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
+    }
+
+    // Создаем новый заказ
     const [newOrder] = await db
       .insert(orders)
       .values({
@@ -82,10 +88,12 @@ export async function POST(req: Request) {
         courierId: 1,
         paymentMethodId,
         statusId: 1,
+        orderDate: new Date().toISOString(),
         orderAmount,
       })
       .returning();
 
+    // Добавляем товары в заказ
     const items = cart.map((item: PromiseCart) => ({
       id: uuidv4(),
       orderId: newOrder.id,
