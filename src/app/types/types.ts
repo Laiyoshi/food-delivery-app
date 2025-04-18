@@ -126,7 +126,7 @@ export interface OrderItemProps {
 }
 
 export interface OrderData {
-  orderId: number;
+  id: number;
   orderDate: string; // ISO-формат даты
   status: string;
   restaurant: string;

@@ -37,12 +37,12 @@ const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> })
             <OrderInfo order={order} />
             {order.status === 'Доставлен' && (
               <div className="mt-2">
-                <RepeatOrderButton orderId={order.orderId} />
+                <RepeatOrderButton orderId={order.id} />
               </div>
             )}
           </div>
           {order.status !== 'Доставлен' && <OrderMap mapImageUrl="/images/map.png" />}
-          {order.status === 'Доставлен' && <OrderReview orderId={order.orderId} />}
+          {order.status === 'Доставлен' && <OrderReview orderId={order.id} />}
         </div>
       </div>
     </div>

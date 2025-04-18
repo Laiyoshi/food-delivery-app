@@ -81,3 +81,43 @@ export async function GET(
     )
   }
 }
+
+export async function POST(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const { id } = await params;
+    const orderId = Number(id);
+
+    // Проверка, что ID заказа является числом
+    if (!Number.isFinite(orderId)) {
+      return NextResponse.json({ error: 'Некорректный ID заказа' }, { status: 400 });
+    }
+
+    // Получаем товары из таблицы orderItems
+    const items = await db
+      .select({
+        id: menuItems.id,
+        name: menuItems.name,
+        description: menuItems.description,
+        price: orderItems.priceAtPurchase,
+        imageUrl: menuItems.imageUrl,
+        quantity: orderItems.quantity,
+      })
+      .from(orderItems)
+      .leftJoin(menuItems, eq(orderItems.menuItemId, menuItems.id))
+      .where(eq(orderItems.orderId, orderId));
+
+    // Проверка, что товары найдены
+    if (items.length === 0) {
+      return NextResponse.json({ error: 'Товары заказа не найдены' }, { status: 404 });
+    }
+
+    // Возвращаем данные для повторения заказа
+    return NextResponse.json({ items });
+  } catch (error) {
+    console.error('Ошибка при повторении заказа:', error);
+    return NextResponse.json({ error: 'Внутренняя ошибка сервера' }, { status: 500 });
+  }
+}
