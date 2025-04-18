@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { eq } from 'drizzle-orm'
 import { db } from '@/db'
-import { sql } from 'drizzle-orm'
 import {
   orders,
   orderItems,
