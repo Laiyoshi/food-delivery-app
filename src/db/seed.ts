@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { db  } from './index';
+import { db } from './index';
 import {
   cart,
   categories,
@@ -16,16 +16,16 @@ import {
 
 async function seed() {
   console.log('🌱 Заполнение базы данных...');
-  await db.delete(orders);          // Зависит от cart, users, deliveryAddresses и др.
-  await db.delete(cart);            // Зависит от menuItems
-  await db.delete(menuItems);       // Зависит от categories и restaurants
-  await db.delete(categories);      // Зависит от restaurants
+  await db.delete(orders); // Зависит от cart, users, deliveryAddresses и др.
+  await db.delete(cart); // Зависит от menuItems
+  await db.delete(menuItems); // Зависит от categories и restaurants
+  await db.delete(categories); // Зависит от restaurants
   await db.delete(deliveryAddresses); // Зависит от users
-  await db.delete(paymentMethods);    // Зависит от users
-  await db.delete(couriers);        // Используется в orders
-  await db.delete(orderStatuses);   // Используется в orders
-  await db.delete(restaurants);     // Родитель для categories/menuItems
-  await db.delete(users);           // Базовая таблица (после всех зависимостей)
+  await db.delete(paymentMethods); // Зависит от users
+  await db.delete(couriers); // Используется в orders
+  await db.delete(orderStatuses); // Используется в orders
+  await db.delete(restaurants); // Родитель для categories/menuItems
+  await db.delete(users); // Базовая таблица (после всех зависимостей)
 
   const restaurantData = [
     {
@@ -34,6 +34,7 @@ async function seed() {
       description: 'Традиционная кухня',
       rating: 5,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Славянская',
       averagePrice: 1500,
       imageUrl:
@@ -45,6 +46,7 @@ async function seed() {
       description: 'Современные блюда с акцентом на местные продукты',
       rating: 4,
       deliveryTime: '40-50 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Европейская',
       averagePrice: 2000,
       imageUrl:
@@ -56,6 +58,7 @@ async function seed() {
       description: 'Аутентичные рецепты, блюда для гурманов',
       rating: 3,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Микс кулинарных традиций',
       averagePrice: 1200,
       imageUrl:
@@ -67,6 +70,7 @@ async function seed() {
       description: 'Блюда в старинном стиле, традиционные супы и пироги',
       rating: 4.7,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Традиционная русская',
       averagePrice: 1000,
       imageUrl:
@@ -78,6 +82,7 @@ async function seed() {
       description: 'Специи и ароматы севера и юга',
       rating: 4.2,
       deliveryTime: '20-30 мин',
+      deliveryTimeMinutes: 20,
       cuisineType: 'Микс кулинарных традиций',
       averagePrice: 900,
       imageUrl:
@@ -89,6 +94,7 @@ async function seed() {
       description: 'Свежая выпечка, пироги и домашние десерты',
       rating: 3.7,
       deliveryTime: '15-25 мин',
+      deliveryTimeMinutes: 15,
       cuisineType: 'Кондитерская',
       averagePrice: 700,
       imageUrl:
@@ -100,6 +106,7 @@ async function seed() {
       description: 'Уличная еда и сытные закуски',
       rating: 2.7,
       deliveryTime: '20-30 мин',
+      deliveryTimeMinutes: 20,
       cuisineType: 'Стритфуд',
       averagePrice: 1000,
       imageUrl:
@@ -111,6 +118,7 @@ async function seed() {
       description: 'Фермерская кухня, экологически чистые продукты',
       rating: 5,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Органическая',
       averagePrice: 1950,
       imageUrl:
@@ -122,6 +130,7 @@ async function seed() {
       description: 'Уникальное сочетание вкусов со всего мира.',
       rating: 4.4,
       deliveryTime: '40-50 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Рыбная',
       averagePrice: 900,
       imageUrl:
@@ -133,6 +142,7 @@ async function seed() {
       description: 'Традиционная кухня',
       rating: 3.1,
       deliveryTime: '43-52 мин',
+      deliveryTimeMinutes: 43,
       cuisineType: 'Французская',
       averagePrice: 2811,
       imageUrl:
@@ -144,6 +154,7 @@ async function seed() {
       description: 'Традиционная кухня',
       rating: 3.4,
       deliveryTime: '45-55 мин',
+      deliveryTimeMinutes: 45,
       cuisineType: 'Средиземноморская',
       averagePrice: 1943,
       imageUrl:
@@ -154,7 +165,8 @@ async function seed() {
       name: 'Таверна у Маяка',
       description: 'Традиционная кухня',
       rating: 4.7,
-      deliveryTime: '47-42 мин',
+      deliveryTime: '42-47 мин',
+      deliveryTimeMinutes: 42,
       cuisineType: 'Азиатская',
       averagePrice: 1044,
       imageUrl:
@@ -165,7 +177,8 @@ async function seed() {
       name: 'Гастрономическая площадь',
       description: 'Современная кухня',
       rating: 2.8,
-      deliveryTime: '41-32 мин',
+      deliveryTime: '41-52 мин',
+      deliveryTimeMinutes: 41,
       cuisineType: 'Американская',
       averagePrice: 2151,
       imageUrl:
@@ -177,6 +190,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 2.6,
       deliveryTime: '46-49 мин',
+      deliveryTimeMinutes: 46,
       cuisineType: 'Средиземноморская',
       averagePrice: 2326,
       imageUrl:
@@ -188,6 +202,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 2.0,
       deliveryTime: '33-40 мин',
+      deliveryTimeMinutes: 33,
       cuisineType: 'Азиатская',
       averagePrice: 1342,
       imageUrl:
@@ -198,7 +213,8 @@ async function seed() {
       name: 'Шторм на Неве',
       description: 'Восточная кухня',
       rating: 2.8,
-      deliveryTime: '52-32 мин',
+      deliveryTime: '32-52 мин',
+      deliveryTimeMinutes: 32,
       cuisineType: 'Средиземноморская',
       averagePrice: 1133,
       imageUrl:
@@ -210,6 +226,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 4.5,
       deliveryTime: '39-45 мин',
+      deliveryTimeMinutes: 39,
       cuisineType: 'Французская',
       averagePrice: 1800,
       imageUrl:
@@ -221,6 +238,7 @@ async function seed() {
       description: 'Семейное кафе.',
       rating: 1.7,
       deliveryTime: '35-60 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Американская',
       averagePrice: 1900,
       imageUrl:
@@ -232,6 +250,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 3.9,
       deliveryTime: '28-50 мин',
+      deliveryTimeMinutes: 50,
       cuisineType: 'Кавказская',
       averagePrice: 2555,
       imageUrl:
@@ -243,6 +262,7 @@ async function seed() {
       description: 'Традиционная кухня',
       rating: 4.1,
       deliveryTime: '30-45 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Русская',
       averagePrice: 1600,
       imageUrl:
@@ -254,6 +274,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 4.2,
       deliveryTime: '28-50 мин',
+      deliveryTimeMinutes: 28,
       cuisineType: 'Азиатская',
       averagePrice: 1450,
       imageUrl:
@@ -265,6 +286,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 2.9,
       deliveryTime: '40-55 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Американская',
       averagePrice: 2100,
       imageUrl:
@@ -276,6 +298,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 3.3,
       deliveryTime: '22-50 мин',
+      deliveryTimeMinutes: 22,
       cuisineType: 'Греческая',
       averagePrice: 2300,
       imageUrl:
@@ -287,6 +310,7 @@ async function seed() {
       description: 'Семейное кафе.',
       rating: 4.3,
       deliveryTime: '45-50 мин',
+      deliveryTimeMinutes: 45,
       cuisineType: 'Средиземноморская',
       averagePrice: 1850,
       imageUrl:
@@ -298,6 +322,7 @@ async function seed() {
       description: 'Традиционная кухня',
       rating: 2.7,
       deliveryTime: '50-60 мин',
+      deliveryTimeMinutes: 50,
       cuisineType: 'Русская',
       averagePrice: 1450,
       imageUrl:
@@ -309,6 +334,7 @@ async function seed() {
       description: 'Восточная кухня',
       rating: 3.5,
       deliveryTime: '35-50 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Русская',
       averagePrice: 2300,
       imageUrl:
@@ -320,6 +346,7 @@ async function seed() {
       description: 'Семейное кафе.',
       rating: 4.0,
       deliveryTime: '30-45 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Средиземноморская',
       averagePrice: 2100,
       imageUrl:
@@ -331,6 +358,7 @@ async function seed() {
       description: 'Современная кухня',
       rating: 3.9,
       deliveryTime: '30-50 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Французская',
       averagePrice: 2200,
       imageUrl:
@@ -342,6 +370,7 @@ async function seed() {
       description: 'Гастрономический эксперимент с уникальными блюдами',
       rating: 4.8,
       deliveryTime: '35-45 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Фьюжн',
       averagePrice: 1800,
       imageUrl:
@@ -353,6 +382,7 @@ async function seed() {
       description: 'Американская кухня с новыми акцентами',
       rating: 4.2,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Американская',
       averagePrice: 1600,
       imageUrl:
@@ -364,6 +394,7 @@ async function seed() {
       description: 'Острая и ароматная кухня Таиланда',
       rating: 4.5,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Тайская',
       averagePrice: 1300,
       imageUrl:
@@ -375,6 +406,7 @@ async function seed() {
       description: 'Домашний хлеб, пироги и выпечка',
       rating: 3.9,
       deliveryTime: '20-30 мин',
+      deliveryTimeMinutes: 20,
       cuisineType: 'Пекарня',
       averagePrice: 500,
       imageUrl:
@@ -386,6 +418,7 @@ async function seed() {
       description: 'Лучший гриль в городе',
       rating: 4.1,
       deliveryTime: '40-50 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Гриль',
       averagePrice: 2200,
       imageUrl:
@@ -397,6 +430,7 @@ async function seed() {
       description: 'Русская выпечка и традиционные блюда',
       rating: 4.3,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Русская',
       averagePrice: 1200,
       imageUrl:
@@ -408,6 +442,7 @@ async function seed() {
       description: 'Острые блюда и коктейли по мексиканским рецептам',
       rating: 4.0,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Мексиканская',
       averagePrice: 1500,
       imageUrl:
@@ -419,6 +454,7 @@ async function seed() {
       description: 'Лучший кофе и десерты с акцентом на классику',
       rating: 4.4,
       deliveryTime: '15-20 мин',
+      deliveryTimeMinutes: 15,
       cuisineType: 'Кофейня',
       averagePrice: 700,
       imageUrl:
@@ -430,6 +466,7 @@ async function seed() {
       description: 'Свежие суши и сашими по классическим рецептам',
       rating: 5.0,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Японская',
       averagePrice: 1700,
       imageUrl:
@@ -441,6 +478,7 @@ async function seed() {
       description: 'Уникальное сочетание традиционной японской и современной кухни',
       rating: 4.6,
       deliveryTime: '20-30 мин',
+      deliveryTimeMinutes: 20,
       cuisineType: 'Японская',
       averagePrice: 2100,
       imageUrl:
@@ -452,6 +490,7 @@ async function seed() {
       description: 'Традиционная кухня с инновационными подходами',
       rating: 4.0,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Европейская',
       averagePrice: 1500,
       imageUrl:
@@ -463,6 +502,7 @@ async function seed() {
       description: 'Блюда со всего мира, от классики до фьюжн',
       rating: 3.9,
       deliveryTime: '35-45 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Международная',
       averagePrice: 1600,
       imageUrl:
@@ -474,6 +514,7 @@ async function seed() {
       description: 'Бельгийские вафли и пиво',
       rating: 4.3,
       deliveryTime: '25-30 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Бельгийская',
       averagePrice: 1800,
       imageUrl:
@@ -485,6 +526,7 @@ async function seed() {
       description: 'Азия на вашем столе, от Японии до Индии',
       rating: 4.7,
       deliveryTime: '40-50 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Азиатская',
       averagePrice: 2000,
       imageUrl:
@@ -496,6 +538,7 @@ async function seed() {
       description: 'Сытная еда и широкий выбор пива',
       rating: 3.8,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Пивной бар',
       averagePrice: 1300,
       imageUrl:
@@ -507,6 +550,7 @@ async function seed() {
       description: 'Традиционные блюда с юга Европы',
       rating: 4.5,
       deliveryTime: '35-45 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Средиземноморская',
       averagePrice: 2200,
       imageUrl:
@@ -518,6 +562,7 @@ async function seed() {
       description: 'Лучший гриль-бар в городе с атмосферой уюта',
       rating: 4.2,
       deliveryTime: '40-50 мин',
+      deliveryTimeMinutes: 40,
       cuisineType: 'Гриль',
       averagePrice: 1800,
       imageUrl:
@@ -529,6 +574,7 @@ async function seed() {
       description: 'Стейкхаус с фокусом на мясо высшего качества',
       rating: 4.3,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Стейкхаус',
       averagePrice: 2500,
       imageUrl:
@@ -540,6 +586,7 @@ async function seed() {
       description: 'Настоящее техасское барбекю и мясные блюда',
       rating: 4.6,
       deliveryTime: '45-55 мин',
+      deliveryTimeMinutes: 45,
       cuisineType: 'Американская',
       averagePrice: 2200,
       imageUrl:
@@ -551,6 +598,7 @@ async function seed() {
       description: 'Рыбные блюда и морепродукты по особым рецептам',
       rating: 5.0,
       deliveryTime: '25-35 мин',
+      deliveryTimeMinutes: 25,
       cuisineType: 'Рыбная',
       averagePrice: 2000,
       imageUrl:
@@ -562,6 +610,7 @@ async function seed() {
       description: 'Кухня для веганов и вегетарианцев, богатая витаминами и вкусами',
       rating: 4.7,
       deliveryTime: '30-40 мин',
+      deliveryTimeMinutes: 30,
       cuisineType: 'Веганская',
       averagePrice: 1400,
       imageUrl:
@@ -573,6 +622,7 @@ async function seed() {
       description: 'Традиционная итальянская кухня с акцентом на пасту и пиццу',
       rating: 4.6,
       deliveryTime: '35-45 мин',
+      deliveryTimeMinutes: 35,
       cuisineType: 'Итальянская',
       averagePrice: 1800,
       imageUrl:

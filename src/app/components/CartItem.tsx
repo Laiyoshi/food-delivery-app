@@ -31,7 +31,13 @@ const CartItem: React.FC<menuItemProps> = ({ menuData }) => {
     <div className="sm:w-[calc(100%-20vw) lg:w-[calc(800px-20vw) mx-4 h-fit w-full items-center rounded-[8px] shadow-(--shadow-card) md:w-[calc(100vw-32px)] xl:w-[800px]">
       <div className="mx-4 my-3 grid grid-cols-[max-content_1fr_1fr] items-center">
         <div className="relative col-1 row-1 h-20 w-20">
-          <Image src="/images/food2-cart.png" fill sizes="85" alt="Фото блюда" />
+          <Image
+            src="/images/food2-cart.png"
+            fill
+            sizes="85"
+            alt="Фото блюда"
+            className="object-contain"
+          />
         </div>
         <div className="col-[2/4] row-1 ml-2 md:ml-5 lg:self-start">
           <h2 className="text-xs font-bold text-gray-800 md:text-base">{menuData.name}</h2>

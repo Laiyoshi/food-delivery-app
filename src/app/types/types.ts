@@ -4,6 +4,7 @@ export interface Restaurant {
   description: string;
   rating: number;
   deliveryTime: string;
+  deliveryTimeMinutes: number;
   cuisineType: string;
   averagePrice: number;
   imageUrl: string;
@@ -167,4 +168,3 @@ export interface UserState {
   setPaymentMethodId: (id: number | null) => void;
   setDeliveryAddressId: (id: number | null) => void;
 }
-

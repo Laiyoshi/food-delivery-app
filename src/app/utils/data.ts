@@ -44,17 +44,7 @@ export async function fetchCuisineType(): Promise<string[]> {
 }
 
 export async function fetchDeliveryTime(): Promise<string[]> {
-  try {
-    const response = await fetch(`${baseUrl}/api/restaurants/delivery-time`);
-    if (!response.ok) {
-      throw new Error('Ошибка загрузки времени доставки');
-    }
-    const data: { deliveryTime: string }[] = await response.json();
-    return data.map(item => item.deliveryTime).sort();
-  } catch (error: unknown) {
-    console.log('Ошибка:', error);
-    return [];
-  }
+  return ['15', '30', '45'];
 }
 
 export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {

@@ -1,13 +1,7 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
-
-
 import { FilterDropdownProps } from '@/app/types/types';
-
-
-
-
 
 export function FilterDropdown<T extends string | number>({
   label,
@@ -22,7 +16,13 @@ export function FilterDropdown<T extends string | number>({
           <div className="flex w-full">
             <ListboxButton className="flex w-full items-center justify-between px-2 text-ellipsis data-[focus]:bg-blue-500">
               <p className="max-w-[85%] overflow-clip text-nowrap overflow-ellipsis">
-                {value ? (label === 'Рейтинг ресторана' ? `${value}+` : value) : label}
+                {value
+                  ? label === 'Рейтинг ресторана'
+                    ? `${value}+`
+                    : label === 'Время доставки'
+                      ? `${value}+ минут`
+                      : value
+                  : label}
               </p>
               <ChevronDownIcon
                 className={`ml-auto w-5 transform text-gray-500 transition-transform duration-300 ${
@@ -50,7 +50,9 @@ export function FilterDropdown<T extends string | number>({
                   value={option}
                   className="group flex cursor-default items-center px-4 py-3 text-left duration-300 hover:bg-gray-100"
                 >
-                  {typeof option === 'number' ? `${option}+` : option}
+                  {label === 'Рейтинг ресторана' || label === 'Время доставки'
+                    ? `${option}+${label === 'Время доставки' ? ' минут' : ''}`
+                    : option}
                 </ListboxOption>
               ))}
             </ListboxOptions>

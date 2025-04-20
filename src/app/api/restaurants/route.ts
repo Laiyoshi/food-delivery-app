@@ -18,20 +18,28 @@ async function getRestaurants(searchParams: { [key: string]: string }) {
 
   if (searchParams.rating) filters.push(gte(restaurants.rating, Number(searchParams.rating)));
   if (searchParams.deliveryTime)
-    filters.push(eq(restaurants.deliveryTime, searchParams.deliveryTime));
+    filters.push(gte(restaurants.deliveryTimeMinutes, Number(searchParams.deliveryTime)));
   if (searchParams.cuisineType) filters.push(eq(restaurants.cuisineType, searchParams.cuisineType));
 
   const page = parseInt(searchParams.page || '1');
   const limit = parseInt(searchParams.limit || '12');
   const offset = (page - 1) * limit;
 
+  const shouldSortByDelivery = !!searchParams.deliveryTime;
+
+  const baseQuery = db
+    .select()
+    .from(restaurants)
+    .where(and(...filters))
+    .limit(limit)
+    .offset(offset);
+
+  const query = shouldSortByDelivery
+    ? baseQuery.orderBy(restaurants.deliveryTimeMinutes)
+    : baseQuery;
+
   const [data, totalResult] = await Promise.all([
-    db
-      .select()
-      .from(restaurants)
-      .where(and(...filters))
-      .limit(limit)
-      .offset(offset),
+    query,
     db
       .select({ count: count() })
       .from(restaurants)

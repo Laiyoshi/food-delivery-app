@@ -17,19 +17,19 @@ const Card = ({ restaurantData }: CardTypeProps) => {
 
   return (
     <div
-      className={`mx-5 w-full rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
+      className={`mx-5 flex w-full flex-col rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
     >
       <h2 className={`mt-3 text-center text-xl font-bold text-gray-800 ${roboto.className}`}>
         {restaurantData.name}
       </h2>
-      <div className="relative mx-4 mt-2 mb-1 h-[120px] overflow-hidden rounded-[8px] sm:w-62">
+      <div className="relative mx-4 mt-2 mb-1 h-[120px] w-[250px] self-center overflow-hidden rounded-[8px] bg-contain">
         <Image
           src={restaurantData.imageUrl}
           sizes="85"
           priority
           fill
           alt="Фото ресторана"
-          className="object-cover"
+          className="mb-3 object-cover"
         />
       </div>
       <div className="mx-4 flex">
@@ -70,7 +70,7 @@ const Card = ({ restaurantData }: CardTypeProps) => {
             <ReceiptPercentIcon className="w-4" />
             <p className="w-[144px] text-xs">Средний чек</p>
           </div>
-          <p className="text-xs">{restaurantData.averagePrice}</p>
+          <p className="text-xs">₽ {restaurantData.averagePrice}</p>
         </div>
       </div>
       <Button
