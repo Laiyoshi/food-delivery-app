@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "b1fc93f1-aa85-4f04-ab8d-a6b05a5bafe7",
+  "id": "6f7fcaa1-ab23-4e61-a5d9-ed234b89d14e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "cart": {
@@ -655,6 +655,13 @@
         "delivery_time": {
           "name": "delivery_time",
           "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "delivery_time_minutes": {
+          "name": "delivery_time_minutes",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false

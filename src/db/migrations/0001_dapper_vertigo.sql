@@ -1,1 +1,0 @@
-ALTER TABLE `restaurants` ADD `delivery_time_minutes` integer NOT NULL;
