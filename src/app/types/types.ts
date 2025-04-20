@@ -157,6 +157,8 @@ export interface AccountSettingsFormProps {
     email: string;
     accountName: string;
     phone: string;
+    address?: string;
+    cardNumber?: string;
   };
 }
 
@@ -164,7 +166,9 @@ export interface UserState {
   userId: string | null;
   paymentMethodId: number | null;
   deliveryAddressId: number | null;
+  avatar: string | null;
   setUserId: (id: string | null) => void;
   setPaymentMethodId: (id: number | null) => void;
   setDeliveryAddressId: (id: number | null) => void;
+  setAvatar: (url: string | null) => void;
 }

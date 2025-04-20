@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { CameraIcon } from '@heroicons/react/24/outline';
+import { useUserStore } from '@/app/store/userStore';
 
 export default function AvatarUploadButton() {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -29,9 +30,9 @@ export default function AvatarUploadButton() {
         console.error('Ошибка загрузки:', data.error);
         return;
       }
-
-      window.location.reload();
-    } catch (err) {
+      useUserStore.getState().setAvatar(data.url);
+      window.location.reload()
+      } catch (err) {
       console.error('Ошибка при загрузке файла', err);
     }
   };

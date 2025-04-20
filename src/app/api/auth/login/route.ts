@@ -35,7 +35,10 @@ export async function POST(req: Request) {
       .setExpirationTime('1h')
       .sign(secret);
 
-    const response = NextResponse.json({ message: 'Успешный вход' });
+    const response = NextResponse.json({ 
+      message: 'Успешный вход',
+      userId: user.id,
+    });
     response.cookies.set('token', token, {
       httpOnly: true,
       path: '/',

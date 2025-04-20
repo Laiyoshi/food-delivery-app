@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { UserIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import { useUserStore } from '@/app/store/userStore';
 
 type User = {
   avatar?: string | null;
@@ -12,9 +13,15 @@ type User = {
 
 const Avatar = () => {
   const [user, setUser] = useState<User | null>(null);
+  const userId = useUserStore((state) => state.userId);
 
   useEffect(() => {
+
     const fetchUser = async () => {
+      if (!userId) {
+        setUser(null);
+        return;
+      }
       try {
         const res = await fetch('/api/profile/me', {
           credentials: 'include',
@@ -32,7 +39,7 @@ const Avatar = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [userId]);
 
   const initials =
     user?.firstName ? user.firstName : 'User';
@@ -40,7 +47,7 @@ const Avatar = () => {
   return (
     <div className="relative flex items-center duration-300 hover:text-blue-600 active:text-blue-700">
       {!user?.avatar && (
-      <UserIcon className="mr-1 h-[30px] w-[30px]" />
+        <UserIcon className="mr-1 h-[30px] w-[30px]" />
       )}
       {user?.avatar ? (
         <Image

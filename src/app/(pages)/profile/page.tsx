@@ -8,6 +8,7 @@ import AvatarUploadButton from '@/app/components/profile/AvatarUploadButton';
 
 export default async function AccountSettingsPage() {
   const userId = await getAuthenticatedUserId();
+
   if (!userId) return null;
 
   const [user] = await db.select().from(users).where(eq(users.id, userId));

@@ -53,7 +53,7 @@ async function createUser(firstName: string, lastName: string, email: string, pa
       secure: true,
     });
 
-    return { success: "Регистрация успешна!" };
+    return { success: "Регистрация успешна!", userId: user.id };
   } catch (error) {
     console.error("Ошибка при регистрации:", error);
     return { error: "Ошибка сервера" };
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: result.error }, { status: 400 });
     }
 
-    return NextResponse.json({ message: result.success }, { status: 201 });
+    return NextResponse.json({ message: result.success, userId: result.userId }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ message: `Ошибка сервера: ${error}` }, { status: 500 });
   }

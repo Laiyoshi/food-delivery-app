@@ -57,7 +57,6 @@ const RegisterForm = () => {
 
     if (result.success) {
       setMessage({ text: result.success, type: "success" });
-      console.log(callbackUrl);
       setTimeout(() => router.push(callbackUrl), 2000);
     } else {
       setMessage({ text: result.error || "Ошибка сервера", type: "error" });
