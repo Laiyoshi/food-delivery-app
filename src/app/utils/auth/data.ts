@@ -1,3 +1,5 @@
+import { useUserStore } from "@/app/store/userStore";
+
 const baseUrl = process.env.BASE_URL_FOR_AUTH ? process.env.BASE_URL_FOR_AUTH : "";
 
 export async function fetchRegisterUser(
@@ -8,7 +10,7 @@ export async function fetchRegisterUser(
   phone: string,
   address: string,
   cardNumber: string,
-): Promise<{ success?: string; error?: string }> {
+): Promise<{ success?: string; error?: string; userId?: string }> {
   try {
     const response = await fetch(`${baseUrl}/api/auth/register`, {
       method: "POST",
@@ -19,6 +21,9 @@ export async function fetchRegisterUser(
     const data = await response.json();
     if (!response.ok) {
       throw new Error(data.message || "Ошибка при регистрации");
+    }
+    if (data.userId) {
+      useUserStore.getState().setUserId(data.userId);
     }
 
     return { success: data.message };
@@ -40,8 +45,12 @@ export async function fetchLoginUser(data: { emailOrAccountName: string; passwor
       const errorData = await response.json();
       throw new Error(errorData.error || 'Ошибка входа');
     }
+    const result = await response.json()
+    if (response) {
+      useUserStore.getState().setUserId(result.userId);
+    }
 
-    return await response.json();
+    return result;
   } catch (error: unknown) {
     console.error('Ошибка:', error);
     throw error;
@@ -59,6 +68,7 @@ export async function fetchLogoutUser() {
       throw new Error(errorData.error || 'Ошибка выхода из аккаунта');
     }
 
+    useUserStore.getState().setUserId(null);
     return await response.json();
   } catch (error) {
     console.error('Ошибка при выходе из аккаунта:', error);
