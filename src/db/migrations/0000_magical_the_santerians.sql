@@ -94,6 +94,7 @@ CREATE TABLE `restaurants` (
 	`description` text NOT NULL,
 	`rating` real DEFAULT 0,
 	`delivery_time` text NOT NULL,
+	`delivery_time_minutes` integer NOT NULL,
 	`cuisine_type` text NOT NULL,
 	`average_price` real,
 	`image_url` text
