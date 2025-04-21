@@ -60,18 +60,21 @@ export type menuItemProps = {
 
 export interface CartItem extends Dish {
   quantity: number;
+  restaurantId: string;
 }
 
 export interface StoreState {
   cart: CartItem[];
   cartAmount: number;
+  restaurantId: string | null;
   updateAmount: () => void;
-  addToCart: (item: Dish) => void;
+  addToCart: (item: Dish, restaurantId: string) => void;
   removeFromCart: (id: string) => void;
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+  repeatOrder: (items: CartItem[], restaurantId: string) => void;
 }
 
 export interface PromiseCart {
@@ -139,6 +142,7 @@ export interface OrderData {
     name: string;
     quantity: number;
     price: number;
+    restaurantId: string;
   }[];
   total: number; // Общая сумма заказа
 }

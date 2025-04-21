@@ -94,6 +94,13 @@ export async function POST(
       return NextResponse.json({ error: 'Некорректный ID заказа' }, { status: 400 });
     }
 
+    const [order] = await db
+      .select({
+        restaurantId: orders.restaurantId, // Добавляем restaurantId
+      })
+      .from(orders)
+      .where(eq(orders.id, orderId));
+
     // Получаем товары из таблицы orderItems
     const items = await db
       .select({
@@ -114,7 +121,7 @@ export async function POST(
     }
 
     // Возвращаем данные для повторения заказа
-    return NextResponse.json({ items });
+    return NextResponse.json({ items ,restaurantId: order.restaurantId});
   } catch (error) {
     console.error('Ошибка при повторении заказа:', error);
     return NextResponse.json({ error: 'Внутренняя ошибка сервера' }, { status: 500 });

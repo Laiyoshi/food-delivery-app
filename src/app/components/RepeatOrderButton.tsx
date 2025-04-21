@@ -19,26 +19,33 @@ const RepeatOrderButton: React.FC<RepeatOrderButtonProps> = ({ orderId, classNam
   const handleRepeatOrder = async () => {
     setIsLoading(true);
     setError(null);
-    
+  
     try {
       const response = await fetch(`/api/orders/${orderId}`, {
-        method: 'POST'
+        method: 'POST',
       });
-
+  
       if (!response.ok) {
         throw new Error('Не удалось получить данные заказа');
       }
-
+  
       const data = await response.json();
-
-      clearCart();
-      
-      data.items.forEach((item: CartItem) => {
-        addToCart(item);
-      });
-
+  
+      const { items, restaurantId } = data;
+  
+      if (!restaurantId) {
+        throw new Error('Отсутствует информация о ресторане');
+      }
+  
+      if (items.length === 0) {
+        throw new Error('Товары заказа не найдены');
+      }
+  
+      // Используем новый метод repeatOrder
+      const { repeatOrder } = useStore.getState();
+      repeatOrder(items, restaurantId);
+  
       alert('Товары из заказа добавлены в корзину!');
-
     } catch (err) {
       console.error('Ошибка при повторении заказа:', err);
       setError(err instanceof Error ? err.message : 'Произошла ошибка');
