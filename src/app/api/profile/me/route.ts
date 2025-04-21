@@ -3,6 +3,7 @@ import { db } from '@/db';
 import { cart, deliveryAddresses, favorites, orders, paymentMethods, users } from '@/db/schema';
 import { eq, and, ne, or } from 'drizzle-orm';
 import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
+import bcrypt from 'bcryptjs';
 
 export async function GET() {
   try {
@@ -119,6 +120,24 @@ export async function PATCH(req: Request) {
           type: 'card',
           details: data.cardNumber,
         });
+      }
+
+      if (data.currentPassword && data.newPassword) {
+        const [user] = await db.select().from(users).where(eq(users.id, userId));
+        const validPassword = await bcrypt.compare(
+          data.currentPassword,
+          user?.passwordHash || ''
+        );
+      
+        if (!validPassword) {
+          return NextResponse.json({ error: 'Неверный текущий пароль' }, { status: 400 });
+        }
+      
+        const newPasswordHash = await bcrypt.hash(data.newPassword, 10);
+      
+        await db.update(users)
+          .set({ passwordHash: newPasswordHash })
+          .where(eq(users.id, userId));
       }
 
 

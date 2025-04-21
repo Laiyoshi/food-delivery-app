@@ -40,10 +40,31 @@ export default function AccountSettingsForm({ user }: AccountSettingsFormProps) 
 
   const handleSave = async () => {
     try {
+      if (
+        formData.currentPassword ||
+        formData.newPassword ||
+        formData.repeatPassword
+      ) {
+        if (!formData.currentPassword || !formData.newPassword || !formData.repeatPassword) {
+          setSaveMessage({ text: 'Заполните все поля для смены пароля', type: 'error' });
+          return
+        }
+
+        if (formData.newPassword !== formData.repeatPassword) {
+          setSaveMessage({ text: 'Пароли не совпадают', type: 'error' });
+          return;
+        }
+      }
       const data = await fetchUpdateProfile(formData);
       setSaveMessage({ text: data.success, type: 'success' });
       setInitialFormData(formData);
       setShowSaveButton(false);
+      setFormData((prev) => ({
+        ...prev,
+        currentPassword: '',
+        newPassword: '',
+        repeatPassword: '',
+      }))
     } catch (error) {
       setSaveMessage({
         text: error instanceof Error ? error.message : 'Ошибка сервера',
@@ -84,6 +105,15 @@ export default function AccountSettingsForm({ user }: AccountSettingsFormProps) 
         <InputField label="Банковская карта" name="cardNumber" type="text" placeholder="1234 5678 9012 3456" value={formData.cardNumber} onChange={handleChange} />
       </div>
 
+      <div className="space-y-2">
+        <h2 className="text-sm font-semibold text-gray-800">Пароль</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <InputField label="Существующий пароль" name="currentPassword" type="password" placeholder="******" value={formData.currentPassword} onChange={handleChange} />
+          <InputField label="Новый пароль" name="newPassword" type="password" placeholder="******" value={formData.newPassword} onChange={handleChange} />
+          <InputField label="Повторите пароль" name="repeatPassword" type="password" placeholder="******" value={formData.repeatPassword} onChange={handleChange} />
+        </div>
+      </div>
+
       {showSaveButton && (
         <div>
           <button
@@ -93,22 +123,13 @@ export default function AccountSettingsForm({ user }: AccountSettingsFormProps) 
           >
             Сохранить
           </button>
-          {saveMessage && (
+        </div>
+      )}
+      {saveMessage && (
             <p className={`text-sm mt-2 ${saveMessage.type === 'error' ? 'text-red-500' : 'text-green-600'}`}>
               {saveMessage.text}
             </p>
-          )}
-        </div>
       )}
-
-      <div className="space-y-2">
-        <h2 className="text-sm font-semibold text-gray-800">Пароль</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <InputField label="Существующий пароль" name="currentPassword" type="password" placeholder="******" value="" onChange={() => {}} />
-          <InputField label="Новый пароль" name="newPassword" type="password" placeholder="******" value="" onChange={() => {}} />
-          <InputField label="Повторите пароль" name="repeatPassword" type="password" placeholder="******" value="" onChange={() => {}} />
-        </div>
-      </div>
 
       <div className="flex flex-col items-start space-y-2">
         <button type="button" onClick={handleLogout} className="text-blue-500 hover:underline text-base cursor-pointer">
