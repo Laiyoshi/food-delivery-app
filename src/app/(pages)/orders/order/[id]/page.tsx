@@ -7,6 +7,7 @@ import MobileBackground from '@/app/components/MobileBackground';
 import OrderMap from '@/app/components/OrderMap';
 import OrderStatusIndicator from '@/app/components/OrderStatusIndicator';
 import RepeatOrderButton from '@/app/components/RepeatOrderButton';
+import CallCourierButton from '@/app/components/CallCourierButton';
 import { OrderData } from '@/app/types/types';
 
 async function fetchOrder(id: string): Promise<OrderData> {
@@ -41,7 +42,12 @@ const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> })
               </div>
             )}
           </div>
-          {order.status !== 'Доставлен' && <OrderMap mapImageUrl="/images/map.png" />}
+          {order.status !== 'Доставлен' && (
+            <div className='flex flex-col gap-2'>
+              <OrderMap mapImageUrl="/images/map.png" />
+              <CallCourierButton phone={order.courierPhone} />
+            </div>
+          )}
           {order.status === 'Доставлен' && <OrderReview orderId={order.id} />}
         </div>
       </div>
