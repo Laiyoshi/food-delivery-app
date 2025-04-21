@@ -159,6 +159,9 @@ export interface AccountSettingsFormProps {
     phone: string;
     address?: string;
     cardNumber?: string;
+    currentPassword?: string;
+    newPassword?: string;
+    repeatPassword?: string;
   };
 }
 
