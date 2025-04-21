@@ -7,7 +7,7 @@ import MobileBackground from '@/app/components/MobileBackground';
 import BackArrow from '@/app/components/BackArrow';
 import OrderItem from '@/app/components/OrderItem';
 import { OrderItemProps } from '@/app/types/types';
-import { useUserStore } from '@/app/store/store';
+import { useUserStore } from '@/app/store/userStore';
 
 const OrdersPage = () => {
   const { userId } = useUserStore();
