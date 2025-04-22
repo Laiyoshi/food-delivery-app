@@ -59,7 +59,7 @@ const RepeatOrderButton: React.FC<RepeatOrderButtonProps> = ({ orderId, classNam
       <Button
         onClick={handleRepeatOrder}
         disabled={isLoading}
-        className={`w-full border-1 border-gray-300 shadow-(--shadow-card) rounded-lg bg-white py-3 text-center text-base font-bold text-gray-800 hover:bg-gray-100 ${className}`}
+        className={`w-full lg:w-[250px] border-1 border-gray-300 shadow-(--shadow-card) rounded-lg bg-white py-3 text-center text-base font-bold text-gray-800 hover:bg-gray-100 ${className}`}
       >
         {isLoading ? 'Загрузка...' : 'Повторить заказ'}
       </Button>

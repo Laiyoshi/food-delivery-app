@@ -11,8 +11,8 @@ const OrderMap: React.FC<OrderMapProps> = ({ mapImageUrl }) => {
       <Image
         src={mapImageUrl}
         alt="Карта доставки"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         priority
         className="rounded-lg"
       />
