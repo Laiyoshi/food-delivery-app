@@ -5,7 +5,7 @@ import { MobileBackground } from '@/app/components/MobileBackground';
 import { OrderMap } from '@/app/components/OrderMap';
 import { OrderStatusIndicator } from '@/app/components/OrderStatusIndicator';
 import { RepeatOrderButton } from '@/app/components/RepeatOrderButton';
-import CallCourierButton from '@/app/components/CallCourierButton';
+import { CallCourierButton } from '@/app/components/CallCourierButton';
 import { OrderData } from '@/app/types/types';
 
 async function fetchOrder(id: string): Promise<OrderData> {

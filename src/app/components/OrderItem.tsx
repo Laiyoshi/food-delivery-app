@@ -3,8 +3,6 @@
 import React from 'react';
 import { useRouter } from 'next/navigation'; // Импорт useRouter для навигации
 
-import { OrderItemProps } from '@/app/types/types';
-
 type Props = {
   id: number;
   orderDate: string;
