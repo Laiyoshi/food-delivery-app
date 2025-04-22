@@ -26,11 +26,13 @@ export default function FilterSection({ cuisineOptions, deliveryOptions }: Filte
 
   const updateFilter = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
+
     if (value) {
       params.set(key, value);
     } else {
       params.delete(key);
     }
+
     router.push(`?${params.toString()}`);
   };
 

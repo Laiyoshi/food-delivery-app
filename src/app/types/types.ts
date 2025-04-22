@@ -1,4 +1,4 @@
-export interface Restaurant {
+export type Restaurant = {
   id: string;
   name: string;
   description: string;
@@ -8,7 +8,7 @@ export interface Restaurant {
   cuisineType: string;
   averagePrice: number;
   imageUrl: string;
-}
+};
 
 type restaurantData = {
   id: string;
@@ -21,91 +21,82 @@ type restaurantData = {
   imageUrl: string;
 };
 
-export type CardTypeProps = {
+export type CardProps = {
   restaurantData: restaurantData;
 };
 
-export interface FilterDropdownProps<T extends string | number> {
+export type FilterDropdownProps<T extends string | number> = {
   label: string;
   value: T;
   onChange: (value: T) => void;
   options: number[] | string[];
-}
+};
 
-export interface CategoryFilter {
+export type CategoryFilter = {
   category: string;
   categoryFilter: string[];
-}
+};
 
-export interface Dish {
+export type Dish = {
   id: string;
   name: string;
   description: string;
   price: number;
   imageUrl: string;
   restaurantId: string;
-}
+};
 
-export interface MenuItem {
+export type MenuItem = {
   restaurantName: string;
   menu: {
     category: string;
     dishes: Dish[];
   }[];
-}
+};
 
-export type menuItemProps = {
+export type MenuItemProps = {
   menuData: Dish;
 };
 
-export interface CartItem extends Dish {
+export type CartQuantity = {
   quantity: number;
   restaurantId: string;
-}
+};
 
-export interface StoreState {
-  cart: CartItem[];
-  cartAmount: number;
-  restaurantId: string | null;
-  updateAmount: () => void;
-  addToCart: (item: Dish, restaurantId: string) => void;
-  removeFromCart: (id: string) => void;
-  increaseQuantity: (id: string) => void;
-  decreaseQuantity: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
-  repeatOrder: (items: CartItem[], restaurantId: string) => void;
-}
+export type CartItem = Dish & CartQuantity;
 
-export interface PromiseCart {
+export type PromiseCart = {
   menuItemId: string;
   quantity: number;
   price: number;
-}
+};
 
-export interface CreateOrderRequest {
+export type CreateOrderRequest = {
   userId: string;
   deliveryAddressId: number;
   restaurantId: string;
   paymentMethodId: number;
   cart: PromiseCart[];
   orderAmount: number;
-}
+};
 
-export interface RestaurantListProps {
+export type RestaurantListProps = {
   restaurantData: Restaurant[];
   lastOrdersData: Restaurant[];
-}
+};
 
-export interface FilterSectionProps {
+export type FilterSectionProps = {
   cuisineOptions: string[];
   deliveryOptions: string[];
-}
+};
 
-export interface CategoryDish {
+export type CategoryDish = {
   id: string;
   name: string;
-}
+};
+
+export type SearchParams = { [key: string]: string };
+export type ParamsRequest = { params: Promise<{ id: string }> };
 
 export type AuthFooterProps = {
   question: string;

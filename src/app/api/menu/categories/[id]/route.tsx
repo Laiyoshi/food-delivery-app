@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 import { eq } from 'drizzle-orm';
 
-import { CategoryDish } from '@/app/types/types';
+import { CategoryDish, ParamsRequest } from '@/app/types/types';
 import { db } from '@/db';
 import { categories, menuItems } from '@/db/schema';
 
-export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(req: Request, { params }: ParamsRequest) {
   const { id } = await params;
   const categories = await getCategoriesMenu(id);
   if (!categories) {

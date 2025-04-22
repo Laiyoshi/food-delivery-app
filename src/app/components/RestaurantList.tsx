@@ -7,13 +7,12 @@ import { roboto } from '../ui/fonts';
 import Card from './Card';
 import Pagination from './Pagination';
 
-const RestaurantList = ({
-  restaurantData,
-  lastOrdersData,
-}: {
+type Props = {
   restaurantData: { data: Restaurant[]; total: number };
   lastOrdersData: Restaurant[];
-}) => {
+};
+
+export default function RestaurantList({ restaurantData, lastOrdersData }: Props) {
   const searchParams = useSearchParams();
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
   const { data: restaurants, total } = restaurantData;
@@ -36,6 +35,7 @@ const RestaurantList = ({
           </>
         )}
       </div>
+
       <div className="max-w-[1440px] lg:mx-[75px] xl:mx-auto xl:max-w-[1180px]">
         {lastOrdersData.length > 0 && (
           <>
@@ -44,6 +44,7 @@ const RestaurantList = ({
             >
               Недавно заказывали
             </h2>
+
             <div className="flex max-w-[1440px] flex-wrap justify-center gap-5 sm:justify-evenly lg:justify-center xl:mx-auto xl:max-w-[1180px] xl:justify-start">
               {lastOrdersData.map(item => {
                 return <Card key={item.id} restaurantData={item} />;
@@ -54,12 +55,10 @@ const RestaurantList = ({
       </div>
 
       {totalPages > 1 && (
-        <div className='pb-10'>
+        <div className="pb-10">
           <Pagination totalPages={totalPages} currentPage={currentPage} />
         </div>
       )}
     </>
   );
-};
-
-export default RestaurantList;
+}
