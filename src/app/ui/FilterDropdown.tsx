@@ -34,9 +34,9 @@ export function FilterDropdown<T extends string | number>({
             <ListboxOptions
               anchor={{ to: 'bottom end', gap: '1px', offset: '1px' }}
               transition
-              className="w-[calc(100%-40px)] rounded border border-gray-300 bg-white text-center transition duration-300 ease-in data-[closed]:scale-100 data-[closed]:opacity-0 sm:w-[200px] md:w-[728px] lg:w-[200px]"
               aria-hidden="true"
               style={{ left: 108 }}
+              className="w-[calc(100%-40px)] rounded border border-gray-300 bg-white text-center transition duration-300 ease-in data-[closed]:scale-100 data-[closed]:opacity-0 sm:w-[200px] md:w-[728px] lg:w-[200px]"
             >
               <ListboxOption
                 value=""

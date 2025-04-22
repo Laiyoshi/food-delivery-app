@@ -5,14 +5,19 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
-import { useStore } from '../store/store';
+import { useCartStore } from '../store/cartStore';
 
-const CartButton = () => {
-  const { cart, cartAmount, updateAmount } = useStore();
+export default function CartButton() {
+  const { cartAmount, calculateAmount } = useCartStore();
   const router = useRouter();
+
   useEffect(() => {
-    updateAmount();
-  }, [cart, updateAmount]);
+    let didInit = false;
+    if (!didInit) {
+      didInit = true;
+      calculateAmount();
+    }
+  }, []);
 
   return (
     cartAmount > 0 && (
@@ -25,6 +30,4 @@ const CartButton = () => {
       </Button>
     )
   );
-};
-
-export default CartButton;
+}

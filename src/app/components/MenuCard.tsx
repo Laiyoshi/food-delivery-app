@@ -2,32 +2,38 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
-import { useStore } from '@/app/store/store';
-import { menuItemProps } from '@/app/types/types';
+import { useCartStore } from '@/app/store/cartStore';
+import { MenuItemProps } from '@/app/types/types';
 import { inter } from '@/app/ui/fonts';
 
-const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
-  const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity } = useStore();
+export default function MenuCard({ menuData }: MenuItemProps) {
+  const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity, calculateAmount } =
+    useCartStore();
   const productInCart = cart.find(item => item.id === menuData.id);
 
-  function handleAddToCart() {
+  const handleAddToCart = () => {
     addToCart(menuData, menuData.restaurantId);
-  }
+    calculateAmount();
+  };
 
-  function handleIncreaseQuantity() {
+  const handleIncreaseQuantity = () => {
     increaseQuantity(menuData.id);
-  }
+    calculateAmount();
+  };
 
-  function handleDecreaseQuantity() {
+  const handleDecreaseQuantity = () => {
     decreaseQuantity(menuData.id);
-  }
+    calculateAmount();
+  };
 
-  function handleUpdateQuantity(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleUpdateQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
     const quantity = Number(e.target.value);
+
     if (quantity >= 1) {
       updateQuantity(menuData.id, quantity);
     }
-  }
+    calculateAmount();
+  };
 
   return (
     <div
@@ -42,17 +48,21 @@ const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
           className="object-contain"
         />
       </div>
+
       <div className="grid grid-cols-[max-content_1fr] gap-x-2 md:block">
         <h2 className="col-2 row-1 mt-3 mr-4 w-fit self-center text-left text-xs break-all text-gray-800 md:mx-4 md:text-sm">
           {menuData.name}
         </h2>
+
         <p className="col-span-full row-2 mx-4 mt-3 text-left text-xs text-gray-600 md:text-gray-800">
           {menuData.description}
         </p>
+
         <p className="row-1 mt-3 ml-4 text-left text-xl font-bold text-green-500 md:mx-4">
           {menuData.price} ₽
         </p>
       </div>
+
       {!productInCart ? (
         <Button
           onClick={handleAddToCart}
@@ -68,12 +78,14 @@ const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
           >
             -
           </Button>
+
           <Input
-            className="h-full w-[80%] rounded border-2 border-gray-300 text-center font-bold text-gray-800 md:w-[157px]"
             value={productInCart?.quantity ?? 1}
             min={0}
             onChange={handleUpdateQuantity}
+            className="h-full w-[80%] rounded border-2 border-gray-300 text-center font-bold text-gray-800 md:w-[157px]"
           />
+
           <Button
             onClick={handleIncreaseQuantity}
             className="h-full w-[43px] rounded bg-blue-500 text-base font-bold text-white"
@@ -84,6 +96,4 @@ const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
       )}
     </div>
   );
-};
-
-export default MenuCard;
+}

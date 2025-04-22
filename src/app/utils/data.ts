@@ -1,14 +1,23 @@
 import 'dotenv/config';
 
-import { CategoryDish, CreateOrderRequest, MenuItem, Restaurant } from '../types/types';
+import {
+  CategoryDish,
+  CreateOrderRequest,
+  MenuItem,
+  Restaurant,
+  SearchParams,
+} from '../types/types';
+
+type RestaurantPromise = { data: Restaurant[]; total: number };
+type ParamsProps = { params: { id: string } };
+type SearchProps = {
+  searchParams: SearchParams;
+};
+type MenuSearchProps = SearchProps & ParamsProps;
 
 const baseUrl = process.env.BASE_URL;
 
-export async function fetchRestaurants({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string };
-}): Promise<{ data: Restaurant[]; total: number }> {
+export async function fetchRestaurants({ searchParams }: SearchParams): Promise<RestaurantPromise> {
   try {
     const searchParameters = await searchParams;
     const params = new URLSearchParams();
@@ -21,7 +30,7 @@ export async function fetchRestaurants({
     if (!response.ok) {
       throw new Error('Ошибка загрузки данных');
     }
-    const data: { data: Restaurant[]; total: number } = await response.json();
+    const data: RestaurantPromise = await response.json();
     return data;
   } catch (error: unknown) {
     console.log('Ошибка:', error);
@@ -64,10 +73,7 @@ export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
 export async function fetchRestaurantMenu({
   params,
   searchParams,
-}: {
-  params: { id: string };
-  searchParams: { [key: string]: string };
-}): Promise<MenuItem> {
+}: MenuSearchProps): Promise<MenuItem> {
   const { id } = await params;
   const searchParameters = await searchParams;
 
@@ -90,11 +96,7 @@ export async function fetchRestaurantMenu({
   }
 }
 
-export async function fetchCategoriesMenu({
-  params,
-}: {
-  params: { id: string };
-}): Promise<CategoryDish[]> {
+export async function fetchCategoriesMenu({ params }: ParamsProps): Promise<CategoryDish[]> {
   const { id } = await params;
   try {
     const response = await fetch(`${baseUrl}/api/menu/categories/${id}`);

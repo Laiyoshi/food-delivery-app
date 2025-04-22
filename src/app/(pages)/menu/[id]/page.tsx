@@ -1,14 +1,14 @@
 import CartButton from '@/app/components/CartButton';
-import { MenuList } from '@/app/components/MenuList';
+import MenuList from '@/app/components/MenuList';
+import { SearchParams } from '@/app/types/types';
 import { fetchCategoriesMenu, fetchRestaurantMenu } from '@/app/utils/data';
 
-export default async function Menu({
-  params,
-  searchParams,
-}: {
+type Props = {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string }>;
-}) {
+  searchParams: Promise<SearchParams>;
+};
+
+export default async function Menu({ params, searchParams }: Props) {
   const { id } = await params;
   const searchParameters = await searchParams;
 

@@ -1,16 +1,31 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { StoreState } from '../types/types';
+import { CartItem, Dish } from '../types/types';
 
-export const useStore = create<StoreState>()(
+type StoreState = {
+  cart: CartItem[];
+  cartAmount: number;
+  restaurantId: string | null;
+
+  calculateAmount: () => void;
+  addToCart: (item: Dish, restaurantId: string) => void;
+  removeFromCart: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+  clearCart: () => void;
+  repeatOrder: (items: CartItem[], restaurantId: string) => void;
+};
+
+export const useCartStore = create<StoreState>()(
   persist(
     set => ({
       cart: [],
       cartAmount: 0,
       restaurantId: null,
 
-      updateAmount: () =>
+      calculateAmount: () =>
         set(state => ({
           cartAmount: state.cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0),
         })),
@@ -39,7 +54,7 @@ export const useStore = create<StoreState>()(
           const updatedCart = state.cart
             .map(item => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
             .filter(item => item.quantity > 0);
-      
+
           return {
             cart: updatedCart,
             restaurantId: updatedCart.length === 0 ? null : state.restaurantId, // Сбрасываем restaurantId, если корзина пуста
@@ -58,10 +73,7 @@ export const useStore = create<StoreState>()(
             ...item,
             quantity: item.quantity || 1,
           }));
-          const newCartAmount = newCart.reduce(
-            (sum, item) => sum + item.price * item.quantity,
-            0
-          );
+          const newCartAmount = newCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
           return {
             cart: newCart,
             cartAmount: newCartAmount,
@@ -75,4 +87,3 @@ export const useStore = create<StoreState>()(
     }
   )
 );
-

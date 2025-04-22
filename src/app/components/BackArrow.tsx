@@ -2,7 +2,7 @@
 
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
-export function BackArrow() {
+export default function BackArrow() {
   return (
     <button
       onClick={() => window.history.back()}
@@ -11,4 +11,4 @@ export function BackArrow() {
       <ArrowLongLeftIcon className="h-8 w-8 text-gray-800" />
     </button>
   );
-};
+}

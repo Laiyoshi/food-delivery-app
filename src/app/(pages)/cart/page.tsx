@@ -1,22 +1,21 @@
 'use client';
 
-import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
 import CartItem from '@/app/components/CartItem';
-import { useStore } from '@/app/store/store';
+import { useCartStore } from '@/app/store/cartStore';
+import { useUserStore } from '@/app/store/userStore';
 import { inter, roboto } from '@/app/ui/fonts';
 import { fetchPostOrder } from '@/app/utils/data';
-import { useUserStore } from '@/app/store/userStore';
 
-const Cart = () => {
-  const { cart, cartAmount, restaurantId, clearCart, updateAmount } = useStore();
+export default function Cart() {
+  const { cart, cartAmount, restaurantId, clearCart } = useCartStore();
   const router = useRouter();
-  const { userId, paymentMethodId, deliveryAddressId} = useUserStore();
+  const { userId, paymentMethodId, deliveryAddressId } = useUserStore();
 
-  async function handlePostOrder() {
+  const handlePostOrder = async () => {
     const orderPayload = {
       userId: userId!,
       deliveryAddressId: deliveryAddressId!,
@@ -30,25 +29,21 @@ const Cart = () => {
       orderAmount: cartAmount,
     };
 
-    console.log(orderPayload);
-
     try {
       const result = await fetchPostOrder(orderPayload);
+
       if (result.status === 401) {
         router.push('/login?callbackUrl=cart');
         return;
       }
-      console.log('Успешный заказ:', result);
+
       clearCart();
-      router.push(`/success?orderId=${result.orderId}`); // переход на страницу подтверждения
+
+      router.push(`/success?orderId=${result.orderId}`);
     } catch (err) {
       console.error('Ошибка при оформлении:', err);
     }
-  }
-
-  useEffect(() => {
-    updateAmount();
-  }, [cart, updateAmount]);
+  };
 
   return (
     <div
@@ -61,8 +56,8 @@ const Cart = () => {
       </h2>
       <div className="mx-4 my-8 flex items-center md:hidden">
         <Button
-          className="flex cursor-pointer items-center justify-start gap-2"
           onClick={() => router.push('/')}
+          className="flex cursor-pointer items-center justify-start gap-2"
         >
           <ArrowLongLeftIcon className="flex h-6" />
           <h2 className={`${roboto.className} text-2xl font-bold text-gray-800`}>Ваша корзина</h2>
@@ -92,6 +87,4 @@ const Cart = () => {
       </div>
     </div>
   );
-};
-
-export default Cart;
+}

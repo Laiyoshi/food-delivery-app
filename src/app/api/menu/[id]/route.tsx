@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server';
 import { and, eq, SQL } from 'drizzle-orm';
 
-import { Dish } from '@/app/types/types';
+import { Dish, ParamsRequest, SearchParams } from '@/app/types/types';
 import { db } from '@/db';
 import { categories, menuItems, restaurants } from '@/db/schema';
 
-export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+type GroupedResult = {
+  [key: string]: { category: string; dishes: Dish[] };
+};
+
+export async function GET(req: Request, { params }: ParamsRequest) {
   const { id } = await params;
   const url = new URL(req.url);
   const searchParams = Object.fromEntries(url.searchParams.entries());
@@ -26,7 +30,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   return NextResponse.json(response);
 }
 
-async function getRestaurantMenu(restaurantId: string, searchParams: { [key: string]: string }) {
+async function getRestaurantMenu(restaurantId: string, searchParams: SearchParams) {
   const searchParameters = await searchParams;
   const filters: SQL[] = [eq(menuItems.restaurantId, restaurantId)];
   if (searchParameters.category) {
@@ -46,9 +50,7 @@ async function getRestaurantMenu(restaurantId: string, searchParams: { [key: str
     .leftJoin(categories, eq(menuItems.categoryId, categories.id))
     .where(and(...filters));
 
-  const groupedResult = result.reduce<{
-    [key: string]: { category: string; dishes: Dish[] };
-  }>((acc, item) => {
+  const groupedResult = result.reduce<GroupedResult>((acc, item) => {
     const { category, ...data } = item;
 
     if (category) {

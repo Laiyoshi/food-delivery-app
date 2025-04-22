@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@headlessui/react';
 
-import { useStore } from '@/app/store/store';
+import { useCartStore } from '@/app/store/cartStore';
 
 type Props = {
   orderId: number;
@@ -40,7 +40,7 @@ export function RepeatOrderButton({ orderId, className = '' }: Props) {
       }
 
       // Используем новый метод repeatOrder
-      const { repeatOrder } = useStore.getState();
+      const { repeatOrder } = useCartStore.getState();
       repeatOrder(items, restaurantId);
 
       alert('Товары из заказа добавлены в корзину!');

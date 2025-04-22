@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+import BackArrow from '@/app/components/BackArrow';
 import { MobileBackground } from '@/app/components/MobileBackground';
-import { BackArrow } from '@/app/components/BackArrow';
 import { OrderItem } from '@/app/components/OrderItem';
-import { OrderItemProps } from '@/app/types/types';
 import { useUserStore } from '@/app/store/userStore';
+import { OrderItemProps } from '@/app/types/types';
 
 function OrdersPage() {
   const { userId } = useUserStore();
@@ -50,13 +50,13 @@ function OrdersPage() {
 
   if (loading) {
     return (
-    <div className="mx-5 max-w-[1440px] lg:mx-8 xl:mx-auto xl:max-w-[1180px]">
-      <div className="mt-5 mb-5 flex items-center lg:mt-8 lg:mb-8 gap-2">
-        <BackArrow />
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Ваши заказы</h2>
+      <div className="mx-5 max-w-[1440px] lg:mx-8 xl:mx-auto xl:max-w-[1180px]">
+        <div className="mt-5 mb-5 flex items-center gap-2 lg:mt-8 lg:mb-8">
+          <BackArrow />
+          <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">Ваши заказы</h2>
+        </div>
       </div>
-    </div>
-    )  
+    );
   }
 
   if (error) {
@@ -65,31 +65,31 @@ function OrdersPage() {
 
   return (
     <div>
-    <MobileBackground/>
-    <div className="relative mx-5 lg:mx-13 xl:mx-auto xl:max-w-[1180px]">
-      <div className="mt-5 mb-5 flex items-center lg:mt-8 lg:mb-8 gap-2">
-        <BackArrow />
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Ваши заказы</h2>
+      <MobileBackground />
+      <div className="relative mx-5 lg:mx-13 xl:mx-auto xl:max-w-[1180px]">
+        <div className="mt-5 mb-5 flex items-center gap-2 lg:mt-8 lg:mb-8">
+          <BackArrow />
+          <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">Ваши заказы</h2>
+        </div>
+        <div className="flex flex-col-reverse">
+          {orders.length === 0 ? (
+            <p>У вас пока нет заказов.</p>
+          ) : (
+            orders.map(order => (
+              <OrderItem
+                key={order.id}
+                id={order.id}
+                orderDate={order.orderDate}
+                restaurant={order.restaurant}
+                amount={order.amount}
+                status={order.status}
+              />
+            ))
+          )}
+        </div>
       </div>
-      <div className='flex flex-col-reverse'>
-        {orders.length === 0 ? (
-          <p>У вас пока нет заказов.</p>
-        ) : (
-          orders.map(order => (
-            <OrderItem
-              key={order.id}
-              id={order.id}
-              orderDate={order.orderDate}
-              restaurant={order.restaurant}
-              amount={order.amount}
-              status={order.status}
-            />
-          ))
-        )}
-      </div>
-    </div>
     </div>
   );
-};
+}
 
 export default OrdersPage;

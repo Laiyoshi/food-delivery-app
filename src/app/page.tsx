@@ -1,6 +1,7 @@
 import CartButton from './components/CartButton';
 import RestaurantList from './components/RestaurantList';
 import FilterSection from './components/RestautrantFilterSection';
+import { SearchParams } from './types/types';
 import { roboto } from './ui/fonts';
 import {
   fetchCuisineType,
@@ -9,7 +10,7 @@ import {
   fetchRestaurants,
 } from './utils/data';
 
-export default async function Home(props: { searchParams: Promise<{ [key: string]: string }> }) {
+export default async function Home(props: SearchParams) {
   const searchParams = await props.searchParams;
   const [deliveryData, cuisineData, restaurantsData, lastOrdersData] = await Promise.all([
     fetchDeliveryTime(),
