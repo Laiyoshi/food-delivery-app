@@ -1,11 +1,11 @@
 import { OrderInfo } from '@/app//components/OrderInfo';
 import { OrderReview } from '@/app//components/OrderReview';
-import { BackArrow } from '@/app/components/BackArrow';
+import BackArrow from '@/app/components/BackArrow';
+import { CallCourierButton } from '@/app/components/CallCourierButton';
 import { MobileBackground } from '@/app/components/MobileBackground';
 import { OrderMap } from '@/app/components/OrderMap';
 import { OrderStatusIndicator } from '@/app/components/OrderStatusIndicator';
 import { RepeatOrderButton } from '@/app/components/RepeatOrderButton';
-import { CallCourierButton } from '@/app/components/CallCourierButton';
 import { OrderData } from '@/app/types/types';
 
 async function fetchOrder(id: string): Promise<OrderData> {
@@ -34,9 +34,9 @@ export async function OrderDetailsPage({ params }: { params: Params }) {
           {/* Заголовок */}
           <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">Информация о заказе</h2>
         </div>
-        <OrderStatusIndicator 
-          status={order.status} 
-          orderDate={order.orderDate} 
+        <OrderStatusIndicator
+          status={order.status}
+          orderDate={order.orderDate}
           deliveryTimeMinutes={order.deliveryTimeMinutes}
         />
         <div className="mb-5 grid grid-cols-1 items-start gap-2 lg:grid-cols-2">
@@ -49,7 +49,7 @@ export async function OrderDetailsPage({ params }: { params: Params }) {
             )}
           </div>
           {order.status !== 'Доставлен' && (
-            <div className='flex flex-col gap-2'>
+            <div className="flex flex-col gap-2">
               <OrderMap mapImageUrl="/images/map.png" />
               <CallCourierButton phone={order.courierPhone} />
             </div>
@@ -59,6 +59,6 @@ export async function OrderDetailsPage({ params }: { params: Params }) {
       </div>
     </div>
   );
-};
+}
 
 export default OrderDetailsPage;
