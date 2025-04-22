@@ -5,7 +5,15 @@ import { useRouter } from 'next/navigation'; // Импорт useRouter для н
 
 import { OrderItemProps } from '@/app/types/types';
 
-const OrderItem: React.FC<OrderItemProps> = ({ id, orderDate, restaurant, amount, status }) => {
+type Props = {
+  id: number;
+  orderDate: string;
+  restaurant: string;
+  amount: number;
+  status: 'Создан' | 'В пути' | 'Доставлен';
+};
+
+export function OrderItem({ id, orderDate, restaurant, amount, status }: Props) {
   const router = useRouter(); // Хук для навигации
 
   const statusColor =
@@ -16,7 +24,7 @@ const OrderItem: React.FC<OrderItemProps> = ({ id, orderDate, restaurant, amount
         : 'text-yellow-500';
 
   return (
-    <div className="text-sm md:text-base mb-1 flex flex-col rounded-lg bg-white px-8 py-2 shadow-(--shadow-card) lg:flex-row lg:gap-5">
+    <div className="mb-1 flex flex-col rounded-lg bg-white px-8 py-2 text-sm shadow-(--shadow-card) md:text-base lg:flex-row lg:gap-5">
       <div className="mb-2 flex flex-row items-center justify-between lg:mb-0 lg:w-full">
         <div className="flex flex-col gap-2 lg:flex-row lg:gap-8">
           {/* Дата и время */}
@@ -53,6 +61,4 @@ const OrderItem: React.FC<OrderItemProps> = ({ id, orderDate, restaurant, amount
       </button>
     </div>
   );
-};
-
-export default OrderItem;
+}

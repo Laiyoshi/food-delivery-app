@@ -12,16 +12,16 @@ import { fetchPostOrder } from '@/app/utils/data';
 import { useUserStore } from '@/app/store/userStore';
 
 const Cart = () => {
-  const { cart, cartAmount, clearCart, updateAmount } = useStore();
+  const { cart, cartAmount, restaurantId, clearCart, updateAmount } = useStore();
   const router = useRouter();
-  const { userId, paymentMethodId, deliveryAddressId } = useUserStore();
+  const { userId, paymentMethodId, deliveryAddressId} = useUserStore();
 
   async function handlePostOrder() {
     const orderPayload = {
       userId: userId!,
       deliveryAddressId: deliveryAddressId!,
       paymentMethodId: paymentMethodId!,
-      restaurantId: cart[0].restaurantId,
+      restaurantId: restaurantId!,
       cart: cart.map(item => ({
         menuItemId: item.id,
         quantity: item.quantity,

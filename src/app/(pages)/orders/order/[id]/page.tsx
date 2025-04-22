@@ -1,12 +1,11 @@
-import React from 'react';
-
-import OrderInfo from '@/app//components/OrderInfo';
-import OrderReview from '@/app//components/OrderReview';
-import BackArrow from '@/app/components/BackArrow';
-import MobileBackground from '@/app/components/MobileBackground';
-import OrderMap from '@/app/components/OrderMap';
-import OrderStatusIndicator from '@/app/components/OrderStatusIndicator';
-import RepeatOrderButton from '@/app/components/RepeatOrderButton';
+import { OrderInfo } from '@/app//components/OrderInfo';
+import { OrderReview } from '@/app//components/OrderReview';
+import { BackArrow } from '@/app/components/BackArrow';
+import { MobileBackground } from '@/app/components/MobileBackground';
+import { OrderMap } from '@/app/components/OrderMap';
+import { OrderStatusIndicator } from '@/app/components/OrderStatusIndicator';
+import { RepeatOrderButton } from '@/app/components/RepeatOrderButton';
+import CallCourierButton from '@/app/components/CallCourierButton';
 import { OrderData } from '@/app/types/types';
 
 async function fetchOrder(id: string): Promise<OrderData> {
@@ -17,7 +16,11 @@ async function fetchOrder(id: string): Promise<OrderData> {
   return response.json();
 }
 
-const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+type Params = {
+  id: string;
+};
+
+export async function OrderDetailsPage({ params }: { params: Params }) {
   const { id } = await params; // Ожидаем params перед использованием
   const order = await fetchOrder(id);
 
@@ -31,7 +34,11 @@ const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> })
           {/* Заголовок */}
           <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">Информация о заказе</h2>
         </div>
-        <OrderStatusIndicator status={order.status} />
+        <OrderStatusIndicator 
+          status={order.status} 
+          orderDate={order.orderDate} 
+          deliveryTimeMinutes={order.deliveryTimeMinutes}
+        />
         <div className="mb-5 grid grid-cols-1 items-start gap-2 lg:grid-cols-2">
           <div>
             <OrderInfo order={order} />
@@ -41,7 +48,12 @@ const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> })
               </div>
             )}
           </div>
-          {order.status !== 'Доставлен' && <OrderMap mapImageUrl="/images/map.png" />}
+          {order.status !== 'Доставлен' && (
+            <div className='flex flex-col gap-2'>
+              <OrderMap mapImageUrl="/images/map.png" />
+              <CallCourierButton phone={order.courierPhone} />
+            </div>
+          )}
           {order.status === 'Доставлен' && <OrderReview orderId={order.id} />}
         </div>
       </div>

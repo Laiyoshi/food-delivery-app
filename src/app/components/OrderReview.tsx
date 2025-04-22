@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 import { ReviewData } from '@/app/types/types';
 
-interface OrderReviewProps {
+type Props = {
   orderId: number;
-}
+};
 
-const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
+export function OrderReview({ orderId }: Props) {
   const [review, setReview] = useState<ReviewData>({
     orderId,
     restaurantRating: 0,
@@ -125,6 +125,4 @@ const OrderReview: React.FC<OrderReviewProps> = ({ orderId }) => {
       </button>
     </div>
   );
-};
-
-export default OrderReview;
+}

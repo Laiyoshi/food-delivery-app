@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
-const BackButton: React.FC = () => {
+export function BackArrow() {
   return (
     <button
       onClick={() => window.history.back()}
@@ -13,5 +12,3 @@ const BackButton: React.FC = () => {
     </button>
   );
 };
-
-export default BackButton;

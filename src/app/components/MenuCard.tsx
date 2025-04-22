@@ -11,7 +11,7 @@ const MenuCard: React.FC<menuItemProps> = ({ menuData }) => {
   const productInCart = cart.find(item => item.id === menuData.id);
 
   function handleAddToCart() {
-    addToCart(menuData);
+    addToCart(menuData, menuData.restaurantId);
   }
 
   function handleIncreaseQuantity() {

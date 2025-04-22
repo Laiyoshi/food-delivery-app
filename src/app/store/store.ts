@@ -8,14 +8,26 @@ export const useStore = create<StoreState>()(
     set => ({
       cart: [],
       cartAmount: 0,
+      restaurantId: null,
 
       updateAmount: () =>
         set(state => ({
           cartAmount: state.cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0),
         })),
-      addToCart: dish => set(state => ({ cart: [...state.cart, { ...dish, quantity: 1 }] })),
+      addToCart: (dish, restaurantId) =>
+        set(state => {
+          if (!state.restaurantId || state.restaurantId === restaurantId) {
+            return {
+              cart: [...state.cart, { ...dish, quantity: 1 }],
+              restaurantId,
+            };
+          } else {
+            alert('Вы можете добавлять товары только из одного ресторана.');
+            return state;
+          }
+        }),
       removeFromCart: id => set(state => ({ cart: state.cart.filter(item => item.id !== id) })),
-      clearCart: () => set(() => ({ cart: [] })),
+      clearCart: () => set(() => ({ cart: [], restaurantId: null })),
       increaseQuantity: id =>
         set(state => ({
           cart: state.cart.map(item =>
@@ -23,11 +35,16 @@ export const useStore = create<StoreState>()(
           ),
         })),
       decreaseQuantity: id =>
-        set(state => ({
-          cart: state.cart
+        set(state => {
+          const updatedCart = state.cart
             .map(item => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
-            .filter(item => item.quantity > 0),
-        })),
+            .filter(item => item.quantity > 0);
+      
+          return {
+            cart: updatedCart,
+            restaurantId: updatedCart.length === 0 ? null : state.restaurantId, // Сбрасываем restaurantId, если корзина пуста
+          };
+        }),
       updateQuantity: (id, quantity) =>
         set(state => ({
           cart:
@@ -35,10 +52,26 @@ export const useStore = create<StoreState>()(
               ? state.cart.map(item => (item.id === id ? { ...item, quantity } : item))
               : state.cart.filter(item => item.id !== id),
         })),
+      repeatOrder: (items, restaurantId) =>
+        set(state => {
+          const newCart = items.map(item => ({
+            ...item,
+            quantity: item.quantity || 1,
+          }));
+          const newCartAmount = newCart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0
+          );
+          return {
+            cart: newCart,
+            cartAmount: newCartAmount,
+            restaurantId, // Устанавливаем restaurantId для всей корзины
+          };
+        }),
     }),
     {
       name: 'cart-storage',
-      partialize: state => ({ cart: state.cart }),
+      partialize: state => ({ cart: state.cart, restaurantId: state.restaurantId }), // Сохраняем только cart и restaurantId
     }
   )
 );

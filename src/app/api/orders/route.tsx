@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { PromiseCart } from '@/app/types/types';
 import { db } from '@/db';
-import { orders, orderItems, orderStatuses, restaurants } from '@/db/schema';
+import { orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
 export async function GET(req: Request) {
   try {
@@ -37,20 +37,23 @@ export async function GET(req: Request) {
       .from(orderItems);
 
     // Группируем товары по orderId
-    const groupedOrderItemsData = orderItemsData.reduce((acc, item) => {
-      if (!acc[item.orderId]) {
-        acc[item.orderId] = [];
-      }
-      acc[item.orderId].push(item);
-      return acc;
-    }, {} as Record<number, typeof orderItemsData>);
+    const groupedOrderItemsData = orderItemsData.reduce(
+      (acc, item) => {
+        if (!acc[item.orderId]) {
+          acc[item.orderId] = [];
+        }
+        acc[item.orderId].push(item);
+        return acc;
+      },
+      {} as Record<number, typeof orderItemsData>
+    );
 
     // Формируем итоговый массив заказов
     const ordersWithAmount = userOrders.map(order => {
       const items = groupedOrderItemsData[order.orderId] || [];
       const totalAmount = items.reduce(
         (sum, item) => sum + (item.quantity ?? 0) * (item.price ?? 0),
-        0,
+        0
       );
 
       return {

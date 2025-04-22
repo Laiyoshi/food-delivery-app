@@ -4,11 +4,11 @@ import React from 'react';
 
 import { OrderData } from '@/app/types/types';
 
-interface OrderInfoProps {
+type Props = {
   order: OrderData;
-}
+};
 
-const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
+export function OrderInfo({ order }: Props) {
   return (
     <div className="rounded-lg border-1 border-gray-300 bg-white p-6 shadow-(--shadow-card)">
       <div className="mb-2 flex flex-row justify-between text-sm md:mb-4 md:text-base">
@@ -79,5 +79,3 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ order }) => {
     </div>
   );
 };
-
-export default OrderInfo;
