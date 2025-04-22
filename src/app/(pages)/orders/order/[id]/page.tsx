@@ -32,7 +32,11 @@ const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> })
           {/* Заголовок */}
           <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">Информация о заказе</h2>
         </div>
-        <OrderStatusIndicator status={order.status} />
+        <OrderStatusIndicator 
+          status={order.status} 
+          orderDate={order.orderDate} 
+          deliveryTimeMinutes={order.deliveryTimeMinutes}
+        />
         <div className="mb-5 grid grid-cols-1 items-start gap-2 lg:grid-cols-2">
           <div>
             <OrderInfo order={order} />

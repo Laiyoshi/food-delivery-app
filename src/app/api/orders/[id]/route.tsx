@@ -33,7 +33,8 @@ export async function GET(
         paymentMethod: paymentMethods.details,
         courierName: couriers.name,
         courierPhone: couriers.phone,
-        orderAmount: orders.orderAmount
+        orderAmount: orders.orderAmount,
+        deliveryTimeMinutes: restaurants.deliveryTimeMinutes
       })
       .from(orders)
       .leftJoin(restaurants, eq(orders.restaurantId, restaurants.id))

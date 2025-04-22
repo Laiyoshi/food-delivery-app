@@ -135,6 +135,7 @@ export interface OrderData {
   status: string;
   restaurant: string;
   deliveryAddress: string;
+  deliveryTimeMinutes: number;
   paymentMethod: string;
   courierName: string;
   courierPhone: string;
