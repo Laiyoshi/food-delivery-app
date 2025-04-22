@@ -96,8 +96,26 @@ const RegisterForm = () => {
     );
   };
 
+  const filledFieldsCount = Object.values(formData).filter((value) => value.trim() !== "").length;
+  const totalFields = Object.keys(formData).length;
+  const getProgressColor = () => {
+    const percentage = filledFieldsCount / totalFields;
+    if (percentage < 0.33) return 'bg-red-500';
+    if (percentage < 0.66) return 'bg-yellow-500';
+    return 'bg-green-500';
+  };
+
   return (
     <form className="space-y-2 sm:space-y-3" onSubmit={handleSubmit}>
+      <div className="text-sm text-gray-500 text-right mt-1">
+        Заполнено полей: {filledFieldsCount} из {totalFields}
+      </div>
+      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div
+        className={`h-full transition-all duration-300 ${getProgressColor()}`}
+        style={{ width: `${(filledFieldsCount / totalFields) * 100}%` }}
+      />
+        </div>
       <div
         className="max-h-[320px] overflow-y-scroll space-y-2 sm:space-y-3 pr-2"
         style={{ scrollbarGutter: "stable" }}
