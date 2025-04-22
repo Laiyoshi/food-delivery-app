@@ -1,16 +1,16 @@
 'use client';
 
-import React from 'react';
+type Props = {
+  phone: string;
+};
 
-const CallCourierButton = ({ phone }: { phone: string }) => {
+export function CallCourierButton({ phone }: Props) {
   return (
     <button
       onClick={() => window.open(`tel:${phone}`, '_self')}
-      className="w-full border-1 border-gray-300 shadow-(--shadow-card) rounded-lg bg-white py-3 text-center text-base font-bold text-gray-800 hover:bg-gray-100"
+      className="w-full rounded-lg border-1 border-gray-300 bg-white py-3 text-center text-base font-bold text-gray-800 shadow-(--shadow-card) hover:bg-gray-100"
     >
       Позвонить курьеру
     </button>
   );
-};
-
-export default CallCourierButton;
+}

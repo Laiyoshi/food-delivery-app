@@ -53,7 +53,7 @@ export const useStore = create<StoreState>()(
               : state.cart.filter(item => item.id !== id),
         })),
       repeatOrder: (items, restaurantId) =>
-        set(state => {
+        set(() => {
           const newCart = items.map(item => ({
             ...item,
             quantity: item.quantity || 1,
