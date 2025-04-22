@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import MobileBackground from '@/app/components/MobileBackground';
-import BackArrow from '@/app/components/BackArrow';
-import OrderItem from '@/app/components/OrderItem';
+import { MobileBackground } from '@/app/components/MobileBackground';
+import { BackArrow } from '@/app/components/BackArrow';
+import { OrderItem } from '@/app/components/OrderItem';
 import { OrderItemProps } from '@/app/types/types';
 import { useUserStore } from '@/app/store/userStore';
 
-const OrdersPage = () => {
+function OrdersPage() {
   const { userId } = useUserStore();
   const [orders, setOrders] = useState<OrderItemProps[]>([]);
   const [loading, setLoading] = useState(true);

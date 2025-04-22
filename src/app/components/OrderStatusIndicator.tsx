@@ -1,28 +1,20 @@
-import React from 'react';
-
-interface OrderStatusIndicatorProps {
+type Props = {
   status: string;
   orderDate: string;
   deliveryTimeMinutes: number;
-}
+};
 
-const OrderStatusIndicator: React.FC<OrderStatusIndicatorProps> = ({
-  status,
-  orderDate,
-  deliveryTimeMinutes,
-}) => {
+export function OrderStatusIndicator({ status, orderDate, deliveryTimeMinutes }: Props) {
   const calculateDeliveryTime = () => {
     if (!orderDate || isNaN(deliveryTimeMinutes) || deliveryTimeMinutes <= 0) {
       return 'Ошибка данных';
     }
-
     const orderDateTime = new Date(orderDate);
+
     if (isNaN(orderDateTime.getTime())) {
       return 'Неверная дата';
     }
-
     const estimatedTime = new Date(orderDateTime.getTime() + deliveryTimeMinutes * 60000);
-
     const hours = estimatedTime.getHours().toString().padStart(2, '0');
     const minutes = estimatedTime.getMinutes().toString().padStart(2, '0');
 
@@ -41,7 +33,7 @@ const OrderStatusIndicator: React.FC<OrderStatusIndicatorProps> = ({
   return (
     <div className="mt-4 mb-4">
       <div className="flex items-center justify-between text-sm text-gray-800 md:text-base">
-        <div className='flex items-center'>
+        <div className="flex items-center">
           Статус заказа:
           <span
             className={`ml-2 rounded-full px-3 py-1 text-base font-bold text-white md:text-xl ${colorClass}`}
@@ -63,7 +55,7 @@ const OrderStatusIndicator: React.FC<OrderStatusIndicatorProps> = ({
       </div>
     </div>
   );
-};
+}
 
 // Функция для определения прогресса шкалы в зависимости от статуса
 const getStatusProgress = (status: string): number => {
@@ -78,5 +70,3 @@ const getStatusProgress = (status: string): number => {
       return 0;
   }
 };
-
-export default OrderStatusIndicator;

@@ -1,26 +1,23 @@
-import { NextResponse } from 'next/server'
-import { eq } from 'drizzle-orm'
-import { db } from '@/db'
-import {
-  orders,
-  orderItems,
-  menuItems,
-  restaurants,
-  orderStatuses,
-  deliveryAddresses,
-  couriers,
-  paymentMethods
-} from '@/db/schema'
+import { NextResponse } from 'next/server';
+import { eq } from 'drizzle-orm';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+import { db } from '@/db';
+import {
+  couriers,
+  deliveryAddresses,
+  menuItems,
+  orderItems,
+  orders,
+  orderStatuses,
+  paymentMethods,
+  restaurants,
+} from '@/db/schema';
+
+export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
-    // Явно получаем id из params
     const { id } = await params;
     const orderId = Number(id);
-    
+
     // 1. Основные данные заказа
     const [order] = await db
       .select({
@@ -34,7 +31,7 @@ export async function GET(
         courierName: couriers.name,
         courierPhone: couriers.phone,
         orderAmount: orders.orderAmount,
-        deliveryTimeMinutes: restaurants.deliveryTimeMinutes
+        deliveryTimeMinutes: restaurants.deliveryTimeMinutes,
       })
       .from(orders)
       .leftJoin(restaurants, eq(orders.restaurantId, restaurants.id))
@@ -42,13 +39,10 @@ export async function GET(
       .leftJoin(deliveryAddresses, eq(orders.deliveryAddressId, deliveryAddresses.id))
       .leftJoin(couriers, eq(orders.courierId, couriers.id))
       .leftJoin(paymentMethods, eq(orders.paymentMethodId, paymentMethods.id))
-      .where(eq(orders.id, orderId))
+      .where(eq(orders.id, orderId));
 
     if (!order) {
-      return NextResponse.json(
-        { error: 'Заказ не найден' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Заказ не найден' }, { status: 404 });
     }
 
     // 2. Товары заказа
@@ -58,34 +52,27 @@ export async function GET(
         name: menuItems.name,
         quantity: orderItems.quantity,
         price: orderItems.priceAtPurchase,
-        imageUrl: menuItems.imageUrl
+        imageUrl: menuItems.imageUrl,
       })
       .from(orderItems)
       .leftJoin(menuItems, eq(orderItems.menuItemId, menuItems.id))
-      .where(eq(orderItems.orderId, orderId)) // Используем тот же orderId
+      .where(eq(orderItems.orderId, orderId));
 
     // 3. Формируем ответ
     const response = {
       ...order,
       items,
-      total: order.orderAmount || items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-    }
+      total: order.orderAmount || items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    };
 
-    return NextResponse.json(response)
-
+    return NextResponse.json(response);
   } catch (error) {
-    console.error('Ошибка при получении заказа:', error)
-    return NextResponse.json(
-      { error: 'Внутренняя ошибка сервера' },
-      { status: 500 }
-    )
+    console.error('Ошибка при получении заказа:', error);
+    return NextResponse.json({ error: 'Внутренняя ошибка сервера' }, { status: 500 });
   }
 }
 
-export async function POST(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function POST(request: Request, { params }: { params: { id: string } }) {
   try {
     const { id } = await params;
     const orderId = Number(id);
@@ -97,7 +84,7 @@ export async function POST(
 
     const [order] = await db
       .select({
-        restaurantId: orders.restaurantId, // Добавляем restaurantId
+        restaurantId: orders.restaurantId,
       })
       .from(orders)
       .where(eq(orders.id, orderId));
@@ -122,7 +109,7 @@ export async function POST(
     }
 
     // Возвращаем данные для повторения заказа
-    return NextResponse.json({ items ,restaurantId: order.restaurantId});
+    return NextResponse.json({ items, restaurantId: order.restaurantId });
   } catch (error) {
     console.error('Ошибка при повторении заказа:', error);
     return NextResponse.json({ error: 'Внутренняя ошибка сервера' }, { status: 500 });

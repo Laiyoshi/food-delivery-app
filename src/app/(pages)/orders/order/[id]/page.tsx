@@ -1,12 +1,10 @@
-import React from 'react';
-
-import OrderInfo from '@/app//components/OrderInfo';
-import OrderReview from '@/app//components/OrderReview';
-import BackArrow from '@/app/components/BackArrow';
-import MobileBackground from '@/app/components/MobileBackground';
-import OrderMap from '@/app/components/OrderMap';
-import OrderStatusIndicator from '@/app/components/OrderStatusIndicator';
-import RepeatOrderButton from '@/app/components/RepeatOrderButton';
+import { OrderInfo } from '@/app//components/OrderInfo';
+import { OrderReview } from '@/app//components/OrderReview';
+import { BackArrow } from '@/app/components/BackArrow';
+import { MobileBackground } from '@/app/components/MobileBackground';
+import { OrderMap } from '@/app/components/OrderMap';
+import { OrderStatusIndicator } from '@/app/components/OrderStatusIndicator';
+import { RepeatOrderButton } from '@/app/components/RepeatOrderButton';
 import CallCourierButton from '@/app/components/CallCourierButton';
 import { OrderData } from '@/app/types/types';
 
@@ -18,7 +16,11 @@ async function fetchOrder(id: string): Promise<OrderData> {
   return response.json();
 }
 
-const OrderDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+type Params = {
+  id: string;
+};
+
+export async function OrderDetailsPage({ params }: { params: Params }) {
   const { id } = await params; // Ожидаем params перед использованием
   const order = await fetchOrder(id);
 
