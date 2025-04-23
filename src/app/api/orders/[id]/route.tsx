@@ -18,7 +18,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const { id } = await params;
     const orderId = Number(id);
 
-    // 1. Основные данные заказа
+    //Основные данные заказа
     const [order] = await db
       .select({
         id: orders.id,
@@ -45,7 +45,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
       return NextResponse.json({ error: 'Заказ не найден' }, { status: 404 });
     }
 
-    // 2. Товары заказа
+    //Товары заказа
     const items = await db
       .select({
         id: menuItems.id,
@@ -58,7 +58,6 @@ export async function GET(request: Request, { params }: { params: { id: string }
       .leftJoin(menuItems, eq(orderItems.menuItemId, menuItems.id))
       .where(eq(orderItems.orderId, orderId));
 
-    // 3. Формируем ответ
     const response = {
       ...order,
       items,

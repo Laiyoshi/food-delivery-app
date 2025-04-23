@@ -61,8 +61,8 @@ export default function OrderReview({ orderId }: Props) {
   // Функция для автоматической настройки высоты текстового поля
   const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textarea = e.target;
-    textarea.style.height = 'auto'; // Сброс высоты
-    textarea.style.height = `${textarea.scrollHeight}px`; // Установка новой высоты
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
     setReview((prev) => ({ ...prev, comment: e.target.value }));
   };
 
@@ -163,7 +163,7 @@ export default function OrderReview({ orderId }: Props) {
 
           {/* Комментарий */}
           <textarea
-            id="existing-comment" // Идентификатор для автонастройки высоты
+            id="existing-comment"
             className="w-full resize-none rounded-lg border border-gray-300 p-2 overflow-hidden"
             placeholder="Что вам понравилось?"
             value={existingReview.comment}
@@ -174,6 +174,7 @@ export default function OrderReview({ orderId }: Props) {
         <>
           <h3 className="mb-4 text-base font-bold text-gray-800 md:text-xl">Оценить заказ</h3>
           <div className="mb-4 flex flex-col justify-between gap-4 md:flex-row md:gap-12">
+            {/* Рейтинг ресторана */}
             <div className="flex items-center justify-between gap-3 md:w-1/2">
               <p className="">Ресторан:</p>
               <div className="flex flex-1 justify-between">
@@ -201,6 +202,8 @@ export default function OrderReview({ orderId }: Props) {
                 ))}
               </div>
             </div>
+
+            {/* Рейтинг доставки */}
             <div className="flex items-center justify-between gap-3 md:w-1/2">
               <p className="">Доставка:</p>
               <div className="flex flex-1 justify-between">
@@ -229,6 +232,8 @@ export default function OrderReview({ orderId }: Props) {
               </div>
             </div>
           </div>
+          
+          {/* Комментарий */}
           <textarea
             className="mb-4 h-24 w-full resize-none rounded-lg border border-gray-300 p-2 overflow-hidden"
             placeholder="Что вам понравилось?"

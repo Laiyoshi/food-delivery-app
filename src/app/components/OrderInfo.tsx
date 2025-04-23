@@ -31,9 +31,11 @@ export default function OrderInfo({ order }: Props) {
           {order.status}
         </p>
       </div>
+
       <h3 className="mb-2 text-base font-bold text-gray-800 md:mb-4 md:text-xl">
         «{order.restaurant}»
       </h3>
+
       <ul className="mb-2 text-sm md:mb-4 md:text-base">
         {order.items.map((item, index) => (
           <li key={index} className="flex justify-between border-b border-gray-300 pt-2 pb-1">
@@ -43,6 +45,7 @@ export default function OrderInfo({ order }: Props) {
           </li>
         ))}
       </ul>
+      
       <div className="mb-2 md:mb-4">
         <p className="text-end text-sm text-gray-600 md:text-base">
           Итого:{' '}
@@ -55,6 +58,7 @@ export default function OrderInfo({ order }: Props) {
         <h4 className="mb-2 text-sm font-bold text-gray-800 md:mb-4 md:text-base">
           Детали доставки:
         </h4>
+
         <div className="mb-2 flex flex-col justify-between gap-2 text-gray-600 md:mb-4 md:flex-row md:gap-4">
           <p className="text-gray-800">
             <span className="mr-2 text-xs text-gray-400">Адрес</span>
@@ -65,6 +69,7 @@ export default function OrderInfo({ order }: Props) {
             {order.paymentMethod}
           </p>
         </div>
+
         <div className="flex flex-col gap-2 text-gray-800 md:flex-row">
           <span className="text-xs text-gray-400 md:self-center">Курьер</span>
           <div className="flex flex-row justify-between gap-2">

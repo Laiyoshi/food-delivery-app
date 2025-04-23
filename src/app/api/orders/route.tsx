@@ -8,7 +8,6 @@ import { orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
 export async function GET(req: Request) {
   try {
-    // Получаем userId из заголовков запроса
     const userId = req.headers.get('user-id');
     if (!userId) {
       return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
@@ -67,7 +66,6 @@ export async function GET(req: Request) {
 
     return NextResponse.json(ordersWithAmount);
   } catch (error) {
-    console.error('Ошибка при получении заказов:', error);
     return NextResponse.json({ error: 'Ошибка на сервере' }, { status: 500 });
   }
 }

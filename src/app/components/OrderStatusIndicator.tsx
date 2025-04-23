@@ -23,9 +23,9 @@ export default function OrderStatusIndicator({ status, orderDate, deliveryTimeMi
 
   const estimatedDelivery = calculateDeliveryTime();
   const statusColors: { [key: string]: string } = {
-    Создан: 'bg-yellow-500',
+    'Создан': 'bg-yellow-500',
     'В пути': 'bg-blue-500',
-    Доставлен: 'bg-green-500',
+    'Доставлен': 'bg-green-500',
   };
 
   const colorClass = statusColors[status] || 'bg-gray-300';
