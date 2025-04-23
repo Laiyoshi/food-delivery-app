@@ -1,3 +1,5 @@
+import { useUserStore } from "@/app/store/userStore";
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
 
 export async function fetchRemoveUser() {
@@ -10,6 +12,9 @@ export async function fetchRemoveUser() {
       const errorData = await response.json();
       throw new Error(errorData.error || 'Ошибка удаления аккаунта');
     }
+    useUserStore.getState().setUserId(null);
+    useUserStore.getState().setDeliveryAddressId(null);
+    useUserStore.getState().setPaymentMethodId(null);
 
     return await response.json();
   } catch (error: unknown) {

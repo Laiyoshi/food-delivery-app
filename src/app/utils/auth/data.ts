@@ -24,6 +24,8 @@ export async function fetchRegisterUser(
     }
     if (data.userId) {
       useUserStore.getState().setUserId(data.userId);
+      useUserStore.getState().setDeliveryAddressId(data.addressId);
+      useUserStore.getState().setPaymentMethodId(data.paymentMethodId);
     }
 
     return { success: data.message };
@@ -48,6 +50,8 @@ export async function fetchLoginUser(data: { emailOrAccountName: string; passwor
     const result = await response.json()
     if (response) {
       useUserStore.getState().setUserId(result.userId);
+      useUserStore.getState().setDeliveryAddressId(result.addressId);
+      useUserStore.getState().setPaymentMethodId(result.paymentMethodId);
     }
 
     return result;
@@ -69,6 +73,8 @@ export async function fetchLogoutUser() {
     }
 
     useUserStore.getState().setUserId(null);
+    useUserStore.getState().setDeliveryAddressId(null);
+    useUserStore.getState().setPaymentMethodId(null);
     return await response.json();
   } catch (error) {
     console.error('Ошибка при выходе из аккаунта:', error);
