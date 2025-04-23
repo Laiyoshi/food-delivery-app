@@ -1,14 +1,12 @@
 'use client';
 
-import React from 'react';
-
 import { OrderData } from '@/app/types/types';
 
 type Props = {
   order: OrderData;
 };
 
-export function OrderInfo({ order }: Props) {
+export default function OrderInfo({ order }: Props) {
   return (
     <div className="rounded-lg border-1 border-gray-300 bg-white p-6 shadow-(--shadow-card)">
       <div className="mb-2 flex flex-row justify-between text-sm md:mb-4 md:text-base">
@@ -38,7 +36,7 @@ export function OrderInfo({ order }: Props) {
       </h3>
       <ul className="mb-2 text-sm md:mb-4 md:text-base">
         {order.items.map((item, index) => (
-          <li key={index} className="flex justify-between border-b border-gray-300 pb-2">
+          <li key={index} className="flex justify-between border-b border-gray-300 pt-2 pb-1">
             <span className="w-1/2 text-left">{item.name}</span>
             <span className="w-1/4 text-left">{item.quantity} шт.</span>
             <span className="w-1/4 text-right">{item.price} ₽</span>
@@ -75,7 +73,6 @@ export function OrderInfo({ order }: Props) {
           </div>
         </div>
       </div>
-      
     </div>
   );
-};
+}

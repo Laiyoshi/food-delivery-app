@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { useRouter } from 'next/navigation'; // Импорт useRouter для навигации
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
   status: 'Создан' | 'В пути' | 'Доставлен';
 };
 
-export function OrderItem({ id, orderDate, restaurant, amount, status }: Props) {
+export default function OrderItem({ id, orderDate, restaurant, amount, status }: Props) {
   const router = useRouter(); // Хук для навигации
 
   const statusColor =

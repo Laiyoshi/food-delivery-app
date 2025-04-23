@@ -4,7 +4,7 @@ type Props = {
   phone: string;
 };
 
-export function CallCourierButton({ phone }: Props) {
+export default function CallCourierButton({ phone }: Props) {
   return (
     <button
       onClick={() => window.open(`tel:${phone}`, '_self')}

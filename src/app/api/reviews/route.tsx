@@ -3,13 +3,13 @@ import { db } from '@/db';
 import { reviews } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
+// Создание отзыва
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
     // Валидация данных
     const { orderId, restaurantRating, deliveryRating, comment } = body;
-
     if (
       !orderId ||
       typeof restaurantRating !== 'number' ||
@@ -20,6 +20,19 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: 'Некорректные данные для отзыва' },
         { status: 400 }
+      );
+    }
+
+    // Проверяем, существует ли уже отзыв для данного заказа
+    const existingReview = await db
+      .select()
+      .from(reviews)
+      .where(eq(reviews.orderId, Number(orderId)));
+
+    if (existingReview.length > 0) {
+      return NextResponse.json(
+        { error: 'Отзыв для этого заказа уже существует' },
+        { status: 409 } // Conflict
       );
     }
 
@@ -41,6 +54,7 @@ export async function POST(req: Request) {
   }
 }
 
+// Получение отзыва
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const orderId = searchParams.get('orderId');
@@ -57,8 +71,7 @@ export async function GET(req: Request) {
     const review = await db
       .select()
       .from(reviews)
-      .where(eq(reviews.orderId, Number(orderId)))
-      .execute();
+      .where(eq(reviews.orderId, Number(orderId)));
 
     if (!review || review.length === 0) {
       return NextResponse.json({ message: 'Отзыв не найден' }, { status: 404 });

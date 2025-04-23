@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import BackArrow from '@/app/components/BackArrow';
-import { MobileBackground } from '@/app/components/MobileBackground';
-import { OrderItem } from '@/app/components/OrderItem';
+import MobileBackground from '@/app/components/MobileBackground';
+import OrderItem from '@/app/components/OrderItem';
 import { useUserStore } from '@/app/store/userStore';
 import { OrderItemProps } from '@/app/types/types';
 
-function OrdersPage() {
+export default function OrdersPage() {
   const { userId } = useUserStore();
   const [orders, setOrders] = useState<OrderItemProps[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,5 +91,3 @@ function OrdersPage() {
     </div>
   );
 }
-
-export default OrdersPage;
