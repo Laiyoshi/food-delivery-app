@@ -7,7 +7,7 @@ import { Suspense } from "react";
 const RegisterPageContent = () => {
 
   return (
-    <div className="relative flex min-h-[calc(100vh-50px)] items-center justify-center bg-white overflow-hidden px-4 sm:px-0 pt-[50px]">
+    <div className="relative flex min-h-[calc(100vh-150px)] items-center justify-center bg-white overflow-hidden px-4 sm:px-0 pt-[50px]">
       <AuthBackground />
       <AuthForm title="Регистрация">
         <RegisterForm />
