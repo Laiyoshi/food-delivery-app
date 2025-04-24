@@ -66,6 +66,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json(ordersWithAmount);
   } catch (error) {
+    console.error('Ошибка при получении заказов:', error);
     return NextResponse.json({ error: 'Ошибка на сервере' }, { status: 500 });
   }
 }
