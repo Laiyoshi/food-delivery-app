@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
-import { Bars3Icon, ChatBubbleLeftEllipsisIcon, HomeIcon, RectangleStackIcon, ShoppingCartIcon, TruckIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, HomeIcon, RectangleStackIcon, ShoppingCartIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 
 
