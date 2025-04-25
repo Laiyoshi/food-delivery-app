@@ -112,14 +112,6 @@ export type AuthFormProps = {
   className?: string;
 };
 
-export interface OrderItemProps {
-  id: number;
-  orderDate: string; // ISO-формат даты
-  restaurant: string;
-  amount: number; // Сумма заказа
-  status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
-}
-
 export interface OrderData {
   id: number;
   orderDate: string; // ISO-формат даты
@@ -137,13 +129,6 @@ export interface OrderData {
     restaurantId: string;
   }[];
   total: number; // Общая сумма заказа
-}
-
-export interface ReviewData {
-  restaurantRating: number;
-  deliveryRating: number;
-  comment: string;
-  orderId: number;
 }
 
 export interface AccountSettingsFormProps {
