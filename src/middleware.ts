@@ -1,4 +1,4 @@
-import { verifyAuth } from '@/app/utils/auth/checkAuth';
+import { verifyAuth } from '@/utils/auth/checkAuth';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 

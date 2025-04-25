@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/db';
 import { cart, deliveryAddresses, favorites, orders, paymentMethods, users } from '@/db/schema';
 import { eq, and, ne, or } from 'drizzle-orm';
-import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
+import { getAuthenticatedUserId } from '@/utils/auth/checkAuth';
 import bcrypt from 'bcryptjs';
 
 export async function GET() {
