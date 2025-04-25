@@ -1,14 +1,12 @@
 'use client';
 
-import React from 'react';
-
 import { OrderData } from '@/app/types/types';
 
 type Props = {
   order: OrderData;
 };
 
-export function OrderInfo({ order }: Props) {
+export default function OrderInfo({ order }: Props) {
   return (
     <div className="rounded-lg border-1 border-gray-300 bg-white p-6 shadow-(--shadow-card)">
       <div className="mb-2 flex flex-row justify-between text-sm md:mb-4 md:text-base">
@@ -33,18 +31,21 @@ export function OrderInfo({ order }: Props) {
           {order.status}
         </p>
       </div>
+
       <h3 className="mb-2 text-base font-bold text-gray-800 md:mb-4 md:text-xl">
         «{order.restaurant}»
       </h3>
+
       <ul className="mb-2 text-sm md:mb-4 md:text-base">
         {order.items.map((item, index) => (
-          <li key={index} className="flex justify-between border-b border-gray-300 pb-2">
+          <li key={index} className="flex justify-between border-b border-gray-300 pt-2 pb-1">
             <span className="w-1/2 text-left">{item.name}</span>
             <span className="w-1/4 text-left">{item.quantity} шт.</span>
             <span className="w-1/4 text-right">{item.price} ₽</span>
           </li>
         ))}
       </ul>
+      
       <div className="mb-2 md:mb-4">
         <p className="text-end text-sm text-gray-600 md:text-base">
           Итого:{' '}
@@ -57,6 +58,7 @@ export function OrderInfo({ order }: Props) {
         <h4 className="mb-2 text-sm font-bold text-gray-800 md:mb-4 md:text-base">
           Детали доставки:
         </h4>
+
         <div className="mb-2 flex flex-col justify-between gap-2 text-gray-600 md:mb-4 md:flex-row md:gap-4">
           <p className="text-gray-800">
             <span className="mr-2 text-xs text-gray-400">Адрес</span>
@@ -67,6 +69,7 @@ export function OrderInfo({ order }: Props) {
             {order.paymentMethod}
           </p>
         </div>
+
         <div className="flex flex-col gap-2 text-gray-800 md:flex-row">
           <span className="text-xs text-gray-400 md:self-center">Курьер</span>
           <div className="flex flex-row justify-between gap-2">
@@ -75,7 +78,6 @@ export function OrderInfo({ order }: Props) {
           </div>
         </div>
       </div>
-      
     </div>
   );
-};
+}

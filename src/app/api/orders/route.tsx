@@ -8,7 +8,6 @@ import { orderItems, orders, orderStatuses, restaurants } from '@/db/schema';
 
 export async function GET(req: Request) {
   try {
-    // Получаем userId из заголовков запроса
     const userId = req.headers.get('user-id');
     if (!userId) {
       return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });

@@ -4,7 +4,7 @@ type Props = {
   deliveryTimeMinutes: number;
 };
 
-export function OrderStatusIndicator({ status, orderDate, deliveryTimeMinutes }: Props) {
+export default function OrderStatusIndicator({ status, orderDate, deliveryTimeMinutes }: Props) {
   const calculateDeliveryTime = () => {
     if (!orderDate || isNaN(deliveryTimeMinutes) || deliveryTimeMinutes <= 0) {
       return 'Ошибка данных';
@@ -23,16 +23,16 @@ export function OrderStatusIndicator({ status, orderDate, deliveryTimeMinutes }:
 
   const estimatedDelivery = calculateDeliveryTime();
   const statusColors: { [key: string]: string } = {
-    Создан: 'bg-yellow-500',
+    'Создан': 'bg-yellow-500',
     'В пути': 'bg-blue-500',
-    Доставлен: 'bg-green-500',
+    'Доставлен': 'bg-green-500',
   };
 
   const colorClass = statusColors[status] || 'bg-gray-300';
 
   return (
     <div className="mt-4 mb-4">
-      <div className="flex items-center justify-between text-sm text-gray-800 md:text-base">
+      <div className="flex flex-col justify-between text-sm text-gray-800 sm:flex-row sm:items-center md:text-base">
         <div className="flex items-center">
           Статус заказа:
           <span
@@ -43,7 +43,10 @@ export function OrderStatusIndicator({ status, orderDate, deliveryTimeMinutes }:
         </div>
         {status !== 'Доставлен' && (
           <span className="text-sm text-gray-500">
-            Ожидаемое время доставки: {estimatedDelivery}
+            Ожидаемое время доставки:{' '}
+            <span className="text-base font-bold text-gray-800 lg:text-xl">
+              {estimatedDelivery}
+            </span>
           </span>
         )}
       </div>

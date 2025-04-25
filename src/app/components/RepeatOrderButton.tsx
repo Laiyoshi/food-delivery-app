@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export function RepeatOrderButton({ orderId, className = '' }: Props) {
+export default function RepeatOrderButton({ orderId, className = '' }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,7 +39,6 @@ export function RepeatOrderButton({ orderId, className = '' }: Props) {
         throw new Error('Товары заказа не найдены');
       }
 
-      // Используем новый метод repeatOrder
       const { repeatOrder } = useCartStore.getState();
       repeatOrder(items, restaurantId);
 
