@@ -1,6 +1,6 @@
 'use client';
 
-interface InputFieldProps {
+type Props = {
   label: string;
   type: string;
   name: string;
@@ -9,14 +9,14 @@ interface InputFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputField = ({
+export default function InputField ({
   label,
   type,
   name,
   placeholder,
   value,
   onChange,
-}: InputFieldProps) => {
+}: Props) {
   return (
     <div className="space-y-2 w-full px-1 sm:px-2">
       <label htmlFor={name} className="block text-gray-500 text-sm sm:text-xs">
@@ -34,5 +34,3 @@ const InputField = ({
     </div>
   );
 };
-
-export default InputField;

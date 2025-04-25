@@ -1,4 +1,4 @@
-const AuthBackground = () => {
+export default function AuthBackground() {
   return (
     <div className="absolute inset-0 w-full h-full">
       <div 
@@ -17,5 +17,3 @@ const AuthBackground = () => {
     </div>
   );
 };
-
-export default AuthBackground;

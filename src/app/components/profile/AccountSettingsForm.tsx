@@ -5,10 +5,24 @@ import { useRouter } from 'next/navigation';
 import InputField from '@/app/components/auth/InputField';
 import { fetchLogoutUser } from '@/app/utils/auth/data';
 import { fetchRemoveUser, fetchUpdateProfile } from '@/app/utils/profile/data';
-import { AccountSettingsFormProps } from '@/app/types/types';
 import { useUserStore } from '@/app/store/userStore';
 
-export default function AccountSettingsForm({ user }: AccountSettingsFormProps) {
+type Props = {
+  user: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    accountName: string;
+    phone: string;
+    address?: string;
+    cardNumber?: string;
+    currentPassword?: string;
+    newPassword?: string;
+    repeatPassword?: string;
+  };
+}
+
+export default function AccountSettingsForm({ user }: Props) {
   const [formData, setFormData] = useState(user);
   const [initialFormData, setInitialFormData] = useState(formData);
   const [showSaveButton, setShowSaveButton] = useState(false);

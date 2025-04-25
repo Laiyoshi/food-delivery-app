@@ -5,7 +5,7 @@ import InputField from "./InputField";
 import { fetchRegisterUser } from "@/app/utils/auth/data";
 import { isEmailValid, isPhoneValid, isCardValid, isNameValid } from "@/app/utils/auth/validation";
 
-const RegisterForm = () => {
+export default function RegisterForm () {
   const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -143,5 +143,3 @@ const RegisterForm = () => {
     </form>
   );
 };
-
-export default RegisterForm;
