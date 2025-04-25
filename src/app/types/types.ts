@@ -98,13 +98,19 @@ export type CategoryDish = {
 export type SearchParams = { [key: string]: string };
 export type ParamsRequest = { params: Promise<{ id: string }> };
 
-export interface OrderItemProps {
-  id: number;
-  orderDate: string; // ISO-формат даты
-  restaurant: string;
-  amount: number; // Сумма заказа
-  status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
-}
+export type AuthFooterProps = {
+  question: string;
+  linkText: string;
+  linkHref: string;
+  isInsideForm?: boolean;
+  className?: string;
+};
+
+export type AuthFormProps = {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+};
 
 export interface OrderData {
   id: number;
@@ -125,9 +131,29 @@ export interface OrderData {
   total: number; // Общая сумма заказа
 }
 
-export interface ReviewData {
-  restaurantRating: number;
-  deliveryRating: number;
-  comment: string;
-  orderId: number;
+export interface AccountSettingsFormProps {
+  user: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    accountName: string;
+    phone: string;
+    address?: string;
+    cardNumber?: string;
+    currentPassword?: string;
+    newPassword?: string;
+    repeatPassword?: string;
+  };
+}
+
+export interface UserState {
+  userId: string | null;
+  paymentMethodId: number | null;
+  deliveryAddressId: number | null;
+  avatar: string | null;
+  setUserId: (id: string | null) => void;
+  setPaymentMethodId: (id: number | null) => void;
+  setDeliveryAddressId: (id: number | null) => void;
+  setAvatar: (url: string | null) => void;
+
 }

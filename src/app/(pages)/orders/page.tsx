@@ -7,7 +7,14 @@ import BackArrow from '@/app/components/BackArrow';
 import MobileBackground from '@/app/components/MobileBackground';
 import OrderItem from '@/app/components/OrderItem';
 import { useUserStore } from '@/app/store/userStore';
-import { OrderItemProps } from '@/app/types/types';
+
+type OrderItemProps = {
+  id: number;
+  orderDate: string; // ISO-формат даты
+  restaurant: string;
+  amount: number; // Сумма заказа
+  status: 'Создан' | 'В пути' | 'Доставлен'; // Перечисление статусов
+}
 
 export default function OrdersPage() {
   const { userId } = useUserStore();
