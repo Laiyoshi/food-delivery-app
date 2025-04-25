@@ -20,7 +20,7 @@ export default function AuthFooter({
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') ?? '/';
   const link = linkHref + '?callbackUrl=' + callbackUrl
-  console.log(link);
+
   if (isInsideForm) {
     return (
       <div

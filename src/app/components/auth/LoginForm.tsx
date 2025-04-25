@@ -39,11 +39,11 @@ export default function LoginPage() {
         onChange={(e) => setEmailOrLogin(e.target.value)}
       />
       <InputField
+        type="password"
         label="Пароль"
         name="password"
-        type="password"
-        placeholder="••••••••"
         value={password}
+        placeholder="••••••••"
         onChange={(e) => setPassword(e.target.value)}
       />
       {error && <p className="text-red-500 text-sm">{error}</p>}
