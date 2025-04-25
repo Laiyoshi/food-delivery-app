@@ -1,14 +1,14 @@
-import CartButton from './components/CartButton';
-import RestaurantList from './components/RestaurantList';
-import FilterSection from './components/RestautrantFilterSection';
+import CartButton from '@/components/CartButton';
+import RestaurantList from '@/components/RestaurantList';
+import FilterSection from '@/components/RestautrantFilterSection';
 import { SearchParams } from './types/types';
-import { roboto } from './ui/fonts';
+import { roboto } from '../ui/fonts';
 import {
   fetchCuisineType,
   fetchDeliveryTime,
   fetchLastOrdersRestaurants,
   fetchRestaurants,
-} from './utils/data';
+} from '@/utils/data';
 
 export default async function Home(props: SearchParams) {
   const searchParams = await props.searchParams;

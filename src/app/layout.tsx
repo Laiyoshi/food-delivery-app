@@ -1,8 +1,8 @@
-import Header from '@/app/components/Header';
+import Header from '@/components/Header';
 
 import './globals.css';
-import { getAuthenticatedUserId } from './utils/auth/checkAuth';
-import InitUserStore from './components/profile/InitUserStore';
+import { getAuthenticatedUserId } from '@/utils/auth/checkAuth';
+import InitUserStore from '@/components/profile/InitUserStore';
 import { db } from '@/db';
 import { paymentMethods, deliveryAddresses, users } from '@/db/schema';
 import { eq } from 'drizzle-orm';

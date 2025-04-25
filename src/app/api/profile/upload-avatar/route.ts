@@ -1,7 +1,7 @@
 // app/api/profile/upload-avatar/route.ts
 import { NextResponse } from 'next/server';
 import { put } from '@vercel/blob';
-import { getAuthenticatedUserId } from '@/app/utils/auth/checkAuth';
+import { getAuthenticatedUserId } from '@/utils/auth/checkAuth';
 import { db } from '@/db';
 import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
