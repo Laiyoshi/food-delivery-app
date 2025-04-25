@@ -155,4 +155,5 @@ export interface UserState {
   setPaymentMethodId: (id: number | null) => void;
   setDeliveryAddressId: (id: number | null) => void;
   setAvatar: (url: string | null) => void;
+
 }

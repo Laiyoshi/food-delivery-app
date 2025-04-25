@@ -3,17 +3,19 @@
 import { useUserStore } from '@/app/store/userStore';
 import { useEffect } from 'react';
 
-export function InitUserStore({ 
-  userId,
-  paymentMethodId,
-  deliveryAddressId,
-  avatar,
-}: { 
+type Props = {
   userId: string | null;
   paymentMethodId: number | null;
   deliveryAddressId: number | null;
   avatar: string | null;
-}) {
+};
+
+export default function InitUserStore({ 
+  userId,
+  paymentMethodId,
+  deliveryAddressId,
+  avatar,
+}: Props) {
   const { setUserId, setPaymentMethodId, setDeliveryAddressId, setAvatar } = useUserStore();
 
   useEffect(() => {

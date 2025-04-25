@@ -1,15 +1,22 @@
 'use client';
-import { AuthFooterProps } from "@/app/types/types";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-const AuthFooter = ({
+type Props = {
+  question: string;
+  linkText: string;
+  linkHref: string;
+  isInsideForm?: boolean;
+  className?: string;
+};
+
+export default function AuthFooter({
   question,
   linkText,
   linkHref,
   isInsideForm = false,
   className = "",
-}: AuthFooterProps) => {
+}: Props) {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') ?? '/';
   const link = linkHref + '?callbackUrl=' + callbackUrl
@@ -44,5 +51,3 @@ const AuthFooter = ({
     </div>
   );
 };
-
-export default AuthFooter;

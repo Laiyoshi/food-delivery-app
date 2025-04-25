@@ -4,7 +4,7 @@ import RegisterForm from "@/app/components/auth/RegisterForm";
 import AuthFooter from "@/app/components/auth/AuthFooter";
 import { Suspense } from "react";
 
-const RegisterPageContent = () => {
+function RegisterPageContent() {
 
   return (
     <div className="relative flex min-h-[calc(100vh-150px)] items-center justify-center bg-white overflow-hidden px-4 sm:px-0 pt-[50px]">
@@ -27,12 +27,10 @@ const RegisterPageContent = () => {
   );
 }
 
-const RegisterPage = () => {
+export default function RegisterPage() {
   return (
     <Suspense fallback={<div>Загрузка...</div>}>
       <RegisterPageContent />
     </Suspense>
   );
 };
-
-export default RegisterPage;

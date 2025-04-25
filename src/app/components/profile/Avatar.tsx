@@ -11,7 +11,7 @@ type User = {
   lastName?: string;
 };
 
-const Avatar = () => {
+export default function Avatar () {
   const [user, setUser] = useState<User | null>(null);
   const userId = useUserStore((state) => state.userId);
 
@@ -65,5 +65,3 @@ const Avatar = () => {
     </div>
   );
 };
-
-export default Avatar;
