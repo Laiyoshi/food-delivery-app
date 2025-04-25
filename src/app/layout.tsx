@@ -1,9 +1,8 @@
 import Header from '@/app/components/Header';
-// import MobileBackground from './components/MobileBackground';
 
 import './globals.css';
 import { getAuthenticatedUserId } from './utils/auth/checkAuth';
-import { InitUserStore } from './components/profile/InitUserStore';
+import InitUserStore from './components/profile/InitUserStore';
 import { db } from '@/db';
 import { paymentMethods, deliveryAddresses, users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
@@ -46,7 +45,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           avatar={avatar}
          />
         <Header />
-        {/* <MobileBackground/> */}
         <main>
           {children}
         </main>
