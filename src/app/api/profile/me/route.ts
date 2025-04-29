@@ -158,6 +158,8 @@ export async function DELETE() {
     await db.delete(cart).where(eq(cart.userId, userId));
     await db.delete(orders).where(eq(orders.userId, userId));
     await db.delete(favorites).where(eq(favorites.userId, userId));
+    await db.delete(deliveryAddresses).where(eq(deliveryAddresses.userId, userId));
+    await db.delete(paymentMethods).where(eq(paymentMethods.userId, userId));    
     await db.delete(users).where(eq(users.id, userId));
 
     const response = NextResponse.json({ success: 'Аккаунт удалён' });
