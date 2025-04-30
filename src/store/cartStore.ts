@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { immer } from 'zustand/middleware/immer';
 
 import { CartItem, Dish } from '@/app/types/types';
 
@@ -19,71 +20,101 @@ type StoreState = {
 };
 
 export const useCartStore = create<StoreState>()(
-  persist(
-    set => ({
-      cart: [],
-      cartAmount: 0,
-      restaurantId: null,
+  immer(
+    persist(
+      (set, get) => ({
+        cart: [],
+        cartAmount: 0,
+        restaurantId: null,
 
-      calculateAmount: () =>
-        set(state => ({
-          cartAmount: state.cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0),
-        })),
-      addToCart: (dish, restaurantId) =>
-        set(state => {
-          if (!state.restaurantId || state.restaurantId === restaurantId) {
-            return {
-              cart: [...state.cart, { ...dish, quantity: 1 }],
-              restaurantId,
-            };
-          } else {
-            alert('Вы можете добавлять товары только из одного ресторана.');
-            return state;
-          }
-        }),
-      removeFromCart: id => set(state => ({ cart: state.cart.filter(item => item.id !== id) })),
-      clearCart: () => set(() => ({ cart: [], restaurantId: null })),
-      increaseQuantity: id =>
-        set(state => ({
-          cart: state.cart.map(item =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-          ),
-        })),
-      decreaseQuantity: id =>
-        set(state => {
-          const updatedCart = state.cart
-            .map(item => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
-            .filter(item => item.quantity > 0);
+        calculateAmount: () => {
+          const items = get().cart;
+          const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+          set({ cartAmount: total });
+        },
+        addToCart: (dish, restaurantId) =>
+          set(state => {
+            if (!state.restaurantId || state.restaurantId === restaurantId) {
+              const existing = state.cart.find(item => item.id === dish.id);
+              if (existing) {
+                existing.quantity++;
+              } else {
+                state.cart.push({ ...dish, quantity: 1 });
+              }
+              state.restaurantId = restaurantId;
+              state.cartAmount = state.cart.reduce(
+                (sum, item) => sum + item.price * item.quantity,
+                0
+              );
+            } else {
+              alert('Можно заказывать только из одного ресторана.');
+            }
+          }),
+        removeFromCart: id =>
+          set(state => {
+            state.cart = state.cart.filter(item => item.id !== id);
+          }),
+        clearCart: () =>
+          set(state => {
+            state.cart = [];
+            state.cartAmount = 0;
+            state.restaurantId = null;
+          }),
+        increaseQuantity: id =>
+          set(state => {
+            const existItem = state.cart.find(item => item.id === id);
+            if (existItem) {
+              existItem.quantity++;
+            }
+          }),
+        decreaseQuantity: id =>
+          set(state => {
+            const item = state.cart.find(item => item.id === id);
+            if (!item) {
+              return;
+            }
 
-          return {
-            cart: updatedCart,
-            restaurantId: updatedCart.length === 0 ? null : state.restaurantId, // Сбрасываем restaurantId, если корзина пуста
-          };
+            if (item.quantity > 1) {
+              item.quantity--;
+            } else {
+              state.cart = state.cart.filter(i => i.id !== id);
+              state.restaurantId = null;
+            }
+          }),
+        updateQuantity: (id, quantity) =>
+          set(state => {
+            const idxItem = state.cart.findIndex(item => item.id === id);
+            if (idxItem === -1) return;
+
+            if (quantity > 0) {
+              state.cart[idxItem].quantity = quantity;
+            } else {
+              state.cart.splice(idxItem, 1);
+            }
+          }),
+        repeatOrder: (items, restaurantId) =>
+          set(state => {
+            state.cart = items.map(item => ({
+              ...item,
+              quantity: item.quantity || 1,
+            }));
+
+            state.cartAmount = state.cart.reduce(
+              (sum, item) => sum + item.price * item.quantity,
+              0
+            );
+
+            state.restaurantId = restaurantId;
+          }),
+      }),
+      {
+        name: 'cart-storage',
+        partialize: state => ({
+          cart: state.cart,
+          cartAmount: state.cartAmount,
+          restaurantId: state.restaurantId,
         }),
-      updateQuantity: (id, quantity) =>
-        set(state => ({
-          cart:
-            quantity > 0
-              ? state.cart.map(item => (item.id === id ? { ...item, quantity } : item))
-              : state.cart.filter(item => item.id !== id),
-        })),
-      repeatOrder: (items, restaurantId) =>
-        set(() => {
-          const newCart = items.map(item => ({
-            ...item,
-            quantity: item.quantity || 1,
-          }));
-          const newCartAmount = newCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-          return {
-            cart: newCart,
-            cartAmount: newCartAmount,
-            restaurantId, // Устанавливаем restaurantId для всей корзины
-          };
-        }),
-    }),
-    {
-      name: 'cart-storage',
-      partialize: state => ({ cart: state.cart, restaurantId: state.restaurantId }), // Сохраняем только cart и restaurantId
-    }
+      }
+    )
   )
 );

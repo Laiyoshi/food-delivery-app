@@ -11,7 +11,8 @@ import { inter, roboto } from '@/ui/fonts';
 import { fetchPostOrder } from '@/utils/data';
 
 export default function Cart() {
-  const { cart, cartAmount, restaurantId, clearCart } = useCartStore();
+  const { cart, restaurantId, clearCart } = useCartStore();
+  const cartAmount = useCartStore(state => state.cartAmount);
   const router = useRouter();
   const { userId, paymentMethodId, deliveryAddressId } = useUserStore();
 
@@ -57,7 +58,7 @@ export default function Cart() {
       <div className="mx-4 my-8 flex items-center md:hidden">
         <Button
           onClick={() => router.push('/')}
-          className="flex cursor-pointer items-center justify-start gap-2"
+          className="flex cursor-pointer items-center justify-start gap-2 transition duration-300 hover:bg-blue-700"
         >
           <ArrowLongLeftIcon className="flex h-6" />
           <h2 className={`${roboto.className} text-2xl font-bold text-gray-800`}>Ваша корзина</h2>
@@ -79,7 +80,7 @@ export default function Cart() {
           </div>
           <Button
             onClick={handlePostOrder}
-            className="w-full rounded bg-blue-500 py-2 text-center text-base font-bold text-white"
+            className="w-full rounded bg-blue-500 py-2 text-center text-base font-bold text-white transition duration-300 hover:bg-blue-700"
           >
             Оформление заказа
           </Button>

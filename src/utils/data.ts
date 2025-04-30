@@ -8,7 +8,7 @@ import {
   SearchParams,
 } from '@/app/types/types';
 
-type RestaurantPromise = { data: Restaurant[]; total: number };
+type RestaurantPromise = { data: Restaurant[]; totalRestaurants: number };
 type ParamsProps = { params: { id: string } };
 type SearchProps = {
   searchParams: SearchParams;
@@ -34,7 +34,7 @@ export async function fetchRestaurants({ searchParams }: SearchParams): Promise<
     return data;
   } catch (error: unknown) {
     console.log('Ошибка:', error);
-    return { data: [], total: 0 };
+    return { data: [], totalRestaurants: 0 };
   }
 }
 
@@ -54,20 +54,6 @@ export async function fetchCuisineType(): Promise<string[]> {
 
 export async function fetchDeliveryTime(): Promise<string[]> {
   return ['15', '30', '45'];
-}
-
-export async function fetchLastOrdersRestaurants(): Promise<Restaurant[]> {
-  try {
-    const response = await fetch(`${baseUrl}/api/restaurants/last-order-restaurant`);
-    if (!response.ok) {
-      throw new Error('Ошибка загрузки данных');
-    }
-    const data: Restaurant[] = await response.json();
-    return data;
-  } catch (error: unknown) {
-    console.log('Ошибка:', error);
-    return [];
-  }
 }
 
 export async function fetchRestaurantMenu({

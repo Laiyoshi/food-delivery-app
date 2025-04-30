@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-import { useCartStore } from '@/store/cartStore';
 import { MenuItemProps } from '@/app/types/types';
+import { useCartStore } from '@/store/cartStore';
 
 export default function CartItem({ menuData }: MenuItemProps) {
   const {
@@ -14,7 +14,7 @@ export default function CartItem({ menuData }: MenuItemProps) {
     decreaseQuantity,
     calculateAmount,
   } = useCartStore();
-  
+
   const productInCart = cart.find(item => item.id === menuData.id);
 
   const handleIncreaseQuantity = () => {
@@ -70,7 +70,7 @@ export default function CartItem({ menuData }: MenuItemProps) {
         <div className="col-[2/4] row-2 mt-1 ml-1 flex h-10 gap-1 md:ml-5 md:w-full lg:col-3 lg:row-1 lg:mr-3 lg:ml-0 lg:justify-end lg:self-end">
           <Button
             onClick={handleDecreaseQuantity}
-            className="h-full w-[40px] rounded bg-blue-500 text-base font-bold text-white"
+            className="h-full w-[40px] rounded bg-blue-500 text-base font-bold text-white transition duration-300 hover:bg-blue-700"
           >
             -
           </Button>
@@ -84,7 +84,7 @@ export default function CartItem({ menuData }: MenuItemProps) {
 
           <Button
             onClick={handleIncreaseQuantity}
-            className="h-full w-[40px] rounded bg-blue-500 text-base font-bold text-white"
+            className="h-full w-[40px] rounded bg-blue-500 text-base font-bold text-white transition duration-300 hover:bg-blue-700"
           >
             +
           </Button>

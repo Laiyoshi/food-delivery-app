@@ -1,14 +1,11 @@
 import CartButton from '@/components/CartButton';
 import RestaurantList from '@/components/RestaurantList';
 import FilterSection from '@/components/RestautrantFilterSection';
-import { SearchParams } from './types/types';
+import { fetchCuisineType, fetchDeliveryTime, fetchRestaurants } from '@/utils/data';
+
 import { roboto } from '../ui/fonts';
-import {
-  fetchCuisineType,
-  fetchDeliveryTime,
-  fetchLastOrdersRestaurants,
-  fetchRestaurants,
-} from '@/utils/data';
+import { getLastOrdersRestaurant } from './api/restaurants/last-order-restaurant/route';
+import { SearchParams } from './types/types';
 
 export default async function Home(props: SearchParams) {
   const searchParams = await props.searchParams;
@@ -16,7 +13,7 @@ export default async function Home(props: SearchParams) {
     fetchDeliveryTime(),
     fetchCuisineType(),
     fetchRestaurants({ searchParams }),
-    fetchLastOrdersRestaurants(),
+    getLastOrdersRestaurant({ searchParams }),
   ]);
 
   return (
