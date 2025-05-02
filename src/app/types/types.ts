@@ -16,6 +16,7 @@ type restaurantData = {
   description: string;
   rating: number;
   deliveryTime: string;
+  deliveryTimeMinutes: number;
   cuisineType: string;
   averagePrice: number;
   imageUrl: string;
@@ -23,6 +24,7 @@ type restaurantData = {
 
 export type CardProps = {
   restaurantData: restaurantData;
+  isFavorite: boolean;
 };
 
 export type FilterDropdownProps<T extends string | number> = {
@@ -115,4 +117,4 @@ export type OrderData = {
     restaurantId: string;
   }[];
   total: number; // Общая сумма заказа
-}
+};

@@ -4,16 +4,18 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Transition } from '@headlessui/react';
-import { Bars3Icon, HomeIcon, RectangleStackIcon, ShoppingCartIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
-
-
+import {
+  Bars3Icon,
+  HomeIcon,
+  RectangleStackIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 
 import { useCartStore } from '@/store/cartStore';
 
-
-
 import Avatar from './profile/Avatar';
-
 
 export default function Header() {
   const { cart } = useCartStore();
@@ -37,7 +39,6 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
-
           <Link
             href="/orders"
             className="flex items-center duration-300 hover:text-blue-600 active:text-blue-700"
@@ -73,13 +74,19 @@ export default function Header() {
       <Transition show={isOpened}>
         <div className="fixed inset-0 z-50 bg-white bg-[url(/images/bg-mobile.png)] bg-cover data-[closed]:-translate-x-full data-[enter]:duration-300 data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-full lg:hidden">
           <div className="flex h-10 items-center justify-between px-5">
-            <Image
-              src="/images/Yam.svg"
-              alt="Логотип службы доставки еды"
-              width={0}
-              height={0}
-              className="h-[24px] w-[50px] lg:h-[40px] lg:w-[84px]"
-            />
+            <Link
+              href="/"
+              onClick={() => setIsOpened(false)}
+              className="flex h-12 w-full items-center border-b-1 border-b-gray-300 py-6"
+            >
+              <Image
+                src="/images/Yam.svg"
+                alt="Логотип службы доставки еды"
+                width={0}
+                height={0}
+                className="h-[24px] w-[50px] lg:h-[40px] lg:w-[84px]"
+              />
+            </Link>
 
             <button onClick={() => setIsOpened(!isOpened)} className="text-xl text-white">
               <XMarkIcon className="h-6 w-6 text-gray-800" />
@@ -88,21 +95,26 @@ export default function Header() {
           <nav className="mx-5 flex h-full flex-col items-start justify-start text-gray-800">
             <Link
               href="/"
+              onClick={() => setIsOpened(false)}
               className="flex h-12 w-full items-center border-b-1 border-b-gray-300 py-6"
             >
               <HomeIcon className="mr-1 h-6 w-6" />
               Главная
             </Link>
 
-
             <Link
               href="/profile"
+              onClick={() => setIsOpened(false)}
               className="flex h-12 w-full items-center border-b-1 border-b-gray-300 py-6"
             >
               <UserIcon className="mr-1 h-6 w-6" /> Профиль
             </Link>
 
-            <Link href="/orders" className="flex h-12 w-full items-center py-6">
+            <Link
+              href="/orders"
+              onClick={() => setIsOpened(false)}
+              className="flex h-12 w-full items-center py-6"
+            >
               <RectangleStackIcon className="mr-1 h-6 w-6" />
               Ваши заказы
             </Link>

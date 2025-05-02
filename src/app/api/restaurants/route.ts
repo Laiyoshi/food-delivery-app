@@ -1,5 +1,6 @@
 import { and, count, eq, gte, SQL } from 'drizzle-orm';
 
+import { SearchParams } from '@/app/types/types';
 import { db } from '@/db';
 import { restaurants } from '@/db/schema';
 
@@ -13,7 +14,7 @@ export async function GET(req: Request) {
   }
 }
 
-async function getRestaurants(searchParams: { [key: string]: string }) {
+async function getRestaurants(searchParams: SearchParams) {
   const filters: SQL[] = [];
 
   if (searchParams.rating) filters.push(gte(restaurants.rating, Number(searchParams.rating)));
@@ -21,8 +22,8 @@ async function getRestaurants(searchParams: { [key: string]: string }) {
     filters.push(gte(restaurants.deliveryTimeMinutes, Number(searchParams.deliveryTime)));
   if (searchParams.cuisineType) filters.push(eq(restaurants.cuisineType, searchParams.cuisineType));
 
-  const page = parseInt(searchParams.page || '1');
-  const limit = parseInt(searchParams.limit || '12');
+  const page = parseInt(searchParams.pageRestaurant || '1');
+  const limit = parseInt(searchParams.limit || '8');
   const offset = (page - 1) * limit;
 
   const shouldSortByDelivery = !!searchParams.deliveryTime;
@@ -45,10 +46,10 @@ async function getRestaurants(searchParams: { [key: string]: string }) {
       .from(restaurants)
       .where(and(...filters)),
   ]);
-  const total = Number(totalResult[0]?.count || 0);
+  const totalRestaurants = Number(totalResult[0]?.count || 0);
 
   return {
     data,
-    total,
+    totalRestaurants,
   };
 }

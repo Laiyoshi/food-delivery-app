@@ -6,15 +6,16 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 type Props = {
   totalPages: number;
   currentPage: number;
+  paginationName: string;
 };
 
-export default function Pagination({ totalPages, currentPage }: Props) {
+export default function Pagination({ totalPages, currentPage, paginationName }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set('page', page.toString());
+    params.set(paginationName, page.toString());
     router.push(`/?${params.toString()}`);
   };
 
@@ -60,7 +61,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="mt-6 flex justify-center gap-1 sm:gap-2">
+    <div className="mt-6 flex justify-center gap-0 sm:gap-2">
       <button
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}

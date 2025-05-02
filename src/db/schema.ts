@@ -8,12 +8,12 @@ export const restaurants = sqliteTable('restaurants', {
     .$default(() => uuid4()),
   name: text('name').notNull(),
   description: text('description').notNull(),
-  rating: real('rating').default(0),
+  rating: real('rating').default(0).notNull(),
   deliveryTime: text('delivery_time').notNull(),
   deliveryTimeMinutes: integer('delivery_time_minutes').notNull(),
   cuisineType: text('cuisine_type').notNull(),
-  averagePrice: real('average_price'),
-  imageUrl: text('image_url'),
+  averagePrice: real('average_price').notNull(),
+  imageUrl: text('image_url').notNull(),
 });
 
 export const categories = sqliteTable('categories', {
