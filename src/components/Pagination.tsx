@@ -61,7 +61,7 @@ export default function Pagination({ totalPages, currentPage, paginationName }: 
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="mt-6 flex justify-center gap-1 sm:gap-2">
+    <div className="mt-6 flex justify-center gap-0 sm:gap-2">
       <button
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}

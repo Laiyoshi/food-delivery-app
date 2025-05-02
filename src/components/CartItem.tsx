@@ -41,7 +41,7 @@ export default function CartItem({ menuData }: MenuItemProps) {
   };
 
   return (
-    <div className="sm:w-[calc(100%-20vw) lg:w-[calc(800px-20vw) mx-4 h-fit w-full items-center rounded-[8px] shadow-(--shadow-card) md:w-[calc(100vw-32px)] xl:w-[800px]">
+    <div className="sm:w-[calc(100%-25vw) lg:w-[calc(800px-20vw) mx-4 h-fit items-center rounded-[8px] shadow-(--shadow-card) md:w-[calc(100vw-70px)] lg:w-[650px] xl:w-[800px]">
       <div className="mx-4 my-3 grid grid-cols-[max-content_1fr_1fr] items-center">
         <div className="relative col-1 row-1 h-20 w-20">
           <Image
@@ -79,7 +79,7 @@ export default function CartItem({ menuData }: MenuItemProps) {
             value={productInCart?.quantity ?? 1}
             onChange={handleUpdateQuantity}
             min={0}
-            className="h-full w-[calc(100%-80px)] rounded border-2 border-gray-300 text-center font-bold text-gray-800 md:w-43 lg:max-w-[69px]"
+            className="h-full w-[calc(100%-80px)] rounded border-2 border-gray-300 text-center font-bold text-gray-800 md:w-47 lg:max-w-[69px]"
           />
 
           <Button

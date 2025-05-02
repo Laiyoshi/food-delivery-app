@@ -1,14 +1,8 @@
 import { and, count, eq, gte, SQL } from 'drizzle-orm';
 
-
-
 import { SearchParams } from '@/app/types/types';
 import { db } from '@/db';
 import { restaurants } from '@/db/schema';
-
-
-
-
 
 export async function GET(req: Request) {
   try {

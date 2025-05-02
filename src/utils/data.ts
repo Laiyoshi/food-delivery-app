@@ -9,6 +9,7 @@ import {
 } from '@/app/types/types';
 
 type RestaurantPromise = { data: Restaurant[]; totalRestaurants: number };
+type FavoriteRestaurantPromise = { data: Restaurant[]; totalFavorites: number };
 type ParamsProps = { params: { id: string } };
 type SearchProps = {
   searchParams: SearchParams;
@@ -119,5 +120,27 @@ export async function fetchPostOrder(orderData: CreateOrderRequest) {
   } catch (error) {
     console.log('Error: ', error);
     throw error;
+  }
+}
+
+export async function fetchFavorites({ searchParams }: SearchParams) {
+  try {
+    const searchParameters = await searchParams;
+    const params = new URLSearchParams();
+
+    Object.entries(searchParameters).forEach(([key, value]) => {
+      params.append(key, value.toString());
+    });
+
+    const response = await fetch(`/api/restaurants/favorites${'?' + params.toString()}`);
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных');
+    }
+    const data: FavoriteRestaurantPromise = await response.json();
+    return data;
+  } catch (error: unknown) {
+    console.log('Ошибка:', error);
+
+    return { data: [], totalFavorites: 0 };
   }
 }
