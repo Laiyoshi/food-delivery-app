@@ -10,6 +10,7 @@ import {
 
 type RestaurantPromise = { data: Restaurant[]; totalRestaurants: number };
 type FavoriteRestaurantPromise = { data: Restaurant[]; totalFavorites: number };
+type FavoriteAllRestaurantPromise = { restaurantId: string[] };
 type ParamsProps = { params: { id: string } };
 type SearchProps = {
   searchParams: SearchParams;
@@ -142,5 +143,20 @@ export async function fetchFavorites({ searchParams }: SearchParams) {
     console.log('Ошибка:', error);
 
     return { data: [], totalFavorites: 0 };
+  }
+}
+
+export async function fetchAllFavorites(): Promise<FavoriteAllRestaurantPromise> {
+  try {
+    const response = await fetch('/api/restaurants/favorites/all');
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных');
+    }
+    const data: FavoriteAllRestaurantPromise = await response.json();
+    return data;
+  } catch (error: unknown) {
+    console.log('Ошибка:', error);
+
+    return { restaurantId: [] };
   }
 }

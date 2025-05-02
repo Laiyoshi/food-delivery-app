@@ -10,7 +10,7 @@ import { inter, roboto } from '@/ui/fonts';
 import ClientOnly from './ClientOnly';
 import FavoriteButton from './FavoriteButton';
 
-export default function Card({ restaurantData, userId }: CardProps) {
+export default function Card({ restaurantData, isFavorite }: CardProps) {
   const rating = {
     fullStar: Math.trunc(restaurantData.rating),
     halfStar: restaurantData.rating - Math.trunc(restaurantData.rating),
@@ -23,11 +23,7 @@ export default function Card({ restaurantData, userId }: CardProps) {
       className={`relative mx-5 flex w-full flex-col rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
     >
       <ClientOnly>
-        <FavoriteButton
-          restaurantId={restaurantData.id}
-          restaurantData={restaurantData}
-          userId={userId}
-        />
+        <FavoriteButton restaurantId={restaurantData.id} restaurantData={restaurantData} isFavorite={isFavorite} />
       </ClientOnly>
       <h2
         className={`mt-3 ml-5 max-w-[80%] truncate text-center text-xl font-bold text-gray-800 ${roboto.className}`}

@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 
 import { Restaurant, SearchParams } from '@/app/types/types';
 import { useFavoritesStore } from '@/store/favoritesStore';
 import { roboto } from '@/ui/fonts';
-import { fetchFavorites } from '@/utils/data';
+import { fetchAllFavorites, fetchFavorites } from '@/utils/data';
 
 import Card from './Card';
 import Pagination from './Pagination';
@@ -25,6 +25,8 @@ export default function RestaurantList({
   favoriteData,
   searchParam,
 }: Props) {
+  const router = useRouter();
+
   const searchParams = useSearchParams();
   const searchParamsString = searchParams.toString();
 
@@ -44,49 +46,76 @@ export default function RestaurantList({
 
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const { initializeFavorites, isFavorite, getFavoritesForPage } = useFavoritesStore();
+  const {
+    initializeFavorites,
+    favorites,
+    finalizeRemoval,
+    isFavorite,
+    resetFavorites,
+    setAllRestaurantsId,
+  } = useFavoritesStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchFavorites(searchParam);
+        const allIds = await fetchAllFavorites();
 
+        initializeFavorites(data.data, userId);
         setTotalFavorites(data.totalFavorites);
-
-        initializeFavorites(data.data, userId, currentFavoritePage);
+        setAllRestaurantsId(allIds.restaurantId);
       } catch (error) {
         console.log(error);
       }
     };
 
-    if (selectedTab === 2) {
-      fetchData();
-    }
+    fetchData();
   }, [
     selectedTab,
     searchParamsString,
     searchParam,
     initializeFavorites,
     userId,
-    currentFavoritePage,
+    setAllRestaurantsId
   ]);
 
   useEffect(() => {
     if (favoriteData.data.length > 0 && userId) {
-      initializeFavorites(favoriteData.data, userId, currentFavoritePage);
+      initializeFavorites(favoriteData.data, userId);
+
       setTotalFavorites(favoriteData.totalFavorites);
     }
   }, [favoriteData, userId, currentFavoritePage, initializeFavorites]);
 
+  useEffect(() => {
+    if (!userId) {
+      resetFavorites();
+    }
+  }, [userId, resetFavorites]);
+
+  useEffect(() => {
+    if (selectedTab !== 2) {
+      finalizeRemoval();
+    }
+  }, [selectedTab, finalizeRemoval]);
+
+  useEffect(() => {
+    if (totalFavoritesPages === 0) return;
+    if (currentFavoritePage > totalFavoritesPages) {
+      const newParams = new URLSearchParams(searchParams);
+
+      newParams.set('pageFavorite', String(totalFavoritesPages));
+
+      if (searchParams.get('pageFavorite') !== String(totalFavoritesPages)) {
+        router.replace(`?${newParams.toString()}`);
+      }
+    }
+  }, [router, currentFavoritePage, searchParams, totalFavoritesPages]);
+
   const renderCards = (items: Restaurant[]) => (
     <div className="flex max-w-[1440px] flex-wrap justify-center sm:justify-evenly lg:justify-start lg:gap-7.5 xl:mx-auto xl:max-w-[1180px] xl:justify-start xl:gap-5">
       {items.map(item => (
-        <Card
-          key={item.id}
-          restaurantData={item}
-          userId={userId}
-          isFavorite={isFavorite(item.id)}
-        />
+        <Card key={item.id} restaurantData={item} isFavorite={isFavorite(item.id)} />
       ))}
     </div>
   );
@@ -155,9 +184,9 @@ export default function RestaurantList({
             </TabPanel>
 
             <TabPanel>
-              {getFavoritesForPage(currentFavoritePage).length > 0 ? (
+              {favorites.length > 0 ? (
                 <>
-                  {renderCards(getFavoritesForPage(currentFavoritePage))}
+                  {renderCards(favorites)}
 
                   {totalFavoritesPages > 1 ? (
                     <div className="pb-10">

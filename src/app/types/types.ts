@@ -24,7 +24,6 @@ type restaurantData = {
 
 export type CardProps = {
   restaurantData: restaurantData;
-  userId: string;
   isFavorite: boolean;
 };
 
