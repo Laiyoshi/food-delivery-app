@@ -6,6 +6,7 @@ import InitUserStore from '@/components/profile/InitUserStore';
 import { db } from '@/db';
 import { paymentMethods, deliveryAddresses, users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { ToastContainer } from 'react-toastify';
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const userId = await getAuthenticatedUserId();
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main>
           {children}
         </main>
+        <ToastContainer position="bottom-center" autoClose={3000} />
       </body>
     </html>
   );

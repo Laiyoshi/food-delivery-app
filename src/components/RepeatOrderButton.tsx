@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@headlessui/react';
-
+import { toast } from 'react-toastify';
 import { useCartStore } from '@/store/cartStore';
 
 type Props = {
@@ -42,7 +42,7 @@ export default function RepeatOrderButton({ orderId, className = '' }: Props) {
       const { repeatOrder } = useCartStore.getState();
       repeatOrder(items, restaurantId);
 
-      alert('Товары из заказа добавлены в корзину!');
+      toast.success('Товары из заказа добавлены в корзину!');
     } catch (err) {
       console.error('Ошибка при повторении заказа:', err);
       setError(err instanceof Error ? err.message : 'Произошла ошибка');
