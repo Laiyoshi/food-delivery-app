@@ -27,9 +27,6 @@ export default function OrderInfo({ order }: Props) {
             })}
           </p>
         </div>
-        <p className={`${order.status === 'Доставлен' ? 'text-green-500' : 'text-yellow-500'}`}>
-          {order.status}
-        </p>
       </div>
 
       <h3 className="mb-2 text-base font-bold text-gray-800 md:mb-4 md:text-xl">
