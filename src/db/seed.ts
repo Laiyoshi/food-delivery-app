@@ -878,7 +878,8 @@ async function seed() {
       name: 'Жаркое по-княжески',
       description: 'Сочное мясо с овощами, запечённое по древним рецептам.',
       price: 1200,
-      imageUrl: '/images/food1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358591/zharkoe_po_knyazhesski_zm3ihk.jpg',
     },
     {
       id: uuidv4(),
@@ -887,7 +888,8 @@ async function seed() {
       name: 'Печёная баранина с пряностями',
       description: 'Нежная баранина с ароматными травами и специями.',
       price: 1400,
-      imageUrl: '/images/food2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358561/pechyona_baranina_s_pryanostyami_yg5dpk.jpg',
     },
     {
       id: uuidv4(),
@@ -896,7 +898,8 @@ async function seed() {
       name: 'Курица в медовом соусе',
       description: 'Курица под медово-горчичной глазурью.',
       price: 1100,
-      imageUrl: '/images/food3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358583/kuritsa_v_medovom_souse_cussts.jpg',
     },
     {
       id: uuidv4(),
@@ -905,7 +908,8 @@ async function seed() {
       name: 'Тушёная свинина с картошкой',
       description: 'Свинина, тушёная вместе с картофелем и луком.',
       price: 1300,
-      imageUrl: '/images/food4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358571/tushyonaya_svinina_s_kartoshkoy_hcrovy.jpg',
     },
     {
       id: uuidv4(),
@@ -914,7 +918,8 @@ async function seed() {
       name: 'Каша с мясом',
       description: 'Горячая гречневая каша с тушёным мясом.',
       price: 900,
-      imageUrl: '/images/food5.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358557/kasha_s_myasom_huapbh.jpg',
     },
     {
       id: uuidv4(),
@@ -923,7 +928,8 @@ async function seed() {
       name: 'Медовуха с травами',
       description: 'Традиционный напиток из меда с душистыми травами.',
       price: 350,
-      imageUrl: '/images/drink1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358555/medovuha_s_travami_noqqxq.jpg',
     },
     {
       id: uuidv4(),
@@ -932,7 +938,8 @@ async function seed() {
       name: 'Квас с мятой',
       description: 'Освежающий квас с добавлением мяты.',
       price: 250,
-      imageUrl: '/images/drink2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358558/kvas_s_myatoi_lsxcts.jpg',
     },
     {
       id: uuidv4(),
@@ -941,7 +948,8 @@ async function seed() {
       name: 'Морс из лесных ягод',
       description: 'Домашний морс из черники, малины и брусники.',
       price: 300,
-      imageUrl: '/images/drink3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358567/mors_iz_lesnykh_yagod_vl3vgh.jpg',
     },
     {
       id: uuidv4(),
@@ -950,7 +958,8 @@ async function seed() {
       name: 'Яблочный сбитень',
       description: 'Тёплый напиток из яблок и мёда с пряностями.',
       price: 320,
-      imageUrl: '/images/drink4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358563/yablochnyi_sbiten_gcliny.jpg',
     },
     {
       id: uuidv4(),
@@ -959,7 +968,8 @@ async function seed() {
       name: 'Салат из свежей зелени с яйцом',
       description: 'Лёгкий салат с травами и варёным яйцом.',
       price: 300,
-      imageUrl: '/images/salad1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358577/salat_iz_svezhei_zeleni_s_yaitsom_vf830h.jpg',
     },
     {
       id: uuidv4(),
@@ -968,7 +978,8 @@ async function seed() {
       name: 'Свекольник с хреном',
       description: 'Холодный свекольный суп с острой ноткой хрена.',
       price: 350,
-      imageUrl: '/images/salad2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358554/svekolnik_s_khrenom_ayoejd.jpg',
     },
     {
       id: uuidv4(),
@@ -977,7 +988,8 @@ async function seed() {
       name: 'Квашеная капуста с морковью и укропом',
       description: 'Домашняя квашеная капуста с морковью и укропом.',
       price: 250,
-      imageUrl: '/images/salad3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358552/kvashenaya_kapusta_s_morkovyu_i_ukropom_fjj0ln.jpg',
     },
     {
       id: uuidv4(),
@@ -986,7 +998,8 @@ async function seed() {
       name: 'Салат с копчёной рыбой',
       description: 'Салат из копчёной рыбы и свежей зелени.',
       price: 400,
-      imageUrl: '/images/salad4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358554/salat_s_kopchyonoi_ryboi_yqp69k.jpg',
     },
     {
       id: uuidv4(),
@@ -995,7 +1008,8 @@ async function seed() {
       name: 'Пирог с ягодами',
       description: 'Тёплый пирог с начинкой из лесных ягод.',
       price: 500,
-      imageUrl: '/images/pie1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358555/pirog_s_yagodami_j9c1f5.jpg',
     },
     {
       id: uuidv4(),
@@ -1004,7 +1018,8 @@ async function seed() {
       name: 'Лепёшка с луком',
       description: 'Свежая лепёшка, фаршированная луком.',
       price: 300,
-      imageUrl: '/images/pie2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358552/lepeshka_s_lukom_e2qxuf.jpg',
     },
     {
       id: uuidv4(),
@@ -1013,7 +1028,8 @@ async function seed() {
       name: 'Медовые пряники',
       description: 'Пряники из мёда с ароматом корицы и имбиря.',
       price: 200,
-      imageUrl: '/images/pie3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358551/medovye_pryanik_grdqkh.jpg',
     },
     {
       id: uuidv4(),
@@ -1022,7 +1038,8 @@ async function seed() {
       name: 'Томлёная говядина с перцем',
       description: 'Мясо томится с душистым перцем и специями.',
       price: 1400,
-      imageUrl: '/images/food1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358505/delicious-goulash-ready-dinner_ggc4nn.jpg',
     },
     {
       id: uuidv4(),
@@ -1031,7 +1048,8 @@ async function seed() {
       name: 'Курица в пряной глазури',
       description: 'Курица под сладко-пряной мёдово-имбирной глазурью.',
       price: 1200,
-      imageUrl: '/images/food2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358585/kuritsa_v_pryanoy_glazuri_vlrssq.jpg',
     },
     {
       id: uuidv4(),
@@ -1040,7 +1058,8 @@ async function seed() {
       name: 'Острая уха',
       description: 'Уха с морепродуктами и перцем чили.',
       price: 800,
-      imageUrl: '/images/food3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358562/ostraya_ukha_fz3sv5.jpg',
     },
     {
       id: uuidv4(),
@@ -1049,7 +1068,8 @@ async function seed() {
       name: 'Курица с имбирём и мёдом',
       description: 'Курица, обжаренная с имбирём и мёдом до карамели.',
       price: 1300,
-      imageUrl: '/images/food4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358505/kuritsa_s_imbirem_i_myodom_pbfepj.jpg',
     },
     {
       id: uuidv4(),
@@ -1058,7 +1078,8 @@ async function seed() {
       name: 'Плов с острыми специями',
       description: 'Ароматный плов с перцем чили и барбарисом.',
       price: 900,
-      imageUrl: '/images/food5.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358561/plov_s_ostrymi_spetsiyami_breyub.jpg',
     },
     {
       id: uuidv4(),
@@ -1067,7 +1088,8 @@ async function seed() {
       name: 'Пряный чай с корицей',
       description: 'Чай с корицей, кардамоном и мёдом.',
       price: 300,
-      imageUrl: '/images/drink1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358502/pryanyy_chay_s_koritsei_lvdigq.jpg',
     },
     {
       id: uuidv4(),
@@ -1076,7 +1098,8 @@ async function seed() {
       name: 'Настойка на мёде',
       description: 'Крепкая настойка с травами и натуральным мёдом.',
       price: 450,
-      imageUrl: '/images/drink2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358503/nastoyka_na_myode_jscfit.jpg',
     },
     {
       id: uuidv4(),
@@ -1085,7 +1108,8 @@ async function seed() {
       name: 'Яблочный сбитень',
       description: 'Тёплый напиток из яблок, мёда и пряностей.',
       price: 350,
-      imageUrl: '/images/drink3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358502/yablochnyy_sbiten_qug31s.jpg',
     },
     {
       id: uuidv4(),
@@ -1094,7 +1118,8 @@ async function seed() {
       name: 'Клюквенный морс с имбирём',
       description: 'Освежающий морс из клюквы с ноткой имбиря.',
       price: 280,
-      imageUrl: '/images/drink4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358500/klyukvennyy_mors_s_imbirem_vrvp0r.jpg',
     },
     {
       id: uuidv4(),
@@ -1103,7 +1128,8 @@ async function seed() {
       name: 'Рассольник с перловкой',
       description: 'Суп с перловкой, солёными огурцами и душистым перцем.',
       price: 650,
-      imageUrl: '/images/soup1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358507/rassolnik_s_perlovkoy_gp5gn8.jpg',
     },
     {
       id: uuidv4(),
@@ -1112,7 +1138,8 @@ async function seed() {
       name: 'Суп-пюре из тыквы',
       description: 'Сливочный суп-пюре с ноткой имбиря и тыквенных семечек.',
       price: 600,
-      imageUrl: '/images/soup2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358564/sup_pyure_iz_tykvy_vdcz63.jpg',
     },
     {
       id: uuidv4(),
@@ -1121,7 +1148,8 @@ async function seed() {
       name: 'Борщ с чесноком',
       description: 'Классический борщ с чесноком и сметаной.',
       price: 700,
-      imageUrl: '/images/soup3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358570/borshch_s_chesnokom_g5yg6z.jpg',
     },
     {
       id: uuidv4(),
@@ -1130,7 +1158,8 @@ async function seed() {
       name: 'Крем-суп из шампиньонов',
       description: 'Нежный крем-суп с лесными грибами и сливками.',
       price: 720,
-      imageUrl: '/images/soup4.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358508/krem_sup_iz_shampinonov_ou4ion.jpg',
     },
     {
       id: uuidv4(),
@@ -1139,7 +1168,8 @@ async function seed() {
       name: 'Маринованные перцы',
       description: 'Перцы в остром маринаде с чесноком.',
       price: 250,
-      imageUrl: '/images/snack1.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358504/marinovannye_pertsy_xpshuj.jpg',
     },
     {
       id: uuidv4(),
@@ -1148,7 +1178,8 @@ async function seed() {
       name: 'Солёные огурцы с чесноком',
       description: 'Хрустящие огурцы с чесночным ароматом.',
       price: 200,
-      imageUrl: '/images/snack2.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358506/solenye_ogurtsy_s_chesnokom_kkyadn.jpg',
     },
     {
       id: uuidv4(),
@@ -1157,7 +1188,8 @@ async function seed() {
       name: 'Острая капуста',
       description: 'Квашеная капуста с перцем чили.',
       price: 220,
-      imageUrl: '/images/snack3.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358506/ostraya_kapusta_cvowii.jpg',
     },
     {
       id: uuidv4(),
@@ -1166,7 +1198,8 @@ async function seed() {
       name: 'Свинина, запечённая с яблоками',
       description: 'Ароматное мясо, приготовленное по древнему рецепту с кисло-сладкими яблоками.',
       price: 780,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358526/svinina_zapechyonnaya_s_yablokami_dpk5n7.jpg',
     },
     {
       id: uuidv4(),
@@ -1175,7 +1208,8 @@ async function seed() {
       name: 'Каша гречневая с грибами',
       description: 'Гречка, томлённая в печи с лесными грибами и пряными травами.',
       price: 450,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358524/kasha_grechevaya_s_gribami_ojon45.jpg',
     },
     {
       id: uuidv4(),
@@ -1184,7 +1218,8 @@ async function seed() {
       name: 'Картофель с салом и чесноком',
       description: 'Румяной жареный картофель, щедро приправленный чесноком и поджаренным салом.',
       price: 390,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358521/kartofel_s_salom_i_chesnokom_chw6pj.jpg',
     },
     {
       id: uuidv4(),
@@ -1193,7 +1228,8 @@ async function seed() {
       name: 'Телятина по-домашнему',
       description: 'Нежное мясо в сливочном соусе с луком и морковью.',
       price: 690,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358524/telyatina_po_domashnemu_mhrsb6.jpg',
     },
     {
       id: uuidv4(),
@@ -1202,7 +1238,8 @@ async function seed() {
       name: 'Щи из кислой капусты',
       description: 'Классический славянский суп на мясном бульоне с томлёной капустой.',
       price: 330,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358528/shchi_iz_kisloy_kapusty_pyo5is.jpg',
     },
     {
       id: uuidv4(),
@@ -1211,7 +1248,8 @@ async function seed() {
       name: 'Похлёбка с перловкой',
       description: 'Плотный и сытный суп с крупой, мясом и кореньями.',
       price: 310,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358527/pokhlyobka_s_perlovkoy_uswmqb.jpg',
     },
     {
       id: uuidv4(),
@@ -1220,7 +1258,8 @@ async function seed() {
       name: 'Борщ деревенский',
       description: 'Свекольный суп с мясом, сметаной и чесночной гренкой.',
       price: 370,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358525/borshch_derevenskiy_jtiahn.jpg',
     },
     {
       id: uuidv4(),
@@ -1229,7 +1268,8 @@ async function seed() {
       name: 'Пышки с маком',
       description: 'Пышные сладкие булочки с маковой начинкой.',
       price: 120,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358519/pyshki_s_makom_c3ekou.jpg',
     },
     {
       id: uuidv4(),
@@ -1238,7 +1278,8 @@ async function seed() {
       name: 'Лепёшка с луком',
       description: 'Ржаная лепёшка с запечённым луком и специями.',
       price: 140,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358518/lepyoshka_s_lukom_nehe8l.jpg',
     },
     {
       id: uuidv4(),
@@ -1247,7 +1288,8 @@ async function seed() {
       name: 'Пирог с капустой и яйцом',
       description: 'Традиционный открытый пирог на дрожжевом тесте.',
       price: 160,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358518/pirog_s_kapustoy_i_yaytsom_tpgqki.jpg',
     },
     {
       id: uuidv4(),
@@ -1256,7 +1298,8 @@ async function seed() {
       name: 'Блинчики с творогом',
       description: 'Тонкие блины с нежной начинкой из сладкого творога.',
       price: 180,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358517/blinchiki_s_tvorogom_hzjtqg.jpg',
     },
     {
       id: uuidv4(),
@@ -1265,7 +1308,8 @@ async function seed() {
       name: 'Пирог с брусникой',
       description: 'Ягодный пирог с кисло-сладким вкусом и хрустящей корочкой.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358519/pirog_s_brusnikoy_s8ybp0.jpg',
     },
     {
       id: uuidv4(),
@@ -1274,7 +1318,8 @@ async function seed() {
       name: 'Квас хлебный',
       description: 'Домашний квас из ржаного хлеба с лёгкой кислинкой.',
       price: 150,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358521/kvas_khlebnyy_u9g6fw.jpg',
     },
     {
       id: uuidv4(),
@@ -1283,7 +1328,8 @@ async function seed() {
       name: 'Морс из вишни',
       description: 'Освежающий напиток из лесной вишни.',
       price: 130,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358520/mors_iz_vishni_wjfr44.jpg',
     },
     {
       id: uuidv4(),
@@ -1292,7 +1338,8 @@ async function seed() {
       name: 'Сбитень пряный',
       description: 'Горячий медовый напиток с корицей и гвоздикой.',
       price: 170,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358526/sbiten_pryanyy_yv4ehj.jpg',
     },
     {
       id: uuidv4(),
@@ -1301,7 +1348,8 @@ async function seed() {
       name: 'Настойка на травах',
       description: 'Крепкий напиток на основе целебных трав по старинному рецепту.',
       price: 210,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358520/nastoyka_na_travakh_xunctm.jpg',
     },
     {
       id: uuidv4(),
@@ -1310,7 +1358,8 @@ async function seed() {
       name: 'Утка, тушённая с клюквой',
       description: 'Ароматная утка, медленно томлённая с клюквой и пряностями.',
       price: 780,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358457/utka_tushyonnaya_s_klyukvoy_ncpdys.jpg',
     },
     {
       id: uuidv4(),
@@ -1319,7 +1368,8 @@ async function seed() {
       name: 'Картофель, запечённый в печи',
       description: 'Рассыпчатый деревенский картофель с укропом и маслом.',
       price: 320,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358475/kartofel_zapechyonnnyy_v_pechi_ftb4r4.jpg',
     },
     {
       id: uuidv4(),
@@ -1328,7 +1378,8 @@ async function seed() {
       name: 'Перловка с грибами и луком',
       description: 'Постное блюдо с ароматными лесными грибами.',
       price: 370,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358475/perlovka_s_gribami_i_lukom_a50cul.jpg',
     },
     {
       id: uuidv4(),
@@ -1337,16 +1388,18 @@ async function seed() {
       name: 'Рагу из лесного мяса',
       description: 'Мясное рагу из дичи в густом соусе со специями.',
       price: 840,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358457/ragu_iz_lesnogo_myasa_babu9f.jpg',
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id, // Закуски и соленья
+      categoryId: categoryData[1].id,
       restaurantId: restaurantData[3].id,
       name: 'Соленья деревенские',
       description: 'Огурцы, капуста, чеснок — ассорти домашних солений.',
       price: 280,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358470/solenya_derevenskie_cj5c2y.jpg',
     },
     {
       id: uuidv4(),
@@ -1355,7 +1408,8 @@ async function seed() {
       name: 'Грибы маринованные',
       description: 'Ассорти лесных грибов в душистом маринаде.',
       price: 340,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358467/griby_marinovannye_ldszqf.jpg',
     },
     {
       id: uuidv4(),
@@ -1364,7 +1418,8 @@ async function seed() {
       name: 'Ржаные гренки с чесноком',
       description: 'Хрустящие гренки с пряным ароматом.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358469/rzhanie_grenki_s_chesnokom_mr3m9b.jpg',
     },
     {
       id: uuidv4(),
@@ -1373,7 +1428,8 @@ async function seed() {
       name: 'Сало с хреном и луком',
       description: 'Нарезка домашнего сала с пряностями.',
       price: 290,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358470/salo_s_khrenom_i_lukom_eoftrj.jpg',
     },
     {
       id: uuidv4(),
@@ -1382,7 +1438,8 @@ async function seed() {
       name: 'Икра кабачковая',
       description: 'Классическая овощная закуска по-домашнему.',
       price: 230,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358468/ikra_kabachkovaya_rff9hp.jpg',
     },
     {
       id: uuidv4(),
@@ -1391,7 +1448,8 @@ async function seed() {
       name: 'Уха с дымком',
       description: 'На костре, с тремя сортами рыбы и зеленью.',
       price: 510,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358459/ukha_s_dymkom_ld603v.jpg',
     },
     {
       id: uuidv4(),
@@ -1400,7 +1458,8 @@ async function seed() {
       name: 'Похлёбка с репой и фасолью',
       description: 'На наваристом бульоне, с деревенскими овощами.',
       price: 390,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358458/pokhlyobka_s_repoy_i_fasolyu_r2nrrj.jpg',
     },
     {
       id: uuidv4(),
@@ -1409,7 +1468,8 @@ async function seed() {
       name: 'Куриный бульон с яйцом и зеленью',
       description: 'Лёгкий, ароматный бульон с отварным яйцом.',
       price: 360,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358457/kurinyy_bulon_s_yaytsom_i_zelenyu_ydyxvh.jpg',
     },
     {
       id: uuidv4(),
@@ -1418,7 +1478,8 @@ async function seed() {
       name: 'Квас малиновый',
       description: 'Домашний квас с лёгкой ягодной ноткой.',
       price: 160,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358476/kvas_malinovyy_ywpika.jpg',
     },
     {
       id: uuidv4(),
@@ -1427,7 +1488,8 @@ async function seed() {
       name: 'Травяной отвар с липой и мёдом',
       description: 'Успокаивающий напиток на основе лесных трав.',
       price: 170,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358473/travyanoy_otvar_s_lipoy_i_myodom_p0iczb.jpg',
     },
     {
       id: uuidv4(),
@@ -1436,7 +1498,8 @@ async function seed() {
       name: 'Морс черничный',
       description: 'Свежий морс из северной ягоды.',
       price: 150,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358470/mors_chernichnyy_rtssmp.jpg',
     },
     {
       id: uuidv4(),
@@ -1445,7 +1508,8 @@ async function seed() {
       name: 'Настойка на мяте',
       description: 'Домашняя настойка с мятным охлаждающим вкусом.',
       price: 200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358472/nastoyka_na_myate_ncuxn3.jpg',
     },
     {
       id: uuidv4(),
@@ -1454,7 +1518,8 @@ async function seed() {
       name: 'Говяжья вырезка на костре',
       description: 'Сочная говядина, запеченная на живом огне.',
       price: 1600,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358477/govyazhya_vyrezka_na_kostre_c69umt.jpg',
     },
     {
       id: uuidv4(),
@@ -1463,7 +1528,8 @@ async function seed() {
       name: 'Свинина в кленовом сиропе',
       description: 'Нежная свинина с ароматной глазурью из кленового сиропа.',
       price: 1350,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358480/svinina_v_klenovom_sirop%D0%B5_u1wogx.jpg',
     },
     {
       id: uuidv4(),
@@ -1472,7 +1538,8 @@ async function seed() {
       name: 'Копчёная курица с травами',
       description: 'Курица, медленно копченная с душистыми травами.',
       price: 1200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358478/kopchyonnaya_kuritsa_s_travami_ltf3t6.jpg',
     },
     {
       id: uuidv4(),
@@ -1481,7 +1548,8 @@ async function seed() {
       name: 'Запечённая баранина с розмарином',
       description: 'Баранина, томлённая с пряным розмарином.',
       price: 1700,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358482/zapechyonnaya_baranina_s_rozmarinom_yravvg.jpg',
     },
     {
       id: uuidv4(),
@@ -1490,7 +1558,8 @@ async function seed() {
       name: 'Колбаски охотничьи',
       description: 'Домашние копчёные колбаски с пряностями.',
       price: 950,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358452/kolbaski_okhotnichi_ix4jqc.jpg',
     },
     {
       id: uuidv4(),
@@ -1499,7 +1568,8 @@ async function seed() {
       name: 'Говяжьи рёбра на углях',
       description: 'Рёбра, приготовленные на древесных углях.',
       price: 1450,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358451/govyazhi_ryobra_na_uglyakh_tehfnn.jpg',
     },
     {
       id: uuidv4(),
@@ -1508,7 +1578,8 @@ async function seed() {
       name: 'Шашлык из индейки',
       description: 'Нежный шашлык из маринованной индейки.',
       price: 1100,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358454/shashlyk_iz_indeyki_aoazfd.jpg',
     },
     {
       id: uuidv4(),
@@ -1517,7 +1588,8 @@ async function seed() {
       name: 'Светлое пенное',
       description: 'Освежающее светлое крафтовое пиво.',
       price: 400,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358454/svetloe_pennoe_qoitxo.jpg',
     },
     {
       id: uuidv4(),
@@ -1526,7 +1598,8 @@ async function seed() {
       name: 'Тёмное крафтовое пиво',
       description: 'Густое и насыщенное тёмное пиво.',
       price: 450,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358474/tyomnoe_kraftovoe_pivo_fgaoqg.jpg',
     },
     {
       id: uuidv4(),
@@ -1535,7 +1608,8 @@ async function seed() {
       name: 'Квас с солодом',
       description: 'Домашний квас на солоде и травах.',
       price: 300,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358454/kvas_s_solodom_oawpmv.jpg',
     },
     {
       id: uuidv4(),
@@ -1544,7 +1618,8 @@ async function seed() {
       name: 'Копчёные сырные палочки',
       description: 'Сырные палочки, копчённые по старинным рецептам.',
       price: 500,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358450/kopchyonnye_syrnye_palochki_dlfmhb.jpg',
     },
     {
       id: uuidv4(),
@@ -1553,7 +1628,8 @@ async function seed() {
       name: 'Орехи в мёде',
       description: 'Ароматные орешки, томлённые в лесном мёде.',
       price: 350,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358452/orekhi_v_myode_ohivmx.jpg',
     },
     {
       id: uuidv4(),
@@ -1562,7 +1638,8 @@ async function seed() {
       name: 'Гренки с чесноком',
       description: 'Хрустящие ржаные гренки с чесноком.',
       price: 300,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358482/grenki_s_chesnokom_a643i1.jpg',
     },
     {
       id: uuidv4(),
@@ -1571,7 +1648,8 @@ async function seed() {
       name: 'Сушёная рыбка',
       description: 'Традиционная закуска к пиву — вяленая рыбка.',
       price: 600,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358453/sushyonaya_rybka_vzpnh1.jpg',
     },
     {
       id: uuidv4(),
@@ -1580,7 +1658,8 @@ async function seed() {
       name: 'Пшеничная лепёшка с мёдом',
       description: 'Мягкая пшеничная лепёшка, политая свежим мёдом.',
       price: 160,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358461/pshenichnaya_lepyoshka_s_myodom_c3c1mz.jpg',
     },
     {
       id: uuidv4(),
@@ -1589,7 +1668,8 @@ async function seed() {
       name: 'Ореховый рулет с корицей',
       description: 'Сдобный рулет с грецким орехом и ароматной корицей.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358466/orekhovyi_rulet_s_koritsei_tbyun5.jpg',
     },
     {
       id: uuidv4(),
@@ -1598,7 +1678,8 @@ async function seed() {
       name: 'Сдобная булочка с изюмом',
       description: 'Пышная булочка с изюмом и сахарной пудрой.',
       price: 140,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358461/sdobnaya_bulochka_s_izyumom_hsefsx.jpg',
     },
     {
       id: uuidv4(),
@@ -1607,7 +1688,8 @@ async function seed() {
       name: 'Ячменный пирожок с яблоками',
       description: 'Домашний пирожок из ячменной муки с начинкой из тушёных яблок.',
       price: 150,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358465/yachmennyi_pirozhok_s_yablokami_auakdo.jpg',
     },
     {
       id: uuidv4(),
@@ -1616,7 +1698,8 @@ async function seed() {
       name: 'Каша на молоке с ягодами',
       description: 'Овсяная каша с лесными ягодами и мёдом.',
       price: 180,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358449/kasha_na_moloke_s_yagodami_usawxe.jpg',
     },
     {
       id: uuidv4(),
@@ -1625,7 +1708,8 @@ async function seed() {
       name: 'Омлет с зеленью и сыром',
       description: 'Пышный омлет с домашним сыром и свежей зеленью.',
       price: 200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358450/omlet_s_zelenyu_i_syrom_uwi1nx.jpg',
     },
     {
       id: uuidv4(),
@@ -1634,7 +1718,8 @@ async function seed() {
       name: 'Гречневая каша с маслом',
       description: 'Рассыпчатая гречневая каша, заправленная деревенским маслом.',
       price: 160,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358465/grechnevaya_kasha_s_maslom_wqck7v.jpg',
     },
     {
       id: uuidv4(),
@@ -1643,7 +1728,8 @@ async function seed() {
       name: 'Творожная запеканка',
       description: 'Нежная запеканка с творогом и изюмом.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358450/tvorozhnaya_zapekanka_igk2u2.jpg',
     },
     {
       id: uuidv4(),
@@ -1652,7 +1738,8 @@ async function seed() {
       name: 'Медовик по-деревенски',
       description: 'Многослойный торт с ароматным мёдом.',
       price: 220,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358461/medovik_po_derevenski_ueltvh.jpg',
     },
     {
       id: uuidv4(),
@@ -1661,7 +1748,8 @@ async function seed() {
       name: 'Сырники со сметаной',
       description: 'Поджаристые сырники из домашнего творога со сметаной.',
       price: 170,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358463/syrniki_so_smetanoi_jblozl.jpg',
     },
     {
       id: uuidv4(),
@@ -1670,7 +1758,8 @@ async function seed() {
       name: 'Пирог с вишней',
       description: 'Сочный пирог с вишнёвой начинкой и хрустящей корочкой.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358464/pirog_s_vishnei_qdpuk3.jpg',
     },
     {
       id: uuidv4(),
@@ -1679,7 +1768,8 @@ async function seed() {
       name: 'Мятное печенье',
       description: 'Рассыпчатое печенье с добавлением свежей мяты.',
       price: 130,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358462/myatnoe_pechene_q0aifi.jpg',
     },
     {
       id: uuidv4(),
@@ -1688,7 +1778,8 @@ async function seed() {
       name: 'Молоко из глиняного кувшина',
       description: 'Свежайшее молоко, подаваемое в традиционной посуде.',
       price: 90,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358450/moloko_iz_glinyanogo_kuvshina_dspggr.jpg',
     },
     {
       id: uuidv4(),
@@ -1697,7 +1788,8 @@ async function seed() {
       name: 'Чай с душицей',
       description: 'Травяной чай с добавлением душицы, приятный и успокаивающий.',
       price: 110,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358467/chai_s_dushitsei_aznsyd.jpg',
     },
     {
       id: uuidv4(),
@@ -1706,7 +1798,8 @@ async function seed() {
       name: 'Компот из сухофруктов',
       description: 'Сладкий компот из яблок, груш и изюма.',
       price: 120,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358449/kompot_iz_sukhofruktov_jabxo4.jpg',
     },
     {
       id: uuidv4(),
@@ -1715,7 +1808,8 @@ async function seed() {
       name: 'Жаркое по-домашнему',
       description: 'Картофель с мясом, тушёные в горшочке с овощами.',
       price: 480,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358495/zharkoe_po_domashnemu_huhfbm.jpg',
     },
     {
       id: uuidv4(),
@@ -1724,7 +1818,8 @@ async function seed() {
       name: 'Тефтели в томатном соусе',
       description: 'Мясные тефтели, запечённые с ароматным томатным соусом.',
       price: 430,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358492/tefteli_v_tomatnom_souse_irz5up.jpg',
     },
     {
       id: uuidv4(),
@@ -1733,7 +1828,8 @@ async function seed() {
       name: 'Гречка с грибами и луком',
       description: 'Рассыпчатая гречневая каша с шампиньонами и луком.',
       price: 320,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358491/grechka_s_gribami_i_lukom_nwmdq5.jpg',
     },
     {
       id: uuidv4(),
@@ -1742,7 +1838,8 @@ async function seed() {
       name: 'Картофельное пюре с котлетой',
       description: 'Домашняя котлета из фарша с нежным картофельным пюре.',
       price: 390,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358491/kartofelnoe_pyure_s_kotletoi_qde2wi.jpg',
     },
     {
       id: uuidv4(),
@@ -1751,7 +1848,8 @@ async function seed() {
       name: 'Салат из свежих овощей',
       description: 'Огурцы, помидоры, зелень с лёгкой заправкой.',
       price: 270,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358487/salat_iz_svezhikh_ovoshchei_ssbvno.jpg',
     },
     {
       id: uuidv4(),
@@ -1760,7 +1858,8 @@ async function seed() {
       name: 'Селёдка с луком и картошкой',
       description: 'Солёная сельдь с отварным картофелем и репчатым луком.',
       price: 350,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358487/seledka_s_lukom_i_kartoshkoi_nd7cvk.jpg',
     },
     {
       id: uuidv4(),
@@ -1769,7 +1868,8 @@ async function seed() {
       name: 'Маринованные огурцы',
       description: 'Хрустящие домашние огурцы в уксусной заливке.',
       price: 190,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358487/marinovannye_ogurtsy_czjdgo.jpg',
     },
     {
       id: uuidv4(),
@@ -1778,7 +1878,7 @@ async function seed() {
       name: 'Узвар',
       description: 'Компот из сухофруктов по традиционному рецепту.',
       price: 150,
-      imageUrl: '/images/food.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358491/uzvar_frmkmr.jpg',
     },
     {
       id: uuidv4(),
@@ -1787,7 +1887,8 @@ async function seed() {
       name: 'Морс из клюквы',
       description: 'Освежающий морс, насыщенный витаминами.',
       price: 170,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358490/mors_iz_klyukvy_quhcyf.jpg',
     },
     {
       id: uuidv4(),
@@ -1796,7 +1897,8 @@ async function seed() {
       name: 'Чай с облепихой',
       description: 'Горячий чай с облепихой, мёдом и пряностями.',
       price: 200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358488/chai_s_oblepikhoy_y8pzip.jpg',
     },
     {
       id: uuidv4(),
@@ -1805,7 +1907,8 @@ async function seed() {
       name: 'Домашний лимонад',
       description: 'Лимонад с мятой и цитрусовыми, приготовленный на месте.',
       price: 180,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358492/domashnii_limonad_xo0082.jpg',
     },
     {
       id: uuidv4(),
@@ -1814,7 +1917,8 @@ async function seed() {
       name: 'Олений стейк с брусничным соусом',
       description: 'Сочный стейк из оленины с насыщенным брусничным соусом.',
       price: 1650,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358497/oleniy_steik_s_brusnichnym_sousom_vin0gi.jpg',
     },
     {
       id: uuidv4(),
@@ -1823,7 +1927,8 @@ async function seed() {
       name: 'Жаркое из дичи',
       description: 'Ароматное тушёное мясо дикой птицы и зверя с овощами.',
       price: 1450,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358499/zharkoe_iz_dichi_s8gptt.jpg',
     },
     {
       id: uuidv4(),
@@ -1832,7 +1937,8 @@ async function seed() {
       name: 'Перловка с белыми грибами',
       description: 'Традиционная каша с ароматом леса и грибов.',
       price: 780,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358497/perlovka_s_belymi_gribami_ba2pth.jpg',
     },
     {
       id: uuidv4(),
@@ -1841,7 +1947,8 @@ async function seed() {
       name: 'Запечённый заяц с розмарином',
       description: 'Мягкое мясо зайца, приготовленное с душистыми травами.',
       price: 1320,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358498/zapechyonnyi_zayats_s_rozmarinom_ejvcba.jpg',
     },
     {
       id: uuidv4(),
@@ -1850,7 +1957,8 @@ async function seed() {
       name: 'Соленья с лесными грибами',
       description: 'Ассорти из домашних солений и маринованных грибов.',
       price: 560,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358494/solenya_s_lesnymi_gribami_ghrwzl.jpg',
     },
     {
       id: uuidv4(),
@@ -1859,7 +1967,8 @@ async function seed() {
       name: 'Ржаные гренки с чесноком',
       description: 'Хрустящие гренки с острым ароматом чеснока.',
       price: 350,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358493/rzhanie_grenki_s_chesnokom_rvvr49.jpg',
     },
     {
       id: uuidv4(),
@@ -1868,7 +1977,8 @@ async function seed() {
       name: 'Паштет из куропатки',
       description: 'Нежный паштет с ягодным соусом и тостами.',
       price: 620,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358494/pashtet_iz_kuropatki_wmeelh.jpg',
     },
     {
       id: uuidv4(),
@@ -1877,7 +1987,8 @@ async function seed() {
       name: 'Грибной крем-суп',
       description: 'Насыщенный крем-суп из лесных грибов.',
       price: 590,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358500/gribnoy_krem_sup_hknzno.jpg',
     },
     {
       id: uuidv4(),
@@ -1886,7 +1997,8 @@ async function seed() {
       name: 'Щи из квашеной капусты',
       description: 'Кисловатые щи по старинному рецепту.',
       price: 470,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358500/shchi_iz_kvashenoi_kapusty_xcb01x.jpg',
     },
     {
       id: uuidv4(),
@@ -1895,7 +2007,8 @@ async function seed() {
       name: 'Уха из речной рыбы',
       description: 'Лёгкий рыбный суп с зеленью.',
       price: 520,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358501/ukha_iz_rechnoy_ryby_qj4upf.jpg',
     },
     {
       id: uuidv4(),
@@ -1904,7 +2017,8 @@ async function seed() {
       name: 'Мёдовый сбитень',
       description: 'Горячий напиток с мёдом и пряностями.',
       price: 290,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358496/myodovyi_sbiten_ogtbsb.jpg',
     },
     {
       id: uuidv4(),
@@ -1913,7 +2027,8 @@ async function seed() {
       name: 'Морс из черники',
       description: 'Освежающий напиток из лесной ягоды.',
       price: 270,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358495/mors_iz_cherniki_oaz9yk.jpg',
     },
     {
       id: uuidv4(),
@@ -1922,7 +2037,8 @@ async function seed() {
       name: 'Кисель из лесных ягод',
       description: 'Плотный напиток с насыщенным ягодным вкусом.',
       price: 250,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358499/kisel_iz_lesnykh_yagod_wnhqrc.jpg',
     },
     {
       id: uuidv4(),
@@ -1931,7 +2047,8 @@ async function seed() {
       name: 'Травяной чай',
       description: 'Чай из лесных трав: мята, чабрец, зверобой.',
       price: 240,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358497/travyanoy_chai_s5w2fz.jpg',
     },
     {
       id: uuidv4(),
@@ -1940,7 +2057,8 @@ async function seed() {
       name: 'Запечённый судак с лимоном',
       description: 'Нежное филе судака, запечённое с ломтиками лимона и тимьяном.',
       price: 1050,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358514/zapechyonnyi_sudak_s_limonom_d4xnpa.jpg',
     },
     {
       id: uuidv4(),
@@ -1949,7 +2067,8 @@ async function seed() {
       name: 'Жареный сом с луком',
       description: 'Сом, обжаренный до золотистой корочки с карамелизированным луком.',
       price: 1100,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358513/zharenyi_som_s_lukom_ua9wjj.jpg',
     },
     {
       id: uuidv4(),
@@ -1958,7 +2077,8 @@ async function seed() {
       name: 'Угорь в сливочном соусе',
       description: 'Нежный угорь под соусом из сливок и белого вина.',
       price: 1350,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358512/ugor_v_slivochnom_souse_us2ttc.jpg',
     },
     {
       id: uuidv4(),
@@ -1967,7 +2087,8 @@ async function seed() {
       name: 'Филе щуки в панировке',
       description: 'Хрустящее филе щуки в травяной панировке.',
       price: 950,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358515/file_shchuki_v_panirovke_tzxtf4.jpg',
     },
     {
       id: uuidv4(),
@@ -1976,7 +2097,8 @@ async function seed() {
       name: 'Селёдка с луком и картофелем',
       description: 'Солёная сельдь подаётся с отварным картофелем и маринованным луком.',
       price: 320,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358510/seledka_s_lukom_i_kartofelem_yawdrx.jpg',
     },
     {
       id: uuidv4(),
@@ -1985,7 +2107,8 @@ async function seed() {
       name: 'Икра щуки с тостами',
       description: 'Домашняя икра щуки подаётся на хрустящих тостах.',
       price: 410,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358508/ikra_shchuki_s_tostami_hp1wgq.jpg',
     },
     {
       id: uuidv4(),
@@ -1994,7 +2117,8 @@ async function seed() {
       name: 'Рыбные котлеты',
       description: 'Сочные котлеты из речной рыбы с зеленью и специями.',
       price: 480,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358508/rybnye_kotlety_lk5ij4.jpg',
     },
     {
       id: uuidv4(),
@@ -2003,7 +2127,8 @@ async function seed() {
       name: 'Уха по-царски',
       description: 'Богатый рыбный бульон с несколькими сортами рыбы и овощами.',
       price: 680,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358515/ukha_po_tsarski_z1khxk.jpg',
     },
     {
       id: uuidv4(),
@@ -2012,7 +2137,8 @@ async function seed() {
       name: 'Речной рыбный рассольник',
       description: 'Суп на рассоле с рыбой, перловкой и огурцами.',
       price: 620,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358514/rechnoy_rybnyi_rassolnik_mglvfh.jpg',
     },
     {
       id: uuidv4(),
@@ -2021,7 +2147,8 @@ async function seed() {
       name: 'Крем-суп из лосося',
       description: 'Нежный суп-пюре из лосося со сливками.',
       price: 730,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358513/krem_sup_iz_lososya_cx8ozg.jpg',
     },
     {
       id: uuidv4(),
@@ -2030,7 +2157,8 @@ async function seed() {
       name: 'Хреновуха',
       description: 'Острый настой на хрене с ноткой меда.',
       price: 290,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358509/khrenovukha_ekvgds.jpg',
     },
     {
       id: uuidv4(),
@@ -2039,7 +2167,8 @@ async function seed() {
       name: 'Морс клюквенный',
       description: 'Освежающий морс из клюквы с мятой.',
       price: 260,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358516/mors_klyukvennyi_w0tzmb.jpg',
     },
     {
       id: uuidv4(),
@@ -2048,7 +2177,8 @@ async function seed() {
       name: 'Квас хлебный',
       description: 'Домашний квас на ржаном солоде.',
       price: 230,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358511/kvas_khlebnyi_kfzad9.jpg',
     },
     {
       id: uuidv4(),
@@ -2057,7 +2187,8 @@ async function seed() {
       name: 'Травяной настой',
       description: 'Чай из луговых трав с лёгкой горчинкой.',
       price: 200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358511/travyanoy_nastoy_nhq1mt.jpg',
     },
     {
       id: uuidv4(),
@@ -2066,16 +2197,18 @@ async function seed() {
       name: 'Гриль-сети с бараниной',
       description: 'Сочные куски баранины, жаренные на открытом огне.',
       price: 1300,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358527/gril_seti_s_baraninoy_de4ypj.jpg',
     },
     {
       id: uuidv4(),
       categoryId: categoryData[0].id,
       restaurantId: restaurantData[9].id,
-      name: 'Свинное ребро на углях',
+      name: 'Свиное ребро на углях',
       description: 'Тосты свиных ребрышек, запечённые на углях до золотистой корочки.',
       price: 1400,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358529/svinnoe_rebro_na_uglyakh_leastv.jpg',
     },
     {
       id: uuidv4(),
@@ -2084,7 +2217,8 @@ async function seed() {
       name: 'Рыба на мангале',
       description: 'Свежая рыба, запечённая на мангале с лимоном и зеленью.',
       price: 1100,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358529/ryba_na_mangale_yfjte1.jpg',
     },
     {
       id: uuidv4(),
@@ -2093,7 +2227,8 @@ async function seed() {
       name: 'Телячья нога в травах',
       description: 'Мясо телячьей ноги, томлённое в травах.',
       price: 1500,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358530/telyachya_noga_v_travakh_lmilod.jpg',
     },
     {
       id: uuidv4(),
@@ -2102,7 +2237,8 @@ async function seed() {
       name: 'Картошка с укропом',
       description: 'Запечённая картошка с укропом и чесноком.',
       price: 500,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358528/kartoshka_s_ukropom_mtzji4.jpg',
     },
     {
       id: uuidv4(),
@@ -2111,7 +2247,8 @@ async function seed() {
       name: 'Медовуха',
       description: 'Сладкий напиток на основе мёда, идеально подойдёт к мясным блюдам.',
       price: 300,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358539/medovukha_czrfue.jpg',
     },
     {
       id: uuidv4(),
@@ -2120,7 +2257,8 @@ async function seed() {
       name: 'Травяной чай',
       description: 'Чай с лечебными травами, прекрасно утоляет жажду.',
       price: 200,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358538/travyanoy_chay_dwl4uh.jpg',
     },
     {
       id: uuidv4(),
@@ -2129,7 +2267,8 @@ async function seed() {
       name: 'Грог с пряностями',
       description: 'Тёплый алкогольный напиток с корицей и другими пряностями.',
       price: 350,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358537/grog_s_pryanostyami_eooznk.jpg',
     },
     {
       id: uuidv4(),
@@ -2138,7 +2277,8 @@ async function seed() {
       name: 'Черный чай с лимоном',
       description: 'Чёрный чай с ломтями свежего лимона.',
       price: 150,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358535/chernyy_chay_s_limonom_nch6yt.jpg',
     },
     {
       id: uuidv4(),
@@ -2147,7 +2287,8 @@ async function seed() {
       name: 'Квас домашний',
       description: 'Освежающий квас, сваренный по старинному рецепту.',
       price: 250,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358536/kvas_domashniy_hbh0ff.jpg',
     },
     {
       id: uuidv4(),
@@ -2156,7 +2297,8 @@ async function seed() {
       name: 'Греческий салат',
       description: 'Салат с оливками, фетой и свежими овощами.',
       price: 450,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358536/grecheskiy_salat_bn5pyp.jpg',
     },
     {
       id: uuidv4(),
@@ -2165,7 +2307,8 @@ async function seed() {
       name: 'Солёные огурцы с хреном',
       description: 'Огурцы, заквашенные с чесноком и хреном.',
       price: 250,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358534/solenye_ogurtsy_s_khrenom_gfc7pf.jpg',
     },
     {
       id: uuidv4(),
@@ -2174,7 +2317,8 @@ async function seed() {
       name: 'Творожная масса с зеленью',
       description: 'Творог, смешанный с зеленью и чесноком.',
       price: 350,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358534/tvorozhnaya_massa_s_zelenyu_k6jveo.jpg',
     },
     {
       id: uuidv4(),
@@ -2183,7 +2327,8 @@ async function seed() {
       name: 'Блины с икрой',
       description: 'Тонкие блины с красной икрой.',
       price: 500,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358533/bliny_s_ikroy_ij8vkr.jpg',
     },
     {
       id: uuidv4(),
@@ -2192,7 +2337,8 @@ async function seed() {
       name: 'Жареные грибы с луком',
       description: 'Обжаренные грибы с луком и специями.',
       price: 400,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358536/zharenye_griby_s_lukom_sp6es0.jpg',
     },
     {
       id: uuidv4(),
@@ -2201,7 +2347,8 @@ async function seed() {
       name: 'Пирог с яблоками',
       description: 'Пирог с яблочной начинкой, посыпанный сахаром.',
       price: 350,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358532/pirog_s_yablokami_h73toh.jpg',
     },
     {
       id: uuidv4(),
@@ -2210,7 +2357,8 @@ async function seed() {
       name: 'Блинчики с медом',
       description: 'Маленькие блинчики, политые мёдом.',
       price: 300,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358531/blinchiki_s_medom_ns4pee.jpg',
     },
     {
       id: uuidv4(),
@@ -2219,7 +2367,8 @@ async function seed() {
       name: 'Торт с орехами',
       description: 'Торт с орехами и слоёным тестом.',
       price: 400,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358533/tort_s_orekhami_s8pzlq.jpg',
     },
     {
       id: uuidv4(),
@@ -2228,7 +2377,8 @@ async function seed() {
       name: 'Кекс с ягодами',
       description: 'Нежный кекс с ягодами и сладкой глазурью.',
       price: 350,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358530/keks_s_yagodami_iljrx8.jpg',
     },
     {
       id: uuidv4(),
@@ -2237,7 +2387,8 @@ async function seed() {
       name: 'Мёд с орехами',
       description: 'Натуральный мёд с орехами.',
       price: 250,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358531/myod_s_orekhami_h5zij2.jpg',
     },
     {
       id: uuidv4(),
@@ -2246,7 +2397,8 @@ async function seed() {
       name: 'Говядина по-строгановски',
       description: 'Нежное мясо, тушёное в сметанном соусе с грибами и луком.',
       price: 1600,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358484/govyadina_po_stroganovski_rsam8a.jpg',
     },
     {
       id: uuidv4(),
@@ -2255,7 +2407,8 @@ async function seed() {
       name: 'Курица в медово-горчичном соусе',
       description: 'Медово-горчичный соус придает курице невероятный вкус.',
       price: 1300,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358485/kuritsa_v_medovo_gorchichnom_souse_dcijan.jpg',
     },
     {
       id: uuidv4(),
@@ -2264,7 +2417,8 @@ async function seed() {
       name: 'Свинина по-французски',
       description: 'Мясо свинины, запечённое с сыром, луком и картошкой.',
       price: 1400,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358487/svinina_po_frantsuzski_dihwzd.jpg',
     },
     {
       id: uuidv4(),
@@ -2273,7 +2427,8 @@ async function seed() {
       name: 'Филе индейки с лимоном',
       description: 'Филе индейки, приправленное лимоном и специями, запечённое в духовке.',
       price: 1500,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358487/file_indeyki_s_limonom_vh9krm.jpg',
     },
     {
       id: uuidv4(),
@@ -2282,7 +2437,8 @@ async function seed() {
       name: 'Гриль-самбар с овощами',
       description: 'Овощи, жаренные на гриле с особым самбаром.',
       price: 1200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358486/gril_sambar_s_ovoshchami_wzdkff.jpg',
     },
     {
       id: uuidv4(),
@@ -2291,7 +2447,7 @@ async function seed() {
       name: 'Грог',
       description: 'Тёплый алкогольный напиток с пряностями.',
       price: 350,
-      imageUrl: '/images/drink.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358481/grog_dcz7l1.jpg',
     },
     {
       id: uuidv4(),
@@ -2300,7 +2456,8 @@ async function seed() {
       name: 'Вишневый пунш',
       description: 'Освежающий алкогольный напиток с вишней.',
       price: 400,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358482/vishnevyi_punsh_iueyxm.jpg',
     },
     {
       id: uuidv4(),
@@ -2309,7 +2466,7 @@ async function seed() {
       name: 'Медовуха',
       description: 'Традиционный напиток на основе мёда.',
       price: 300,
-      imageUrl: '/images/drink.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358483/medovuha_ye46sk.jpg',
     },
     {
       id: uuidv4(),
@@ -2318,7 +2475,8 @@ async function seed() {
       name: 'Травяной чай',
       description: 'Чай с полезными травами.',
       price: 200,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358481/travyanoi_chai_drcn6m.jpg',
     },
     {
       id: uuidv4(),
@@ -2327,7 +2485,8 @@ async function seed() {
       name: 'Черный кофе',
       description: 'Сильный чёрный кофе для бодрости.',
       price: 150,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358477/chernyi_kofe_n9vvrr.jpg',
     },
     {
       id: uuidv4(),
@@ -2336,7 +2495,8 @@ async function seed() {
       name: 'Греческий салат',
       description: 'Салат с оливками, фетой, помидорами и огурцами.',
       price: 500,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358468/grecheskii_salat_vomw5m.jpg',
     },
     {
       id: uuidv4(),
@@ -2345,7 +2505,7 @@ async function seed() {
       name: 'Капрезе',
       description: 'Салат из помидоров, моцареллы и базилика.',
       price: 450,
-      imageUrl: '/images/snack.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358471/kapreze_jchiud.jpg',
     },
     {
       id: uuidv4(),
@@ -2354,7 +2514,8 @@ async function seed() {
       name: 'Цезарь с курицей',
       description: 'Листья салата, куриное филе, соус Цезарь и пармезан.',
       price: 600,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358475/tsezar_s_kuritsey_p2upnr.jpg',
     },
     {
       id: uuidv4(),
@@ -2363,7 +2524,8 @@ async function seed() {
       name: 'Тартар из лосося',
       description: 'Свежий лосось с авокадо и специями.',
       price: 700,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358471/tartar_iz_lososya_wbgdo3.jpg',
     },
     {
       id: uuidv4(),
@@ -2372,7 +2534,8 @@ async function seed() {
       name: 'Салат с авокадо и креветками',
       description: 'Салат с авокадо, креветками и зелёными листьями.',
       price: 750,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358471/salat_s_avokado_i_krevetkami_mexbcj.jpg',
     },
     {
       id: uuidv4(),
@@ -2381,7 +2544,8 @@ async function seed() {
       name: 'Шоколадный торт',
       description: 'Нежный шоколадный торт с орехами.',
       price: 400,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358463/shokoladnyi_tort_p5xad5.jpg',
     },
     {
       id: uuidv4(),
@@ -2390,7 +2554,7 @@ async function seed() {
       name: 'Тирамису',
       description: 'Итальянский десерт с маскарпоне и кофе.',
       price: 450,
-      imageUrl: '/images/dessert.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358466/tiramisu_ynvo8j.jpg',
     },
     {
       id: uuidv4(),
@@ -2399,7 +2563,8 @@ async function seed() {
       name: 'Пирог с ягодами',
       description: 'Сладкий пирог с ягодами в хрустящей корочке.',
       price: 350,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358461/pirog_s_yagodami_ioqojx.jpg',
     },
     {
       id: uuidv4(),
@@ -2408,7 +2573,7 @@ async function seed() {
       name: 'Медовик',
       description: 'Пирог с медом и орехами.',
       price: 300,
-      imageUrl: '/images/dessert.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358458/medovik_xsozcg.jpg',
     },
     {
       id: uuidv4(),
@@ -2417,7 +2582,7 @@ async function seed() {
       name: 'Чизкейк',
       description: 'Творожный десерт с фруктовой начинкой.',
       price: 500,
-      imageUrl: '/images/dessert.png',
+      imageUrl: 'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358455/chizkeik_lrjbr4.jpg',
     },
     {
       id: uuidv4(),
@@ -2426,7 +2591,8 @@ async function seed() {
       name: 'Свинина на вертеле',
       description: 'Сочная свинина, приготовленная на открытом огне.',
       price: 1200,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358550/svinina_na_verte%D0%BB%D0%B5_eo0ook.jpg',
     },
     {
       id: uuidv4(),
@@ -2435,7 +2601,8 @@ async function seed() {
       name: 'Говядина, тушёная в вине',
       description: 'Мягкая говядина, тушёная в вине с пряными травами.',
       price: 1500,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358547/govyadina_tushyonaya_v_vine_nzeyi1.jpg',
     },
     {
       id: uuidv4(),
@@ -2444,7 +2611,8 @@ async function seed() {
       name: 'Жареная рыба',
       description: 'Свежая рыба, жаренная до золотистой корочки.',
       price: 900,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358550/zharenaya_ryba_ghvy0b.jpg',
     },
     {
       id: uuidv4(),
@@ -2453,7 +2621,8 @@ async function seed() {
       name: 'Запечённая курица с лимоном',
       description: 'Курица, запечённая с лимоном и свежими травами.',
       price: 1000,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358550/zapechonnaya_kuritsa_s_limonom_lvpi9f.jpg',
     },
     {
       id: uuidv4(),
@@ -2462,7 +2631,8 @@ async function seed() {
       name: 'Печёная картошка с сыром',
       description: 'Запечённый картофель с плавленым сыром и зеленью.',
       price: 500,
-      imageUrl: '/images/food.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358550/pechyonnaya_kartoshka_s_syrom_sefadd.jpg',
     },
     {
       id: uuidv4(),
@@ -2471,7 +2641,8 @@ async function seed() {
       name: 'Квас на меду',
       description: 'Освежающий квас с добавлением натурального мёда.',
       price: 200,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358547/kvas_na_medu_ozaody.jpg',
     },
     {
       id: uuidv4(),
@@ -2480,7 +2651,8 @@ async function seed() {
       name: 'Ягодный морс',
       description: 'Сладкий морс из лесных ягод.',
       price: 250,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358547/yagodnyy_mors_uwcv72.jpg',
     },
     {
       id: uuidv4(),
@@ -2489,7 +2661,8 @@ async function seed() {
       name: 'Сбитень с гвоздикой',
       description: 'Тёплый напиток на мёде и пряностях.',
       price: 350,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358546/sbiten_s_gvozdikoy_ufelva.jpg',
     },
     {
       id: uuidv4(),
@@ -2498,7 +2671,8 @@ async function seed() {
       name: 'Чай с мятой',
       description: 'Чай с ароматной мятой, придающей свежесть.',
       price: 150,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358547/chay_s_myatoy_ez4ai8.jpg',
     },
     {
       id: uuidv4(),
@@ -2507,7 +2681,8 @@ async function seed() {
       name: 'Кофе по-деревенски',
       description: 'Крепкий кофе, сваренный по старинному рецепту.',
       price: 300,
-      imageUrl: '/images/drink.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358544/kofe_po_derevenski_ydnevc.jpg',
     },
     {
       id: uuidv4(),
@@ -2516,7 +2691,8 @@ async function seed() {
       name: 'Маринованные огурцы',
       description: 'Хрустящие огурцы в маринаде с пряностями.',
       price: 150,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358542/marinovannye_ogurtsy_uhts8x.jpg',
     },
     {
       id: uuidv4(),
@@ -2525,7 +2701,8 @@ async function seed() {
       name: 'Сырная нарезка',
       description: 'Ассорти сыров с различными добавками.',
       price: 500,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358544/syrnaya_narezka_mj9yyq.jpg',
     },
     {
       id: uuidv4(),
@@ -2534,7 +2711,8 @@ async function seed() {
       name: 'Печёные баклажаны с чесноком',
       description: 'Запечённые баклажаны с чесноком и зеленью.',
       price: 400,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358542/pechyonyye_baklazhany_s_chesnokom_anvdab.jpg',
     },
     {
       id: uuidv4(),
@@ -2543,7 +2721,8 @@ async function seed() {
       name: 'Солёная рыба с горчицей',
       description: 'Солёная рыба с пикантным горчичным соусом.',
       price: 600,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358543/solyonaya_ryba_s_gorchitsey_zbysyd.jpg',
     },
     {
       id: uuidv4(),
@@ -2552,7 +2731,8 @@ async function seed() {
       name: 'Жареные грибы с луком',
       description: 'Лесные грибы, обжаренные с луком.',
       price: 350,
-      imageUrl: '/images/snack.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358544/zharenye_griby_s_lukom_qcqvfi.jpg',
     },
     {
       id: uuidv4(),
@@ -2561,7 +2741,8 @@ async function seed() {
       name: 'Мёд с орехами',
       description: 'Натуральный мёд с добавлением орехов.',
       price: 250,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358541/myod_s_orekhami_vpvedz.jpg',
     },
     {
       id: uuidv4(),
@@ -2570,7 +2751,8 @@ async function seed() {
       name: 'Пирог с вишней',
       description: 'Тёплый пирог с вишнями и сахарной пудрой.',
       price: 300,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358544/pirog_s_vishney_vuvkcv.jpg',
     },
     {
       id: uuidv4(),
@@ -2579,7 +2761,8 @@ async function seed() {
       name: 'Блины с ягодами',
       description: 'Мягкие блины с ягодной начинкой.',
       price: 350,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358539/bliny_s_yagodami_qonmj6.jpg',
     },
     {
       id: uuidv4(),
@@ -2588,7 +2771,8 @@ async function seed() {
       name: 'Запечённые яблоки с медом',
       description: 'Тёплые яблоки, запечённые с медом и корицей.',
       price: 400,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358541/zapechyonnye_yabloki_s_medom_l1a4h4.jpg',
     },
     {
       id: uuidv4(),
@@ -2597,7 +2781,8 @@ async function seed() {
       name: 'Кекс с орехами',
       description: 'Мягкий кекс с орехами и сахарной корочкой.',
       price: 250,
-      imageUrl: '/images/dessert.png',
+      imageUrl:
+        'https://res.cloudinary.com/ddv46fj7f/image/upload/v1746358539/keks_s_orekhami_ozdfrq.jpg',
     },
   ];
   await db.insert(menuItems).values(menuData);
