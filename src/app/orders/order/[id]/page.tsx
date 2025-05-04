@@ -17,6 +17,14 @@ async function fetchOrder(id: string): Promise<OrderData> {
   return response.json();
 }
 
+async function fetchReview(orderId: string) {
+  const response = await fetch(`${process.env.BASE_URL}/api/reviews?orderId=${orderId}`);
+  if (!response.ok) {
+    return null; // Если отзыва нет, возвращаем null
+  }
+  return response.json();
+}
+
 type Params = {
   id: string;
 };
@@ -24,6 +32,7 @@ type Params = {
 export default async function OrderDetailsPage({ params }: { params: Params }) {
   const { id } = await params;
   const order = await fetchOrder(id);
+  const review = await fetchReview(id);
 
   return (
     <div>
@@ -53,7 +62,7 @@ export default async function OrderDetailsPage({ params }: { params: Params }) {
               <CallCourierButton phone={order.courierPhone} />
             </div>
           )}
-          {order.status === 'Доставлен' && <OrderReview orderId={order.id} />}
+          {order.status === 'Доставлен' && <OrderReview orderId={order.id} existingReview={review} />}
         </div>
       </div>
     </div>

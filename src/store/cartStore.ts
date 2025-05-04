@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-
+import { toast } from 'react-toastify';
 import { CartItem, Dish } from '@/app/types/types';
 
 type StoreState = {
@@ -47,7 +47,7 @@ export const useCartStore = create<StoreState>()(
                 0
               );
             } else {
-              alert('Можно заказывать только из одного ресторана.');
+              toast.error('Можно заказывать только из одного ресторана.');
             }
           }),
         removeFromCart: id =>
