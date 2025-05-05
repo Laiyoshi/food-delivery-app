@@ -6,6 +6,7 @@ import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
 import { CategoryDish, MenuItem } from '@/app/types/types';
 import { FilterDropdown } from '@/ui/FilterDropdown';
+
 import MenuCard from './MenuCard';
 
 type Props = {

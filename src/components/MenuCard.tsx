@@ -2,9 +2,15 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
-import { useCartStore } from '@/store/cartStore';
+
+
 import { MenuItemProps } from '@/app/types/types';
+import { useCartStore } from '@/store/cartStore';
 import { inter } from '@/ui/fonts';
+
+
+
+
 
 export default function MenuCard({ menuData }: MenuItemProps) {
   const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity, calculateAmount } =
@@ -39,13 +45,13 @@ export default function MenuCard({ menuData }: MenuItemProps) {
     <div
       className={`w-full rounded-[8px] bg-white shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className}`}
     >
-      <div className="relative mx-4 mt-3 mb-1 h-[120px] overflow-hidden rounded-[8px] object-cover sm:w-62">
+      <div className="relative m-0 mx-4 mt-3 mb-1 flex h-[20vh] w-[75vw] justify-self-center sm:h-[15vh] sm:w-[85%]">
         <Image
           src={menuData.imageUrl}
           sizes="85"
           alt="Фото блюда"
           fill
-          className="object-contain"
+          className="rounded-[8px] object-cover"
         />
       </div>
 
@@ -54,7 +60,7 @@ export default function MenuCard({ menuData }: MenuItemProps) {
           {menuData.name}
         </h2>
 
-        <p className="col-span-full row-2 mx-4 mt-3 text-left text-xs text-gray-600 md:text-gray-800">
+        <p className="col-span-full row-2 mx-4 mt-3 min-h-8 text-left text-xs text-gray-600 md:text-gray-800">
           {menuData.description}
         </p>
 

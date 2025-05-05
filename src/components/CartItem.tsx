@@ -41,26 +41,27 @@ export default function CartItem({ menuData }: MenuItemProps) {
   };
 
   return (
-    <div className="sm:w-[calc(100%-25vw) lg:w-[calc(800px-20vw) mx-4 h-fit items-center rounded-[8px] shadow-(--shadow-card) md:w-[calc(100vw-70px)] lg:w-[650px] xl:w-[800px]">
+    <div className="mx-4 h-fit items-center rounded-[8px] shadow-(--shadow-card) sm:w-[calc(100-2vw)] md:w-[calc(100vw-70px)] lg:w-[650px] xl:w-[800px]">
       <div className="mx-4 my-3 grid grid-cols-[max-content_1fr_1fr] items-center">
-        <div className="relative col-1 row-1 h-20 w-20">
+        <div className="relative col-1 row-1 h-20 w-20 rounded-[80px] sm:max-h-[13vh] sm:min-w-[15vw] md:min-w-[14vw] xl:min-w-[8vw] 2xl:min-w-[7vw]">
           <Image
-            src="/images/food2-cart.png"
+            src={menuData.imageUrl}
             fill
             sizes="85"
             alt="Фото блюда"
-            className="object-contain"
+            className="rounded-[8px] object-cover"
           />
         </div>
 
-        <div className="col-[2/4] row-1 ml-2 md:ml-5 lg:self-start">
+        <div className="col-[2/4] row-1 ml-2 min-h-23 md:ml-5 lg:self-start">
           <h2 className="text-xs font-bold text-gray-800 md:text-base">{menuData.name}</h2>
-          <p className="text-xs text-gray-600 md:text-sm">{menuData.description}</p>
+          <p className="mb-1 max-w-[220px] text-xs text-wrap text-gray-600 sm:max-w-full md:text-sm">
+            {menuData.description}
+          </p>
+          <p className="col-1 row-2 text-xl font-bold text-green-500 md:text-2xl lg:col-2 lg:row-1 lg:self-end">
+            {menuData.price * (productInCart?.quantity ?? 1)} ₽
+          </p>
         </div>
-
-        <p className="col-1 row-2 text-xl font-bold text-green-500 md:text-2xl lg:col-2 lg:row-1 lg:ml-5 lg:self-end">
-          {menuData.price * (productInCart?.quantity ?? 1)} ₽
-        </p>
 
         <XMarkIcon
           onClick={handleRemoveCart}
