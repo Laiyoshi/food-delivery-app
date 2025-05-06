@@ -3,7 +3,6 @@ import OrderReview from '@/components/OrderReview';
 import BackArrow from '@/components/BackArrow';
 import CallCourierButton from '@/components/CallCourierButton';
 import MobileBackground from '@/components/MobileBackground';
-import OrderMap from '@/components/OrderMap';
 import OrderStatusIndicator from '@/components/OrderStatusIndicator';
 import RepeatOrderButton from '@/components/RepeatOrderButton';
 import { OrderData } from '@/app/types/types';
@@ -58,7 +57,9 @@ export default async function OrderDetailsPage({ params }: { params: Params }) {
           </div>
           {order.status !== 'Доставлен' && (
             <div className="flex flex-col gap-2">
-              <OrderMap mapImageUrl="/images/map.png" />
+              <div className="relative h-[300px] w-full overflow-hidden rounded-lg border-1 border-gray-300 shadow-(--shadow-card) lg:h-[300px]">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A73344d14c028bcb6c4be6899ca3fc8db7eb26041ed58b17b3b122bdfa72c52e8&amp;source=constructor" className='w-full h-full'></iframe>
+              </div>
               <CallCourierButton phone={order.courierPhone} />
             </div>
           )}
