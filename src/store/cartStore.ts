@@ -53,6 +53,14 @@ export const useCartStore = create<StoreState>()(
         removeFromCart: id =>
           set(state => {
             state.cart = state.cart.filter(item => item.id !== id);
+            if (state.cart.length === 0) {
+              state.restaurantId = null;
+            }
+        
+            state.cartAmount = state.cart.reduce(
+              (sum, item) => sum + item.price * item.quantity,
+              0
+            );
           }),
         clearCart: () =>
           set(state => {
@@ -73,13 +81,20 @@ export const useCartStore = create<StoreState>()(
             if (!item) {
               return;
             }
-
+        
             if (item.quantity > 1) {
               item.quantity--;
             } else {
               state.cart = state.cart.filter(i => i.id !== id);
-              state.restaurantId = null;
+              if (state.cart.length === 0) {
+                state.restaurantId = null;
+              }
             }
+        
+            state.cartAmount = state.cart.reduce(
+              (sum, item) => sum + item.price * item.quantity,
+              0
+            );
           }),
         updateQuantity: (id, quantity) =>
           set(state => {
