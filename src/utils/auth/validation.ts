@@ -8,3 +8,5 @@ export const isCardValid = (card: string) =>
   /^\d{16}$/.test(card.replace(/\s+/g, ""));
 
 export const isNameValid = (name: string) => name.trim().length <= 30;
+
+export const isPasswordValid = (password: string) => password.length >= 6;

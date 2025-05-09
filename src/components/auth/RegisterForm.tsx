@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import InputField from "./InputField";
 import { fetchRegisterUser } from "@/utils/auth/data";
-import { isEmailValid, isPhoneValid, isCardValid, isNameValid } from "@/utils/auth/validation";
+import { isEmailValid, isPhoneValid, isCardValid, isNameValid, isPasswordValid } from "@/utils/auth/validation";
 
 export default function RegisterForm () {
   const router = useRouter();
@@ -13,6 +13,7 @@ export default function RegisterForm () {
     email: "",
     password: "",
     phone: "",
+    phoneRaw: "",
     address: "",
     cardNumber: "",
   });
@@ -21,9 +22,52 @@ export default function RegisterForm () {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
+  const formatPhone = (digits: string) => {
+    let result = "+7";
+    if (digits.length > 1) result += " " + digits.slice(1, 4);
+    if (digits.length >= 4) result += " " + digits.slice(4, 7);
+    if (digits.length >= 7) result += "-" + digits.slice(7, 9);
+    if (digits.length >= 9) result += "-" + digits.slice(9, 11);
+    return result;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    let newValue = value;
+
+    if (name === "cardNumber") {
+      newValue = value
+        .replace(/\D/g, "")             // Удалить все нецифровые символы
+        .replace(/(.{4})/g, "$1 ")         // Разбить по 4 цифры
+        .trim();                           // Убрать лишний пробел
+    }
+
+    if (name === "phone") {
+      const raw = value.replace(/\D/g, "");
+    
+      let digits = raw;
+    
+      // Если начали вводить с пустого поля и сразу цифру — добавим +7
+      if (formData.phoneRaw === "" && digits.length === 1) {
+        digits = "7" + digits;
+      }
+    
+      // Если ввели 8, заменим на 7
+      if (digits.startsWith("8")) digits = "7" + digits.slice(1);
+      if (!digits.startsWith("7")) digits = "7" + digits;
+    
+      const formatted = formatPhone(digits);
+    
+      setFormData((prev) => ({
+        ...prev,
+        phone: formatted,
+        phoneRaw: digits,
+      }));
+      setTouchedFields((prev) => ({ ...prev, phone: true }));
+      return;
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: newValue }));
     setTouchedFields((prev) => ({ ...prev, [name]: true }));
   };
 
@@ -54,6 +98,7 @@ export default function RegisterForm () {
       formData.address,
       formData.cardNumber
     );
+    
 
     if (result.success) {
       setMessage({ text: result.success, type: "success" });
@@ -123,8 +168,8 @@ export default function RegisterForm () {
         {renderField("Имя", "firstName", "text", "Ярополк", "Максимум 30 символов", isNameValid(formData.firstName))}
         {renderField("Фамилия", "lastName", "text", "Иванов", "Максимум 30 символов", isNameValid(formData.lastName))}
         {renderField("Email", "email", "email", "ivanov@yandex.ru", "Введите корректный email", isEmailValid(formData.email))}
-        {renderField("Пароль", "password", "password", "••••••••")}
-        {renderField("Телефон", "phone", "tel", "+7(999) 999-99-99", "Введите корректный номер: 11 цифр", isPhoneValid(formData.phone))}
+        {renderField("Пароль", "password", "password", "••••••••", "Пароль должен быть минимум из 6 символов", isPasswordValid(formData.password))}
+        {renderField("Телефон", "phone", "tel", "+7 999 999-99-99", "Введите корректный номер: 11 цифр", isPhoneValid(formData.phone))}
         {renderField("Адрес", "address", "text", "Москва")}
         {renderField("Номер карты", "cardNumber", "text", "1234 1234 1234 1234", "Введите 16 цифр", isCardValid(formData.cardNumber))}
       </div>
@@ -143,3 +188,5 @@ export default function RegisterForm () {
     </form>
   );
 };
+
+

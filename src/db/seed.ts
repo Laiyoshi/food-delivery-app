@@ -2806,7 +2806,7 @@ async function seed() {
   await db.insert(deliveryAddresses).values(addressData);
 
   const paymentMethodsData = [
-    { id: 1, userId: userData[0].id, type: 'card', details: '1234432143211234' },
+    { id: 1, userId: userData[0].id, type: 'card', details: '1234 4321 4321 1234' },
   ];
   await db.insert(paymentMethods).values(paymentMethodsData);
 
