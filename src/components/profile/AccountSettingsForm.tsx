@@ -45,9 +45,41 @@ export default function AccountSettingsForm({ user }: Props) {
     fetchProfile();
   }, []);
 
+  const formatPhone = (digits: string) => {
+    let result = "+7";
+    if (digits.length > 1) result += " " + digits.slice(1, 4);
+    if (digits.length >= 4) result += " " + digits.slice(4, 7);
+    if (digits.length >= 7) result += "-" + digits.slice(7, 9);
+    if (digits.length >= 9) result += "-" + digits.slice(9, 11);
+    return result;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    const updatedForm = { ...formData, [name]: value };
+    let newValue = value;
+
+    if (name === "cardNumber") {
+      newValue = value
+        .replace(/\D/g, "")             // Удалить все нецифровые символы
+        .replace(/(.{4})/g, "$1 ")         // Разбить по 4 цифры
+        .trim();                           // Убрать лишний пробел
+    }
+
+    if (name === "phone") {
+      const raw = value.replace(/\D/g, "");
+    
+      let digits = raw;
+      if (formData.phone === "" && digits.length === 1) {
+        digits = "7" + digits;
+      }
+    
+      if (digits.startsWith("8")) digits = "7" + digits.slice(1);
+      if (!digits.startsWith("7")) digits = "7" + digits;
+    
+      newValue = formatPhone(digits);
+    }
+    
+    const updatedForm = { ...formData, [name]: newValue };
     setFormData(updatedForm);
     setShowSaveButton(JSON.stringify(updatedForm) !== JSON.stringify(initialFormData));
   };
@@ -68,7 +100,31 @@ export default function AccountSettingsForm({ user }: Props) {
           setSaveMessage({ text: 'Пароли не совпадают', type: 'error' });
           return;
         }
+
+        if (formData.newPassword && formData.newPassword.length < 6) {
+          setSaveMessage({ text: "Новый пароль должен содержать минимум 6 символов", type: "error" });
+          return;
+        }
       }
+
+      const cardDigitsOnly = formData.cardNumber?.replace(/\D/g, "");
+      if (!(cardDigitsOnly && cardDigitsOnly.length === 16)) {
+        setSaveMessage({ text: "Номер карты должен содержать 16 цифр", type: "error" });
+        return;
+      }
+      
+      const phoneDigitsOnly = formData.phone.replace(/\D/g, "");
+      if (phoneDigitsOnly.length !== 11 || !phoneDigitsOnly.startsWith("7")) {
+        setSaveMessage({ text: "Телефон должен содержать 11 цифр и начинаться с 7", type: "error" });
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(formData.email)) {
+        setSaveMessage({ text: "Введите корректный email", type: "error" });
+        return;
+      }
+      
       const data = await fetchUpdateProfile(formData);
       setSaveMessage({ text: data.success, type: 'success' });
       setInitialFormData(formData);
@@ -114,9 +170,9 @@ export default function AccountSettingsForm({ user }: Props) {
         <InputField label="Фамилия" name="lastName" type="text" placeholder="Иванов" value={formData.lastName} onChange={handleChange} />
         <InputField label="Email" name="email" type="email" placeholder="ivanov@yandex.ru" value={formData.email} onChange={handleChange} />
         <InputField label="Имя аккаунта" name="accountName" type="text" placeholder="Yaropolk" value={formData.accountName} onChange={handleChange} />
-        <InputField label="Телефон" name="phone" type="tel" placeholder="+7 900 000 00 00" value={formData.phone} onChange={handleChange} />
+        <InputField label="Телефон" name="phone" type="tel" placeholder="+7 900 000-00-00" value={formData.phone} onChange={handleChange} />
         <InputField label="Адрес" name="address" type="text" placeholder="г. Москва, ул. Ленина" value={formData.address} onChange={handleChange} />
-        <InputField label="Банковская карта" name="cardNumber" type="text" placeholder="1234 5678 9012 3456" value={formData.cardNumber} onChange={handleChange} />
+        <InputField label="Банковская карта" name="cardNumber" type="text" placeholder="1234 5678 9012 3456" value={formData.cardNumber} onChange={handleChange}/>
       </div>
 
       <div className="space-y-2">
