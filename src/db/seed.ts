@@ -1033,7 +1033,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[4].id,
       restaurantId: restaurantData[1].id,
       name: 'Томлёная говядина с перцем',
       description: 'Мясо томится с душистым перцем и специями.',
@@ -1043,7 +1043,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[4].id,
       restaurantId: restaurantData[1].id,
       name: 'Курица в пряной глазури',
       description: 'Курица под сладко-пряной мёдово-имбирной глазурью.',
@@ -1053,7 +1053,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[4].id,
       restaurantId: restaurantData[1].id,
       name: 'Острая уха',
       description: 'Уха с морепродуктами и перцем чили.',
@@ -1063,7 +1063,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[4].id,
       restaurantId: restaurantData[1].id,
       name: 'Курица с имбирём и мёдом',
       description: 'Курица, обжаренная с имбирём и мёдом до карамели.',
@@ -1073,7 +1073,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[4].id,
       restaurantId: restaurantData[1].id,
       name: 'Плов с острыми специями',
       description: 'Ароматный плов с перцем чили и барбарисом.',
@@ -1083,7 +1083,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[5].id,
       restaurantId: restaurantData[1].id,
       name: 'Пряный чай с корицей',
       description: 'Чай с корицей, кардамоном и мёдом.',
@@ -1093,7 +1093,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[5].id,
       restaurantId: restaurantData[1].id,
       name: 'Настойка на мёде',
       description: 'Крепкая настойка с травами и натуральным мёдом.',
@@ -1103,7 +1103,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[5].id,
       restaurantId: restaurantData[1].id,
       name: 'Яблочный сбитень',
       description: 'Тёплый напиток из яблок, мёда и пряностей.',
@@ -1113,7 +1113,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[5].id,
       restaurantId: restaurantData[1].id,
       name: 'Клюквенный морс с имбирём',
       description: 'Освежающий морс из клюквы с ноткой имбиря.',
@@ -1123,7 +1123,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[6].id,
       restaurantId: restaurantData[1].id,
       name: 'Рассольник с перловкой',
       description: 'Суп с перловкой, солёными огурцами и душистым перцем.',
@@ -1133,7 +1133,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[6].id,
       restaurantId: restaurantData[1].id,
       name: 'Суп-пюре из тыквы',
       description: 'Сливочный суп-пюре с ноткой имбиря и тыквенных семечек.',
@@ -1143,7 +1143,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[6].id,
       restaurantId: restaurantData[1].id,
       name: 'Борщ с чесноком',
       description: 'Классический борщ с чесноком и сметаной.',
@@ -1153,7 +1153,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[6].id,
       restaurantId: restaurantData[1].id,
       name: 'Крем-суп из шампиньонов',
       description: 'Нежный крем-суп с лесными грибами и сливками.',
@@ -1163,7 +1163,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[7].id,
       restaurantId: restaurantData[1].id,
       name: 'Маринованные перцы',
       description: 'Перцы в остром маринаде с чесноком.',
@@ -1173,7 +1173,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[7].id,
       restaurantId: restaurantData[1].id,
       name: 'Солёные огурцы с чесноком',
       description: 'Хрустящие огурцы с чесночным ароматом.',
@@ -1183,7 +1183,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[7].id,
       restaurantId: restaurantData[1].id,
       name: 'Острая капуста',
       description: 'Квашеная капуста с перцем чили.',
@@ -1193,7 +1193,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[8].id,
       restaurantId: restaurantData[2].id,
       name: 'Свинина, запечённая с яблоками',
       description: 'Ароматное мясо, приготовленное по древнему рецепту с кисло-сладкими яблоками.',
@@ -1203,7 +1203,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[8].id,
       restaurantId: restaurantData[2].id,
       name: 'Каша гречневая с грибами',
       description: 'Гречка, томлённая в печи с лесными грибами и пряными травами.',
@@ -1213,7 +1213,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[8].id,
       restaurantId: restaurantData[2].id,
       name: 'Картофель с салом и чесноком',
       description: 'Румяной жареный картофель, щедро приправленный чесноком и поджаренным салом.',
@@ -1223,7 +1223,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[8].id,
       restaurantId: restaurantData[2].id,
       name: 'Телятина по-домашнему',
       description: 'Нежное мясо в сливочном соусе с луком и морковью.',
@@ -1233,7 +1233,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[9].id,
       restaurantId: restaurantData[2].id,
       name: 'Щи из кислой капусты',
       description: 'Классический славянский суп на мясном бульоне с томлёной капустой.',
@@ -1243,7 +1243,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[9].id,
       restaurantId: restaurantData[2].id,
       name: 'Похлёбка с перловкой',
       description: 'Плотный и сытный суп с крупой, мясом и кореньями.',
@@ -1253,7 +1253,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[9].id,
       restaurantId: restaurantData[2].id,
       name: 'Борщ деревенский',
       description: 'Свекольный суп с мясом, сметаной и чесночной гренкой.',
@@ -1263,7 +1263,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[10].id,
       restaurantId: restaurantData[2].id,
       name: 'Пышки с маком',
       description: 'Пышные сладкие булочки с маковой начинкой.',
@@ -1273,7 +1273,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[10].id,
       restaurantId: restaurantData[2].id,
       name: 'Лепёшка с луком',
       description: 'Ржаная лепёшка с запечённым луком и специями.',
@@ -1283,7 +1283,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[10].id,
       restaurantId: restaurantData[2].id,
       name: 'Пирог с капустой и яйцом',
       description: 'Традиционный открытый пирог на дрожжевом тесте.',
@@ -1293,7 +1293,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[10].id,
       restaurantId: restaurantData[2].id,
       name: 'Блинчики с творогом',
       description: 'Тонкие блины с нежной начинкой из сладкого творога.',
@@ -1303,7 +1303,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[10].id,
       restaurantId: restaurantData[2].id,
       name: 'Пирог с брусникой',
       description: 'Ягодный пирог с кисло-сладким вкусом и хрустящей корочкой.',
@@ -1313,7 +1313,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[11].id,
       restaurantId: restaurantData[2].id,
       name: 'Квас хлебный',
       description: 'Домашний квас из ржаного хлеба с лёгкой кислинкой.',
@@ -1323,7 +1323,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[11].id,
       restaurantId: restaurantData[2].id,
       name: 'Морс из вишни',
       description: 'Освежающий напиток из лесной вишни.',
@@ -1333,7 +1333,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[11].id,
       restaurantId: restaurantData[2].id,
       name: 'Сбитень пряный',
       description: 'Горячий медовый напиток с корицей и гвоздикой.',
@@ -1343,7 +1343,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[11].id,
       restaurantId: restaurantData[2].id,
       name: 'Настойка на травах',
       description: 'Крепкий напиток на основе целебных трав по старинному рецепту.',
@@ -1353,7 +1353,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[12].id,
       restaurantId: restaurantData[3].id,
       name: 'Утка, тушённая с клюквой',
       description: 'Ароматная утка, медленно томлённая с клюквой и пряностями.',
@@ -1363,7 +1363,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[12].id,
       restaurantId: restaurantData[3].id,
       name: 'Картофель, запечённый в печи',
       description: 'Рассыпчатый деревенский картофель с укропом и маслом.',
@@ -1373,7 +1373,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[12].id,
       restaurantId: restaurantData[3].id,
       name: 'Перловка с грибами и луком',
       description: 'Постное блюдо с ароматными лесными грибами.',
@@ -1383,7 +1383,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[12].id,
       restaurantId: restaurantData[3].id,
       name: 'Рагу из лесного мяса',
       description: 'Мясное рагу из дичи в густом соусе со специями.',
@@ -1393,7 +1393,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[13].id,
       restaurantId: restaurantData[3].id,
       name: 'Соленья деревенские',
       description: 'Огурцы, капуста, чеснок — ассорти домашних солений.',
@@ -1403,7 +1403,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[13].id,
       restaurantId: restaurantData[3].id,
       name: 'Грибы маринованные',
       description: 'Ассорти лесных грибов в душистом маринаде.',
@@ -1413,7 +1413,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[13].id,
       restaurantId: restaurantData[3].id,
       name: 'Ржаные гренки с чесноком',
       description: 'Хрустящие гренки с пряным ароматом.',
@@ -1423,7 +1423,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[13].id,
       restaurantId: restaurantData[3].id,
       name: 'Сало с хреном и луком',
       description: 'Нарезка домашнего сала с пряностями.',
@@ -1433,7 +1433,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[13].id,
       restaurantId: restaurantData[3].id,
       name: 'Икра кабачковая',
       description: 'Классическая овощная закуска по-домашнему.',
@@ -1443,7 +1443,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[14].id,
       restaurantId: restaurantData[3].id,
       name: 'Уха с дымком',
       description: 'На костре, с тремя сортами рыбы и зеленью.',
@@ -1453,7 +1453,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[14].id,
       restaurantId: restaurantData[3].id,
       name: 'Похлёбка с репой и фасолью',
       description: 'На наваристом бульоне, с деревенскими овощами.',
@@ -1463,7 +1463,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[14].id,
       restaurantId: restaurantData[3].id,
       name: 'Куриный бульон с яйцом и зеленью',
       description: 'Лёгкий, ароматный бульон с отварным яйцом.',
@@ -1473,7 +1473,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[15].id,
       restaurantId: restaurantData[3].id,
       name: 'Квас малиновый',
       description: 'Домашний квас с лёгкой ягодной ноткой.',
@@ -1483,7 +1483,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[15].id,
       restaurantId: restaurantData[3].id,
       name: 'Травяной отвар с липой и мёдом',
       description: 'Успокаивающий напиток на основе лесных трав.',
@@ -1493,7 +1493,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[15].id,
       restaurantId: restaurantData[3].id,
       name: 'Морс черничный',
       description: 'Свежий морс из северной ягоды.',
@@ -1503,7 +1503,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[15].id,
       restaurantId: restaurantData[3].id,
       name: 'Настойка на мяте',
       description: 'Домашняя настойка с мятным охлаждающим вкусом.',
@@ -1513,7 +1513,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[16].id,
       restaurantId: restaurantData[4].id,
       name: 'Говяжья вырезка на костре',
       description: 'Сочная говядина, запеченная на живом огне.',
@@ -1523,7 +1523,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[16].id,
       restaurantId: restaurantData[4].id,
       name: 'Свинина в кленовом сиропе',
       description: 'Нежная свинина с ароматной глазурью из кленового сиропа.',
@@ -1533,7 +1533,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[16].id,
       restaurantId: restaurantData[4].id,
       name: 'Копчёная курица с травами',
       description: 'Курица, медленно копченная с душистыми травами.',
@@ -1543,7 +1543,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[16].id,
       restaurantId: restaurantData[4].id,
       name: 'Запечённая баранина с розмарином',
       description: 'Баранина, томлённая с пряным розмарином.',
@@ -1553,7 +1553,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[17].id,
       restaurantId: restaurantData[4].id,
       name: 'Колбаски охотничьи',
       description: 'Домашние копчёные колбаски с пряностями.',
@@ -1563,7 +1563,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[17].id,
       restaurantId: restaurantData[4].id,
       name: 'Говяжьи рёбра на углях',
       description: 'Рёбра, приготовленные на древесных углях.',
@@ -1573,7 +1573,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[17].id,
       restaurantId: restaurantData[4].id,
       name: 'Шашлык из индейки',
       description: 'Нежный шашлык из маринованной индейки.',
@@ -1583,7 +1583,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[18].id,
       restaurantId: restaurantData[4].id,
       name: 'Светлое пенное',
       description: 'Освежающее светлое крафтовое пиво.',
@@ -1593,7 +1593,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[18].id,
       restaurantId: restaurantData[4].id,
       name: 'Тёмное крафтовое пиво',
       description: 'Густое и насыщенное тёмное пиво.',
@@ -1603,7 +1603,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[18].id,
       restaurantId: restaurantData[4].id,
       name: 'Квас с солодом',
       description: 'Домашний квас на солоде и травах.',
@@ -1613,7 +1613,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[19].id,
       restaurantId: restaurantData[4].id,
       name: 'Копчёные сырные палочки',
       description: 'Сырные палочки, копчённые по старинным рецептам.',
@@ -1623,7 +1623,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[19].id,
       restaurantId: restaurantData[4].id,
       name: 'Орехи в мёде',
       description: 'Ароматные орешки, томлённые в лесном мёде.',
@@ -1633,7 +1633,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[19].id,
       restaurantId: restaurantData[4].id,
       name: 'Гренки с чесноком',
       description: 'Хрустящие ржаные гренки с чесноком.',
@@ -1643,7 +1643,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[19].id,
       restaurantId: restaurantData[4].id,
       name: 'Сушёная рыбка',
       description: 'Традиционная закуска к пиву — вяленая рыбка.',
@@ -1653,7 +1653,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[20].id,
       restaurantId: restaurantData[5].id,
       name: 'Пшеничная лепёшка с мёдом',
       description: 'Мягкая пшеничная лепёшка, политая свежим мёдом.',
@@ -1663,7 +1663,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[20].id,
       restaurantId: restaurantData[5].id,
       name: 'Ореховый рулет с корицей',
       description: 'Сдобный рулет с грецким орехом и ароматной корицей.',
@@ -1673,7 +1673,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[20].id,
       restaurantId: restaurantData[5].id,
       name: 'Сдобная булочка с изюмом',
       description: 'Пышная булочка с изюмом и сахарной пудрой.',
@@ -1683,7 +1683,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[20].id,
       restaurantId: restaurantData[5].id,
       name: 'Ячменный пирожок с яблоками',
       description: 'Домашний пирожок из ячменной муки с начинкой из тушёных яблок.',
@@ -1693,7 +1693,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[21].id,
       restaurantId: restaurantData[5].id,
       name: 'Каша на молоке с ягодами',
       description: 'Овсяная каша с лесными ягодами и мёдом.',
@@ -1703,7 +1703,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[21].id,
       restaurantId: restaurantData[5].id,
       name: 'Омлет с зеленью и сыром',
       description: 'Пышный омлет с домашним сыром и свежей зеленью.',
@@ -1713,7 +1713,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[21].id,
       restaurantId: restaurantData[5].id,
       name: 'Гречневая каша с маслом',
       description: 'Рассыпчатая гречневая каша, заправленная деревенским маслом.',
@@ -1723,7 +1723,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[21].id,
       restaurantId: restaurantData[5].id,
       name: 'Творожная запеканка',
       description: 'Нежная запеканка с творогом и изюмом.',
@@ -1733,7 +1733,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[22].id,
       restaurantId: restaurantData[5].id,
       name: 'Медовик по-деревенски',
       description: 'Многослойный торт с ароматным мёдом.',
@@ -1743,7 +1743,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[22].id,
       restaurantId: restaurantData[5].id,
       name: 'Сырники со сметаной',
       description: 'Поджаристые сырники из домашнего творога со сметаной.',
@@ -1753,7 +1753,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[22].id,
       restaurantId: restaurantData[5].id,
       name: 'Пирог с вишней',
       description: 'Сочный пирог с вишнёвой начинкой и хрустящей корочкой.',
@@ -1763,7 +1763,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[22].id,
       restaurantId: restaurantData[5].id,
       name: 'Мятное печенье',
       description: 'Рассыпчатое печенье с добавлением свежей мяты.',
@@ -1773,7 +1773,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[23].id,
       restaurantId: restaurantData[5].id,
       name: 'Молоко из глиняного кувшина',
       description: 'Свежайшее молоко, подаваемое в традиционной посуде.',
@@ -1783,7 +1783,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[23].id,
       restaurantId: restaurantData[5].id,
       name: 'Чай с душицей',
       description: 'Травяной чай с добавлением душицы, приятный и успокаивающий.',
@@ -1793,7 +1793,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[23].id,
       restaurantId: restaurantData[5].id,
       name: 'Компот из сухофруктов',
       description: 'Сладкий компот из яблок, груш и изюма.',
@@ -1803,7 +1803,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[24].id,
       restaurantId: restaurantData[6].id,
       name: 'Жаркое по-домашнему',
       description: 'Картофель с мясом, тушёные в горшочке с овощами.',
@@ -1813,7 +1813,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[24].id,
       restaurantId: restaurantData[6].id,
       name: 'Тефтели в томатном соусе',
       description: 'Мясные тефтели, запечённые с ароматным томатным соусом.',
@@ -1823,7 +1823,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[24].id,
       restaurantId: restaurantData[6].id,
       name: 'Гречка с грибами и луком',
       description: 'Рассыпчатая гречневая каша с шампиньонами и луком.',
@@ -1833,7 +1833,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[24].id,
       restaurantId: restaurantData[6].id,
       name: 'Картофельное пюре с котлетой',
       description: 'Домашняя котлета из фарша с нежным картофельным пюре.',
@@ -1843,7 +1843,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[25].id,
       restaurantId: restaurantData[6].id,
       name: 'Салат из свежих овощей',
       description: 'Огурцы, помидоры, зелень с лёгкой заправкой.',
@@ -1853,7 +1853,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[25].id,
       restaurantId: restaurantData[6].id,
       name: 'Селёдка с луком и картошкой',
       description: 'Солёная сельдь с отварным картофелем и репчатым луком.',
@@ -1863,7 +1863,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[25].id,
       restaurantId: restaurantData[6].id,
       name: 'Маринованные огурцы',
       description: 'Хрустящие домашние огурцы в уксусной заливке.',
@@ -1873,7 +1873,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[26].id,
       restaurantId: restaurantData[6].id,
       name: 'Узвар',
       description: 'Компот из сухофруктов по традиционному рецепту.',
@@ -1882,7 +1882,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[26].id,
       restaurantId: restaurantData[6].id,
       name: 'Морс из клюквы',
       description: 'Освежающий морс, насыщенный витаминами.',
@@ -1892,7 +1892,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[26].id,
       restaurantId: restaurantData[6].id,
       name: 'Чай с облепихой',
       description: 'Горячий чай с облепихой, мёдом и пряностями.',
@@ -1902,7 +1902,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[26].id,
       restaurantId: restaurantData[6].id,
       name: 'Домашний лимонад',
       description: 'Лимонад с мятой и цитрусовыми, приготовленный на месте.',
@@ -1912,7 +1912,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[27].id,
       restaurantId: restaurantData[7].id,
       name: 'Олений стейк с брусничным соусом',
       description: 'Сочный стейк из оленины с насыщенным брусничным соусом.',
@@ -1922,7 +1922,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[27].id,
       restaurantId: restaurantData[7].id,
       name: 'Жаркое из дичи',
       description: 'Ароматное тушёное мясо дикой птицы и зверя с овощами.',
@@ -1932,7 +1932,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[27].id,
       restaurantId: restaurantData[7].id,
       name: 'Перловка с белыми грибами',
       description: 'Традиционная каша с ароматом леса и грибов.',
@@ -1942,7 +1942,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[27].id,
       restaurantId: restaurantData[7].id,
       name: 'Запечённый заяц с розмарином',
       description: 'Мягкое мясо зайца, приготовленное с душистыми травами.',
@@ -1952,7 +1952,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[28].id,
       restaurantId: restaurantData[7].id,
       name: 'Соленья с лесными грибами',
       description: 'Ассорти из домашних солений и маринованных грибов.',
@@ -1962,7 +1962,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[28].id,
       restaurantId: restaurantData[7].id,
       name: 'Ржаные гренки с чесноком',
       description: 'Хрустящие гренки с острым ароматом чеснока.',
@@ -1972,7 +1972,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[28].id,
       restaurantId: restaurantData[7].id,
       name: 'Паштет из куропатки',
       description: 'Нежный паштет с ягодным соусом и тостами.',
@@ -1982,7 +1982,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[29].id,
       restaurantId: restaurantData[7].id,
       name: 'Грибной крем-суп',
       description: 'Насыщенный крем-суп из лесных грибов.',
@@ -1992,7 +1992,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[29].id,
       restaurantId: restaurantData[7].id,
       name: 'Щи из квашеной капусты',
       description: 'Кисловатые щи по старинному рецепту.',
@@ -2002,7 +2002,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[29].id,
       restaurantId: restaurantData[7].id,
       name: 'Уха из речной рыбы',
       description: 'Лёгкий рыбный суп с зеленью.',
@@ -2012,7 +2012,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[30].id,
       restaurantId: restaurantData[7].id,
       name: 'Мёдовый сбитень',
       description: 'Горячий напиток с мёдом и пряностями.',
@@ -2022,7 +2022,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[30].id,
       restaurantId: restaurantData[7].id,
       name: 'Морс из черники',
       description: 'Освежающий напиток из лесной ягоды.',
@@ -2032,7 +2032,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[30].id,
       restaurantId: restaurantData[7].id,
       name: 'Кисель из лесных ягод',
       description: 'Плотный напиток с насыщенным ягодным вкусом.',
@@ -2042,7 +2042,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[30].id,
       restaurantId: restaurantData[7].id,
       name: 'Травяной чай',
       description: 'Чай из лесных трав: мята, чабрец, зверобой.',
@@ -2052,7 +2052,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[31].id,
       restaurantId: restaurantData[8].id,
       name: 'Запечённый судак с лимоном',
       description: 'Нежное филе судака, запечённое с ломтиками лимона и тимьяном.',
@@ -2062,7 +2062,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[31].id,
       restaurantId: restaurantData[8].id,
       name: 'Жареный сом с луком',
       description: 'Сом, обжаренный до золотистой корочки с карамелизированным луком.',
@@ -2072,7 +2072,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[31].id,
       restaurantId: restaurantData[8].id,
       name: 'Угорь в сливочном соусе',
       description: 'Нежный угорь под соусом из сливок и белого вина.',
@@ -2082,7 +2082,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[31].id,
       restaurantId: restaurantData[8].id,
       name: 'Филе щуки в панировке',
       description: 'Хрустящее филе щуки в травяной панировке.',
@@ -2092,7 +2092,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[32].id,
       restaurantId: restaurantData[8].id,
       name: 'Селёдка с луком и картофелем',
       description: 'Солёная сельдь подаётся с отварным картофелем и маринованным луком.',
@@ -2102,7 +2102,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[32].id,
       restaurantId: restaurantData[8].id,
       name: 'Икра щуки с тостами',
       description: 'Домашняя икра щуки подаётся на хрустящих тостах.',
@@ -2112,7 +2112,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[32].id,
       restaurantId: restaurantData[8].id,
       name: 'Рыбные котлеты',
       description: 'Сочные котлеты из речной рыбы с зеленью и специями.',
@@ -2122,7 +2122,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[33].id,
       restaurantId: restaurantData[8].id,
       name: 'Уха по-царски',
       description: 'Богатый рыбный бульон с несколькими сортами рыбы и овощами.',
@@ -2132,7 +2132,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[33].id,
       restaurantId: restaurantData[8].id,
       name: 'Речной рыбный рассольник',
       description: 'Суп на рассоле с рыбой, перловкой и огурцами.',
@@ -2142,7 +2142,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[33].id,
       restaurantId: restaurantData[8].id,
       name: 'Крем-суп из лосося',
       description: 'Нежный суп-пюре из лосося со сливками.',
@@ -2152,7 +2152,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[34].id,
       restaurantId: restaurantData[8].id,
       name: 'Хреновуха',
       description: 'Острый настой на хрене с ноткой меда.',
@@ -2162,7 +2162,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[34].id,
       restaurantId: restaurantData[8].id,
       name: 'Морс клюквенный',
       description: 'Освежающий морс из клюквы с мятой.',
@@ -2172,7 +2172,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[34].id,
       restaurantId: restaurantData[8].id,
       name: 'Квас хлебный',
       description: 'Домашний квас на ржаном солоде.',
@@ -2182,7 +2182,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[34].id,
       restaurantId: restaurantData[8].id,
       name: 'Травяной настой',
       description: 'Чай из луговых трав с лёгкой горчинкой.',
@@ -2192,7 +2192,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[35].id,
       restaurantId: restaurantData[9].id,
       name: 'Гриль-сети с бараниной',
       description: 'Сочные куски баранины, жаренные на открытом огне.',
@@ -2202,7 +2202,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[35].id,
       restaurantId: restaurantData[9].id,
       name: 'Свиное ребро на углях',
       description: 'Тосты свиных ребрышек, запечённые на углях до золотистой корочки.',
@@ -2212,7 +2212,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[35].id,
       restaurantId: restaurantData[9].id,
       name: 'Рыба на мангале',
       description: 'Свежая рыба, запечённая на мангале с лимоном и зеленью.',
@@ -2222,7 +2222,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[35].id,
       restaurantId: restaurantData[9].id,
       name: 'Телячья нога в травах',
       description: 'Мясо телячьей ноги, томлённое в травах.',
@@ -2232,7 +2232,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[35].id,
       restaurantId: restaurantData[9].id,
       name: 'Картошка с укропом',
       description: 'Запечённая картошка с укропом и чесноком.',
@@ -2242,7 +2242,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[36].id,
       restaurantId: restaurantData[9].id,
       name: 'Медовуха',
       description: 'Сладкий напиток на основе мёда, идеально подойдёт к мясным блюдам.',
@@ -2252,7 +2252,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[36].id,
       restaurantId: restaurantData[9].id,
       name: 'Травяной чай',
       description: 'Чай с лечебными травами, прекрасно утоляет жажду.',
@@ -2262,7 +2262,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[36].id,
       restaurantId: restaurantData[9].id,
       name: 'Грог с пряностями',
       description: 'Тёплый алкогольный напиток с корицей и другими пряностями.',
@@ -2272,7 +2272,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[36].id,
       restaurantId: restaurantData[9].id,
       name: 'Черный чай с лимоном',
       description: 'Чёрный чай с ломтями свежего лимона.',
@@ -2282,7 +2282,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[36].id,
       restaurantId: restaurantData[9].id,
       name: 'Квас домашний',
       description: 'Освежающий квас, сваренный по старинному рецепту.',
@@ -2292,7 +2292,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[37].id,
       restaurantId: restaurantData[9].id,
       name: 'Греческий салат',
       description: 'Салат с оливками, фетой и свежими овощами.',
@@ -2302,7 +2302,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[37].id,
       restaurantId: restaurantData[9].id,
       name: 'Солёные огурцы с хреном',
       description: 'Огурцы, заквашенные с чесноком и хреном.',
@@ -2312,7 +2312,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[37].id,
       restaurantId: restaurantData[9].id,
       name: 'Творожная масса с зеленью',
       description: 'Творог, смешанный с зеленью и чесноком.',
@@ -2322,7 +2322,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[37].id,
       restaurantId: restaurantData[9].id,
       name: 'Блины с икрой',
       description: 'Тонкие блины с красной икрой.',
@@ -2332,7 +2332,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[37].id,
       restaurantId: restaurantData[9].id,
       name: 'Жареные грибы с луком',
       description: 'Обжаренные грибы с луком и специями.',
@@ -2342,7 +2342,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[38].id,
       restaurantId: restaurantData[9].id,
       name: 'Пирог с яблоками',
       description: 'Пирог с яблочной начинкой, посыпанный сахаром.',
@@ -2352,7 +2352,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[38].id,
       restaurantId: restaurantData[9].id,
       name: 'Блинчики с медом',
       description: 'Маленькие блинчики, политые мёдом.',
@@ -2362,7 +2362,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[38].id,
       restaurantId: restaurantData[9].id,
       name: 'Торт с орехами',
       description: 'Торт с орехами и слоёным тестом.',
@@ -2372,7 +2372,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[38].id,
       restaurantId: restaurantData[9].id,
       name: 'Кекс с ягодами',
       description: 'Нежный кекс с ягодами и сладкой глазурью.',
@@ -2382,7 +2382,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[38].id,
       restaurantId: restaurantData[9].id,
       name: 'Мёд с орехами',
       description: 'Натуральный мёд с орехами.',
@@ -2392,7 +2392,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[39].id,
       restaurantId: restaurantData[10].id,
       name: 'Говядина по-строгановски',
       description: 'Нежное мясо, тушёное в сметанном соусе с грибами и луком.',
@@ -2402,7 +2402,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[39].id,
       restaurantId: restaurantData[10].id,
       name: 'Курица в медово-горчичном соусе',
       description: 'Медово-горчичный соус придает курице невероятный вкус.',
@@ -2412,7 +2412,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[39].id,
       restaurantId: restaurantData[10].id,
       name: 'Свинина по-французски',
       description: 'Мясо свинины, запечённое с сыром, луком и картошкой.',
@@ -2422,7 +2422,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[39].id,
       restaurantId: restaurantData[10].id,
       name: 'Филе индейки с лимоном',
       description: 'Филе индейки, приправленное лимоном и специями, запечённое в духовке.',
@@ -2432,7 +2432,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[39].id,
       restaurantId: restaurantData[10].id,
       name: 'Гриль-самбар с овощами',
       description: 'Овощи, жаренные на гриле с особым самбаром.',
@@ -2442,7 +2442,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[40].id,
       restaurantId: restaurantData[10].id,
       name: 'Грог',
       description: 'Тёплый алкогольный напиток с пряностями.',
@@ -2451,7 +2451,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[40].id,
       restaurantId: restaurantData[10].id,
       name: 'Вишневый пунш',
       description: 'Освежающий алкогольный напиток с вишней.',
@@ -2461,7 +2461,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[40].id,
       restaurantId: restaurantData[10].id,
       name: 'Медовуха',
       description: 'Традиционный напиток на основе мёда.',
@@ -2470,7 +2470,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[40].id,
       restaurantId: restaurantData[10].id,
       name: 'Травяной чай',
       description: 'Чай с полезными травами.',
@@ -2480,7 +2480,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[40].id,
       restaurantId: restaurantData[10].id,
       name: 'Черный кофе',
       description: 'Сильный чёрный кофе для бодрости.',
@@ -2490,7 +2490,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[41].id,
       restaurantId: restaurantData[10].id,
       name: 'Греческий салат',
       description: 'Салат с оливками, фетой, помидорами и огурцами.',
@@ -2500,7 +2500,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[41].id,
       restaurantId: restaurantData[10].id,
       name: 'Капрезе',
       description: 'Салат из помидоров, моцареллы и базилика.',
@@ -2509,7 +2509,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[41].id,
       restaurantId: restaurantData[10].id,
       name: 'Цезарь с курицей',
       description: 'Листья салата, куриное филе, соус Цезарь и пармезан.',
@@ -2519,7 +2519,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[41].id,
       restaurantId: restaurantData[10].id,
       name: 'Тартар из лосося',
       description: 'Свежий лосось с авокадо и специями.',
@@ -2529,7 +2529,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[41].id,
       restaurantId: restaurantData[10].id,
       name: 'Салат с авокадо и креветками',
       description: 'Салат с авокадо, креветками и зелёными листьями.',
@@ -2539,7 +2539,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[42].id,
       restaurantId: restaurantData[10].id,
       name: 'Шоколадный торт',
       description: 'Нежный шоколадный торт с орехами.',
@@ -2549,7 +2549,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[42].id,
       restaurantId: restaurantData[10].id,
       name: 'Тирамису',
       description: 'Итальянский десерт с маскарпоне и кофе.',
@@ -2558,7 +2558,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[42].id,
       restaurantId: restaurantData[10].id,
       name: 'Пирог с ягодами',
       description: 'Сладкий пирог с ягодами в хрустящей корочке.',
@@ -2568,7 +2568,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[42].id,
       restaurantId: restaurantData[10].id,
       name: 'Медовик',
       description: 'Пирог с медом и орехами.',
@@ -2577,7 +2577,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[42].id,
       restaurantId: restaurantData[10].id,
       name: 'Чизкейк',
       description: 'Творожный десерт с фруктовой начинкой.',
@@ -2586,7 +2586,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[43].id,
       restaurantId: restaurantData[11].id,
       name: 'Свинина на вертеле',
       description: 'Сочная свинина, приготовленная на открытом огне.',
@@ -2596,7 +2596,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[43].id,
       restaurantId: restaurantData[11].id,
       name: 'Говядина, тушёная в вине',
       description: 'Мягкая говядина, тушёная в вине с пряными травами.',
@@ -2606,7 +2606,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[43].id,
       restaurantId: restaurantData[11].id,
       name: 'Жареная рыба',
       description: 'Свежая рыба, жаренная до золотистой корочки.',
@@ -2616,7 +2616,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[43].id,
       restaurantId: restaurantData[11].id,
       name: 'Запечённая курица с лимоном',
       description: 'Курица, запечённая с лимоном и свежими травами.',
@@ -2626,7 +2626,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[0].id,
+      categoryId: categoryData[43].id,
       restaurantId: restaurantData[11].id,
       name: 'Печёная картошка с сыром',
       description: 'Запечённый картофель с плавленым сыром и зеленью.',
@@ -2636,7 +2636,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[44].id,
       restaurantId: restaurantData[11].id,
       name: 'Квас на меду',
       description: 'Освежающий квас с добавлением натурального мёда.',
@@ -2646,7 +2646,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[44].id,
       restaurantId: restaurantData[11].id,
       name: 'Ягодный морс',
       description: 'Сладкий морс из лесных ягод.',
@@ -2656,7 +2656,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[44].id,
       restaurantId: restaurantData[11].id,
       name: 'Сбитень с гвоздикой',
       description: 'Тёплый напиток на мёде и пряностях.',
@@ -2666,7 +2666,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[44].id,
       restaurantId: restaurantData[11].id,
       name: 'Чай с мятой',
       description: 'Чай с ароматной мятой, придающей свежесть.',
@@ -2676,7 +2676,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[1].id,
+      categoryId: categoryData[44].id,
       restaurantId: restaurantData[11].id,
       name: 'Кофе по-деревенски',
       description: 'Крепкий кофе, сваренный по старинному рецепту.',
@@ -2686,7 +2686,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[45].id,
       restaurantId: restaurantData[11].id,
       name: 'Маринованные огурцы',
       description: 'Хрустящие огурцы в маринаде с пряностями.',
@@ -2696,7 +2696,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[45].id,
       restaurantId: restaurantData[11].id,
       name: 'Сырная нарезка',
       description: 'Ассорти сыров с различными добавками.',
@@ -2706,7 +2706,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[45].id,
       restaurantId: restaurantData[11].id,
       name: 'Печёные баклажаны с чесноком',
       description: 'Запечённые баклажаны с чесноком и зеленью.',
@@ -2716,7 +2716,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[45].id,
       restaurantId: restaurantData[11].id,
       name: 'Солёная рыба с горчицей',
       description: 'Солёная рыба с пикантным горчичным соусом.',
@@ -2726,7 +2726,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[2].id,
+      categoryId: categoryData[45].id,
       restaurantId: restaurantData[11].id,
       name: 'Жареные грибы с луком',
       description: 'Лесные грибы, обжаренные с луком.',
@@ -2736,7 +2736,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[46].id,
       restaurantId: restaurantData[11].id,
       name: 'Мёд с орехами',
       description: 'Натуральный мёд с добавлением орехов.',
@@ -2746,7 +2746,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[46].id,
       restaurantId: restaurantData[11].id,
       name: 'Пирог с вишней',
       description: 'Тёплый пирог с вишнями и сахарной пудрой.',
@@ -2756,7 +2756,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[46].id,
       restaurantId: restaurantData[11].id,
       name: 'Блины с ягодами',
       description: 'Мягкие блины с ягодной начинкой.',
@@ -2766,7 +2766,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[46].id,
       restaurantId: restaurantData[11].id,
       name: 'Запечённые яблоки с медом',
       description: 'Тёплые яблоки, запечённые с медом и корицей.',
@@ -2776,7 +2776,7 @@ async function seed() {
     },
     {
       id: uuidv4(),
-      categoryId: categoryData[3].id,
+      categoryId: categoryData[46].id,
       restaurantId: restaurantData[11].id,
       name: 'Кекс с орехами',
       description: 'Мягкий кекс с орехами и сахарной корочкой.',
