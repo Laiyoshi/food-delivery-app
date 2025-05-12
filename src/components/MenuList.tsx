@@ -5,6 +5,7 @@ import { Button } from '@headlessui/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 
 import { CategoryDish, MenuItem } from '@/app/types/types';
+import { useNavigationStore } from '@/store/navigationStore';
 import { FilterDropdown } from '@/ui/FilterDropdown';
 
 import MenuCard from './MenuCard';
@@ -17,6 +18,8 @@ type Props = {
 export default function MenuList({ menuData, categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const { previousParams } = useNavigationStore();
 
   const updateFilter = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -31,7 +34,7 @@ export default function MenuList({ menuData, categories }: Props) {
   return (
     <div className="mx-5 max-w-[1440px] lg:mx-[75px] xl:mx-auto xl:max-w-[1180px]">
       <Button
-        onClick={() => router.push('/')}
+        onClick={() => router.push(`/?pageRestaurant=${previousParams}`)}
         className="mt-8 mb-6 flex cursor-pointer items-center justify-start gap-2"
       >
         <ArrowLongLeftIcon className="flex h-9" />

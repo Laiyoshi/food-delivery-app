@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@headlessui/react';
 import { ReceiptPercentIcon } from '@heroicons/react/24/outline';
@@ -23,24 +24,30 @@ export default function Card({ restaurantData, isFavorite }: CardProps) {
       className={`relative mx-5 flex w-full flex-col rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
     >
       <ClientOnly>
-        <FavoriteButton restaurantId={restaurantData.id} restaurantData={restaurantData} isFavorite={isFavorite} />
-      </ClientOnly>
-      <h2
-        className={`mt-3 ml-5 max-w-[80%] truncate text-center text-xl font-bold text-gray-800 ${roboto.className}`}
-      >
-        {restaurantData.name}
-      </h2>
-
-      <div className="relative mx-4 mt-2 mb-1 h-[120px] w-[250px] self-center overflow-hidden rounded-[8px] bg-contain">
-        <Image
-          src={restaurantData.imageUrl}
-          sizes="85"
-          priority
-          fill
-          alt="Фото ресторана"
-          className="mb-3 object-cover"
+        <FavoriteButton
+          restaurantId={restaurantData.id}
+          restaurantData={restaurantData}
+          isFavorite={isFavorite}
         />
-      </div>
+      </ClientOnly>
+      <Link href={`menu/${restaurantData.id}`}>
+        <h2
+          className={`mt-3 ml-5 max-w-[80%] truncate text-center text-xl font-bold text-gray-800 ${roboto.className}`}
+        >
+          {restaurantData.name}
+        </h2>
+
+        <div className="relative mx-4 mt-2 mb-1 h-[120px] w-[250px] self-center overflow-hidden rounded-[8px] bg-contain">
+          <Image
+            src={restaurantData.imageUrl}
+            sizes="85"
+            priority
+            fill
+            alt="Фото ресторана"
+            className="mb-3 object-cover"
+          />
+        </div>
+      </Link>
 
       <div className="mx-4 flex">
         {Array(rating.fullStar)
@@ -93,7 +100,9 @@ export default function Card({ restaurantData, isFavorite }: CardProps) {
       </div>
 
       <Button
-        onClick={() => router.push(`menu/${restaurantData.id}`)}
+        onClick={() => {
+          router.push(`menu/${restaurantData.id}`);
+        }}
         className="mx-4 mt-5 mb-4 w-[calc(100%-32px)] cursor-pointer rounded-[8px] bg-blue-500 px-4 py-2 text-base text-gray-100 transition duration-300 data-[active]:bg-blue-700 data-[hover]:bg-blue-600 md:w-[248px]"
       >
         Смотреть меню

@@ -6,6 +6,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 
 import { Restaurant, SearchParams } from '@/app/types/types';
 import { useFavoritesStore } from '@/store/favoritesStore';
+import { useNavigationStore } from '@/store/navigationStore';
 import { roboto } from '@/ui/fonts';
 import { fetchAllFavorites, fetchFavorites } from '@/utils/data';
 
@@ -46,6 +47,8 @@ export default function RestaurantList({
 
   const [selectedTab, setSelectedTab] = useState(0);
 
+  const { setPreviousParams } = useNavigationStore();
+
   const {
     initializeFavorites,
     favorites,
@@ -64,6 +67,7 @@ export default function RestaurantList({
         initializeFavorites(data.data, userId);
         setTotalFavorites(data.totalFavorites);
         setAllRestaurantsId(allIds.restaurantId);
+        setPreviousParams(currentRestaurantPage);
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +80,9 @@ export default function RestaurantList({
     searchParam,
     initializeFavorites,
     userId,
-    setAllRestaurantsId
+    setAllRestaurantsId,
+    setPreviousParams,
+    currentRestaurantPage,
   ]);
 
   useEffect(() => {
