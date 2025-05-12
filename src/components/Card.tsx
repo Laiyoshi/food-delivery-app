@@ -21,7 +21,7 @@ export default function Card({ restaurantData, isFavorite }: CardProps) {
 
   return (
     <div
-      className={`relative mx-5 flex w-full flex-col rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-8`}
+      className={`relative mx-5 flex w-full flex-col rounded-[8px] shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className} mb-3`}
     >
       <ClientOnly>
         <FavoriteButton

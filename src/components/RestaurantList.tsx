@@ -128,7 +128,6 @@ export default function RestaurantList({
 
   return (
     <>
-      <div className="">
         <TabGroup selectedIndex={selectedTab} onChange={setSelectedTab}>
           <TabList className="m-auto mx-4 mb-5 flex max-w-[1440px] items-center justify-center lg:mx-auto lg:max-w-[900px] xl:max-w-[1180px]">
             <Tab className="grow border-b pr-3 pb-1 pl-2 font-semibold text-gray-600 focus:not-data-focus:outline-none data-focus:text-blue-500 data-focus:outline-none data-focus-visible:outline-none data-selected:border-b-2 data-selected:text-blue-600">
@@ -151,7 +150,7 @@ export default function RestaurantList({
                   {renderCards(restaurants)}
 
                   {totalRestaurantPages > 1 ? (
-                    <div className="pb-10">
+                    <div className="pb-6">
                       <Pagination
                         totalPages={totalRestaurantPages}
                         currentPage={currentRestaurantPage}
@@ -212,7 +211,6 @@ export default function RestaurantList({
             </TabPanel>
           </TabPanels>
         </TabGroup>
-      </div>
     </>
   );
 }

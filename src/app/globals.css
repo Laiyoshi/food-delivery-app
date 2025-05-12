@@ -8,5 +8,25 @@
 }
 
 button {
-  cursor: pointer
+  cursor: pointer;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 1vh;
+  background: #f1f1f1;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #2b7fff;
+  border-radius: 1vh;
+  border: 3px solid #f6f7ed;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1447e6;
 }
