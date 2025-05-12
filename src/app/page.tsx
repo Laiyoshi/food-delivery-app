@@ -21,7 +21,7 @@ export default async function Home(props: SearchParams) {
 
   return (
     <>
-      <h1 className={`${roboto.className} pt-8 text-center text-3xl font-bold text-gray-800`}>
+      <h1 className={`${roboto.className} pt-7 text-center text-3xl font-bold text-gray-800`}>
         Рестораны
       </h1>
       <div>
