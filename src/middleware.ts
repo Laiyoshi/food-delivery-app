@@ -5,6 +5,7 @@ import type { NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
 
+  console.log('TOKEN IN MIDDLEWARE:', token);
   const isAuthorized = token && (await verifyAuth(token));
   const isApiRequest = request.nextUrl.pathname.startsWith('/api');
 
