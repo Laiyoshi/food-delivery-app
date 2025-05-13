@@ -20,6 +20,10 @@ export async function POST(req: Request) {
         )
       );
 
+    if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
+      return NextResponse.json({ error: 'Неверные данные для входа' }, { status: 401 });
+    }
+
     const [address] = await db
         .select()
         .from(deliveryAddresses)
@@ -38,9 +42,7 @@ export async function POST(req: Request) {
           )
         );
 
-    if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
-      return NextResponse.json({ error: 'Неверные данные для входа' }, { status: 401 });
-    }
+
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'secret_token');
 

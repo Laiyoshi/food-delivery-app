@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/db';
 import { cart, deliveryAddresses, favorites, orders, paymentMethods, users } from '@/db/schema';
-import { eq, and, ne, or } from 'drizzle-orm';
+import { eq, and, ne, or, sql } from 'drizzle-orm';
 import { getAuthenticatedUserId } from '@/utils/auth/checkAuth';
 import bcrypt from 'bcryptjs';
 
@@ -155,12 +155,14 @@ export async function DELETE() {
       return NextResponse.json({ error: 'Не авторизован' }, { status: 401 });
     }
 
+    await db.run(sql`PRAGMA foreign_keys = OFF`);
     await db.delete(cart).where(eq(cart.userId, userId));
     await db.delete(orders).where(eq(orders.userId, userId));
     await db.delete(favorites).where(eq(favorites.userId, userId));
     await db.delete(deliveryAddresses).where(eq(deliveryAddresses.userId, userId));
     await db.delete(paymentMethods).where(eq(paymentMethods.userId, userId));    
     await db.delete(users).where(eq(users.id, userId));
+    await db.run(sql`PRAGMA foreign_keys = ON`);
 
     const response = NextResponse.json({ success: 'Аккаунт удалён' });
     response.cookies.set('token', '', {

@@ -115,7 +115,7 @@ export default function AccountSettingsForm({ user }: Props) {
       
       const phoneDigitsOnly = formData.phone.replace(/\D/g, "");
       if (phoneDigitsOnly.length !== 11 || !phoneDigitsOnly.startsWith("7")) {
-        setSaveMessage({ text: "Телефон должен содержать 11 цифр и начинаться с 7", type: "error" });
+        setSaveMessage({ text: "Телефон должен содержать 11 цифр", type: "error" });
         return;
       }
 
