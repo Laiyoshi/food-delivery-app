@@ -2,15 +2,9 @@ import Image from 'next/image';
 import { Button, Input } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
-
-
 import { MenuItemProps } from '@/app/types/types';
 import { useCartStore } from '@/store/cartStore';
 import { inter } from '@/ui/fonts';
-
-
-
-
 
 export default function MenuCard({ menuData }: MenuItemProps) {
   const { cart, addToCart, updateQuantity, increaseQuantity, decreaseQuantity, calculateAmount } =
@@ -43,7 +37,7 @@ export default function MenuCard({ menuData }: MenuItemProps) {
 
   return (
     <div
-      className={`w-full rounded-[8px] bg-white shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className}`}
+      className={`mb-5 w-full rounded-[8px] bg-white shadow-(--shadow-card) sm:mx-0 sm:w-[280px] ${inter.className}`}
     >
       <div className="relative m-0 mx-4 mt-3 mb-1 flex h-[20vh] w-[75vw] justify-self-center sm:h-[15vh] sm:w-[85%]">
         <Image
@@ -56,7 +50,7 @@ export default function MenuCard({ menuData }: MenuItemProps) {
       </div>
 
       <div className="grid grid-cols-[max-content_1fr] gap-x-2 md:block">
-        <h2 className="col-2 row-1 mt-3 mr-4 w-fit self-center text-left text-xs break-all text-gray-800 md:mx-4 md:text-sm">
+        <h2 className="col-2 row-1 mt-3 mr-4 flex min-h-10 w-fit items-center self-center text-left text-xs font-semibold break-all text-gray-800 md:mx-4 md:text-sm">
           {menuData.name}
         </h2>
 
