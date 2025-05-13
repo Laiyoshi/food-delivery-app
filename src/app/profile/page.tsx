@@ -5,14 +5,19 @@ import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import AccountSettingsForm from '@/components/profile/AccountSettingsForm';
 import AvatarUploadButton from '@/components/profile/AvatarUploadButton';
+import { redirect } from 'next/navigation';
 
 export default async function AccountSettingsPage() {
   const userId = await getAuthenticatedUserId();
 
-  if (!userId) return null;
+  if (!userId) {
+    redirect('/login');
+  };
 
   const [user] = await db.select().from(users).where(eq(users.id, userId));
-  if (!user) return null;
+  if (!user) {
+    redirect('/login');
+  };
 
   return (
     <div className="min-h-[calc(100vh-75px)] flex flex-col items-center justify-center bg-gray-50 px-4 pt-[25px] pb-10">
