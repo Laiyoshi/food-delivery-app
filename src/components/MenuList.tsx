@@ -53,7 +53,7 @@ export default function MenuList({ menuData, categories }: Props) {
 
       {menuData.menu?.map((item, index) => (
         <div key={index}>
-          <h2 className="mt-6 mb-4 text-2xl font-bold text-gray-800">{item.category}</h2>
+          <h2 className="mt-5 mb-5 text-2xl font-bold text-gray-800">{item.category}</h2>
 
           <div className="flex max-w-[1440px] flex-wrap justify-center gap-5 sm:justify-start lg:justify-start xl:mx-auto xl:max-w-[1180px] xl:justify-start">
             {item.dishes.map((dish, key) => (
